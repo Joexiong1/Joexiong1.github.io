@@ -19,6 +19,33 @@
 ]]></content>
   </entry>
   <entry>
+    <title>变量提升、函数提升</title>
+    <url>/2024/01/05/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</url>
+    <content><![CDATA[<h3 id="全局作用域的预处理"><a href="#全局作用域的预处理" class="headerlink" title="全局作用域的预处理"></a>全局作用域的预处理</h3><p>预处理（预解析）：JS在解析代码之前，有一个“预处理（预解析）”阶段，将当前 JS 代码中所有变量的定义和函数的定义，放到所有代码的最前面。这种预解析也称之为声明提前（变量提升）</p>
+<p>变量提升：在js执行过程中，js引擎把变量的声明和函数的声明提升到代码最顶的行为（会影响程序执行结果，console.log()）。变量被提升后，会给变量设置为默认值，此值为undefined，所以可以在声明之前使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">a = <span class="number">123</span>; <span class="comment">//此时a相当于window.a</span></span><br></pre></td></tr></table></figure>
+<p>程序会报错：<code>Uncaught ReferenceError: a is not defined</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">123</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);  <span class="comment">//打印结果：undefined。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>if(false)里面的代码虽然不会被执行，但是整个代码有解析的环节，解析的时候就已经把 变量 i 给提前声明了。</p>
+<p>但是如果声明变量时不是用var关键字,比如直接写a&#x3D;1或是使用let和connst定义的变量并不会变量提升，在声明 let 、const变量之前就使用它会导致 ReferenceError。</p>
+<p>使用const声明的常量在声明时必须进行初始化。一旦被赋值，常量的值在其生命周期内不能被修改，但是注意，在JavaScript中，对象和数组是引用类型。使用const声明的常量不会使对象和数组的内容不可变，使用const声明的常量只是保证我们不能将arr指向另一个数组，但是可以修改arr指向的数组内部的内容。在 ES2015 之前，JavaScript 是没有块作用域的，只有函数作用域和全局作用域。可以使用 let 关键词声明拥有块作用域的变量。</p>
+<p>let和const都是块级作用域，不属于window对象（不能使用window.变量名），同一作用域中不能重复声明，而var是可以重新声明和赋值的，如果只是声明，不改变上一次赋值结果，let和const也不能对var在同一作用域声明，在不同作用域是可以的</p>
+<h3 id="函数的声明提前（函数提升）"><a href="#函数的声明提前（函数提升）" class="headerlink" title="函数的声明提前（函数提升）"></a>函数的声明提前（函数提升）</h3><p>使用函数表达式创建的函数const foo &#x3D; function(){}，不会被声明提前，所以不能在声明前调用，因为此时只是变量foo被提升了，且值为undefined，并没有把function{}赋值给foo</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不会报错，可以正常执行函数，正常打印结果</span></span><br><span class="line"><span class="title function_">fun1</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时 fun2 相当于 undefined。执行时会报错：Uncaught ReferenceError: Cannot access &#x27;fun2&#x27; before initialization</span></span><br><span class="line"><span class="title function_">fun2</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数声明，会被提前声明</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun1 函数&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式，不会被提前声明</span></span><br><span class="line"><span class="keyword">const</span> fun2 = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun12 函数&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：函数提升优先于变量提升</strong></p>
+<p>另外，不仅全局作用域中存在声明提前，在函数作用域中，也有声明提前的现象：</p>
+<p>定义形参就相当于在函数作用域中声明了变量，举例如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 这个函数中，因为有了形参 e，此时相当于在函数内部的第一行代码里，写了 var e;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fun</span>(); <span class="comment">//打印结果为 undefined</span></span><br><span class="line"><span class="title function_">fun</span>(<span class="number">123</span>); <span class="comment">//打印结果为123</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据类型转换</title>
     <url>/2024/01/05/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<h3 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">tostring</span>()</span><br><span class="line"><span class="title function_">string</span>()</span><br><span class="line"><span class="title function_">number</span>()</span><br><span class="line"><span class="built_in">parseInt</span>(string)</span><br><span class="line"><span class="built_in">parseFloat</span>(string)</span><br><span class="line"><span class="title class_">Boolean</span>()</span><br></pre></td></tr></table></figure>
@@ -95,33 +122,6 @@
 <p>（2）然后判断**Number()**的返回结果是否为数值。如果不为数值，则最终结果为 true；如果为数值，则最终结果为 false。</p>
 <p>console.log(isNaN(‘null’)); &#x2F;&#x2F; 返回结果：false(因为null的Number（）结果为0)</p>
 ]]></content>
-      <categories>
-        <category>JavaScript学习</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>变量提升、函数提升</title>
-    <url>/2024/01/05/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</url>
-    <content><![CDATA[<h3 id="全局作用域的预处理"><a href="#全局作用域的预处理" class="headerlink" title="全局作用域的预处理"></a>全局作用域的预处理</h3><p>预处理（预解析）：JS在解析代码之前，有一个“预处理（预解析）”阶段，将当前 JS 代码中所有变量的定义和函数的定义，放到所有代码的最前面。这种预解析也称之为声明提前（变量提升）</p>
-<p>变量提升：在js执行过程中，js引擎把变量的声明和函数的声明提升到代码最顶的行为（会影响程序执行结果，console.log()）。变量被提升后，会给变量设置为默认值，此值为undefined，所以可以在声明之前使用。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">a = <span class="number">123</span>; <span class="comment">//此时a相当于window.a</span></span><br></pre></td></tr></table></figure>
-<p>程序会报错：<code>Uncaught ReferenceError: a is not defined</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">123</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);  <span class="comment">//打印结果：undefined。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>if(false)里面的代码虽然不会被执行，但是整个代码有解析的环节，解析的时候就已经把 变量 i 给提前声明了。</p>
-<p>但是如果声明变量时不是用var关键字,比如直接写a&#x3D;1或是使用let和connst定义的变量并不会变量提升，在声明 let 、const变量之前就使用它会导致 ReferenceError。</p>
-<p>使用const声明的常量在声明时必须进行初始化。一旦被赋值，常量的值在其生命周期内不能被修改，但是注意，在JavaScript中，对象和数组是引用类型。使用const声明的常量不会使对象和数组的内容不可变，使用const声明的常量只是保证我们不能将arr指向另一个数组，但是可以修改arr指向的数组内部的内容。在 ES2015 之前，JavaScript 是没有块作用域的，只有函数作用域和全局作用域。可以使用 let 关键词声明拥有块作用域的变量。</p>
-<p>let和const都是块级作用域，不属于window对象（不能使用window.变量名），同一作用域中不能重复声明，而var是可以重新声明和赋值的，如果只是声明，不改变上一次赋值结果，let和const也不能对var在同一作用域声明，在不同作用域是可以的</p>
-<h3 id="函数的声明提前（函数提升）"><a href="#函数的声明提前（函数提升）" class="headerlink" title="函数的声明提前（函数提升）"></a>函数的声明提前（函数提升）</h3><p>使用函数表达式创建的函数const foo &#x3D; function(){}，不会被声明提前，所以不能在声明前调用，因为此时只是变量foo被提升了，且值为undefined，并没有把function{}赋值给foo</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不会报错，可以正常执行函数，正常打印结果</span></span><br><span class="line"><span class="title function_">fun1</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时 fun2 相当于 undefined。执行时会报错：Uncaught ReferenceError: Cannot access &#x27;fun2&#x27; before initialization</span></span><br><span class="line"><span class="title function_">fun2</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数声明，会被提前声明</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun1 函数&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式，不会被提前声明</span></span><br><span class="line"><span class="keyword">const</span> fun2 = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun12 函数&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>注意：函数提升优先于变量提升</strong></p>
-<p>另外，不仅全局作用域中存在声明提前，在函数作用域中，也有声明提前的现象：</p>
-<p>定义形参就相当于在函数作用域中声明了变量，举例如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 这个函数中，因为有了形参 e，此时相当于在函数内部的第一行代码里，写了 var e;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fun</span>(); <span class="comment">//打印结果为 undefined</span></span><br><span class="line"><span class="title function_">fun</span>(<span class="number">123</span>); <span class="comment">//打印结果为123</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>JavaScript学习</category>
       </categories>
