@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Anti-thobbing的个人博客</title>
+  
+  
+  <link href="https://joexiong1.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://joexiong1.github.io/"/>
+  <updated>2024-01-05T13:49:19.652Z</updated>
+  <id>https://joexiong1.github.io/</id>
+  
+  <author>
+    <name>Anti-thobbing</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://joexiong1.github.io/2024/01/05/hello-world/"/>
+    <id>https://joexiong1.github.io/2024/01/05/hello-world/</id>
+    <published>2024-01-05T13:49:19.652Z</published>
+    <updated>2024-01-05T13:49:19.652Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>变量提升、函数提升</title>
+    <link href="https://joexiong1.github.io/2024/01/05/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/"/>
+    <id>https://joexiong1.github.io/2024/01/05/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</id>
+    <published>2024-01-05T13:39:00.000Z</published>
+    <updated>2024-01-05T13:49:19.652Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;全局作用域的预处理&quot;&gt;&lt;a href=&quot;#全局作用域的预处理&quot; class=&quot;headerlink&quot; title=&quot;全局作用域的预处理&quot;&gt;&lt;/a&gt;全局作用域的预处理&lt;/h3&gt;&lt;p&gt;预处理（预解析）：JS在解析代码之前，有一个“预处理（预解析）”阶段，将当前 JS </summary>
+      
+    
+    
+    
+    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据类型转换</title>
+    <link href="https://joexiong1.github.io/2024/01/05/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
+    <id>https://joexiong1.github.io/2024/01/05/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</id>
+    <published>2024-01-05T09:30:00.000Z</published>
+    <updated>2024-01-05T13:49:19.652Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;显式类型转换&quot;&gt;&lt;a href=&quot;#显式类型转换&quot; class=&quot;headerlink&quot; title=&quot;显式类型转换&quot;&gt;&lt;/a&gt;显式类型转换&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter</summary>
+      
+    
+    
+    
+    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+</feed>
