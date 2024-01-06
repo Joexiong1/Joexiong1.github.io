@@ -6,7 +6,7 @@
   <link href="https://joexiong1.github.io/atom.xml" rel="self"/>
   
   <link href="https://joexiong1.github.io/"/>
-  <updated>2024-01-05T13:49:19.652Z</updated>
+  <updated>2024-01-06T01:56:47.670Z</updated>
   <id>https://joexiong1.github.io/</id>
   
   <author>
@@ -17,20 +17,54 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://joexiong1.github.io/2024/01/05/hello-world/"/>
-    <id>https://joexiong1.github.io/2024/01/05/hello-world/</id>
-    <published>2024-01-05T13:49:19.652Z</published>
-    <updated>2024-01-05T13:49:19.652Z</updated>
+    <title>Javascript运行三步曲——解释执行</title>
+    <link href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/"/>
+    <id>https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/</id>
+    <published>2024-01-06T01:54:00.000Z</published>
+    <updated>2024-01-06T01:56:47.670Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;p&gt;&lt;strong&gt;在分析JS引擎执行之前，需要明确两件事情：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;JS是&lt;strong&gt;单线程&lt;/strong&gt;的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;</summary>
       
     
     
     
+    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Javascript运行三步曲——预编译</title>
+    <link href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/"/>
+    <id>https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/</id>
+    <published>2024-01-06T01:54:00.000Z</published>
+    <updated>2024-01-06T02:00:14.720Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;语法分析&quot;&gt;&lt;a href=&quot;#语法分析&quot; class=&quot;headerlink&quot; title=&quot;语法分析&quot;&gt;&lt;/a&gt;语法分析&lt;/h3&gt;&lt;p&gt;分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完</summary>
+      
+    
+    
+    
+    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   

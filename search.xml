@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/01/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>变量提升、函数提升</title>
     <url>/2024/01/05/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</url>
     <content><![CDATA[<h3 id="全局作用域的预处理"><a href="#全局作用域的预处理" class="headerlink" title="全局作用域的预处理"></a>全局作用域的预处理</h3><p>预处理（预解析）：JS在解析代码之前，有一个“预处理（预解析）”阶段，将当前 JS 代码中所有变量的定义和函数的定义，放到所有代码的最前面。这种预解析也称之为声明提前（变量提升）</p>
@@ -121,6 +103,119 @@
 <p>（1）先调用**Number()**函数</p>
 <p>（2）然后判断**Number()**的返回结果是否为数值。如果不为数值，则最终结果为 true；如果为数值，则最终结果为 false。</p>
 <p>console.log(isNaN(‘null’)); &#x2F;&#x2F; 返回结果：false(因为null的Number（）结果为0)</p>
+]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript运行三步曲——解释执行</title>
+    <url>/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/</url>
+    <content><![CDATA[<p><strong>在分析JS引擎执行之前，需要明确两件事情：</strong></p>
+<ol>
+<li><p>JS是<strong>单线程</strong>的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。</p>
+</li>
+<li><p>JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：</p>
+</li>
+</ol>
+<p><strong>JS引擎线程</strong>：也称为JS内核，负责解析执行JS脚本程序的主线程（例如V8引擎）。<br><strong>事件触发线程</strong>：归属于浏览器内核进程，不受JS引擎线程控制。主要用于控制事件（例如鼠标，键盘等时间），当该时间被触发时，事件触发线程就会把该事件的处理函数推进事件队列，等待JS引擎线程执行。<br><strong>定时器触发线程</strong>：主要控制计时器setInterval和延时器setTimeout，用于定时器的计时，计时完毕，满足定时器的触发条件，则将定时器的处理函数推进事件队列，等待JS引擎线程执行。（W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms）。<br><strong>HTTP异步请求线程</strong>：通过XMLHttpRequest连接后，通过浏览器新开的一个线程，监控readyState状态变更时，如果设置了该状态的回调函数，则将该状态的处理函数推进事件队列中，等待JS引擎线程执行。</p>
+<p>注：浏览器对同一域名请求的并发连接数是有限制的，Chrome和Firefox限制数为6个，ie8则为10个。</p>
+<p>在JS引擎执行过程中，代码执行顺序如下：宏任务（同步任务）——&gt;微任务——&gt;宏任务（异步任务）</p>
+<p>宏任务</p>
+<p>宏任务（macro-task）按执行顺序分为同步任务和异步任务：</p>
+<ol>
+<li><p>同步任务指的是在JS引擎主线程上按顺序执行的任务，只有前一个任务执行完毕后，才能执行后一个任务，形成一个执行栈（函数调用栈）。</p>
+</li>
+<li><p>异步任务指的是不直接进入JS引擎主线程，而是满足触发条件时，相关的线程将该异步任务推进任务队列（task queue），等待JS引擎主线程上的任务执行完毕，空闲时读取执行的任务，例如异步Ajax，DOM事件，setTimeout等。</p>
+</li>
+</ol>
+<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><p>事件循环由三部分组成，分别是：</p>
+<ol>
+<li><p>主线程执行栈</p>
+</li>
+<li><p>异步任务等待触发</p>
+</li>
+<li><p>任务队列</p>
+</li>
+</ol>
+<p>任务队列就是以队列的数据结构对事件任务进行管理，特点是先进先出，后进后出</p>
+<p>在JS引擎主线程执行过程中：</p>
+<ol>
+<li><p>首先执行宏任务的同步任务，在主线程上形成一个执行栈，可理解为函数调用栈。</p>
+</li>
+<li><p>当执行栈中的函数调用到一些异步执行的API（例如异步Ajax，DOM事件，setTimeout等API），则会开启对应的线程（Http异步请求线程，事件触发线程和定时器触发线程）进行监控和控制。</p>
+</li>
+<li><p>当异步任务的事件满足触发条件时，对应的线程则会把该事件的处理函数推进任务队列(task queue)中，等待主线程读取执行。</p>
+</li>
+<li><p>当JS引擎主线程上的任务执行完毕，则会读取任务队列中的事件，将任务队列中的事件任务推进主线程中，按任务队列顺序执行</p>
+</li>
+<li><p>当JS引擎主线程上的任务执行完毕后，则会再次读取任务队列中的事件任务，如此循环，这就是事件循环（Event Loop）的过程。</p>
+</li>
+</ol>
+<h2 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h2><p>微任务（micro-task）是在ES6和node环境中出现的一个任务类型（其他环境不用考虑），其API主要有:<strong>Promise， process.nextTick</strong>。</p>
+<p>在宏任务中执行的任务有两种，分别是同步任务和异步任务，因为异步任务会在满足触发条件时才会推进任务队列（task queue），然后等待主线程上的任务执行完毕，再读取任务队列中的任务事件，最后推进主线程执行，所以这里将异步任务即任务队列看作是新的宏任务。执行的过程如上图所示：</p>
+<ol>
+<li><p>执行宏任务中同步任务，执行结束。</p>
+</li>
+<li><p>检查是否存在可执行的微任务，有的话执行所有微任务，然后读取任务队列的任务事件，推进主线程形成新的宏任务；没有的话则读取任务队列的任务事件，推进主线程形成新的宏任务。</p>
+</li>
+<li><p>执行新宏任务的事件任务，再检查是否存在可执行的微任务，如此不断的重复循环。</p>
+</li>
+</ol>
+<p>以下是一个示例及详细分析：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise1&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise2&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br><span class="line"></span><br><span class="line">在该例子中，宏任务的代码部分是：</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>1、代码块通过语法分析和预编译后，进入执行阶段，当JS引擎主线程执行到console.log(‘script start’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script start，然后继续向下执行。</p>
+<p>2、JS引擎主线程执行到setTimeout(function() { console.log(‘setTimeout’); }, 0);，JS引擎主线程认为setTimeout是异步任务API，则向浏览器内核进程申请开启定时器线程进行计时和控制该setTimeout任务。由于W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms，那么当计时到4ms时，定时器线程就把该回调处理函数推进任务队列中等待主线程执行，然后JS引擎主线程继续向下执行。</p>
+<p>3、JS引擎主线程执行到Promise.resolve().then(function() { console.log(‘promise1’); }).then(function() { console.log(‘promise2’); });，JS引擎主线程认为Promise是一个微任务，这把该任务划分为微任务，等待执行。</p>
+<p>4、JS引擎主线程执行到console.log(‘script end’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script end。</p>
+<p>5、主线程上的宏任务执行完毕，则开始检测是否存在可执行的微任务，检测到一个Promise微任务，那么立刻执行，输出promise1和promise2</p>
+<p>6、微任务执行完毕，主线程开始读取任务队列中的事件任务setTimeout，推入主线程形成新宏任务，然后在主线程中执行，输出setTimeout</p>
+<p>另外，使用setTimeout模拟实现setInterval，是存在一定区别的：</p>
+<ol>
+<li><p>setTimeout实现setInterval只能通过递归调用。</p>
+</li>
+<li><p>setTimeout是在到了指定时间的时候就把事件推到任务队列中，只有当在任务队列中的setTimeout事件被主线程执行后，才会继续再次在到了指定时间的时候把事件推到任务队列，那么setTimeout的事件执行肯定比指定的时间要久，具体相差多少跟代码执行时间有关。</p>
+</li>
+<li><p>setInterval则是每次都精确的隔一段时间就向任务队列推入一个事件，无论上一个setInterval事件是否已经执行，所以有可能存在setInterval的事件任务累积，导致setInterval的代码重复连续执行多次，影响页面性能。</p>
+</li>
+</ol>
+<p><strong>综合以上的分析</strong>，使用setTimeout实现计时功能是比setInterval性能更好的。如果不需要兼容低版本的IE浏览器，使用requestAnimationFrame是更好的选择。</p>
+<p><strong>进一步思考</strong>：高频率触发的事件（例如滚动事件）触发频率过高会影响页面性能，甚至造成页面卡顿，可以利用setTimeout实现计时器的原理，对高频触发的事件进行优化，实现点在于将多个触发事件合并成一个，这就是防抖和节流。</p>
+]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript运行三步曲——预编译</title>
+    <url>/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完成再次进入该代码块的语法分析阶段。</p>
+<h3 id="两个规律"><a href="#两个规律" class="headerlink" title="两个规律"></a>两个规律</h3><p><strong>规律1</strong>：任何变量，如果未经声明就赋值，此变量是属于 window 的属性，而且不会做变量提升。（注意，无论在哪个作用域内赋值）</p>
+<p><strong>规律2</strong>：一切声明的全局变量，全是window的属性。（注意，这里说的是在全局作用域内声明的全局变量，不是说局部变量）</p>
+<p>window 代表了全局作用域（「代表」而非「等于」）。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = <span class="number">100</span>; <span class="comment">// 连续赋值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">b</span>); <span class="comment">//100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 100</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">a</span>); <span class="comment">//undefined </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// 报错Uncaught ReferenceError:a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>代码解释:当执行了foo()函数之后，var a&#x3D;b&#x3D;100这行连续赋值的代码等价于var a&#x3D;(b&#x3D;100),其执行顺序是：</p>
+<p>（1）先把100赋值给b</p>
+<p>（2）再声明变量a</p>
+<p>（3）再把b的值赋值给a</p>
+<p>因此，b变量未经声明就被赋值了，此时，根据规律1，这个b是属于window.b,而a的作用域仅限于foo()函数内部，不属于window，所以直接访问会报错，而window.a相当于在window中声明对象a，但未赋值，所以是undefined，但是window.a并不会变量提升</p>
+<p>函数预编译，发生在函数执行的前一刻：</p>
+<ol>
+<li>创建AO对象。AO即Activation Object活跃对象，即执行期上下文</li>
+<li>找形参和变量声明，将形参名和变量作为AO的属性名，值为undefined。</li>
+<li>将实参值和形参统一，实参的值赋给形参</li>
+<li>查找函数声明，函数名作为AO对象的属性</li>
+</ol>
 ]]></content>
       <categories>
         <category>JavaScript学习</category>
