@@ -225,4 +225,25 @@
         <tag>前端</tag>
       </tags>
   </entry>
+  <entry>
+    <title>a++和++a</title>
+    <url>/2024/01/07/++a%E5%92%8Ca++/</url>
+    <content><![CDATA[<p>自增分成两种：a++和++a。共同点：</p>
+<p>（1）无论是 a++ 还是++a，自增都会使原变量的值加 1。</p>
+<p>（2）需要注意的是：a是变量，而a++和++a是表达式。</p>
+<p>两者的区别：a++ 和 ++a的值不同：（也就是说，表达式的值不同）</p>
+<p>  a++这个表达式的值等于原变量的值（a 自增前的值）。可以这样理解：先把 a 的值赋值给表达式，然后 a 再自增。（比如b&#x3D;a++）<br>  ++a这个表达式的值等于新值 （a 自增后的值）。 可以这样理解：a 先自增，然后把自增后的值赋值给表达式。</p>
+<p>–a和a–同理</p>
+<p>示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n1 = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> n2 = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result1 = n1++;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">// 11</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result1); <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line">result = ++n1;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result2 = n2--;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 19</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line">result2 = --n2;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 18</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
 </search>
