@@ -21,29 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"joexiong1.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="在分析JS引擎执行之前，需要明确两件事情：  JS是单线程的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。  JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：   JS引擎线程：也称为JS">
+    <meta name="description" content="在openLayers中如何加载WMTS服务?答: 在openLayers中可以通过olsourse.WMTS 以及 ol.sourse.XYZ等方式加载WMTS服务，ol.source.XYZ的方式比较简单，只需要输入修改url和xyz以及坐标系即可。而ol.source.WMTS较复杂，需要配置原点、分辨率数组、分辨率对应的级别、坐标系的参数等。  WMS和WMTS的区别答:WMTS服务和W">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript运行三步曲——解释执行">
-<meta property="og:url" content="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/index.html">
+<meta property="og:title" content="GIS面经">
+<meta property="og:url" content="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/index.html">
 <meta property="og:site_name" content="Anti-thobbing的个人博客">
-<meta property="og:description" content="在分析JS引擎执行之前，需要明确两件事情：  JS是单线程的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。  JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：   JS引擎线程：也称为JS">
+<meta property="og:description" content="在openLayers中如何加载WMTS服务?答: 在openLayers中可以通过olsourse.WMTS 以及 ol.sourse.XYZ等方式加载WMTS服务，ol.source.XYZ的方式比较简单，只需要输入修改url和xyz以及坐标系即可。而ol.source.WMTS较复杂，需要配置原点、分辨率数组、分辨率对应的级别、坐标系的参数等。  WMS和WMTS的区别答:WMTS服务和W">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-06T01:54:00.000Z">
-<meta property="article:modified_time" content="2024-01-06T01:56:47.670Z">
+<meta property="article:published_time" content="2024-01-07T04:19:00.000Z">
+<meta property="article:modified_time" content="2024-01-07T13:02:57.289Z">
 <meta property="article:author" content="Anti-thobbing">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="前端">
+<meta property="article:tag" content="GIS面经">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/">
+<link rel="canonical" href="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/","path":"2024/01/06/Javascript运行三步曲——解释执行/","title":"Javascript运行三步曲——解释执行"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/","path":"2024/01/07/GIS面经/GIS面经/","title":"GIS面经"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Javascript运行三步曲——解释执行 | Anti-thobbing的个人博客</title>
+<title>GIS面经 | Anti-thobbing的个人博客</title>
   
 
 
@@ -143,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.</span> <span class="nav-text">事件循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">微任务</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#WMS%EF%BC%88Web-Map-Service%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">WMS（Web Map Service）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WMTS%EF%BC%88Web-Map-Tile-Service%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">WMTS（Web Map Tile Service）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -210,7 +209,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -223,12 +222,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Javascript运行三步曲——解释执行 | Anti-thobbing的个人博客">
+      <meta itemprop="name" content="GIS面经 | Anti-thobbing的个人博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Javascript运行三步曲——解释执行
+          GIS面经
         </h1>
 
         <div class="post-meta-container">
@@ -240,7 +239,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-01-06 09:54:00 / 修改时间：09:56:47" itemprop="dateCreated datePublished" datetime="2024-01-06T09:54:00+08:00">2024-01-06</time>
+      <time title="创建时间：2024-01-07 12:19:00 / 修改时间：21:02:57" itemprop="dateCreated datePublished" datetime="2024-01-07T12:19:00+08:00">2024-01-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -248,7 +247,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaScript学习</span></a>
+          <a href="/categories/GIS%E9%9D%A2%E7%BB%8F/" itemprop="url" rel="index"><span itemprop="name">GIS面经</span></a>
         </span>
     </span>
 
@@ -266,7 +265,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.4k</span>
+      <span>3.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -283,77 +282,76 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><strong>在分析JS引擎执行之前，需要明确两件事情：</strong></p>
-<ol>
-<li><p>JS是<strong>单线程</strong>的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。</p>
-</li>
-<li><p>JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：</p>
-</li>
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><strong>在openLayers中如何加载WMTS服务?</strong><br><strong>答</strong>: 在openLayers中可以通过olsourse.WMTS 以及 ol.sourse.XYZ等方式加载WMTS服务，ol.source.XYZ的方式比较简单，只需要输入修改url和xyz以及坐标系即可。而ol.source.WMTS较复杂，需要配置原点、分辨率数组、分辨率对应的级别、坐标系的参数等。</li>
+</ul>
+<p><strong>WMS和WMTS的区别</strong><br><strong>答</strong>:WMTS服务和WMS服务本质区别即对客户端请求服务的响应不同。在接受客户端请求WMTS服务时，返回给客户端是固定大小的瓦片，客户端根据索引号来获取每一张瓦片，而后拼接成地图进行展示，其采取缓存技术来替代实时对数据进行可视化，用以提高地图响应能力。而当客户端请求WMS服务时，返回给客户端是一张完整的图片，客户端取到直接展示。</p>
+<p>细节</p>
+<h3 id="WMS（Web-Map-Service）"><a href="#WMS（Web-Map-Service）" class="headerlink" title="WMS（Web Map Service）"></a>WMS（Web Map Service）</h3><ol>
+<li><strong>动态请求</strong>：WMS 提供地图作为对特定请求的响应。当用户请求地图时，服务器动态生成地图图像并返回。这意味着地图是实时生成的。</li>
+<li><strong>灵活性</strong>：WMS 允许用户指定多种参数，如图像大小、格式、地理范围（bounding box）、图层等，从而提供高度定制化的地图。</li>
+<li><strong>性能</strong>：由于地图是按需生成的，对于大量用户或复杂的地图渲染，WMS 可能在性能上存在限制。特别是在缩放和平移地图时，可能会出现延迟。</li>
+<li><strong>标准和支持</strong>：WMS 是 OGC（Open Geospatial Consortium）的一个标准，得到广泛支持和应用。</li>
 </ol>
-<p><strong>JS引擎线程</strong>：也称为JS内核，负责解析执行JS脚本程序的主线程（例如V8引擎）。<br><strong>事件触发线程</strong>：归属于浏览器内核进程，不受JS引擎线程控制。主要用于控制事件（例如鼠标，键盘等时间），当该时间被触发时，事件触发线程就会把该事件的处理函数推进事件队列，等待JS引擎线程执行。<br><strong>定时器触发线程</strong>：主要控制计时器setInterval和延时器setTimeout，用于定时器的计时，计时完毕，满足定时器的触发条件，则将定时器的处理函数推进事件队列，等待JS引擎线程执行。（W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms）。<br><strong>HTTP异步请求线程</strong>：通过XMLHttpRequest连接后，通过浏览器新开的一个线程，监控readyState状态变更时，如果设置了该状态的回调函数，则将该状态的处理函数推进事件队列中，等待JS引擎线程执行。</p>
-<p>注：浏览器对同一域名请求的并发连接数是有限制的，Chrome和Firefox限制数为6个，ie8则为10个。</p>
-<p>在JS引擎执行过程中，代码执行顺序如下：宏任务（同步任务）——&gt;微任务——&gt;宏任务（异步任务）</p>
-<p>宏任务</p>
-<p>宏任务（macro-task）按执行顺序分为同步任务和异步任务：</p>
-<ol>
-<li><p>同步任务指的是在JS引擎主线程上按顺序执行的任务，只有前一个任务执行完毕后，才能执行后一个任务，形成一个执行栈（函数调用栈）。</p>
-</li>
-<li><p>异步任务指的是不直接进入JS引擎主线程，而是满足触发条件时，相关的线程将该异步任务推进任务队列（task queue），等待JS引擎主线程上的任务执行完毕，空闲时读取执行的任务，例如异步Ajax，DOM事件，setTimeout等。</p>
-</li>
+<h3 id="WMTS（Web-Map-Tile-Service）"><a href="#WMTS（Web-Map-Tile-Service）" class="headerlink" title="WMTS（Web Map Tile Service）"></a>WMTS（Web Map Tile Service）</h3><ol>
+<li><strong>预渲染瓦片</strong>：WMTS 使用预先渲染的地图瓦片。这些瓦片在多个尺度级别上生成，并存储在服务器上。</li>
+<li><strong>性能优化</strong>：由于地图瓦片是预先生成的，WMTS 在性能上通常优于 WMS，尤其是在处理大量请求时。地图的加载和显示更快，用户体验更流畅。</li>
+<li><strong>可缓存性</strong>：预渲染的瓦片可以被缓存，这对于常访问的地区和流行的尺度级别非常有用，进一步提高了性能。</li>
+<li><strong>灵活性限制</strong>：与 WMS 相比，WMTS 提供的灵活性较低。用户不能自定义地图的尺寸或样式，只能选择预定义的瓦片。</li>
 </ol>
-<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><p>事件循环由三部分组成，分别是：</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>WMS 适用于需要高度定制的地图服务，允许动态生成地图，但可能在性能上有限制。</li>
+<li>WMTS 更适用于需要快速响应和高并发的场景，通过使用预渲染的地图瓦片提供优化的性能，但牺牲了一定的灵活性。</li>
+</ul>
+<p><strong>Web端如何实时获取服务器数据</strong></p>
+<ul>
+<li>Worker</li>
+<li>Ajax+定时器</li>
+</ul>
+<p><strong>OGC有哪些服务</strong><br><strong>答</strong>：</p>
+<ul>
+<li><strong>WMS(Web Map Service)：地图服务</strong></li>
+</ul>
+<p>⽤于获取地图图像，以便在Web上进⾏显示。WMS服务通常允许⽤户以各种格式(若PNG，JPEG 等)检索地图图像。</p>
+<ul>
+<li><strong>WFS(Web Feature Service)：矢量服务</strong></li>
+</ul>
+<p>⽤于获取地理空间数据，以便在Web上进⾏分析和查询，WFS服务通常允许⽤户以多种格式(如GML，JSON等)检索地理空间数据。</p>
+<p>具体代码表现层⾯：如加载geojson数据</p>
+<ul>
+<li><strong>WCS(Web Coverage Service)：栅格服务</strong></li>
+</ul>
+<p>⽤于获取遥感数据和其他覆盖范围数据。WCS服务允许⽤户以各种格式（如GeoTIFF、NetCDF 等）检索遥感数据。</p>
+<ul>
+<li><strong>WMTS（Web Map Tile Service）：地图瓦片服务</strong></li>
+</ul>
+<p>它是OGC的⼀种服务，⽤于提供已切割为⼩图块的地图图像，以便在Web上进⾏显示。与WMS不 同，WMTS不会动态⽣成地图图像，⽽是将地图预先切割为固定⼤⼩的图块，并将其存储在服务器上。客户端可以请求特定级别和坐标的特定图块，⽽⽆需请求整个地图图像。这样可以提⾼地图显示的效率和速度，特别是在处理⼤规模地图时。</p>
+<p><strong>地图投影类型的区别，如何分类</strong><br><strong>答</strong>:</p>
 <ol>
-<li><p>主线程执行栈</p>
-</li>
-<li><p>异步任务等待触发</p>
-</li>
-<li><p>任务队列</p>
-</li>
+<li>等⾯积投影（Equal Area Projection）：这种投影类型会保持地图上的⾯积⽐例不变，但会导致形状和⽅向的变形。常⻅的等⾯积投影包括⻨卡托投影和兰勃托投影。</li>
+<li>等⻆投影（Conformal Projection）：这种投影类型会保持地图上的⻆度不变，但会导致⾯积和⻓度的变形。常⻅的等⻆投影包括墨卡托投影和极射投影。</li>
+<li>等距投影（Equidistant Projection）：这种投影类型会保持地图上的距离⽐例不变，但会导致⾯积和形状的变形。常⻅的等距投影包括正轴等距投影和正射等距投影。</li>
+<li>综合性投影（Composite Projection）：这种投影类型是以上三种投影类型的组合。综合性投影通常⽤于需要平衡多个因素的地图，如形状、⾯积和距离。</li>
 </ol>
-<p>任务队列就是以队列的数据结构对事件任务进行管理，特点是先进先出，后进后出</p>
-<p>在JS引擎主线程执行过程中：</p>
-<ol>
-<li><p>首先执行宏任务的同步任务，在主线程上形成一个执行栈，可理解为函数调用栈。</p>
-</li>
-<li><p>当执行栈中的函数调用到一些异步执行的API（例如异步Ajax，DOM事件，setTimeout等API），则会开启对应的线程（Http异步请求线程，事件触发线程和定时器触发线程）进行监控和控制。</p>
-</li>
-<li><p>当异步任务的事件满足触发条件时，对应的线程则会把该事件的处理函数推进任务队列(task queue)中，等待主线程读取执行。</p>
-</li>
-<li><p>当JS引擎主线程上的任务执行完毕，则会读取任务队列中的事件，将任务队列中的事件任务推进主线程中，按任务队列顺序执行</p>
-</li>
-<li><p>当JS引擎主线程上的任务执行完毕后，则会再次读取任务队列中的事件任务，如此循环，这就是事件循环（Event Loop）的过程。</p>
-</li>
-</ol>
-<h2 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h2><p>微任务（micro-task）是在ES6和node环境中出现的一个任务类型（其他环境不用考虑），其API主要有:<strong>Promise， process.nextTick</strong>。</p>
-<p>在宏任务中执行的任务有两种，分别是同步任务和异步任务，因为异步任务会在满足触发条件时才会推进任务队列（task queue），然后等待主线程上的任务执行完毕，再读取任务队列中的任务事件，最后推进主线程执行，所以这里将异步任务即任务队列看作是新的宏任务。执行的过程如上图所示：</p>
-<ol>
-<li><p>执行宏任务中同步任务，执行结束。</p>
-</li>
-<li><p>检查是否存在可执行的微任务，有的话执行所有微任务，然后读取任务队列的任务事件，推进主线程形成新的宏任务；没有的话则读取任务队列的任务事件，推进主线程形成新的宏任务。</p>
-</li>
-<li><p>执行新宏任务的事件任务，再检查是否存在可执行的微任务，如此不断的重复循环。</p>
-</li>
-</ol>
-<p>以下是一个示例及详细分析：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise1&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise2&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br><span class="line"></span><br><span class="line">在该例子中，宏任务的代码部分是：</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>1、代码块通过语法分析和预编译后，进入执行阶段，当JS引擎主线程执行到console.log(‘script start’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script start，然后继续向下执行。</p>
-<p>2、JS引擎主线程执行到setTimeout(function() { console.log(‘setTimeout’); }, 0);，JS引擎主线程认为setTimeout是异步任务API，则向浏览器内核进程申请开启定时器线程进行计时和控制该setTimeout任务。由于W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms，那么当计时到4ms时，定时器线程就把该回调处理函数推进任务队列中等待主线程执行，然后JS引擎主线程继续向下执行。</p>
-<p>3、JS引擎主线程执行到Promise.resolve().then(function() { console.log(‘promise1’); }).then(function() { console.log(‘promise2’); });，JS引擎主线程认为Promise是一个微任务，这把该任务划分为微任务，等待执行。</p>
-<p>4、JS引擎主线程执行到console.log(‘script end’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script end。</p>
-<p>5、主线程上的宏任务执行完毕，则开始检测是否存在可执行的微任务，检测到一个Promise微任务，那么立刻执行，输出promise1和promise2</p>
-<p>6、微任务执行完毕，主线程开始读取任务队列中的事件任务setTimeout，推入主线程形成新宏任务，然后在主线程中执行，输出setTimeout</p>
-<p>另外，使用setTimeout模拟实现setInterval，是存在一定区别的：</p>
-<ol>
-<li><p>setTimeout实现setInterval只能通过递归调用。</p>
-</li>
-<li><p>setTimeout是在到了指定时间的时候就把事件推到任务队列中，只有当在任务队列中的setTimeout事件被主线程执行后，才会继续再次在到了指定时间的时候把事件推到任务队列，那么setTimeout的事件执行肯定比指定的时间要久，具体相差多少跟代码执行时间有关。</p>
-</li>
-<li><p>setInterval则是每次都精确的隔一段时间就向任务队列推入一个事件，无论上一个setInterval事件是否已经执行，所以有可能存在setInterval的事件任务累积，导致setInterval的代码重复连续执行多次，影响页面性能。</p>
-</li>
-</ol>
-<p><strong>综合以上的分析</strong>，使用setTimeout实现计时功能是比setInterval性能更好的。如果不需要兼容低版本的IE浏览器，使用requestAnimationFrame是更好的选择。</p>
-<p><strong>进一步思考</strong>：高频率触发的事件（例如滚动事件）触发频率过高会影响页面性能，甚至造成页面卡顿，可以利用setTimeout实现计时器的原理，对高频触发的事件进行优化，实现点在于将多个触发事件合并成一个，这就是防抖和节流。</p>
+<p>不同的地图投影类型适⽤于不同的应⽤场景。在选择地图投影类型时，需要考虑需要表达的信息类型、地图区域的⼤⼩和形状、地图的⽤途等因素。</p>
+<p><strong>常⻅的空间数据库有哪些</strong></p>
+<ul>
+<li><strong>PostgreSQL&#x2F;PostGIS</strong>：PostgreSQL是⼀种开源的对象关系型数据库管理系统，⽽PostGIS则是⼀ 个⽤于PostgreSQL的空间数据库扩展，可以⽤于存储、查询和分析空间数据。</li>
+<li><strong>Oracle Spatial</strong>：Oracle Spatial是Oracle数据库的⼀个扩展，它提供了存储和查询空间数据的功 能，包括⼏何对象类型、空间索引和空间查询操作。</li>
+<li><strong>SQL Server Spatial</strong>：SQL Server Spatial是Microsoft SQL Server数据库的⼀个扩展，它提供了存 储和查询空间数据的功能，包括⼏何对象类型、空间索引和空间查询操作。</li>
+<li><strong>SQLite&#x2F;SpatiaLite</strong>：SQLite是⼀种轻型的嵌⼊式关系型数据库管理系统，⽽SpatiaLite则是⼀个⽤ 于SQLite的空间数据库扩展，可以⽤于存储、查询和分析空间数据。</li>
+<li><strong>MongoDB</strong>：MongoDB是⼀个NoSQL数据库，它可以存储各种类型的数据，包括空间数据。 MongoDB通过GeoJSON格式存储空间数据，并提供了⼀些空间查询操作。</li>
+<li><strong>MySQL Spatial</strong>：MySQL Spatial是MySQL数据库的⼀个扩展，它提供了存储和查询空间数据的功 能，包括⼏何对象类型、空间索引和空间查询操作。</li>
+</ul>
+<p><strong>地图上要素很多加载慢,遇到过崩掉的情况么前端是如何缓解的</strong><br>前端在处理大量要素时，确实可能会遇到加载缓慢、卡顿、崩溃等问题。以下是一些缓解这些问题的方法：</p>
+<ul>
+<li><strong>数据优化</strong>：将不必要的数据过滤掉，只加载必要的数据。例如，如果地图上只需要显示某些特定的区 域或点，可以通过缩放或其他⽅式进⾏筛选，只加载这些要素。这样可以减轻数据量，加快加载速度。(<strong>比如在openlayers中可以使用集群（Cluster）</strong>)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个群集源并设置距离</span></span><br><span class="line"><span class="keyword">const</span> clusterSource = <span class="keyword">new</span> <span class="title class_">Cluster</span>(&#123;</span><br><span class="line">  <span class="attr">distance</span>: <span class="number">40</span>, <span class="comment">// 群集的距离阈值，单位为像素</span></span><br><span class="line">  <span class="attr">source</span>: source,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><strong>图层分级</strong>：将地图逐层分级，每层只显示特定的要素，降低⼀层图层中的要素数量。可以通过层叠效果来叠加多层图层，形成完整的地图效果。这样能够<strong>减少对单个图层的渲染次数</strong>，提⾼性能。</li>
+<li><strong>后台优化</strong>：通过后台对数据进⾏剪裁和压缩，减⼩数据传输的⼤⼩。还可以在后台对数据进⾏分块， 分段加载，来减轻前端负担。</li>
+<li><strong>瓦⽚地图</strong>：将地图切分成瓦⽚，只显示在当前屏幕可视范围内的瓦⽚，减少了不必要的数据加载。该 技术可以⼤⼤减少加载速度，特别是在⼤地图并发⽤户请求⾮常⾼的情况下。</li>
+<li><strong>前端优化</strong>：通过缓存、预加载等技术，优化前端的性能。例如，可以将⼀些经常使⽤的数据进⾏缓存(<strong>比如上一次选中的是哪个地图</strong>)，提⾼响应速度，还可以在⽤户浏览过⼀个⻚⾯时，预加载下⼀个即将进⼊的⻚⾯，以提⾼⽤户体验。</li>
+</ul>
+<p><strong>动态投影</strong><br><strong>答</strong>:GIS的动态投影跟图形学的动态投影并不相同。在地理信息系统（GIS）中，动态投影（Dynamic Projection）通常指的是在地图上随着用户的交互或数据展示需求，实时地调整地图的投影方式，以便在不同的投影下正确显示地理数据。动态投影在GIS中是一个重要的功能，它允许用户在不同的投影之间切换，以满足不同的分析、展示和交互需求。</p>
 
     </div>
 
@@ -371,7 +369,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/" title="Javascript运行三步曲——解释执行">https://joexiong1.github.io/2024/01/06/Javascript运行三步曲——解释执行/</a>
+      <a href="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/" title="GIS面经">https://joexiong1.github.io/2024/01/07/GIS面经/GIS面经/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -380,22 +378,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/GIS%E9%9D%A2%E7%BB%8F/" rel="tag"># GIS面经</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/" rel="prev" title="Javascript运行三步曲——预编译">
-                  <i class="fa fa-angle-left"></i> Javascript运行三步曲——预编译
+                <a href="/2024/01/07/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/" rel="prev" title="UE5地形制作ChatGPT对话-1">
+                  <i class="fa fa-angle-left"></i> UE5地形制作ChatGPT对话-1
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/01/07/++a%E5%92%8Ca++/" rel="next" title="a++和++a">
-                  a++和++a <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
