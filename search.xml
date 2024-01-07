@@ -307,7 +307,7 @@
       </tags>
   </entry>
   <entry>
-    <title>GIS面经</title>
+    <title>GIS面经1</title>
     <url>/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/</url>
     <content><![CDATA[<ul>
 <li><strong>在openLayers中如何加载WMTS服务?</strong><br><strong>答</strong>: 在openLayers中可以通过olsourse.WMTS 以及 ol.sourse.XYZ等方式加载WMTS服务，ol.source.XYZ的方式比较简单，只需要输入修改url和xyz以及坐标系即可。而ol.source.WMTS较复杂，需要配置原点、分辨率数组、分辨率对应的级别、坐标系的参数等。</li>
