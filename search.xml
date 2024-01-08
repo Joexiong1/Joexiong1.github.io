@@ -1,252 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>变量提升、函数提升</title>
-    <url>/2024/01/05/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</url>
-    <content><![CDATA[<h3 id="全局作用域的预处理"><a href="#全局作用域的预处理" class="headerlink" title="全局作用域的预处理"></a>全局作用域的预处理</h3><p>预处理（预解析）：JS在解析代码之前，有一个“预处理（预解析）”阶段，将当前 JS 代码中所有变量的定义和函数的定义，放到所有代码的最前面。这种预解析也称之为声明提前（变量提升）</p>
-<p>变量提升：在js执行过程中，js引擎把变量的声明和函数的声明提升到代码最顶的行为（会影响程序执行结果，console.log()）。变量被提升后，会给变量设置为默认值，此值为undefined，所以可以在声明之前使用。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">a = <span class="number">123</span>; <span class="comment">//此时a相当于window.a</span></span><br></pre></td></tr></table></figure>
-<p>程序会报错：<code>Uncaught ReferenceError: a is not defined</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">123</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);  <span class="comment">//打印结果：undefined。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>if(false)里面的代码虽然不会被执行，但是整个代码有解析的环节，解析的时候就已经把 变量 i 给提前声明了。</p>
-<p>但是如果声明变量时不是用var关键字,比如直接写a&#x3D;1或是使用let和connst定义的变量并不会变量提升，在声明 let 、const变量之前就使用它会导致 ReferenceError。</p>
-<p>使用const声明的常量在声明时必须进行初始化。一旦被赋值，常量的值在其生命周期内不能被修改，但是注意，在JavaScript中，对象和数组是引用类型。使用const声明的常量不会使对象和数组的内容不可变，使用const声明的常量只是保证我们不能将arr指向另一个数组，但是可以修改arr指向的数组内部的内容。在 ES2015 之前，JavaScript 是没有块作用域的，只有函数作用域和全局作用域。可以使用 let 关键词声明拥有块作用域的变量。</p>
-<p>let和const都是块级作用域，不属于window对象（不能使用window.变量名），同一作用域中不能重复声明，而var是可以重新声明和赋值的，如果只是声明，不改变上一次赋值结果，let和const也不能对var在同一作用域声明，在不同作用域是可以的</p>
-<h3 id="函数的声明提前（函数提升）"><a href="#函数的声明提前（函数提升）" class="headerlink" title="函数的声明提前（函数提升）"></a>函数的声明提前（函数提升）</h3><p>使用函数表达式创建的函数const foo &#x3D; function(){}，不会被声明提前，所以不能在声明前调用，因为此时只是变量foo被提升了，且值为undefined，并没有把function{}赋值给foo</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不会报错，可以正常执行函数，正常打印结果</span></span><br><span class="line"><span class="title function_">fun1</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时 fun2 相当于 undefined。执行时会报错：Uncaught ReferenceError: Cannot access &#x27;fun2&#x27; before initialization</span></span><br><span class="line"><span class="title function_">fun2</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数声明，会被提前声明</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun1 函数&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式，不会被提前声明</span></span><br><span class="line"><span class="keyword">const</span> fun2 = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun12 函数&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>注意：函数提升优先于变量提升</strong></p>
-<p>另外，不仅全局作用域中存在声明提前，在函数作用域中，也有声明提前的现象：</p>
-<p>定义形参就相当于在函数作用域中声明了变量，举例如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 这个函数中，因为有了形参 e，此时相当于在函数内部的第一行代码里，写了 var e;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fun</span>(); <span class="comment">//打印结果为 undefined</span></span><br><span class="line"><span class="title function_">fun</span>(<span class="number">123</span>); <span class="comment">//打印结果为123</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JavaScript学习</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据类型转换</title>
-    <url>/2024/01/05/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
-    <content><![CDATA[<h3 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">tostring</span>()</span><br><span class="line"><span class="title function_">string</span>()</span><br><span class="line"><span class="title function_">number</span>()</span><br><span class="line"><span class="built_in">parseInt</span>(string)</span><br><span class="line"><span class="built_in">parseFloat</span>(string)</span><br><span class="line"><span class="title class_">Boolean</span>()</span><br></pre></td></tr></table></figure>
-
-<h3 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h3><p><strong>隐式类型转换，内部调用的都是显式类型的方法</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>()</span><br><span class="line"></span><br><span class="line">自增/自减运算符：++、--</span><br><span class="line"></span><br><span class="line">正号/负号：+a、-a</span><br><span class="line"></span><br><span class="line">加号:+</span><br><span class="line"></span><br><span class="line">运算符:-、*、/</span><br><span class="line"></span><br><span class="line"><span class="title function_">toString</span>()函数</span><br><span class="line"></span><br><span class="line">变量.<span class="title function_">toString</span>();</span><br><span class="line">常量.<span class="title function_">toString</span>();  <span class="comment">//常量不能直接写数字，如下</span></span><br><span class="line"><span class="number">1.</span><span class="title function_">toString</span>(); <span class="comment">// 注意，会报错</span></span><br><span class="line"><span class="number">1.</span>.<span class="title function_">toString</span>(); <span class="comment">// 合法。得到的结果是字符串&quot;1&quot;</span></span><br><span class="line"><span class="number">1.2</span>.<span class="title function_">toString</span>(); <span class="comment">// 合法。得到的结果是字符串&quot;1.2&quot;</span></span><br><span class="line">(<span class="number">1</span>).<span class="title function_">toString</span>(); <span class="comment">// 合法。得到的结果是字符串&quot;1&quot;</span></span><br><span class="line"><span class="comment">//又或者直接把常量放到变量中存起来，然后通过变量调用</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> result = 变量.<span class="title function_">toString</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a6 = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> a7 = <span class="literal">undefined</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a6.<span class="title function_">toString</span>()); <span class="comment">// 报错：Uncaught TypeError: Cannot read properties of null</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a7.<span class="title function_">toString</span>()); <span class="comment">// 报错：Uncaught TypeError: Cannot read properties of undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>该方法不会影响到原变量，它会将转换的结果返回。当然我们还可以直接写成**a &#x3D; a.toString()**，这样可以直接修改原变量</p>
-<p>对上述常量引用toString()的打印结果的解释</p>
-<p> 第一行代码：JS引擎认为1.toString()中的.是小数点，小数点后面的字符是非法的。</p>
-<p>第二行、第三行代码：JS引擎认为第一个.是小数点，第二个.是属性访问的语法，所以能正常解释实行。</p>
-<p>第四行代码：用()排除了.被视为小数点的语法解释，所以这种写法也能正常解释执行。</p>
-<p>另：</p>
-<ol>
-<li><p>大多数情况下，toString()不接受参数，但是Number类型变量可以传递一个整数作为参数，此时它会把数字转换为指定的进制，如果不指定则默认转换为10进制.</p>
-</li>
-<li><p>纯小数的小数点后面，如果紧跟连续6个或6个以上的“0”时，那么，将用e来表示这个小数。</p>
-</li>
-<li><p>常量没有方法，但是可以调用 toString()，因为除了 null、undefined之外，其他的常量都有对应的特殊的引用类型——基本包装类型，所以代码在解释执行的时候，会将常量转为基本包装类型，这样就可以调用相应的引用类型的方法。</p>
-</li>
-</ol>
-<p><strong>String()函数</strong></p>
-<p>使用 String()函数做强制类型转换时：</p>
-<p>  对于 Number、Boolean、String、Object 而言，本质上就是调用 toString()方法，返回结果同 toString()方法。<br>  但是对于 null 和 undefined，则不会调用 toString()方法。它会将 null 直接转换为 “null”。将 undefined 直接转换为 “undefined”。</p>
-<p><strong>隐式类型转换 （特殊）</strong></p>
-<p>逻辑运算符：&amp;&amp;、||、! 。非布尔值进行与或运算时，会先将其转换为布尔值，然后再运算。&amp;&amp;、||的运算结果是原值，!的运算结果为布尔值。</p>
-<p><a href="https://www.runoob.com/w3cnote/javascript-or-and-and.html">https://www.runoob.com/w3cnote/javascript-or-and-and.html</a></p>
-<p>运算结果结论如下： 只要 || 前面为 false,不管 || 后面是 true 还是 false，都返回 || 后面的值。 只要 || 前面为 true,不管 || 后面是 true 还是 false，都返回 || 前面的值。 只要 &amp;&amp; 前面是 false，无论 &amp;&amp; 后面是 true 还是 false，结果都将返 &amp;&amp; 前面的值。 只要 &amp;&amp; 前面是 true，无论 &amp;&amp; 后面是 true 还是 false，结果都将返 &amp;&amp; 后面的值<br>三个及以上的非布尔值，做逻辑运算：<br>与运算的返回结果：（value1 &amp;&amp; value2 &amp;&amp; value3）</p>
-<ul>
-<li>从左到右依次计算操作数，找到第一个为 false 的值为止。</li>
-<li>如果所有的值都为 true，则返回最后一个值。<br>或运算的返回结果：（value1 || value2 || value3）</li>
-<li>从左到右依次计算操作数，找到第一个为 true 的值为止。</li>
-<li>如果所有的值都为 false，则返回最后一个值。<br>JS中的“&amp;&amp;”属于短路的与：<br>如果第一个值为false，则不会执行后面的内容<br>如果第一个值为true，则继续执行第二条语句，并返回第二个值<br>同时JS中的‘||’属于短路的或：<br>如果第一个值为true，则不会执行后面的内容<br>如果第一个值为false，则继续执行第二条语句，并返回第二个值<br>实际开发中可以借此进行“容错处理”<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> result; <span class="comment">// 请求接口时，后台返回的内容</span></span><br><span class="line"><span class="keyword">let</span> errorMsg = <span class="string">&#x27;&#x27;</span>; <span class="comment">// 前端的文案提示</span></span><br><span class="line"><span class="keyword">if</span> (result &amp; result.<span class="property">retCode</span> == <span class="number">0</span>) &#123;</span><br><span class="line">  errorMsg = <span class="string">&#x27;恭喜你中奖啦~&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result &amp;&amp; result.<span class="property">retCode</span> != <span class="number">0</span>) &#123;</span><br><span class="line">	<span class="comment">// 接口返回异常码时</span></span><br><span class="line">	errorMsg = result.<span class="property">msg</span> || <span class="string">&#x27;活动太火爆，请稍后再试&#x27;</span>; <span class="comment">// 文案提示信息，优先用 接口返回的msg字段，其次用 &#x27;活动太火爆，请稍后再试&#x27; 这个文案兜底。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!result) &#123;</span><br><span class="line">	<span class="comment">// 接口挂掉时</span></span><br><span class="line">	errorMsg = <span class="string">&#x27;网络异常，请稍后再试&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>关系运算符：&lt;、&gt; &lt;&#x3D; &gt;&#x3D;等。关系运算符，得到的运算结果都是布尔值：要么是 true，要么是 false<br>隐式类型转换</p>
-<ol>
-<li>隐式转换类型：字符串拼接<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>; <span class="comment">// Number 类型</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a + <span class="string">&#x27;&#x27;</span>); <span class="comment">// 打印结果：&quot;123&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a + <span class="string">&#x27;haha&#x27;</span>); <span class="comment">// 打印结果：&quot;123haha&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>实际上底层是调用string()函数</p>
-<p><strong>Number()函数</strong></p>
-<p>字符串→数字 （1）如果字符串中是纯数字，则直接将其转换为数字。 （2）如果字符串是一个空串或者是一个全是空格的字符串，则转换为 0。 （3）只要字符串中包含了其他非数字的内容（一个小数点按数字来算），则转换为 NaN。即使用 Number() 函数之后，如果无法转换为数字，就会转换为 NaN<br>bool→数字 （1）true转成1 （1）true转成0<br>null→数字 结果为0<br>undefined→数字 NaN</p>
-<ol start="2">
-<li>隐式转换类型：正负号</li>
-</ol>
-<p>注意是正号&#x2F;负号，不是加号&#x2F;减号。任何值做+a、-a运算时， 底层调用的是 Number() 函数（所以如果对bool值进行+-，结果会是0&#x2F;-0&#x2F;1&#x2F;-1）。不会改变原数值；得到的结果，会改变正负性。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a3 = <span class="literal">true</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+a3); <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-a3); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>使用parseInt()函数：字符串→整数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> result = <span class="built_in">parseInt</span>(需要转换的字符串)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;110&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(a, <span class="number">16</span>); <span class="comment">// 【重要】将 a 当成 十六进制 来看待，转换成 十进制 的 num（注意不是转成16进制），结果为272</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;5&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(a, <span class="number">2</span>);  <span class="comment">//转换失败，因为二进制中没有5这个数</span></span><br></pre></td></tr></table></figure>
-<p>将传入的数据当作字符串来处理，<strong>从左至右提取数值，一旦遇到非数值就立即停止（包括小数点，所以只取整数）；停止时如果还没有提取到数值，就返回NaN。（所以开头不是数字就会直接返回NaN，如果是空串或者全是空格，会报错）</strong></p>
-<p><strong>parseInt()、parseFloat()会将传入的数据当作字符串来处理（就算是数字也会先转为字符串）</strong>。也就是说，如果对非 String使用 parseInt()、parseFloat()，它会先将其转换为 String然后再操作。</p>
-</li>
-<li><p>parseFloat()函数：字符串→浮点数</p>
-<p>parseFloat()和 parseInt()的作用类似，不同的是，parseFloat()可以获得小数部分。</p>
-</li>
-</ol>
-<h3 id="三、转换为Boolean"><a href="#三、转换为Boolean" class="headerlink" title="三、转换为Boolean"></a>三、转换为Boolean</h3><p>   其他的数据类型都可以转换为 Boolean 类型。无论是隐式转换，还是显示转换，转换结果都是一样的。</p>
-<p>数字 –&gt; 布尔。 0 和 NaN的转换结果 false，其余的都是 true。比如 Boolean(NaN)的结果是 false。<br>字符串 —&gt; 布尔。空串的转换结果是false，其余的都是 true。全是空格的字符串，转换结果也是 true。字符串’0’的转换结果也是 true。<br>null 和 undefined 都会转换为 false。<br>引用数据类型会转换为 true。注意，空数组[]和空对象{}，转换结果也是 true。</p>
-<p>四、隐式类型转换：逻辑运算</p>
-<p>const a &#x3D; 1;</p>
-<p>console.log(a &#x3D;&#x3D; true); &#x2F;&#x2F; 打印结果：true<br>console.log(typeof a); &#x2F;&#x2F; 打印结果：number。可见，上面一行代码里，a 做了隐式类型转换，但是 a 的数据类型并没有发生变化，仍然是 Number 类型</p>
-<p>使用！！</p>
-<p>使用 !!可以显式转换为 Boolean 类型。比如 !!3的结果是 true。</p>
-<p>其他进制的数字：</p>
-<p>16 进制的数字，以0x开头<br>8 进制的数字，以0开头<br>2 进制的数字，0b开头（不是所有的浏览器都支持：chrome 和火狐支持，IE 不支持）</p>
-<p><strong>isNaN()函数</strong></p>
-<p> 判断指定的参数是否为 NaN（非数字类型），返回结果为 Boolean 类型。也就是说：<strong>任何不能被转换为数值的参数，都会让这个函数返回 true</strong>。</p>
-<p><strong>执行过程：</strong></p>
-<p>（1）先调用**Number()**函数</p>
-<p>（2）然后判断**Number()**的返回结果是否为数值。如果不为数值，则最终结果为 true；如果为数值，则最终结果为 false。</p>
-<p>console.log(isNaN(‘null’)); &#x2F;&#x2F; 返回结果：false(因为null的Number（）结果为0)</p>
-]]></content>
-      <categories>
-        <category>JavaScript学习</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Javascript运行三步曲——解释执行</title>
-    <url>/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/</url>
-    <content><![CDATA[<p><strong>在分析JS引擎执行之前，需要明确两件事情：</strong></p>
-<ol>
-<li><p>JS是<strong>单线程</strong>的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。</p>
-</li>
-<li><p>JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：</p>
-</li>
-</ol>
-<p><strong>JS引擎线程</strong>：也称为JS内核，负责解析执行JS脚本程序的主线程（例如V8引擎）。<br><strong>事件触发线程</strong>：归属于浏览器内核进程，不受JS引擎线程控制。主要用于控制事件（例如鼠标，键盘等时间），当该时间被触发时，事件触发线程就会把该事件的处理函数推进事件队列，等待JS引擎线程执行。<br><strong>定时器触发线程</strong>：主要控制计时器setInterval和延时器setTimeout，用于定时器的计时，计时完毕，满足定时器的触发条件，则将定时器的处理函数推进事件队列，等待JS引擎线程执行。（W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms）。<br><strong>HTTP异步请求线程</strong>：通过XMLHttpRequest连接后，通过浏览器新开的一个线程，监控readyState状态变更时，如果设置了该状态的回调函数，则将该状态的处理函数推进事件队列中，等待JS引擎线程执行。</p>
-<p>注：浏览器对同一域名请求的并发连接数是有限制的，Chrome和Firefox限制数为6个，ie8则为10个。</p>
-<p>在JS引擎执行过程中，代码执行顺序如下：宏任务（同步任务）——&gt;微任务——&gt;宏任务（异步任务）</p>
-<p>宏任务</p>
-<p>宏任务（macro-task）按执行顺序分为同步任务和异步任务：</p>
-<ol>
-<li><p>同步任务指的是在JS引擎主线程上按顺序执行的任务，只有前一个任务执行完毕后，才能执行后一个任务，形成一个执行栈（函数调用栈）。</p>
-</li>
-<li><p>异步任务指的是不直接进入JS引擎主线程，而是满足触发条件时，相关的线程将该异步任务推进任务队列（task queue），等待JS引擎主线程上的任务执行完毕，空闲时读取执行的任务，例如异步Ajax，DOM事件，setTimeout等。</p>
-</li>
-</ol>
-<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><p>事件循环由三部分组成，分别是：</p>
-<ol>
-<li><p>主线程执行栈</p>
-</li>
-<li><p>异步任务等待触发</p>
-</li>
-<li><p>任务队列</p>
-</li>
-</ol>
-<p>任务队列就是以队列的数据结构对事件任务进行管理，特点是先进先出，后进后出</p>
-<p>在JS引擎主线程执行过程中：</p>
-<ol>
-<li><p>首先执行宏任务的同步任务，在主线程上形成一个执行栈，可理解为函数调用栈。</p>
-</li>
-<li><p>当执行栈中的函数调用到一些异步执行的API（例如异步Ajax，DOM事件，setTimeout等API），则会开启对应的线程（Http异步请求线程，事件触发线程和定时器触发线程）进行监控和控制。</p>
-</li>
-<li><p>当异步任务的事件满足触发条件时，对应的线程则会把该事件的处理函数推进任务队列(task queue)中，等待主线程读取执行。</p>
-</li>
-<li><p>当JS引擎主线程上的任务执行完毕，则会读取任务队列中的事件，将任务队列中的事件任务推进主线程中，按任务队列顺序执行</p>
-</li>
-<li><p>当JS引擎主线程上的任务执行完毕后，则会再次读取任务队列中的事件任务，如此循环，这就是事件循环（Event Loop）的过程。</p>
-</li>
-</ol>
-<h2 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h2><p>微任务（micro-task）是在ES6和node环境中出现的一个任务类型（其他环境不用考虑），其API主要有:<strong>Promise， process.nextTick</strong>。</p>
-<p>在宏任务中执行的任务有两种，分别是同步任务和异步任务，因为异步任务会在满足触发条件时才会推进任务队列（task queue），然后等待主线程上的任务执行完毕，再读取任务队列中的任务事件，最后推进主线程执行，所以这里将异步任务即任务队列看作是新的宏任务。执行的过程如上图所示：</p>
-<ol>
-<li><p>执行宏任务中同步任务，执行结束。</p>
-</li>
-<li><p>检查是否存在可执行的微任务，有的话执行所有微任务，然后读取任务队列的任务事件，推进主线程形成新的宏任务；没有的话则读取任务队列的任务事件，推进主线程形成新的宏任务。</p>
-</li>
-<li><p>执行新宏任务的事件任务，再检查是否存在可执行的微任务，如此不断的重复循环。</p>
-</li>
-</ol>
-<p>以下是一个示例及详细分析：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise1&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise2&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br><span class="line"></span><br><span class="line">在该例子中，宏任务的代码部分是：</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>1、代码块通过语法分析和预编译后，进入执行阶段，当JS引擎主线程执行到console.log(‘script start’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script start，然后继续向下执行。</p>
-<p>2、JS引擎主线程执行到setTimeout(function() { console.log(‘setTimeout’); }, 0);，JS引擎主线程认为setTimeout是异步任务API，则向浏览器内核进程申请开启定时器线程进行计时和控制该setTimeout任务。由于W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms，那么当计时到4ms时，定时器线程就把该回调处理函数推进任务队列中等待主线程执行，然后JS引擎主线程继续向下执行。</p>
-<p>3、JS引擎主线程执行到Promise.resolve().then(function() { console.log(‘promise1’); }).then(function() { console.log(‘promise2’); });，JS引擎主线程认为Promise是一个微任务，这把该任务划分为微任务，等待执行。</p>
-<p>4、JS引擎主线程执行到console.log(‘script end’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script end。</p>
-<p>5、主线程上的宏任务执行完毕，则开始检测是否存在可执行的微任务，检测到一个Promise微任务，那么立刻执行，输出promise1和promise2</p>
-<p>6、微任务执行完毕，主线程开始读取任务队列中的事件任务setTimeout，推入主线程形成新宏任务，然后在主线程中执行，输出setTimeout</p>
-<p>另外，使用setTimeout模拟实现setInterval，是存在一定区别的：</p>
-<ol>
-<li><p>setTimeout实现setInterval只能通过递归调用。</p>
-</li>
-<li><p>setTimeout是在到了指定时间的时候就把事件推到任务队列中，只有当在任务队列中的setTimeout事件被主线程执行后，才会继续再次在到了指定时间的时候把事件推到任务队列，那么setTimeout的事件执行肯定比指定的时间要久，具体相差多少跟代码执行时间有关。</p>
-</li>
-<li><p>setInterval则是每次都精确的隔一段时间就向任务队列推入一个事件，无论上一个setInterval事件是否已经执行，所以有可能存在setInterval的事件任务累积，导致setInterval的代码重复连续执行多次，影响页面性能。</p>
-</li>
-</ol>
-<p><strong>综合以上的分析</strong>，使用setTimeout实现计时功能是比setInterval性能更好的。如果不需要兼容低版本的IE浏览器，使用requestAnimationFrame是更好的选择。</p>
-<p><strong>进一步思考</strong>：高频率触发的事件（例如滚动事件）触发频率过高会影响页面性能，甚至造成页面卡顿，可以利用setTimeout实现计时器的原理，对高频触发的事件进行优化，实现点在于将多个触发事件合并成一个，这就是防抖和节流。</p>
-]]></content>
-      <categories>
-        <category>JavaScript学习</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Javascript运行三步曲——预编译</title>
-    <url>/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完成再次进入该代码块的语法分析阶段。</p>
-<h3 id="两个规律"><a href="#两个规律" class="headerlink" title="两个规律"></a>两个规律</h3><p><strong>规律1</strong>：任何变量，如果未经声明就赋值，此变量是属于 window 的属性，而且不会做变量提升。（注意，无论在哪个作用域内赋值）</p>
-<p><strong>规律2</strong>：一切声明的全局变量，全是window的属性。（注意，这里说的是在全局作用域内声明的全局变量，不是说局部变量）</p>
-<p>window 代表了全局作用域（「代表」而非「等于」）。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = <span class="number">100</span>; <span class="comment">// 连续赋值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">b</span>); <span class="comment">//100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 100</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">a</span>); <span class="comment">//undefined </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// 报错Uncaught ReferenceError:a is not defined</span></span><br></pre></td></tr></table></figure>
-
-<p>代码解释:当执行了foo()函数之后，var a&#x3D;b&#x3D;100这行连续赋值的代码等价于var a&#x3D;(b&#x3D;100),其执行顺序是：</p>
-<p>（1）先把100赋值给b</p>
-<p>（2）再声明变量a</p>
-<p>（3）再把b的值赋值给a</p>
-<p>因此，b变量未经声明就被赋值了，此时，根据规律1，这个b是属于window.b,而a的作用域仅限于foo()函数内部，不属于window，所以直接访问会报错，而window.a相当于在window中声明对象a，但未赋值，所以是undefined，但是window.a并不会变量提升</p>
-<p>函数预编译，发生在函数执行的前一刻：</p>
-<ol>
-<li>创建AO对象。AO即Activation Object活跃对象，即执行期上下文</li>
-<li>找形参和变量声明，将形参名和变量作为AO的属性名，值为undefined。</li>
-<li>将实参值和形参统一，实参的值赋给形参</li>
-<li>查找函数声明，函数名作为AO对象的属性</li>
-</ol>
-]]></content>
-      <categories>
-        <category>JavaScript学习</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>a++和++a</title>
-    <url>/2024/01/07/++a%E5%92%8Ca++/</url>
-    <content><![CDATA[<p>自增分成两种：a++和++a。共同点：</p>
-<p>（1）无论是 a++ 还是++a，自增都会使原变量的值加 1。</p>
-<p>（2）需要注意的是：a是变量，而a++和++a是表达式。</p>
-<p>两者的区别：a++ 和 ++a的值不同：（也就是说，表达式的值不同）</p>
-<p>  a++这个表达式的值等于原变量的值（a 自增前的值）。可以这样理解：先把 a 的值赋值给表达式，然后 a 再自增。（比如b&#x3D;a++）<br>  ++a这个表达式的值等于新值 （a 自增后的值）。 可以这样理解：a 先自增，然后把自增后的值赋值给表达式。</p>
-<p>–a和a–同理</p>
-<p>示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n1 = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> n2 = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result1 = n1++;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">// 11</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result1); <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line">result = ++n1;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result2 = n2--;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 19</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line">result2 = --n2;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 18</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>JavaScript学习</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UE5地形制作ChatGPT对话-1</title>
     <url>/2024/01/07/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/</url>
     <content><![CDATA[<h2 id="与ChatGPT4的对话"><a href="#与ChatGPT4的对话" class="headerlink" title="与ChatGPT4的对话"></a>与ChatGPT4的对话</h2><p><code>You：你了解UE吗</code></p>
@@ -385,6 +139,342 @@
       </categories>
       <tags>
         <tag>GIS面经</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS三大特性</title>
+    <url>/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</url>
+    <content><![CDATA[<h2 id="CSS三大特性"><a href="#CSS三大特性" class="headerlink" title="CSS三大特性"></a>CSS三大特性</h2><ul>
+<li>层叠性</li>
+<li>继承性</li>
+<li>优先级</li>
+</ul>
+<blockquote>
+<p><strong>样式冲突</strong>：多个选择器指定了同一个元素的情况。</p>
+</blockquote>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>优先级是为了解决<strong>样式冲突</strong>的问题，解决方法是<strong>计算权重</strong>。</p>
+<p>当样式冲突发生时，需要按照下方顺序统计权重：</p>
+<ul>
+<li>id 选择器</li>
+<li>类选择器、属性选择器、伪类选择器</li>
+<li>标签选择器、伪元素选择器</li>
+</ul>
+<p><strong>注意</strong>：不进位，实际上能进位（255个标签等于1个类名）</p>
+<p><strong>权重问题总结</strong></p>
+<ul>
+<li><strong>选择上了</strong>，数权重，(id的数量，类的数量，标签的数量)。如果权重一样，谁写在后面听谁的。</li>
+<li>没有选择上，通过继承影响的，就近原则，谁描述的近听谁的。如果描述的一样近，比如选择器权重，如果权重再一样重，谁写在后面听谁的。</li>
+</ul>
+<h3 id="样式表冲突总结"><a href="#样式表冲突总结" class="headerlink" title="样式表冲突总结"></a>样式表冲突总结</h3><ul>
+<li>1、对于相同的选择器（比如同样都是类选择器），其样式表排序：行级样式 &gt; 内嵌样式表 &gt; 外部样式表（就近原则）</li>
+<li>2、对于相同类型的样式表（比如同样都是内部样式表），其选择器排序：ID选择器 &gt; 类选择器 &gt; 标签选择器</li>
+<li>3、外部样式表的ID选择器  &gt; 内嵌样式表的标签选择器</li>
+</ul>
+<h3 id="important标记：优先级最高"><a href="#important标记：优先级最高" class="headerlink" title="!important标记：优先级最高"></a>!important标记：优先级最高</h3><p>语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">k:v !important;</span><br></pre></td></tr></table></figure>
+<p><strong>（1）!important提升的是一个属性，而不是一个选择器</strong><br>示例如下</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:red <span class="meta">!important</span>;    只写了这一个!important，所以只有字体颜色属性提升了权重</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">100px</span> ;       这条属性没有写!important，所以没有提升权重</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#para1</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:blue;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.spec</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:green;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>综合来看，<strong>字体颜色是red；字号是50px</strong>。</p>
+<p><strong>（2）!important无法提升继承的权重，该是0还是0</strong><br>比如HTML结构：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>哈哈哈哈哈哈哈哈<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>有CSS样式：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:red <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于div是通过继承性来影响文字颜色的，所以!important无法提升它的权重，权重依然是0。因此其<strong>并不影响就近原则</strong>。</p>
+<h2 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h2><h3 id="就近原则"><a href="#就近原则" class="headerlink" title="就近原则"></a>就近原则</h3><p>权重相同时，会按照书写顺序最后的为准。这是因为在运行的过程中，上面的样式先执行，下面的样式元素会将上面的覆盖。</p>
+<h2 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h2><p>继承性是指书写样式表时，子标签会继承父标签的某些样式，有一些样式是有继承性的，只需将它应用于父元素即可。</p>
+<h3 id="什么样式能够继承"><a href="#什么样式能够继承" class="headerlink" title="什么样式能够继承"></a>什么样式能够继承</h3><p>并不是所有的css属性都可以继承。</p>
+<ul>
+<li>关于<strong>文字样式</strong>的属性，都具有继承性。这些属性包括：color、 text-开头的、line-开头的、font-开头的。</li>
+<li>关于<strong>盒子、定位、布局</strong>的属性，都不能继承。</li>
+</ul>
+<h3 id="继承性的影响"><a href="#继承性的影响" class="headerlink" title="继承性的影响"></a>继承性的影响</h3><blockquote>
+<p>如果不能直接选中某个元素，而是通过继承性影响的话，那么权重是0。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>CSS学习</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>a标签的伪类顺序</title>
+    <url>/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/</url>
+    <content><![CDATA[<h3 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h3><ol>
+<li>访问前link </li>
+<li>访问后visited</li>
+<li>鼠标移上hover</li>
+<li>鼠标点击active<br>可以利用<strong>爱恨准则</strong>: love hate来进行记忆</li>
+</ol>
+<p><strong>示例代码如下：</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;a标签的四个伪类&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        a:link &#123;</span><br><span class="line">            /* 访问前状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;        </span><br><span class="line">        a:visited &#123;</span><br><span class="line">            /* 访问后状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;</span><br><span class="line">        a:hover &#123;</span><br><span class="line">            /* 鼠标悬浮状态 */</span><br><span class="line">            color: blueviolet;</span><br><span class="line">        &#125;</span><br><span class="line">        a:active &#123;</span><br><span class="line">            /* 鼠标点击状态 */</span><br><span class="line">            color: brown;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>伪类的权重是相同的，所以根据<strong>就近原则</strong>,后出现的伪类会覆盖先出现的伪类（同时激活）<br>比如把hover放在active后面，那么实际在激活（active）链接的时候就触发了hover伪类，hover在后面覆盖了active的颜色，所以始终无法看到active的颜色,如果把visited放在hover的后面，那么已经访问过的链接始终触发visited伪类，根据第一条会覆盖hover里面的颜色。其实 link visited 这两个伪类，并不需要顺序关系。（他们两的位置可以交换）</p>
+]]></content>
+      <categories>
+        <category>CSS学习</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2024/01/08/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8/</url>
+    <content><![CDATA[<p><strong>到底用 id 还是用 class？</strong></p>
+<ul>
+<li><strong>答</strong>：尽可能的用 class，除非极特殊的情况可以用 id。因为id 是 js 用的。也就是说，js 要通过 id 属性得到标签，所以 css 层面尽量不用 id，要不然 js 就很别扭。另一层面，我们会认为一个有 id 的元素，有动态效果</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>a++和++a</title>
+    <url>/2024/01/07/Javascript%E5%AD%A6%E4%B9%A0/++a%E5%92%8Ca++/</url>
+    <content><![CDATA[<p>自增分成两种：a++和++a。共同点：</p>
+<p>（1）无论是 a++ 还是++a，自增都会使原变量的值加 1。</p>
+<p>（2）需要注意的是：a是变量，而a++和++a是表达式。</p>
+<p>两者的区别：a++ 和 ++a的值不同：（也就是说，表达式的值不同）</p>
+<p>  a++这个表达式的值等于原变量的值（a 自增前的值）。可以这样理解：先把 a 的值赋值给表达式，然后 a 再自增。（比如b&#x3D;a++）<br>  ++a这个表达式的值等于新值 （a 自增后的值）。 可以这样理解：a 先自增，然后把自增后的值赋值给表达式。</p>
+<p>–a和a–同理</p>
+<p>示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n1 = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> n2 = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result1 = n1++;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">// 11</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result1); <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line">result = ++n1;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result2 = n2--;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 19</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line">result2 = --n2;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 18</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>变量提升、函数提升</title>
+    <url>/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</url>
+    <content><![CDATA[<h3 id="全局作用域的预处理"><a href="#全局作用域的预处理" class="headerlink" title="全局作用域的预处理"></a>全局作用域的预处理</h3><p>预处理（预解析）：JS在解析代码之前，有一个“预处理（预解析）”阶段，将当前 JS 代码中所有变量的定义和函数的定义，放到所有代码的最前面。这种预解析也称之为声明提前（变量提升）</p>
+<p>变量提升：在js执行过程中，js引擎把变量的声明和函数的声明提升到代码最顶的行为（会影响程序执行结果，console.log()）。变量被提升后，会给变量设置为默认值，此值为undefined，所以可以在声明之前使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">a = <span class="number">123</span>; <span class="comment">//此时a相当于window.a</span></span><br></pre></td></tr></table></figure>
+<p>程序会报错：<code>Uncaught ReferenceError: a is not defined</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">123</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);  <span class="comment">//打印结果：undefined。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>if(false)里面的代码虽然不会被执行，但是整个代码有解析的环节，解析的时候就已经把 变量 i 给提前声明了。</p>
+<p>但是如果声明变量时不是用var关键字,比如直接写a&#x3D;1或是使用let和connst定义的变量并不会变量提升，在声明 let 、const变量之前就使用它会导致 ReferenceError。</p>
+<p>使用const声明的常量在声明时必须进行初始化。一旦被赋值，常量的值在其生命周期内不能被修改，但是注意，在JavaScript中，对象和数组是引用类型。使用const声明的常量不会使对象和数组的内容不可变，使用const声明的常量只是保证我们不能将arr指向另一个数组，但是可以修改arr指向的数组内部的内容。在 ES2015 之前，JavaScript 是没有块作用域的，只有函数作用域和全局作用域。可以使用 let 关键词声明拥有块作用域的变量。</p>
+<p>let和const都是块级作用域，不属于window对象（不能使用window.变量名），同一作用域中不能重复声明，而var是可以重新声明和赋值的，如果只是声明，不改变上一次赋值结果，let和const也不能对var在同一作用域声明，在不同作用域是可以的</p>
+<h3 id="函数的声明提前（函数提升）"><a href="#函数的声明提前（函数提升）" class="headerlink" title="函数的声明提前（函数提升）"></a>函数的声明提前（函数提升）</h3><p>使用函数表达式创建的函数const foo &#x3D; function(){}，不会被声明提前，所以不能在声明前调用，因为此时只是变量foo被提升了，且值为undefined，并没有把function{}赋值给foo</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不会报错，可以正常执行函数，正常打印结果</span></span><br><span class="line"><span class="title function_">fun1</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时 fun2 相当于 undefined。执行时会报错：Uncaught ReferenceError: Cannot access &#x27;fun2&#x27; before initialization</span></span><br><span class="line"><span class="title function_">fun2</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数声明，会被提前声明</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun1 函数&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式，不会被提前声明</span></span><br><span class="line"><span class="keyword">const</span> fun2 = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun12 函数&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：函数提升优先于变量提升</strong></p>
+<p>另外，不仅全局作用域中存在声明提前，在函数作用域中，也有声明提前的现象：</p>
+<p>定义形参就相当于在函数作用域中声明了变量，举例如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 这个函数中，因为有了形参 e，此时相当于在函数内部的第一行代码里，写了 var e;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fun</span>(); <span class="comment">//打印结果为 undefined</span></span><br><span class="line"><span class="title function_">fun</span>(<span class="number">123</span>); <span class="comment">//打印结果为123</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript运行三步曲——预编译</title>
+    <url>/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完成再次进入该代码块的语法分析阶段。</p>
+<h3 id="两个规律"><a href="#两个规律" class="headerlink" title="两个规律"></a>两个规律</h3><p><strong>规律1</strong>：任何变量，如果未经声明就赋值，此变量是属于 window 的属性，而且不会做变量提升。（注意，无论在哪个作用域内赋值）</p>
+<p><strong>规律2</strong>：一切声明的全局变量，全是window的属性。（注意，这里说的是在全局作用域内声明的全局变量，不是说局部变量）</p>
+<p>window 代表了全局作用域（「代表」而非「等于」）。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = <span class="number">100</span>; <span class="comment">// 连续赋值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">b</span>); <span class="comment">//100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 100</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">a</span>); <span class="comment">//undefined </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// 报错Uncaught ReferenceError:a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>代码解释:当执行了foo()函数之后，var a&#x3D;b&#x3D;100这行连续赋值的代码等价于var a&#x3D;(b&#x3D;100),其执行顺序是：</p>
+<p>（1）先把100赋值给b</p>
+<p>（2）再声明变量a</p>
+<p>（3）再把b的值赋值给a</p>
+<p>因此，b变量未经声明就被赋值了，此时，根据规律1，这个b是属于window.b,而a的作用域仅限于foo()函数内部，不属于window，所以直接访问会报错，而window.a相当于在window中声明对象a，但未赋值，所以是undefined，但是window.a并不会变量提升</p>
+<p>函数预编译，发生在函数执行的前一刻：</p>
+<ol>
+<li>创建AO对象。AO即Activation Object活跃对象，即执行期上下文</li>
+<li>找形参和变量声明，将形参名和变量作为AO的属性名，值为undefined。</li>
+<li>将实参值和形参统一，实参的值赋给形参</li>
+<li>查找函数声明，函数名作为AO对象的属性</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据类型转换</title>
+    <url>/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
+    <content><![CDATA[<h3 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">tostring</span>()</span><br><span class="line"><span class="title function_">string</span>()</span><br><span class="line"><span class="title function_">number</span>()</span><br><span class="line"><span class="built_in">parseInt</span>(string)</span><br><span class="line"><span class="built_in">parseFloat</span>(string)</span><br><span class="line"><span class="title class_">Boolean</span>()</span><br></pre></td></tr></table></figure>
+
+<h3 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h3><p><strong>隐式类型转换，内部调用的都是显式类型的方法</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>()</span><br><span class="line"></span><br><span class="line">自增/自减运算符：++、--</span><br><span class="line"></span><br><span class="line">正号/负号：+a、-a</span><br><span class="line"></span><br><span class="line">加号:+</span><br><span class="line"></span><br><span class="line">运算符:-、*、/</span><br><span class="line"></span><br><span class="line"><span class="title function_">toString</span>()函数</span><br><span class="line"></span><br><span class="line">变量.<span class="title function_">toString</span>();</span><br><span class="line">常量.<span class="title function_">toString</span>();  <span class="comment">//常量不能直接写数字，如下</span></span><br><span class="line"><span class="number">1.</span><span class="title function_">toString</span>(); <span class="comment">// 注意，会报错</span></span><br><span class="line"><span class="number">1.</span>.<span class="title function_">toString</span>(); <span class="comment">// 合法。得到的结果是字符串&quot;1&quot;</span></span><br><span class="line"><span class="number">1.2</span>.<span class="title function_">toString</span>(); <span class="comment">// 合法。得到的结果是字符串&quot;1.2&quot;</span></span><br><span class="line">(<span class="number">1</span>).<span class="title function_">toString</span>(); <span class="comment">// 合法。得到的结果是字符串&quot;1&quot;</span></span><br><span class="line"><span class="comment">//又或者直接把常量放到变量中存起来，然后通过变量调用</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> result = 变量.<span class="title function_">toString</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a6 = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> a7 = <span class="literal">undefined</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a6.<span class="title function_">toString</span>()); <span class="comment">// 报错：Uncaught TypeError: Cannot read properties of null</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a7.<span class="title function_">toString</span>()); <span class="comment">// 报错：Uncaught TypeError: Cannot read properties of undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>该方法不会影响到原变量，它会将转换的结果返回。当然我们还可以直接写成**a &#x3D; a.toString()**，这样可以直接修改原变量</p>
+<p>对上述常量引用toString()的打印结果的解释</p>
+<p> 第一行代码：JS引擎认为1.toString()中的.是小数点，小数点后面的字符是非法的。</p>
+<p>第二行、第三行代码：JS引擎认为第一个.是小数点，第二个.是属性访问的语法，所以能正常解释实行。</p>
+<p>第四行代码：用()排除了.被视为小数点的语法解释，所以这种写法也能正常解释执行。</p>
+<p>另：</p>
+<ol>
+<li><p>大多数情况下，toString()不接受参数，但是Number类型变量可以传递一个整数作为参数，此时它会把数字转换为指定的进制，如果不指定则默认转换为10进制.</p>
+</li>
+<li><p>纯小数的小数点后面，如果紧跟连续6个或6个以上的“0”时，那么，将用e来表示这个小数。</p>
+</li>
+<li><p>常量没有方法，但是可以调用 toString()，因为除了 null、undefined之外，其他的常量都有对应的特殊的引用类型——基本包装类型，所以代码在解释执行的时候，会将常量转为基本包装类型，这样就可以调用相应的引用类型的方法。</p>
+</li>
+</ol>
+<p><strong>String()函数</strong></p>
+<p>使用 String()函数做强制类型转换时：</p>
+<p>  对于 Number、Boolean、String、Object 而言，本质上就是调用 toString()方法，返回结果同 toString()方法。<br>  但是对于 null 和 undefined，则不会调用 toString()方法。它会将 null 直接转换为 “null”。将 undefined 直接转换为 “undefined”。</p>
+<p><strong>隐式类型转换 （特殊）</strong></p>
+<p>逻辑运算符：&amp;&amp;、||、! 。非布尔值进行与或运算时，会先将其转换为布尔值，然后再运算。&amp;&amp;、||的运算结果是原值，!的运算结果为布尔值。</p>
+<p><a href="https://www.runoob.com/w3cnote/javascript-or-and-and.html">https://www.runoob.com/w3cnote/javascript-or-and-and.html</a></p>
+<p>运算结果结论如下： 只要 || 前面为 false,不管 || 后面是 true 还是 false，都返回 || 后面的值。 只要 || 前面为 true,不管 || 后面是 true 还是 false，都返回 || 前面的值。 只要 &amp;&amp; 前面是 false，无论 &amp;&amp; 后面是 true 还是 false，结果都将返 &amp;&amp; 前面的值。 只要 &amp;&amp; 前面是 true，无论 &amp;&amp; 后面是 true 还是 false，结果都将返 &amp;&amp; 后面的值<br>三个及以上的非布尔值，做逻辑运算：<br>与运算的返回结果：（value1 &amp;&amp; value2 &amp;&amp; value3）</p>
+<ul>
+<li>从左到右依次计算操作数，找到第一个为 false 的值为止。</li>
+<li>如果所有的值都为 true，则返回最后一个值。<br>或运算的返回结果：（value1 || value2 || value3）</li>
+<li>从左到右依次计算操作数，找到第一个为 true 的值为止。</li>
+<li>如果所有的值都为 false，则返回最后一个值。<br>JS中的“&amp;&amp;”属于短路的与：<br>如果第一个值为false，则不会执行后面的内容<br>如果第一个值为true，则继续执行第二条语句，并返回第二个值<br>同时JS中的‘||’属于短路的或：<br>如果第一个值为true，则不会执行后面的内容<br>如果第一个值为false，则继续执行第二条语句，并返回第二个值<br>实际开发中可以借此进行“容错处理”<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> result; <span class="comment">// 请求接口时，后台返回的内容</span></span><br><span class="line"><span class="keyword">let</span> errorMsg = <span class="string">&#x27;&#x27;</span>; <span class="comment">// 前端的文案提示</span></span><br><span class="line"><span class="keyword">if</span> (result &amp; result.<span class="property">retCode</span> == <span class="number">0</span>) &#123;</span><br><span class="line">  errorMsg = <span class="string">&#x27;恭喜你中奖啦~&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result &amp;&amp; result.<span class="property">retCode</span> != <span class="number">0</span>) &#123;</span><br><span class="line">	<span class="comment">// 接口返回异常码时</span></span><br><span class="line">	errorMsg = result.<span class="property">msg</span> || <span class="string">&#x27;活动太火爆，请稍后再试&#x27;</span>; <span class="comment">// 文案提示信息，优先用 接口返回的msg字段，其次用 &#x27;活动太火爆，请稍后再试&#x27; 这个文案兜底。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!result) &#123;</span><br><span class="line">	<span class="comment">// 接口挂掉时</span></span><br><span class="line">	errorMsg = <span class="string">&#x27;网络异常，请稍后再试&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>关系运算符：&lt;、&gt; &lt;&#x3D; &gt;&#x3D;等。关系运算符，得到的运算结果都是布尔值：要么是 true，要么是 false<br>隐式类型转换</p>
+<ol>
+<li>隐式转换类型：字符串拼接<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>; <span class="comment">// Number 类型</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a + <span class="string">&#x27;&#x27;</span>); <span class="comment">// 打印结果：&quot;123&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a + <span class="string">&#x27;haha&#x27;</span>); <span class="comment">// 打印结果：&quot;123haha&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>实际上底层是调用string()函数</p>
+<p><strong>Number()函数</strong></p>
+<p>字符串→数字 （1）如果字符串中是纯数字，则直接将其转换为数字。 （2）如果字符串是一个空串或者是一个全是空格的字符串，则转换为 0。 （3）只要字符串中包含了其他非数字的内容（一个小数点按数字来算），则转换为 NaN。即使用 Number() 函数之后，如果无法转换为数字，就会转换为 NaN<br>bool→数字 （1）true转成1 （1）true转成0<br>null→数字 结果为0<br>undefined→数字 NaN</p>
+<ol start="2">
+<li>隐式转换类型：正负号</li>
+</ol>
+<p>注意是正号&#x2F;负号，不是加号&#x2F;减号。任何值做+a、-a运算时， 底层调用的是 Number() 函数（所以如果对bool值进行+-，结果会是0&#x2F;-0&#x2F;1&#x2F;-1）。不会改变原数值；得到的结果，会改变正负性。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a3 = <span class="literal">true</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+a3); <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-a3); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>使用parseInt()函数：字符串→整数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> result = <span class="built_in">parseInt</span>(需要转换的字符串)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;110&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(a, <span class="number">16</span>); <span class="comment">// 【重要】将 a 当成 十六进制 来看待，转换成 十进制 的 num（注意不是转成16进制），结果为272</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;5&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(a, <span class="number">2</span>);  <span class="comment">//转换失败，因为二进制中没有5这个数</span></span><br></pre></td></tr></table></figure>
+<p>将传入的数据当作字符串来处理，<strong>从左至右提取数值，一旦遇到非数值就立即停止（包括小数点，所以只取整数）；停止时如果还没有提取到数值，就返回NaN。（所以开头不是数字就会直接返回NaN，如果是空串或者全是空格，会报错）</strong></p>
+<p><strong>parseInt()、parseFloat()会将传入的数据当作字符串来处理（就算是数字也会先转为字符串）</strong>。也就是说，如果对非 String使用 parseInt()、parseFloat()，它会先将其转换为 String然后再操作。</p>
+</li>
+<li><p>parseFloat()函数：字符串→浮点数</p>
+<p>parseFloat()和 parseInt()的作用类似，不同的是，parseFloat()可以获得小数部分。</p>
+</li>
+</ol>
+<h3 id="三、转换为Boolean"><a href="#三、转换为Boolean" class="headerlink" title="三、转换为Boolean"></a>三、转换为Boolean</h3><p>   其他的数据类型都可以转换为 Boolean 类型。无论是隐式转换，还是显示转换，转换结果都是一样的。</p>
+<p>数字 –&gt; 布尔。 0 和 NaN的转换结果 false，其余的都是 true。比如 Boolean(NaN)的结果是 false。<br>字符串 —&gt; 布尔。空串的转换结果是false，其余的都是 true。全是空格的字符串，转换结果也是 true。字符串’0’的转换结果也是 true。<br>null 和 undefined 都会转换为 false。<br>引用数据类型会转换为 true。注意，空数组[]和空对象{}，转换结果也是 true。</p>
+<p>四、隐式类型转换：逻辑运算</p>
+<p>const a &#x3D; 1;</p>
+<p>console.log(a &#x3D;&#x3D; true); &#x2F;&#x2F; 打印结果：true<br>console.log(typeof a); &#x2F;&#x2F; 打印结果：number。可见，上面一行代码里，a 做了隐式类型转换，但是 a 的数据类型并没有发生变化，仍然是 Number 类型</p>
+<p>使用！！</p>
+<p>使用 !!可以显式转换为 Boolean 类型。比如 !!3的结果是 true。</p>
+<p>其他进制的数字：</p>
+<p>16 进制的数字，以0x开头<br>8 进制的数字，以0开头<br>2 进制的数字，0b开头（不是所有的浏览器都支持：chrome 和火狐支持，IE 不支持）</p>
+<p><strong>isNaN()函数</strong></p>
+<p> 判断指定的参数是否为 NaN（非数字类型），返回结果为 Boolean 类型。也就是说：<strong>任何不能被转换为数值的参数，都会让这个函数返回 true</strong>。</p>
+<p><strong>执行过程：</strong></p>
+<p>（1）先调用**Number()**函数</p>
+<p>（2）然后判断**Number()**的返回结果是否为数值。如果不为数值，则最终结果为 true；如果为数值，则最终结果为 false。</p>
+<p>console.log(isNaN(‘null’)); &#x2F;&#x2F; 返回结果：false(因为null的Number（）结果为0)</p>
+]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript运行三步曲——解释执行</title>
+    <url>/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/</url>
+    <content><![CDATA[<p><strong>在分析JS引擎执行之前，需要明确两件事情：</strong></p>
+<ol>
+<li><p>JS是<strong>单线程</strong>的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。</p>
+</li>
+<li><p>JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：</p>
+</li>
+</ol>
+<p><strong>JS引擎线程</strong>：也称为JS内核，负责解析执行JS脚本程序的主线程（例如V8引擎）。<br><strong>事件触发线程</strong>：归属于浏览器内核进程，不受JS引擎线程控制。主要用于控制事件（例如鼠标，键盘等时间），当该时间被触发时，事件触发线程就会把该事件的处理函数推进事件队列，等待JS引擎线程执行。<br><strong>定时器触发线程</strong>：主要控制计时器setInterval和延时器setTimeout，用于定时器的计时，计时完毕，满足定时器的触发条件，则将定时器的处理函数推进事件队列，等待JS引擎线程执行。（W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms）。<br><strong>HTTP异步请求线程</strong>：通过XMLHttpRequest连接后，通过浏览器新开的一个线程，监控readyState状态变更时，如果设置了该状态的回调函数，则将该状态的处理函数推进事件队列中，等待JS引擎线程执行。</p>
+<p>注：浏览器对同一域名请求的并发连接数是有限制的，Chrome和Firefox限制数为6个，ie8则为10个。</p>
+<p>在JS引擎执行过程中，代码执行顺序如下：宏任务（同步任务）——&gt;微任务——&gt;宏任务（异步任务）</p>
+<p>宏任务</p>
+<p>宏任务（macro-task）按执行顺序分为同步任务和异步任务：</p>
+<ol>
+<li><p>同步任务指的是在JS引擎主线程上按顺序执行的任务，只有前一个任务执行完毕后，才能执行后一个任务，形成一个执行栈（函数调用栈）。</p>
+</li>
+<li><p>异步任务指的是不直接进入JS引擎主线程，而是满足触发条件时，相关的线程将该异步任务推进任务队列（task queue），等待JS引擎主线程上的任务执行完毕，空闲时读取执行的任务，例如异步Ajax，DOM事件，setTimeout等。</p>
+</li>
+</ol>
+<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><p>事件循环由三部分组成，分别是：</p>
+<ol>
+<li><p>主线程执行栈</p>
+</li>
+<li><p>异步任务等待触发</p>
+</li>
+<li><p>任务队列</p>
+</li>
+</ol>
+<p>任务队列就是以队列的数据结构对事件任务进行管理，特点是先进先出，后进后出</p>
+<p>在JS引擎主线程执行过程中：</p>
+<ol>
+<li><p>首先执行宏任务的同步任务，在主线程上形成一个执行栈，可理解为函数调用栈。</p>
+</li>
+<li><p>当执行栈中的函数调用到一些异步执行的API（例如异步Ajax，DOM事件，setTimeout等API），则会开启对应的线程（Http异步请求线程，事件触发线程和定时器触发线程）进行监控和控制。</p>
+</li>
+<li><p>当异步任务的事件满足触发条件时，对应的线程则会把该事件的处理函数推进任务队列(task queue)中，等待主线程读取执行。</p>
+</li>
+<li><p>当JS引擎主线程上的任务执行完毕，则会读取任务队列中的事件，将任务队列中的事件任务推进主线程中，按任务队列顺序执行</p>
+</li>
+<li><p>当JS引擎主线程上的任务执行完毕后，则会再次读取任务队列中的事件任务，如此循环，这就是事件循环（Event Loop）的过程。</p>
+</li>
+</ol>
+<h2 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h2><p>微任务（micro-task）是在ES6和node环境中出现的一个任务类型（其他环境不用考虑），其API主要有:<strong>Promise， process.nextTick</strong>。</p>
+<p>在宏任务中执行的任务有两种，分别是同步任务和异步任务，因为异步任务会在满足触发条件时才会推进任务队列（task queue），然后等待主线程上的任务执行完毕，再读取任务队列中的任务事件，最后推进主线程执行，所以这里将异步任务即任务队列看作是新的宏任务。执行的过程如上图所示：</p>
+<ol>
+<li><p>执行宏任务中同步任务，执行结束。</p>
+</li>
+<li><p>检查是否存在可执行的微任务，有的话执行所有微任务，然后读取任务队列的任务事件，推进主线程形成新的宏任务；没有的话则读取任务队列的任务事件，推进主线程形成新的宏任务。</p>
+</li>
+<li><p>执行新宏任务的事件任务，再检查是否存在可执行的微任务，如此不断的重复循环。</p>
+</li>
+</ol>
+<p>以下是一个示例及详细分析：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise1&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise2&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br><span class="line"></span><br><span class="line">在该例子中，宏任务的代码部分是：</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>1、代码块通过语法分析和预编译后，进入执行阶段，当JS引擎主线程执行到console.log(‘script start’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script start，然后继续向下执行。</p>
+<p>2、JS引擎主线程执行到setTimeout(function() { console.log(‘setTimeout’); }, 0);，JS引擎主线程认为setTimeout是异步任务API，则向浏览器内核进程申请开启定时器线程进行计时和控制该setTimeout任务。由于W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms，那么当计时到4ms时，定时器线程就把该回调处理函数推进任务队列中等待主线程执行，然后JS引擎主线程继续向下执行。</p>
+<p>3、JS引擎主线程执行到Promise.resolve().then(function() { console.log(‘promise1’); }).then(function() { console.log(‘promise2’); });，JS引擎主线程认为Promise是一个微任务，这把该任务划分为微任务，等待执行。</p>
+<p>4、JS引擎主线程执行到console.log(‘script end’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script end。</p>
+<p>5、主线程上的宏任务执行完毕，则开始检测是否存在可执行的微任务，检测到一个Promise微任务，那么立刻执行，输出promise1和promise2</p>
+<p>6、微任务执行完毕，主线程开始读取任务队列中的事件任务setTimeout，推入主线程形成新宏任务，然后在主线程中执行，输出setTimeout</p>
+<p>另外，使用setTimeout模拟实现setInterval，是存在一定区别的：</p>
+<ol>
+<li><p>setTimeout实现setInterval只能通过递归调用。</p>
+</li>
+<li><p>setTimeout是在到了指定时间的时候就把事件推到任务队列中，只有当在任务队列中的setTimeout事件被主线程执行后，才会继续再次在到了指定时间的时候把事件推到任务队列，那么setTimeout的事件执行肯定比指定的时间要久，具体相差多少跟代码执行时间有关。</p>
+</li>
+<li><p>setInterval则是每次都精确的隔一段时间就向任务队列推入一个事件，无论上一个setInterval事件是否已经执行，所以有可能存在setInterval的事件任务累积，导致setInterval的代码重复连续执行多次，影响页面性能。</p>
+</li>
+</ol>
+<p><strong>综合以上的分析</strong>，使用setTimeout实现计时功能是比setInterval性能更好的。如果不需要兼容低版本的IE浏览器，使用requestAnimationFrame是更好的选择。</p>
+<p><strong>进一步思考</strong>：高频率触发的事件（例如滚动事件）触发频率过高会影响页面性能，甚至造成页面卡顿，可以利用setTimeout实现计时器的原理，对高频触发的事件进行优化，实现点在于将多个触发事件合并成一个，这就是防抖和节流。</p>
+]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
 </search>

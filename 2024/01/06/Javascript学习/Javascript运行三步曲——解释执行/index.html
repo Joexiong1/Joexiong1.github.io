@@ -24,7 +24,7 @@
     <meta name="description" content="在分析JS引擎执行之前，需要明确两件事情：  JS是单线程的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。  JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：   JS引擎线程：也称为JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript运行三步曲——解释执行">
-<meta property="og:url" content="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/index.html">
+<meta property="og:url" content="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/index.html">
 <meta property="og:site_name" content="Anti-thobbing的个人博客">
 <meta property="og:description" content="在分析JS引擎执行之前，需要明确两件事情：  JS是单线程的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。  JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：   JS引擎线程：也称为JS">
 <meta property="og:locale" content="zh_CN">
@@ -36,11 +36,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/">
+<link rel="canonical" href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/","path":"2024/01/06/Javascript运行三步曲——解释执行/","title":"Javascript运行三步曲——解释执行"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/","path":"2024/01/06/Javascript学习/Javascript运行三步曲——解释执行/","title":"Javascript运行三步曲——解释执行"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Javascript运行三步曲——解释执行 | Anti-thobbing的个人博客</title>
@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -210,7 +210,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -371,7 +371,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/" title="Javascript运行三步曲——解释执行">https://joexiong1.github.io/2024/01/06/Javascript运行三步曲——解释执行/</a>
+      <a href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/" title="Javascript运行三步曲——解释执行">https://joexiong1.github.io/2024/01/06/Javascript学习/Javascript运行三步曲——解释执行/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -388,13 +388,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/" rel="prev" title="Javascript运行三步曲——预编译">
-                  <i class="fa fa-angle-left"></i> Javascript运行三步曲——预编译
+                <a href="/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/" rel="prev" title="变量提升、函数提升">
+                  <i class="fa fa-angle-left"></i> 变量提升、函数提升
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/01/07/++a%E5%92%8Ca++/" rel="next" title="a++和++a">
-                  a++和++a <i class="fa fa-angle-right"></i>
+                <a href="/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/" rel="next" title="Javascript运行三步曲——预编译">
+                  Javascript运行三步曲——预编译 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -426,13 +426,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">19k</span>
+    <span title="站点总字数">21k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">34 分钟</span>
+    <span title="站点阅读时长">38 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

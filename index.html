@@ -151,18 +151,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -193,6 +193,337 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">CSS三大特性</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-08 18:00:00 / 修改时间：19:22:08" itemprop="dateCreated datePublished" datetime="2024-01-08T18:00:00+08:00">2024-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">CSS学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="CSS三大特性"><a href="#CSS三大特性" class="headerlink" title="CSS三大特性"></a>CSS三大特性</h2><ul>
+<li>层叠性</li>
+<li>继承性</li>
+<li>优先级</li>
+</ul>
+<blockquote>
+<p><strong>样式冲突</strong>：多个选择器指定了同一个元素的情况。</p>
+</blockquote>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>优先级是为了解决<strong>样式冲突</strong>的问题，解决方法是<strong>计算权重</strong>。</p>
+<p>当样式冲突发生时，需要按照下方顺序统计权重：</p>
+<ul>
+<li>id 选择器</li>
+<li>类选择器、属性选择器、伪类选择器</li>
+<li>标签选择器、伪元素选择器</li>
+</ul>
+<p><strong>注意</strong>：不进位，实际上能进位（255个标签等于1个类名）</p>
+<p><strong>权重问题总结</strong></p>
+<ul>
+<li><strong>选择上了</strong>，数权重，(id的数量，类的数量，标签的数量)。如果权重一样，谁写在后面听谁的。</li>
+<li>没有选择上，通过继承影响的，就近原则，谁描述的近听谁的。如果描述的一样近，比如选择器权重，如果权重再一样重，谁写在后面听谁的。</li>
+</ul>
+<h3 id="样式表冲突总结"><a href="#样式表冲突总结" class="headerlink" title="样式表冲突总结"></a>样式表冲突总结</h3><ul>
+<li>1、对于相同的选择器（比如同样都是类选择器），其样式表排序：行级样式 &gt; 内嵌样式表 &gt; 外部样式表（就近原则）</li>
+<li>2、对于相同类型的样式表（比如同样都是内部样式表），其选择器排序：ID选择器 &gt; 类选择器 &gt; 标签选择器</li>
+<li>3、外部样式表的ID选择器  &gt; 内嵌样式表的标签选择器</li>
+</ul>
+<h3 id="important标记：优先级最高"><a href="#important标记：优先级最高" class="headerlink" title="!important标记：优先级最高"></a>!important标记：优先级最高</h3><p>语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k:v !important;</span><br></pre></td></tr></table></figure>
+<p><strong>（1）!important提升的是一个属性，而不是一个选择器</strong><br>示例如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:red <span class="meta">!important</span>;    只写了这一个!important，所以只有字体颜色属性提升了权重</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">100px</span> ;       这条属性没有写!important，所以没有提升权重</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#para1</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:blue;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.spec</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:green;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>综合来看，<strong>字体颜色是red；字号是50px</strong>。</p>
+<p><strong>（2）!important无法提升继承的权重，该是0还是0</strong><br>比如HTML结构：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>哈哈哈哈哈哈哈哈<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>有CSS样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:red <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于div是通过继承性来影响文字颜色的，所以!important无法提升它的权重，权重依然是0。因此其<strong>并不影响就近原则</strong>。</p>
+<h2 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h2><h3 id="就近原则"><a href="#就近原则" class="headerlink" title="就近原则"></a>就近原则</h3><p>权重相同时，会按照书写顺序最后的为准。这是因为在运行的过程中，上面的样式先执行，下面的样式元素会将上面的覆盖。</p>
+<h2 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h2><p>继承性是指书写样式表时，子标签会继承父标签的某些样式，有一些样式是有继承性的，只需将它应用于父元素即可。</p>
+<h3 id="什么样式能够继承"><a href="#什么样式能够继承" class="headerlink" title="什么样式能够继承"></a>什么样式能够继承</h3><p>并不是所有的css属性都可以继承。</p>
+<ul>
+<li>关于<strong>文字样式</strong>的属性，都具有继承性。这些属性包括：color、 text-开头的、line-开头的、font-开头的。</li>
+<li>关于<strong>盒子、定位、布局</strong>的属性，都不能继承。</li>
+</ul>
+<h3 id="继承性的影响"><a href="#继承性的影响" class="headerlink" title="继承性的影响"></a>继承性的影响</h3><blockquote>
+<p>如果不能直接选中某个元素，而是通过继承性影响的话，那么权重是0。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/" class="post-title-link" itemprop="url">a标签的伪类顺序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-08 18:00:00 / 修改时间：17:59:13" itemprop="dateCreated datePublished" datetime="2024-01-08T18:00:00+08:00">2024-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">CSS学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>906</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h3><ol>
+<li>访问前link </li>
+<li>访问后visited</li>
+<li>鼠标移上hover</li>
+<li>鼠标点击active<br>可以利用<strong>爱恨准则</strong>: love hate来进行记忆</li>
+</ol>
+<p><strong>示例代码如下：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;a标签的四个伪类&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        a:link &#123;</span><br><span class="line">            /* 访问前状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;        </span><br><span class="line">        a:visited &#123;</span><br><span class="line">            /* 访问后状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;</span><br><span class="line">        a:hover &#123;</span><br><span class="line">            /* 鼠标悬浮状态 */</span><br><span class="line">            color: blueviolet;</span><br><span class="line">        &#125;</span><br><span class="line">        a:active &#123;</span><br><span class="line">            /* 鼠标点击状态 */</span><br><span class="line">            color: brown;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>伪类的权重是相同的，所以根据<strong>就近原则</strong>,后出现的伪类会覆盖先出现的伪类（同时激活）<br>比如把hover放在active后面，那么实际在激活（active）链接的时候就触发了hover伪类，hover在后面覆盖了active的颜色，所以始终无法看到active的颜色,如果把visited放在hover的后面，那么已经访问过的链接始终触发visited伪类，根据第一条会覆盖hover里面的颜色。其实 link visited 这两个伪类，并不需要顺序关系。（他们两的位置可以交换）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/08/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-08 15:42:18 / 修改时间：17:53:58" itemprop="dateCreated datePublished" datetime="2024-01-08T15:42:18+08:00">2024-01-08</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>118</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>到底用 id 还是用 class？</strong></p>
+<ul>
+<li><strong>答</strong>：尽可能的用 class，除非极特殊的情况可以用 id。因为id 是 js 用的。也就是说，js 要通过 id 属性得到标签，所以 css 层面尽量不用 id，要不然 js 就很别扭。另一层面，我们会认为一个有 id 的元素，有动态效果</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -506,7 +837,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/07/++a%E5%92%8Ca++/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/07/Javascript%E5%AD%A6%E4%B9%A0/++a%E5%92%8Ca++/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -524,7 +855,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/07/++a%E5%92%8Ca++/" class="post-title-link" itemprop="url">a++和++a</a>
+          <a href="/2024/01/07/Javascript%E5%AD%A6%E4%B9%A0/++a%E5%92%8Ca++/" class="post-title-link" itemprop="url">a++和++a</a>
         </h2>
 
         <div class="post-meta-container">
@@ -608,7 +939,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -626,7 +957,118 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/" class="post-title-link" itemprop="url">Javascript运行三步曲——解释执行</a>
+          <a href="/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/" class="post-title-link" itemprop="url">Javascript运行三步曲——预编译</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-06 09:54:00 / 修改时间：10:00:14" itemprop="dateCreated datePublished" datetime="2024-01-06T09:54:00+08:00">2024-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaScript学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>813</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完成再次进入该代码块的语法分析阶段。</p>
+<h3 id="两个规律"><a href="#两个规律" class="headerlink" title="两个规律"></a>两个规律</h3><p><strong>规律1</strong>：任何变量，如果未经声明就赋值，此变量是属于 window 的属性，而且不会做变量提升。（注意，无论在哪个作用域内赋值）</p>
+<p><strong>规律2</strong>：一切声明的全局变量，全是window的属性。（注意，这里说的是在全局作用域内声明的全局变量，不是说局部变量）</p>
+<p>window 代表了全局作用域（「代表」而非「等于」）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = <span class="number">100</span>; <span class="comment">// 连续赋值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">b</span>); <span class="comment">//100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 100</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">a</span>); <span class="comment">//undefined </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// 报错Uncaught ReferenceError:a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>代码解释:当执行了foo()函数之后，var a&#x3D;b&#x3D;100这行连续赋值的代码等价于var a&#x3D;(b&#x3D;100),其执行顺序是：</p>
+<p>（1）先把100赋值给b</p>
+<p>（2）再声明变量a</p>
+<p>（3）再把b的值赋值给a</p>
+<p>因此，b变量未经声明就被赋值了，此时，根据规律1，这个b是属于window.b,而a的作用域仅限于foo()函数内部，不属于window，所以直接访问会报错，而window.a相当于在window中声明对象a，但未赋值，所以是undefined，但是window.a并不会变量提升</p>
+<p>函数预编译，发生在函数执行的前一刻：</p>
+<ol>
+<li>创建AO对象。AO即Activation Object活跃对象，即执行期上下文</li>
+<li>找形参和变量声明，将形参名和变量作为AO的属性名，值为undefined。</li>
+<li>将实参值和形参统一，实参的值赋给形参</li>
+<li>查找函数声明，函数名作为AO对象的属性</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/" class="post-title-link" itemprop="url">Javascript运行三步曲——解释执行</a>
         </h2>
 
         <div class="post-meta-container">
@@ -772,7 +1214,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -790,118 +1232,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/06/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/" class="post-title-link" itemprop="url">Javascript运行三步曲——预编译</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-06 09:54:00 / 修改时间：10:00:14" itemprop="dateCreated datePublished" datetime="2024-01-06T09:54:00+08:00">2024-01-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaScript学习</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>813</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完成再次进入该代码块的语法分析阶段。</p>
-<h3 id="两个规律"><a href="#两个规律" class="headerlink" title="两个规律"></a>两个规律</h3><p><strong>规律1</strong>：任何变量，如果未经声明就赋值，此变量是属于 window 的属性，而且不会做变量提升。（注意，无论在哪个作用域内赋值）</p>
-<p><strong>规律2</strong>：一切声明的全局变量，全是window的属性。（注意，这里说的是在全局作用域内声明的全局变量，不是说局部变量）</p>
-<p>window 代表了全局作用域（「代表」而非「等于」）。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = <span class="number">100</span>; <span class="comment">// 连续赋值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">b</span>); <span class="comment">//100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 100</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">a</span>); <span class="comment">//undefined </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// 报错Uncaught ReferenceError:a is not defined</span></span><br></pre></td></tr></table></figure>
-
-<p>代码解释:当执行了foo()函数之后，var a&#x3D;b&#x3D;100这行连续赋值的代码等价于var a&#x3D;(b&#x3D;100),其执行顺序是：</p>
-<p>（1）先把100赋值给b</p>
-<p>（2）再声明变量a</p>
-<p>（3）再把b的值赋值给a</p>
-<p>因此，b变量未经声明就被赋值了，此时，根据规律1，这个b是属于window.b,而a的作用域仅限于foo()函数内部，不属于window，所以直接访问会报错，而window.a相当于在window中声明对象a，但未赋值，所以是undefined，但是window.a并不会变量提升</p>
-<p>函数预编译，发生在函数执行的前一刻：</p>
-<ol>
-<li>创建AO对象。AO即Activation Object活跃对象，即执行期上下文</li>
-<li>找形参和变量声明，将形参名和变量作为AO的属性名，值为undefined。</li>
-<li>将实参值和形参统一，实参的值赋给形参</li>
-<li>查找函数声明，函数名作为AO对象的属性</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/05/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/05/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/" class="post-title-link" itemprop="url">变量提升、函数提升</a>
+          <a href="/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/" class="post-title-link" itemprop="url">变量提升、函数提升</a>
         </h2>
 
         <div class="post-meta-container">
@@ -991,7 +1322,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/05/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -1009,7 +1340,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/05/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">数据类型转换</a>
+          <a href="/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">数据类型转换</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1169,13 +1500,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">19k</span>
+    <span title="站点总字数">21k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">34 分钟</span>
+    <span title="站点阅读时长">38 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

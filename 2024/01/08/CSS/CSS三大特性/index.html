@@ -21,28 +21,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"joexiong1.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="在openLayers中如何加载WMTS服务?答: 在openLayers中可以通过olsourse.WMTS 以及 ol.sourse.XYZ等方式加载WMTS服务，ol.source.XYZ的方式比较简单，只需要输入修改url和xyz以及坐标系即可。而ol.source.WMTS较复杂，需要配置原点、分辨率数组、分辨率对应的级别、坐标系的参数等。  WMS和WMTS的区别答:WMTS服务和W">
+    <meta name="description" content="CSS三大特性 层叠性 继承性 优先级   样式冲突：多个选择器指定了同一个元素的情况。  优先级优先级是为了解决样式冲突的问题，解决方法是计算权重。 当样式冲突发生时，需要按照下方顺序统计权重：  id 选择器 类选择器、属性选择器、伪类选择器 标签选择器、伪元素选择器  注意：不进位，实际上能进位（255个标签等于1个类名） 权重问题总结  选择上了，数权重，(id的数量，类的数量，标签的数量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GIS面经1">
-<meta property="og:url" content="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/index.html">
+<meta property="og:title" content="CSS三大特性">
+<meta property="og:url" content="https://joexiong1.github.io/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="Anti-thobbing的个人博客">
-<meta property="og:description" content="在openLayers中如何加载WMTS服务?答: 在openLayers中可以通过olsourse.WMTS 以及 ol.sourse.XYZ等方式加载WMTS服务，ol.source.XYZ的方式比较简单，只需要输入修改url和xyz以及坐标系即可。而ol.source.WMTS较复杂，需要配置原点、分辨率数组、分辨率对应的级别、坐标系的参数等。  WMS和WMTS的区别答:WMTS服务和W">
+<meta property="og:description" content="CSS三大特性 层叠性 继承性 优先级   样式冲突：多个选择器指定了同一个元素的情况。  优先级优先级是为了解决样式冲突的问题，解决方法是计算权重。 当样式冲突发生时，需要按照下方顺序统计权重：  id 选择器 类选择器、属性选择器、伪类选择器 标签选择器、伪元素选择器  注意：不进位，实际上能进位（255个标签等于1个类名） 权重问题总结  选择上了，数权重，(id的数量，类的数量，标签的数量">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-07T04:19:00.000Z">
-<meta property="article:modified_time" content="2024-01-07T13:18:04.477Z">
+<meta property="article:published_time" content="2024-01-08T10:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-08T11:22:08.321Z">
 <meta property="article:author" content="Anti-thobbing">
-<meta property="article:tag" content="GIS面经">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/">
+<link rel="canonical" href="https://joexiong1.github.io/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/","path":"2024/01/07/GIS面经/GIS面经/","title":"GIS面经1"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://joexiong1.github.io/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/","path":"2024/01/08/CSS/CSS三大特性/","title":"CSS三大特性"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>GIS面经1 | Anti-thobbing的个人博客</title>
+<title>CSS三大特性 | Anti-thobbing的个人博客</title>
   
 
 
@@ -142,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#WMS%EF%BC%88Web-Map-Service%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">WMS（Web Map Service）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WMTS%EF%BC%88Web-Map-Tile-Service%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">WMTS（Web Map Tile Service）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">CSS三大特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">2.</span> <span class="nav-text">优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E8%A1%A8%E5%86%B2%E7%AA%81%E6%80%BB%E7%BB%93"><span class="nav-number">2.1.</span> <span class="nav-text">样式表冲突总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#important%E6%A0%87%E8%AE%B0%EF%BC%9A%E4%BC%98%E5%85%88%E7%BA%A7%E6%9C%80%E9%AB%98"><span class="nav-number">2.2.</span> <span class="nav-text">!important标记：优先级最高</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E5%8F%A0%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">层叠性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B1%E8%BF%91%E5%8E%9F%E5%88%99"><span class="nav-number">3.1.</span> <span class="nav-text">就近原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">继承性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%A0%B7%E5%BC%8F%E8%83%BD%E5%A4%9F%E7%BB%A7%E6%89%BF"><span class="nav-number">4.1.</span> <span class="nav-text">什么样式能够继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E6%80%A7%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">4.2.</span> <span class="nav-text">继承性的影响</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -209,7 +210,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -222,12 +223,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="GIS面经1 | Anti-thobbing的个人博客">
+      <meta itemprop="name" content="CSS三大特性 | Anti-thobbing的个人博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          GIS面经1
+          CSS三大特性
         </h1>
 
         <div class="post-meta-container">
@@ -239,7 +240,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-01-07 12:19:00 / 修改时间：21:18:04" itemprop="dateCreated datePublished" datetime="2024-01-07T12:19:00+08:00">2024-01-07</time>
+      <time title="创建时间：2024-01-08 18:00:00 / 修改时间：19:22:08" itemprop="dateCreated datePublished" datetime="2024-01-08T18:00:00+08:00">2024-01-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -247,7 +248,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/GIS%E9%9D%A2%E7%BB%8F/" itemprop="url" rel="index"><span itemprop="name">GIS面经</span></a>
+          <a href="/categories/CSS%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">CSS学习</span></a>
         </span>
     </span>
 
@@ -265,14 +266,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.2k</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -282,76 +283,53 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><ul>
-<li><strong>在openLayers中如何加载WMTS服务?</strong><br><strong>答</strong>: 在openLayers中可以通过olsourse.WMTS 以及 ol.sourse.XYZ等方式加载WMTS服务，ol.source.XYZ的方式比较简单，只需要输入修改url和xyz以及坐标系即可。而ol.source.WMTS较复杂，需要配置原点、分辨率数组、分辨率对应的级别、坐标系的参数等。</li>
+    <div class="post-body" itemprop="articleBody"><h2 id="CSS三大特性"><a href="#CSS三大特性" class="headerlink" title="CSS三大特性"></a>CSS三大特性</h2><ul>
+<li>层叠性</li>
+<li>继承性</li>
+<li>优先级</li>
 </ul>
-<p><strong>WMS和WMTS的区别</strong><br><strong>答</strong>:WMTS服务和WMS服务本质区别即对客户端请求服务的响应不同。在接受客户端请求WMTS服务时，返回给客户端是固定大小的瓦片，客户端根据索引号来获取每一张瓦片，而后拼接成地图进行展示，其采取缓存技术来替代实时对数据进行可视化，用以提高地图响应能力。而当客户端请求WMS服务时，返回给客户端是一张完整的图片，客户端取到直接展示。</p>
-<p>细节</p>
-<h3 id="WMS（Web-Map-Service）"><a href="#WMS（Web-Map-Service）" class="headerlink" title="WMS（Web Map Service）"></a>WMS（Web Map Service）</h3><ol>
-<li><strong>动态请求</strong>：WMS 提供地图作为对特定请求的响应。当用户请求地图时，服务器动态生成地图图像并返回。这意味着地图是实时生成的。</li>
-<li><strong>灵活性</strong>：WMS 允许用户指定多种参数，如图像大小、格式、地理范围（bounding box）、图层等，从而提供高度定制化的地图。</li>
-<li><strong>性能</strong>：由于地图是按需生成的，对于大量用户或复杂的地图渲染，WMS 可能在性能上存在限制。特别是在缩放和平移地图时，可能会出现延迟。</li>
-<li><strong>标准和支持</strong>：WMS 是 OGC（Open Geospatial Consortium）的一个标准，得到广泛支持和应用。</li>
-</ol>
-<h3 id="WMTS（Web-Map-Tile-Service）"><a href="#WMTS（Web-Map-Tile-Service）" class="headerlink" title="WMTS（Web Map Tile Service）"></a>WMTS（Web Map Tile Service）</h3><ol>
-<li><strong>预渲染瓦片</strong>：WMTS 使用预先渲染的地图瓦片。这些瓦片在多个尺度级别上生成，并存储在服务器上。</li>
-<li><strong>性能优化</strong>：由于地图瓦片是预先生成的，WMTS 在性能上通常优于 WMS，尤其是在处理大量请求时。地图的加载和显示更快，用户体验更流畅。</li>
-<li><strong>可缓存性</strong>：预渲染的瓦片可以被缓存，这对于常访问的地区和流行的尺度级别非常有用，进一步提高了性能。</li>
-<li><strong>灵活性限制</strong>：与 WMS 相比，WMTS 提供的灵活性较低。用户不能自定义地图的尺寸或样式，只能选择预定义的瓦片。</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li>WMS 适用于需要高度定制的地图服务，允许动态生成地图，但可能在性能上有限制。</li>
-<li>WMTS 更适用于需要快速响应和高并发的场景，通过使用预渲染的地图瓦片提供优化的性能，但牺牲了一定的灵活性。</li>
-</ul>
-<p><strong>Web端如何实时获取服务器数据</strong></p>
+<blockquote>
+<p><strong>样式冲突</strong>：多个选择器指定了同一个元素的情况。</p>
+</blockquote>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>优先级是为了解决<strong>样式冲突</strong>的问题，解决方法是<strong>计算权重</strong>。</p>
+<p>当样式冲突发生时，需要按照下方顺序统计权重：</p>
 <ul>
-<li>Worker</li>
-<li>Ajax+定时器</li>
+<li>id 选择器</li>
+<li>类选择器、属性选择器、伪类选择器</li>
+<li>标签选择器、伪元素选择器</li>
 </ul>
-<p><strong>OGC有哪些服务</strong><br><strong>答</strong>：</p>
+<p><strong>注意</strong>：不进位，实际上能进位（255个标签等于1个类名）</p>
+<p><strong>权重问题总结</strong></p>
 <ul>
-<li><strong>WMS(Web Map Service)：地图服务</strong></li>
+<li><strong>选择上了</strong>，数权重，(id的数量，类的数量，标签的数量)。如果权重一样，谁写在后面听谁的。</li>
+<li>没有选择上，通过继承影响的，就近原则，谁描述的近听谁的。如果描述的一样近，比如选择器权重，如果权重再一样重，谁写在后面听谁的。</li>
 </ul>
-<p>⽤于获取地图图像，以便在Web上进⾏显示。WMS服务通常允许⽤户以各种格式(若PNG，JPEG 等)检索地图图像。</p>
+<h3 id="样式表冲突总结"><a href="#样式表冲突总结" class="headerlink" title="样式表冲突总结"></a>样式表冲突总结</h3><ul>
+<li>1、对于相同的选择器（比如同样都是类选择器），其样式表排序：行级样式 &gt; 内嵌样式表 &gt; 外部样式表（就近原则）</li>
+<li>2、对于相同类型的样式表（比如同样都是内部样式表），其选择器排序：ID选择器 &gt; 类选择器 &gt; 标签选择器</li>
+<li>3、外部样式表的ID选择器  &gt; 内嵌样式表的标签选择器</li>
+</ul>
+<h3 id="important标记：优先级最高"><a href="#important标记：优先级最高" class="headerlink" title="!important标记：优先级最高"></a>!important标记：优先级最高</h3><p>语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k:v !important;</span><br></pre></td></tr></table></figure>
+<p><strong>（1）!important提升的是一个属性，而不是一个选择器</strong><br>示例如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:red <span class="meta">!important</span>;    只写了这一个!important，所以只有字体颜色属性提升了权重</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">100px</span> ;       这条属性没有写!important，所以没有提升权重</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#para1</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:blue;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.spec</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:green;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>综合来看，<strong>字体颜色是red；字号是50px</strong>。</p>
+<p><strong>（2）!important无法提升继承的权重，该是0还是0</strong><br>比如HTML结构：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>哈哈哈哈哈哈哈哈<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>有CSS样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:red <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于div是通过继承性来影响文字颜色的，所以!important无法提升它的权重，权重依然是0。因此其<strong>并不影响就近原则</strong>。</p>
+<h2 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h2><h3 id="就近原则"><a href="#就近原则" class="headerlink" title="就近原则"></a>就近原则</h3><p>权重相同时，会按照书写顺序最后的为准。这是因为在运行的过程中，上面的样式先执行，下面的样式元素会将上面的覆盖。</p>
+<h2 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h2><p>继承性是指书写样式表时，子标签会继承父标签的某些样式，有一些样式是有继承性的，只需将它应用于父元素即可。</p>
+<h3 id="什么样式能够继承"><a href="#什么样式能够继承" class="headerlink" title="什么样式能够继承"></a>什么样式能够继承</h3><p>并不是所有的css属性都可以继承。</p>
 <ul>
-<li><strong>WFS(Web Feature Service)：矢量服务</strong></li>
+<li>关于<strong>文字样式</strong>的属性，都具有继承性。这些属性包括：color、 text-开头的、line-开头的、font-开头的。</li>
+<li>关于<strong>盒子、定位、布局</strong>的属性，都不能继承。</li>
 </ul>
-<p>⽤于获取地理空间数据，以便在Web上进⾏分析和查询，WFS服务通常允许⽤户以多种格式(如GML，JSON等)检索地理空间数据。</p>
-<p>具体代码表现层⾯：如加载geojson数据</p>
-<ul>
-<li><strong>WCS(Web Coverage Service)：栅格服务</strong></li>
-</ul>
-<p>⽤于获取遥感数据和其他覆盖范围数据。WCS服务允许⽤户以各种格式（如GeoTIFF、NetCDF 等）检索遥感数据。</p>
-<ul>
-<li><strong>WMTS（Web Map Tile Service）：地图瓦片服务</strong></li>
-</ul>
-<p>它是OGC的⼀种服务，⽤于提供已切割为⼩图块的地图图像，以便在Web上进⾏显示。与WMS不 同，WMTS不会动态⽣成地图图像，⽽是将地图预先切割为固定⼤⼩的图块，并将其存储在服务器上。客户端可以请求特定级别和坐标的特定图块，⽽⽆需请求整个地图图像。这样可以提⾼地图显示的效率和速度，特别是在处理⼤规模地图时。</p>
-<p><strong>地图投影类型的区别，如何分类</strong><br><strong>答</strong>:</p>
-<ol>
-<li>等⾯积投影（Equal Area Projection）：这种投影类型会保持地图上的⾯积⽐例不变，但会导致形状和⽅向的变形。常⻅的等⾯积投影包括⻨卡托投影和兰勃托投影。</li>
-<li>等⻆投影（Conformal Projection）：这种投影类型会保持地图上的⻆度不变，但会导致⾯积和⻓度的变形。常⻅的等⻆投影包括墨卡托投影和极射投影。</li>
-<li>等距投影（Equidistant Projection）：这种投影类型会保持地图上的距离⽐例不变，但会导致⾯积和形状的变形。常⻅的等距投影包括正轴等距投影和正射等距投影。</li>
-<li>综合性投影（Composite Projection）：这种投影类型是以上三种投影类型的组合。综合性投影通常⽤于需要平衡多个因素的地图，如形状、⾯积和距离。</li>
-</ol>
-<p>不同的地图投影类型适⽤于不同的应⽤场景。在选择地图投影类型时，需要考虑需要表达的信息类型、地图区域的⼤⼩和形状、地图的⽤途等因素。</p>
-<p><strong>常⻅的空间数据库有哪些</strong></p>
-<ul>
-<li><strong>PostgreSQL&#x2F;PostGIS</strong>：PostgreSQL是⼀种开源的对象关系型数据库管理系统，⽽PostGIS则是⼀ 个⽤于PostgreSQL的空间数据库扩展，可以⽤于存储、查询和分析空间数据。</li>
-<li><strong>Oracle Spatial</strong>：Oracle Spatial是Oracle数据库的⼀个扩展，它提供了存储和查询空间数据的功 能，包括⼏何对象类型、空间索引和空间查询操作。</li>
-<li><strong>SQL Server Spatial</strong>：SQL Server Spatial是Microsoft SQL Server数据库的⼀个扩展，它提供了存 储和查询空间数据的功能，包括⼏何对象类型、空间索引和空间查询操作。</li>
-<li><strong>SQLite&#x2F;SpatiaLite</strong>：SQLite是⼀种轻型的嵌⼊式关系型数据库管理系统，⽽SpatiaLite则是⼀个⽤ 于SQLite的空间数据库扩展，可以⽤于存储、查询和分析空间数据。</li>
-<li><strong>MongoDB</strong>：MongoDB是⼀个NoSQL数据库，它可以存储各种类型的数据，包括空间数据。 MongoDB通过GeoJSON格式存储空间数据，并提供了⼀些空间查询操作。</li>
-<li><strong>MySQL Spatial</strong>：MySQL Spatial是MySQL数据库的⼀个扩展，它提供了存储和查询空间数据的功 能，包括⼏何对象类型、空间索引和空间查询操作。</li>
-</ul>
-<p><strong>地图上要素很多加载慢,遇到过崩掉的情况么前端是如何缓解的</strong><br>前端在处理大量要素时，确实可能会遇到加载缓慢、卡顿、崩溃等问题。以下是一些缓解这些问题的方法：</p>
-<ul>
-<li><strong>数据优化</strong>：将不必要的数据过滤掉，只加载必要的数据。例如，如果地图上只需要显示某些特定的区 域或点，可以通过缩放或其他⽅式进⾏筛选，只加载这些要素。这样可以减轻数据量，加快加载速度。(<strong>比如在openlayers中可以使用集群（Cluster）</strong>)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个群集源并设置距离</span></span><br><span class="line"><span class="keyword">const</span> clusterSource = <span class="keyword">new</span> <span class="title class_">Cluster</span>(&#123;</span><br><span class="line">  <span class="attr">distance</span>: <span class="number">40</span>, <span class="comment">// 群集的距离阈值，单位为像素</span></span><br><span class="line">  <span class="attr">source</span>: source,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
-<li><strong>图层分级</strong>：将地图逐层分级，每层只显示特定的要素，降低⼀层图层中的要素数量。可以通过层叠效果来叠加多层图层，形成完整的地图效果。这样能够<strong>减少对单个图层的渲染次数</strong>，提⾼性能。</li>
-<li><strong>后台优化</strong>：通过后台对数据进⾏剪裁和压缩，减⼩数据传输的⼤⼩。还可以在后台对数据进⾏分块， 分段加载，来减轻前端负担。</li>
-<li><strong>瓦⽚地图</strong>：将地图切分成瓦⽚，只显示在当前屏幕可视范围内的瓦⽚，减少了不必要的数据加载。该 技术可以⼤⼤减少加载速度，特别是在⼤地图并发⽤户请求⾮常⾼的情况下。</li>
-<li><strong>前端优化</strong>：通过缓存、预加载等技术，优化前端的性能。例如，可以将⼀些经常使⽤的数据进⾏缓存(<strong>比如上一次选中的是哪个地图</strong>)，提⾼响应速度，还可以在⽤户浏览过⼀个⻚⾯时，预加载下⼀个即将进⼊的⻚⾯，以提⾼⽤户体验。</li>
-</ul>
-<p><strong>动态投影</strong><br><strong>答</strong>:GIS的动态投影跟图形学的动态投影并不相同。在地理信息系统（GIS）中，动态投影（Dynamic Projection）通常指的是在地图上随着用户的交互或数据展示需求，实时地调整地图的投影方式，以便在不同的投影下正确显示地理数据。动态投影在GIS中是一个重要的功能，它允许用户在不同的投影之间切换，以满足不同的分析、展示和交互需求。</p>
+<h3 id="继承性的影响"><a href="#继承性的影响" class="headerlink" title="继承性的影响"></a>继承性的影响</h3><blockquote>
+<p>如果不能直接选中某个元素，而是通过继承性影响的话，那么权重是0。</p>
+</blockquote>
 
     </div>
 
@@ -369,7 +347,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/" title="GIS面经1">https://joexiong1.github.io/2024/01/07/GIS面经/GIS面经/</a>
+      <a href="https://joexiong1.github.io/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" title="CSS三大特性">https://joexiong1.github.io/2024/01/08/CSS/CSS三大特性/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -378,21 +356,19 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/GIS%E9%9D%A2%E7%BB%8F/" rel="tag"># GIS面经</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/01/07/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/" rel="prev" title="UE5地形制作ChatGPT对话-1">
-                  <i class="fa fa-angle-left"></i> UE5地形制作ChatGPT对话-1
+                <a href="/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/" rel="prev" title="a标签的伪类顺序">
+                  <i class="fa fa-angle-left"></i> a标签的伪类顺序
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/01/08/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
