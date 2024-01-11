@@ -477,4 +477,87 @@
         <tag>前端</tag>
       </tags>
   </entry>
+  <entry>
+    <title></title>
+    <url>/2024/01/09/CSS/z-index/</url>
+    <content><![CDATA[<p><strong>z-index</strong>属性：数值大的压盖住数值小的。</p>
+<p>有如下特性：</p>
+<ul>
+<li><ol>
+<li>属性值大的位于上层，属性值小的位于下层。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>z-index值没有单位，就是一个正整数。默认的z-index值是0。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>如果大家都没有z-index值，或者z-index值一样，那么在HTML代码里写在后面，谁就在上面能压住别人。定位了的元素，永远能够压住没有定位的元素。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>只有定位了的元素，才能有z-index值。也就是说，不管相对定位、绝对定位、固定定位，都可以使用z-index值。<strong>而浮动的元素不能用</strong>。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>从父现象：如果父亲1比父亲2大，那么，即使儿子1比儿子2小，儿子1也能在最上层。</li>
+</ol>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>浮动</title>
+    <url>/2024/01/08/CSS/%E6%B5%AE%E5%8A%A8/</url>
+    <content><![CDATA[<p>这里所说的清除浮动，指的是清除浮动与浮动之间的影响。</p>
+]]></content>
+      <categories>
+        <category>CSS学习</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript运行三步曲——预编译</title>
+    <url>/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><p><strong>优点</strong>：写法方便简洁，容易理解<br><strong>缺点</strong>：对象实例共享所有继承的属性和方法（这样就只有一种参数）；无法向父类构造函数传参</p>
+<h3 id="借用构造函数继承"><a href="#借用构造函数继承" class="headerlink" title="借用构造函数继承"></a>借用构造函数继承</h3><p>在子类型构造函数内部调用父类型构造函数，使用apply()或call()方法将父对象的构造函数绑定在子对象上。<br><strong>优点</strong>：解决原型链实现继承的不能传参的问题和<strong>父类的原型共享</strong>的问题<br><strong>缺点</strong>:构造函数中定义，因此无法实现函数复用（<strong>也就是说每次都会创建新的对象</strong>），并且父类型的原型中定义的方法，对子类型而言是不可见的，所以所有子类型都只能使用构造函数模式</p>
+<h3 id="组合式继承"><a href="#组合式继承" class="headerlink" title="组合式继承"></a>组合式继承</h3><p>将前两个方法组合到一起，使用原型链实现对原型属性和方法的继承，并且通过借用构造函数来实现对实例属性的继承，这样<strong>既保证实现函数复用，又保证每个实例都有自己的属性</strong>。<br><strong>缺点</strong>：无论在什么情况下都会调用两次父类构造函数（一次在创建子类原型的时候，一次是在子类构造函数内部）</p>
+<h3 id="ES6的class类继承"><a href="#ES6的class类继承" class="headerlink" title="ES6的class类继承"></a>ES6的class类继承</h3>]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据类型驾车呢</title>
+    <url>/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/</url>
+    <content><![CDATA[<p>常用如下：</p>
+<ul>
+<li><p><strong>typeof()</strong><br>适用于基本数据类型，但是对于引用数据类型并不适用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="number">666</span>)  <span class="comment">//number</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(type [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])  <span class="comment">//object，检测不出是数组</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>instanceof()</strong><br>只能判断引用数据类型，不能判断基本数据类型</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([] instance <span class="title class_">Array</span>)  <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;abc&#x27;</span> instance <span class="title class_">String</span>) <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>constructor</strong><br>几乎可以判断基本数据类型和引用数据类型,但是如果声明了一个构造函数，并且其原型指向了Array，则无法判断。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((<span class="string">&#x27;abc&#x27;</span>).<span class="property">constructor</span>===<span class="title class_">String</span>)  <span class="comment">//object</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Object.prototype.toString.call()</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> opt=<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(opt.<span class="title function_">call</span>(<span class="number">2</span>));   <span class="comment">//number</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(opt.<span class="title function_">call</span>(<span class="literal">true</span>));<span class="comment">// Boolean</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(opt.<span class="title function_">call</span>([]));  <span class="comment">//Array</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(opt.<span class="title function_">call</span>(&#123;&#125;));  <span class="comment">//Object</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
 </search>
