@@ -6,7 +6,7 @@
   <link href="https://joexiong1.github.io/atom.xml" rel="self"/>
   
   <link href="https://joexiong1.github.io/"/>
-  <updated>2024-01-09T07:23:35.925Z</updated>
+  <updated>2024-01-14T03:48:29.042Z</updated>
   <id>https://joexiong1.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fill()陷阱</title>
+    <link href="https://joexiong1.github.io/2024/01/14/Javascript%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84fill()%E9%99%B7%E9%98%B1%E8%AE%B0%E5%BD%95/"/>
+    <id>https://joexiong1.github.io/2024/01/14/Javascript%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84fill()%E9%99%B7%E9%98%B1%E8%AE%B0%E5%BD%95/</id>
+    <published>2024-01-14T03:24:00.000Z</published>
+    <updated>2024-01-14T03:48:29.042Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;使用fill()创建数组时遇到的坑，原代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;t</summary>
+      
+    
+    
+    
+    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -169,8 +194,8 @@
   
   <entry>
     <title>UE5地形制作ChatGPT对话-1</title>
-    <link href="https://joexiong1.github.io/2024/01/07/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/"/>
-    <id>https://joexiong1.github.io/2024/01/07/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/</id>
+    <link href="https://joexiong1.github.io/2024/01/07/UE5/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/"/>
+    <id>https://joexiong1.github.io/2024/01/07/UE5/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/</id>
     <published>2024-01-07T02:30:00.000Z</published>
     <updated>2024-01-07T02:55:58.347Z</updated>
     
@@ -248,7 +273,7 @@
     <link href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/"/>
     <id>https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/</id>
     <published>2024-01-06T01:54:00.000Z</published>
-    <updated>2024-01-06T01:56:47.670Z</updated>
+    <updated>2024-01-11T09:47:55.612Z</updated>
     
     
       
@@ -276,7 +301,7 @@
     <link href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
     <id>https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/</id>
     <published>2024-01-06T01:54:00.000Z</published>
-    <updated>2024-01-10T11:22:31.669Z</updated>
+    <updated>2024-01-11T08:05:22.028Z</updated>
     
     
       

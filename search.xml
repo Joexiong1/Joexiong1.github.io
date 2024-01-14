@@ -1,66 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>UE5地形制作ChatGPT对话-1</title>
-    <url>/2024/01/07/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/</url>
-    <content><![CDATA[<h2 id="与ChatGPT4的对话"><a href="#与ChatGPT4的对话" class="headerlink" title="与ChatGPT4的对话"></a>与ChatGPT4的对话</h2><p><code>You：你了解UE吗</code></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">GPT:</span><br><span class="line">&quot;UE&quot; 有多种可能的含义，具体取决于上下文。以下是两个常见的含义：</span><br><span class="line"></span><br><span class="line">Unreal Engine (UE):</span><br><span class="line"></span><br><span class="line">简介： Unreal Engine 是由 Epic Games 开发的一款强大的游戏引擎。它广泛用于制作高质量的三维游戏、虚拟现实（VR）、增强现实（AR）、模拟器、可视化效果等应用。Unreal Engine 提供了先进的图形渲染、物理引擎、音频系统等功能，以及基于蓝图和C++的开发环境。</span><br><span class="line">User Experience (UE):</span><br><span class="line"></span><br><span class="line">简介： User Experience（用户体验）是指用户与产品、系统或服务进行交互时的全体经验。它包括用户在使用产品时的感受、情感、满意度等方面。UE 设计关注于创建简单、直观、高效的用户界面，以确保用户在使用产品时有良好的体验。</span><br><span class="line">如果你有特定的问题或是想要深入探讨关于 &quot;UE&quot; 的某个方面，请提供更多的上下文，以便我能够更准确地回答。</span><br></pre></td></tr></table></figure>
-
-<p><code>You:我指的是Unreal Engine</code></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">ChatGPT：了解，Unreal Engine（UE）是一款由 Epic Games 开发的强大游戏引擎，广泛用于电子游戏、虚拟现实（VR）、增强现实（AR）、模拟器等领域。以下是一些关于 Unreal Engine 的基本信息：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 图形引擎： Unreal Engine 包含了先进的图形引擎，支持高质量的实时渲染。其渲染引擎提供了许多先进的功能，如全局光照、实时阴影、体积光、后期处理效果等，以创建逼真的视觉效果。</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> 物理引擎： Unreal Engine 集成了强大的物理引擎，支持刚体物理、碰撞检测、布料模拟、液体模拟等，使游戏中的物体和角色具有逼真的运动和互动。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> 蓝图系统： Unreal Engine 提供了蓝图系统，这是一种可视化的编程系统，允许开发者使用图形界面设计游戏逻辑和交互，而无需编写代码。蓝图系统使得游戏设计师和艺术家也能够参与到游戏逻辑的创建中。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> 多平台支持： Unreal Engine 支持多个平台，包括 PC、主机（如 PlayStation、Xbox）、移动设备（iOS、Android）、虚拟现实设备（如 Oculus Rift、HTC Vive）等。这使得开发者能够跨多个平台发布他们的作品。</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> 开放性和社区： Unreal Engine 是一个开源引擎，允许开发者访问源代码，并可以根据需要进行修改。此外，Unreal Engine 社区活跃，提供了大量的教程、文档和支持。</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> 游戏开发工具： Unreal Engine 提供了一系列工具，包括场景编辑器、角色编辑器、动画编辑器等，使得游戏开发变得更加高效。</span><br><span class="line"></span><br><span class="line"><span class="bullet">7.</span> 虚拟现实和增强现实： Unreal Engine 是虚拟现实和增强现实应用的重要平台，支持创建逼真的 VR 和 AR 内容。</span><br><span class="line"></span><br><span class="line"><span class="bullet">8.</span> Unreal Engine 在游戏行业和虚拟现实领域广受好评，被许多游戏开发者和工作室选择作为他们的首选引擎。</span><br></pre></td></tr></table></figure>
-
-<p><code>You：你了解UE的关卡制作吗</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT：</span><br><span class="line">是的，我了解 Unreal Engine 中的关卡制作。在游戏开发中，关卡是游戏世界的一部分，可以包括地形、建筑、角色、道具等元素。Unreal Engine 提供了强大的关卡编辑工具，允许开发者创建富有创意的游戏场景。</span><br><span class="line"></span><br><span class="line">以下是 Unreal Engine 中关卡制作的一些关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 关卡编辑器（Level Editor）： Unreal Engine 的关卡编辑器是一个强大的可视化工具，用于创建、编辑和布置游戏场景。通过关卡编辑器，开发者可以轻松地添加地形、静态网格、光照、效果等元素。</span><br><span class="line"></span><br><span class="line">2. 地形工具： Unreal Engine 的地形工具允许开发者创建自然地形，包括山脉、山谷、平原等。开发者可以使用不同的笔刷和工具来塑造地形，同时可以导入高度图以获取真实的地形数据。</span><br><span class="line"></span><br><span class="line">3. 静态网格和模型： 关卡中的物体通常由静态网格构成，这些网格可以是建筑、道具、植被等。Unreal Engine 支持导入各种3D模型，并提供了灵活的工具来放置、旋转和缩放这些模型。</span><br><span class="line"></span><br><span class="line">4. 蓝图： Unreal Engine 的蓝图系统允许开发者在关卡中创建交互性和逻辑。通过蓝图，开发者可以设计和定义关卡中的游戏逻辑，包括触发事件、角色行为、任务等。</span><br><span class="line"></span><br><span class="line">5. 光照和效果： 光照在游戏中是至关重要的，Unreal Engine 提供了强大的光照系统。开发者可以调整太阳光、灯光、阴影等参数，以实现视觉效果的优化。</span><br><span class="line"></span><br><span class="line">6. 音频： 关卡制作还涉及到音频的布置。开发者可以在关卡中放置音频触发器、背景音乐等，以提供更加丰富的游戏体验。</span><br><span class="line"></span><br><span class="line">7. 碰撞体和触发器： 为了实现游戏中的交互和碰撞检测，开发者可以在关卡中放置碰撞体和触发器。这些元素可以用于处理角色与环境的互动。</span><br><span class="line"></span><br><span class="line">8. 地图优化： 随着关卡的增大，性能优化变得尤为重要。Unreal Engine 提供了一系列的工具和技术，帮助开发者优化关卡，确保游戏在各种平台上都能够运行流畅。</span><br><span class="line"></span><br><span class="line">总体而言，Unreal Engine 的关卡制作工具和特性提供了开发者广泛的创作自由，同时提供了强大的性能和可视化效果。</span><br></pre></td></tr></table></figure>
-
-<p><code>You:我们现在专注于探讨关卡中的地形部分</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">理解了，让我们专注于关卡中的地形部分。在Unreal Engine中，地形是关卡中一个重要的元素，开发者可以使用地形工具来创建自然的地貌、山脉、河谷等。以下是一些关于Unreal Engine中地形制作的关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 地形工具面板： 打开Unreal Engine关卡编辑器后，可以通过选择“Modes”面板中的“Landscape”选项来访问地形工具。这里包含了创建、编辑、涂绘地形的工具。</span><br><span class="line"></span><br><span class="line">2. 创建地形： 首先，你需要创建一个地形。选择“Landscape”选项后，可以选择创建全新的地形或导入高度图。创建地形时，你需要指定地形的大小、分辨率等参数。</span><br><span class="line"></span><br><span class="line">3. 地形编辑工具： 地形编辑工具包括提升、降低、平滑、噪声等功能。这些工具使你能够在地形上进行各种形状和形态的修改，创造出各种地貌。</span><br><span class="line"></span><br><span class="line">4. 涂绘地形： Unreal Engine 允许你使用“涂鸦”工具来为地形添加纹理和细节。这包括添加草地、岩石、沙土等纹理，使地形看起来更加真实。</span><br><span class="line"></span><br><span class="line">5. 雕刻细节： 通过调整地形编辑工具的参数，你可以对地形进行更详细的雕刻，创造出沟壑、山脊等地貌特征。</span><br><span class="line"></span><br><span class="line">6. 高度图导入： Unreal Engine 支持通过导入高度图的方式创建地形。高度图是一种灰度图像，其中不同的灰度值对应不同的高度。这是一个常用的创建真实地形的方法。</span><br><span class="line"></span><br><span class="line">7. 地形材质： 你可以为地形定义多层次的材质，以模拟不同的地表类型。这可以通过材质层的涂抹和混合来实现。</span><br><span class="line"></span><br><span class="line">8. 地形优化： 随着地形的增大，性能优化变得重要。 Unreal Engine 提供了一些工具，如“Landscape LOD”（层次细节）来帮助优化大型地形的性能。</span><br><span class="line"></span><br><span class="line">9. 地形的动态变化： Unreal Engine 还支持在游戏运行时动态修改地形。这意味着你可以在游戏中通过脚本或触发器来修改地形，以响应玩家的行为或故事发展。</span><br><span class="line"></span><br><span class="line">以上是关于 Unreal Engine 中地形制作的一些基本概念和步骤。实际上，地形的制作是一个广泛而深入的主题，你可能需要进一步深入学习和实践以熟练运用这些工具。</span><br></pre></td></tr></table></figure>
-
-<p><code>You:现在我想要知道UE是如何具体实现这些功能的，你可以通过实现思路或是结合UE源码来解答</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">Unreal Engine（UE）的地形系统是一个复杂而强大的模块，它的实现涉及到多个方面，包括地形生成、编辑、渲染等。下面是对 UE 地形系统实现的一些基本思路和组成部分的简要解释：</span><br><span class="line"></span><br><span class="line">地形生成：</span><br><span class="line"></span><br><span class="line">Unreal Engine 支持通过高度图生成地形。高度图是一种灰度图像，其中灰度值对应地形的高度。在地形生成时，引擎会根据高度图的灰度值为地形的每个顶点计算高度信息，从而形成地形的基本形状。</span><br><span class="line">地形编辑工具：</span><br><span class="line"></span><br><span class="line">地形编辑工具提供了一系列的操作，如提升、降低、平滑、噪声等。这些操作会影响地形的高度信息。实现这些工具的基本思路是通过修改地形的顶点数据，然后更新渲染。</span><br><span class="line">地形的细节涂绘：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许开发者为地形添加多层次的纹理，这通过涂鸦工具实现。实现思路是为每个地形顶点存储多层次的纹理信息，通过融合这些纹理来模拟地表的不同类型。</span><br><span class="line">地形材质的定义：</span><br><span class="line"></span><br><span class="line">地形的材质定义是通过层次材质（Layered Material）来实现的。每个层次对应一种地表类型，例如草地、岩石、沙土等。这些层次材质通过混合和涂抹操作来达到自然过渡的效果。</span><br><span class="line">LOD（层次细节）：</span><br><span class="line"></span><br><span class="line">Unreal Engine 的地形系统支持 LOD，即在远处时使用低分辨率的地形表示，在近处时逐渐增加细节。这通过在运行时动态生成不同层次的地形网格来实现。</span><br><span class="line">高度图导入：</span><br><span class="line"></span><br><span class="line">高度图导入涉及将外部高度图的灰度信息映射到地形的高度。这通常包括将高度图的像素值映射到地形的顶点高度，并相应地更新地形。</span><br><span class="line">动态变化：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许在运行时动态修改地形。这是通过在蓝图或代码中实现对地形高度数据的修改和更新来实现的。</span><br><span class="line">在 UE 的实现中，上述功能涉及到底层的图形引擎、渲染管道、材质系统等多个模块。具体的实现细节需要深入阅读 Unreal Engine 的源代码和相关文档。UE 的源代码是闭源的，但 Epic Games 提供了一些开放的接口和文档，以帮助开发者理解和扩展引擎的功能。开发者可以通过 Unreal Engine 的官方文档、社区论坛以及相关的在线资源来深入研究和学习。</span><br></pre></td></tr></table></figure>
-
-
-<p>在Unreal Engine中，地形制作相关的源码通常位于其主要的GitHub存储库中，具体可以在以下位置找到：</p>
-<ul>
-<li><strong>存储库</strong>：<a href="https://github.com/EpicGames/UnrealEngine">Unreal Engine GitHub Repository</a></li>
-<li><strong>目录路径</strong>：<ul>
-<li><code>Engine/Source/Runtime/Landscape/</code>：这个目录包含地形系统（Landscape System）的大部分核心功能和类。</li>
-<li><code>Engine/Source/Editor/LandscapeEditor/</code>：这里包含了地形编辑器相关的代码，主要是UE编辑器内用于地形编辑的用户界面和工具。</li>
-</ul>
-</li>
-</ul>
-<p>为了访问这些源代码，你需要一个有效的Epic Games账号，并且必须同意Unreal Engine的使用条款。在完成这些步骤之后，你才能够从GitHub存储库克隆或下载代码。</p>
-<p>请注意，Unreal Engine的源代码是非常庞大和复杂的，涉及深入的C++编程知识，以及对游戏开发和计算机图形学的理解。如果你刚开始接触这些内容，建议先从官方文档和教程开始学习。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">`You：你了解UE的关卡制作吗`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>是的，我了解《3D Engine Design for Virtual Globes》这本书。这本书由Patrick Cozzi和Kevin Ring共同撰写，专注于3D引擎的设计，特别是用于虚拟地球和地理信息系统（GIS）的应用。它提供了关于如何创建高性能、实时的3D地球可视化引擎的深入讨论和指导。</p>
-<p>以下是这本书的一些关键特点和内容概述：</p>
-<h3 id="关键特点"><a href="#关键特点" class="headerlink" title="关键特点"></a>关键特点</h3><ol>
-<li><strong>实时3D引擎设计</strong>：书中详细探讨了实时渲染技术，特别是在地理空间数据和大规模地球表面渲染方面的应用。</li>
-<li><strong>虚拟地球技术</strong>：详细介绍了虚拟地球技术的核心概念，包括地球表面的渲染、地形表示、以及与卫星图像的集成。</li>
-<li><strong>性能优化</strong>：重点关注性能优化策略，以确保3D引擎能够高效地处理大量的地理空间数据。</li>
-</ol>
-<h3 id="内容概述"><a href="#内容概述" class="headerlink" title="内容概述"></a>内容概述</h3><ul>
-<li><strong>基础理论</strong>：介绍3D图形学的基础理论，如坐标系统、投影和视图变换。</li>
-<li><strong>地理空间数据处理</strong>：讨论如何处理和优化地理空间数据，包括地形数据和卫星图像。</li>
-<li><strong>高级渲染技术</strong>：深入探讨高级渲染技术，如着色器编程、光照和阴影、以及大气和天气效果。</li>
-<li><strong>地形和图像金字塔</strong>：介绍地形和图像金字塔技术，这是一种处理和显示大规模地理数据的有效方法。</li>
-<li><strong>网络技术</strong>：探讨如何使用网络技术来流式传输和渲染地球数据。</li>
-</ul>
-<h3 id="适用读者"><a href="#适用读者" class="headerlink" title="适用读者"></a>适用读者</h3><ul>
-<li><strong>游戏开发者</strong>：对于想要在游戏中实现地球或大规模地形渲染的开发者。</li>
-<li><strong>GIS专业人士</strong>：GIS领域的专业人士，希望了解3D引擎在地理空间数据可视化中的应用。</li>
-<li><strong>计算机图形学爱好者</strong>：对3D图形学和实时渲染技术感兴趣的读者。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>《3D Engine Design for Virtual Globes》是一本专业的技术书籍，它结合了计算机图形学理论和实际的应用案例，适合那些希望深入了解和开发用于虚拟地球和GIS应用的3D引擎的读者。<br>&#96;&#96;&#96;</p>
-]]></content>
-      <categories>
-        <category>UE5</category>
-      </categories>
-      <tags>
-        <tag>UE5</tag>
-        <tag>ChatGPT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GIS面经1</title>
     <url>/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/</url>
     <content><![CDATA[<ul>
@@ -404,7 +344,7 @@
 <li><p>JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：</p>
 </li>
 </ol>
-<p><strong>JS引擎线程</strong>：也称为JS内核，负责解析执行JS脚本程序的主线程（例如V8引擎）。<br><strong>事件触发线程</strong>：归属于浏览器内核进程，不受JS引擎线程控制。主要用于控制事件（例如鼠标，键盘等时间），当该时间被触发时，事件触发线程就会把该事件的处理函数推进事件队列，等待JS引擎线程执行。<br><strong>定时器触发线程</strong>：主要控制计时器setInterval和延时器setTimeout，用于定时器的计时，计时完毕，满足定时器的触发条件，则将定时器的处理函数推进事件队列，等待JS引擎线程执行。（W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms）。<br><strong>HTTP异步请求线程</strong>：通过XMLHttpRequest连接后，通过浏览器新开的一个线程，监控readyState状态变更时，如果设置了该状态的回调函数，则将该状态的处理函数推进事件队列中，等待JS引擎线程执行。</p>
+<p><strong>JS引擎线程</strong>：也称为JS内核，负责解析执行JS脚本程序的主线程（例如V8引擎）。<br><strong>事件触发线程</strong>：归属于浏览器内核进程，不受JS引擎线程控制。主要用于控制事件（例如鼠标，键盘等事件），当该事件被触发时，事件触发线程就会把该事件的处理函数推进事件队列，等待JS引擎线程执行。<br><strong>定时器触发线程</strong>：主要控制计时器setInterval和延时器setTimeout，用于定时器的计时，计时完毕，满足定时器的触发条件，则将定时器的处理函数推进事件队列，等待JS引擎线程执行。（W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms）。<br><strong>HTTP异步请求线程</strong>：通过XMLHttpRequest连接后，通过浏览器新开的一个线程，监控readyState状态变更时，如果设置了该状态的回调函数，则将该状态的处理函数推进事件队列中，等待JS引擎线程执行。</p>
 <p>注：浏览器对同一域名请求的并发连接数是有限制的，Chrome和Firefox限制数为6个，ie8则为10个。</p>
 <p>在JS引擎执行过程中，代码执行顺序如下：宏任务（同步任务）——&gt;微任务——&gt;宏任务（异步任务）</p>
 <p>宏任务</p>
@@ -443,7 +383,7 @@
 <ol>
 <li><p>执行宏任务中同步任务，执行结束。</p>
 </li>
-<li><p>检查是否存在可执行的微任务，有的话执行所有微任务，然后读取任务队列的任务事件，推进主线程形成新的宏任务；没有的话则读取任务队列的任务事件，推进主线程形成新的宏任务。</p>
+<li><p>检查是否存在可执行的微任务，有的话执行所有微任务，然后读取任务队列的任务事件，推进主线程形成新的宏任务。</p>
 </li>
 <li><p>执行新宏任务的事件任务，再检查是否存在可执行的微任务，如此不断的重复循环。</p>
 </li>
@@ -525,7 +465,8 @@
     <content><![CDATA[<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><p><strong>优点</strong>：写法方便简洁，容易理解<br><strong>缺点</strong>：对象实例共享所有继承的属性和方法（这样就只有一种参数）；无法向父类构造函数传参</p>
 <h3 id="借用构造函数继承"><a href="#借用构造函数继承" class="headerlink" title="借用构造函数继承"></a>借用构造函数继承</h3><p>在子类型构造函数内部调用父类型构造函数，使用apply()或call()方法将父对象的构造函数绑定在子对象上。<br><strong>优点</strong>：解决原型链实现继承的不能传参的问题和<strong>父类的原型共享</strong>的问题<br><strong>缺点</strong>:构造函数中定义，因此无法实现函数复用（<strong>也就是说每次都会创建新的对象</strong>），并且父类型的原型中定义的方法，对子类型而言是不可见的，所以所有子类型都只能使用构造函数模式</p>
 <h3 id="组合式继承"><a href="#组合式继承" class="headerlink" title="组合式继承"></a>组合式继承</h3><p>将前两个方法组合到一起，使用原型链实现对原型属性和方法的继承，并且通过借用构造函数来实现对实例属性的继承，这样<strong>既保证实现函数复用，又保证每个实例都有自己的属性</strong>。<br><strong>缺点</strong>：无论在什么情况下都会调用两次父类构造函数（一次在创建子类原型的时候，一次是在子类构造函数内部）</p>
-<h3 id="ES6的class类继承"><a href="#ES6的class类继承" class="headerlink" title="ES6的class类继承"></a>ES6的class类继承</h3>]]></content>
+<h3 id="ES6的class类继承"><a href="#ES6的class类继承" class="headerlink" title="ES6的class类继承"></a>ES6的class类继承</h3><p>通过extends关键字实现继承，其实质是<strong>先创造出父类的this对象，然后用子类的构造函数修改this</strong>。</p>
+]]></content>
       <categories>
         <category>JavaScript学习</category>
       </categories>
@@ -550,6 +491,99 @@
 </li>
 <li><p><strong>Object.prototype.toString.call()</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> opt=<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(opt.<span class="title function_">call</span>(<span class="number">2</span>));   <span class="comment">//number</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(opt.<span class="title function_">call</span>(<span class="literal">true</span>));<span class="comment">// Boolean</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(opt.<span class="title function_">call</span>([]));  <span class="comment">//Array</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(opt.<span class="title function_">call</span>(&#123;&#125;));  <span class="comment">//Object</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE5地形制作ChatGPT对话-1</title>
+    <url>/2024/01/07/UE5/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="与ChatGPT4的对话"><a href="#与ChatGPT4的对话" class="headerlink" title="与ChatGPT4的对话"></a>与ChatGPT4的对话</h2><p><code>You：你了解UE吗</code></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">GPT:</span><br><span class="line">&quot;UE&quot; 有多种可能的含义，具体取决于上下文。以下是两个常见的含义：</span><br><span class="line"></span><br><span class="line">Unreal Engine (UE):</span><br><span class="line"></span><br><span class="line">简介： Unreal Engine 是由 Epic Games 开发的一款强大的游戏引擎。它广泛用于制作高质量的三维游戏、虚拟现实（VR）、增强现实（AR）、模拟器、可视化效果等应用。Unreal Engine 提供了先进的图形渲染、物理引擎、音频系统等功能，以及基于蓝图和C++的开发环境。</span><br><span class="line">User Experience (UE):</span><br><span class="line"></span><br><span class="line">简介： User Experience（用户体验）是指用户与产品、系统或服务进行交互时的全体经验。它包括用户在使用产品时的感受、情感、满意度等方面。UE 设计关注于创建简单、直观、高效的用户界面，以确保用户在使用产品时有良好的体验。</span><br><span class="line">如果你有特定的问题或是想要深入探讨关于 &quot;UE&quot; 的某个方面，请提供更多的上下文，以便我能够更准确地回答。</span><br></pre></td></tr></table></figure>
+
+<p><code>You:我指的是Unreal Engine</code></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">ChatGPT：了解，Unreal Engine（UE）是一款由 Epic Games 开发的强大游戏引擎，广泛用于电子游戏、虚拟现实（VR）、增强现实（AR）、模拟器等领域。以下是一些关于 Unreal Engine 的基本信息：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 图形引擎： Unreal Engine 包含了先进的图形引擎，支持高质量的实时渲染。其渲染引擎提供了许多先进的功能，如全局光照、实时阴影、体积光、后期处理效果等，以创建逼真的视觉效果。</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> 物理引擎： Unreal Engine 集成了强大的物理引擎，支持刚体物理、碰撞检测、布料模拟、液体模拟等，使游戏中的物体和角色具有逼真的运动和互动。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> 蓝图系统： Unreal Engine 提供了蓝图系统，这是一种可视化的编程系统，允许开发者使用图形界面设计游戏逻辑和交互，而无需编写代码。蓝图系统使得游戏设计师和艺术家也能够参与到游戏逻辑的创建中。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> 多平台支持： Unreal Engine 支持多个平台，包括 PC、主机（如 PlayStation、Xbox）、移动设备（iOS、Android）、虚拟现实设备（如 Oculus Rift、HTC Vive）等。这使得开发者能够跨多个平台发布他们的作品。</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> 开放性和社区： Unreal Engine 是一个开源引擎，允许开发者访问源代码，并可以根据需要进行修改。此外，Unreal Engine 社区活跃，提供了大量的教程、文档和支持。</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> 游戏开发工具： Unreal Engine 提供了一系列工具，包括场景编辑器、角色编辑器、动画编辑器等，使得游戏开发变得更加高效。</span><br><span class="line"></span><br><span class="line"><span class="bullet">7.</span> 虚拟现实和增强现实： Unreal Engine 是虚拟现实和增强现实应用的重要平台，支持创建逼真的 VR 和 AR 内容。</span><br><span class="line"></span><br><span class="line"><span class="bullet">8.</span> Unreal Engine 在游戏行业和虚拟现实领域广受好评，被许多游戏开发者和工作室选择作为他们的首选引擎。</span><br></pre></td></tr></table></figure>
+
+<p><code>You：你了解UE的关卡制作吗</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT：</span><br><span class="line">是的，我了解 Unreal Engine 中的关卡制作。在游戏开发中，关卡是游戏世界的一部分，可以包括地形、建筑、角色、道具等元素。Unreal Engine 提供了强大的关卡编辑工具，允许开发者创建富有创意的游戏场景。</span><br><span class="line"></span><br><span class="line">以下是 Unreal Engine 中关卡制作的一些关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 关卡编辑器（Level Editor）： Unreal Engine 的关卡编辑器是一个强大的可视化工具，用于创建、编辑和布置游戏场景。通过关卡编辑器，开发者可以轻松地添加地形、静态网格、光照、效果等元素。</span><br><span class="line"></span><br><span class="line">2. 地形工具： Unreal Engine 的地形工具允许开发者创建自然地形，包括山脉、山谷、平原等。开发者可以使用不同的笔刷和工具来塑造地形，同时可以导入高度图以获取真实的地形数据。</span><br><span class="line"></span><br><span class="line">3. 静态网格和模型： 关卡中的物体通常由静态网格构成，这些网格可以是建筑、道具、植被等。Unreal Engine 支持导入各种3D模型，并提供了灵活的工具来放置、旋转和缩放这些模型。</span><br><span class="line"></span><br><span class="line">4. 蓝图： Unreal Engine 的蓝图系统允许开发者在关卡中创建交互性和逻辑。通过蓝图，开发者可以设计和定义关卡中的游戏逻辑，包括触发事件、角色行为、任务等。</span><br><span class="line"></span><br><span class="line">5. 光照和效果： 光照在游戏中是至关重要的，Unreal Engine 提供了强大的光照系统。开发者可以调整太阳光、灯光、阴影等参数，以实现视觉效果的优化。</span><br><span class="line"></span><br><span class="line">6. 音频： 关卡制作还涉及到音频的布置。开发者可以在关卡中放置音频触发器、背景音乐等，以提供更加丰富的游戏体验。</span><br><span class="line"></span><br><span class="line">7. 碰撞体和触发器： 为了实现游戏中的交互和碰撞检测，开发者可以在关卡中放置碰撞体和触发器。这些元素可以用于处理角色与环境的互动。</span><br><span class="line"></span><br><span class="line">8. 地图优化： 随着关卡的增大，性能优化变得尤为重要。Unreal Engine 提供了一系列的工具和技术，帮助开发者优化关卡，确保游戏在各种平台上都能够运行流畅。</span><br><span class="line"></span><br><span class="line">总体而言，Unreal Engine 的关卡制作工具和特性提供了开发者广泛的创作自由，同时提供了强大的性能和可视化效果。</span><br></pre></td></tr></table></figure>
+
+<p><code>You:我们现在专注于探讨关卡中的地形部分</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">理解了，让我们专注于关卡中的地形部分。在Unreal Engine中，地形是关卡中一个重要的元素，开发者可以使用地形工具来创建自然的地貌、山脉、河谷等。以下是一些关于Unreal Engine中地形制作的关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 地形工具面板： 打开Unreal Engine关卡编辑器后，可以通过选择“Modes”面板中的“Landscape”选项来访问地形工具。这里包含了创建、编辑、涂绘地形的工具。</span><br><span class="line"></span><br><span class="line">2. 创建地形： 首先，你需要创建一个地形。选择“Landscape”选项后，可以选择创建全新的地形或导入高度图。创建地形时，你需要指定地形的大小、分辨率等参数。</span><br><span class="line"></span><br><span class="line">3. 地形编辑工具： 地形编辑工具包括提升、降低、平滑、噪声等功能。这些工具使你能够在地形上进行各种形状和形态的修改，创造出各种地貌。</span><br><span class="line"></span><br><span class="line">4. 涂绘地形： Unreal Engine 允许你使用“涂鸦”工具来为地形添加纹理和细节。这包括添加草地、岩石、沙土等纹理，使地形看起来更加真实。</span><br><span class="line"></span><br><span class="line">5. 雕刻细节： 通过调整地形编辑工具的参数，你可以对地形进行更详细的雕刻，创造出沟壑、山脊等地貌特征。</span><br><span class="line"></span><br><span class="line">6. 高度图导入： Unreal Engine 支持通过导入高度图的方式创建地形。高度图是一种灰度图像，其中不同的灰度值对应不同的高度。这是一个常用的创建真实地形的方法。</span><br><span class="line"></span><br><span class="line">7. 地形材质： 你可以为地形定义多层次的材质，以模拟不同的地表类型。这可以通过材质层的涂抹和混合来实现。</span><br><span class="line"></span><br><span class="line">8. 地形优化： 随着地形的增大，性能优化变得重要。 Unreal Engine 提供了一些工具，如“Landscape LOD”（层次细节）来帮助优化大型地形的性能。</span><br><span class="line"></span><br><span class="line">9. 地形的动态变化： Unreal Engine 还支持在游戏运行时动态修改地形。这意味着你可以在游戏中通过脚本或触发器来修改地形，以响应玩家的行为或故事发展。</span><br><span class="line"></span><br><span class="line">以上是关于 Unreal Engine 中地形制作的一些基本概念和步骤。实际上，地形的制作是一个广泛而深入的主题，你可能需要进一步深入学习和实践以熟练运用这些工具。</span><br></pre></td></tr></table></figure>
+
+<p><code>You:现在我想要知道UE是如何具体实现这些功能的，你可以通过实现思路或是结合UE源码来解答</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">Unreal Engine（UE）的地形系统是一个复杂而强大的模块，它的实现涉及到多个方面，包括地形生成、编辑、渲染等。下面是对 UE 地形系统实现的一些基本思路和组成部分的简要解释：</span><br><span class="line"></span><br><span class="line">地形生成：</span><br><span class="line"></span><br><span class="line">Unreal Engine 支持通过高度图生成地形。高度图是一种灰度图像，其中灰度值对应地形的高度。在地形生成时，引擎会根据高度图的灰度值为地形的每个顶点计算高度信息，从而形成地形的基本形状。</span><br><span class="line">地形编辑工具：</span><br><span class="line"></span><br><span class="line">地形编辑工具提供了一系列的操作，如提升、降低、平滑、噪声等。这些操作会影响地形的高度信息。实现这些工具的基本思路是通过修改地形的顶点数据，然后更新渲染。</span><br><span class="line">地形的细节涂绘：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许开发者为地形添加多层次的纹理，这通过涂鸦工具实现。实现思路是为每个地形顶点存储多层次的纹理信息，通过融合这些纹理来模拟地表的不同类型。</span><br><span class="line">地形材质的定义：</span><br><span class="line"></span><br><span class="line">地形的材质定义是通过层次材质（Layered Material）来实现的。每个层次对应一种地表类型，例如草地、岩石、沙土等。这些层次材质通过混合和涂抹操作来达到自然过渡的效果。</span><br><span class="line">LOD（层次细节）：</span><br><span class="line"></span><br><span class="line">Unreal Engine 的地形系统支持 LOD，即在远处时使用低分辨率的地形表示，在近处时逐渐增加细节。这通过在运行时动态生成不同层次的地形网格来实现。</span><br><span class="line">高度图导入：</span><br><span class="line"></span><br><span class="line">高度图导入涉及将外部高度图的灰度信息映射到地形的高度。这通常包括将高度图的像素值映射到地形的顶点高度，并相应地更新地形。</span><br><span class="line">动态变化：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许在运行时动态修改地形。这是通过在蓝图或代码中实现对地形高度数据的修改和更新来实现的。</span><br><span class="line">在 UE 的实现中，上述功能涉及到底层的图形引擎、渲染管道、材质系统等多个模块。具体的实现细节需要深入阅读 Unreal Engine 的源代码和相关文档。UE 的源代码是闭源的，但 Epic Games 提供了一些开放的接口和文档，以帮助开发者理解和扩展引擎的功能。开发者可以通过 Unreal Engine 的官方文档、社区论坛以及相关的在线资源来深入研究和学习。</span><br></pre></td></tr></table></figure>
+
+
+<p>在Unreal Engine中，地形制作相关的源码通常位于其主要的GitHub存储库中，具体可以在以下位置找到：</p>
+<ul>
+<li><strong>存储库</strong>：<a href="https://github.com/EpicGames/UnrealEngine">Unreal Engine GitHub Repository</a></li>
+<li><strong>目录路径</strong>：<ul>
+<li><code>Engine/Source/Runtime/Landscape/</code>：这个目录包含地形系统（Landscape System）的大部分核心功能和类。</li>
+<li><code>Engine/Source/Editor/LandscapeEditor/</code>：这里包含了地形编辑器相关的代码，主要是UE编辑器内用于地形编辑的用户界面和工具。</li>
+</ul>
+</li>
+</ul>
+<p>为了访问这些源代码，你需要一个有效的Epic Games账号，并且必须同意Unreal Engine的使用条款。在完成这些步骤之后，你才能够从GitHub存储库克隆或下载代码。</p>
+<p>请注意，Unreal Engine的源代码是非常庞大和复杂的，涉及深入的C++编程知识，以及对游戏开发和计算机图形学的理解。如果你刚开始接触这些内容，建议先从官方文档和教程开始学习。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">`You：你了解UE的关卡制作吗`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>是的，我了解《3D Engine Design for Virtual Globes》这本书。这本书由Patrick Cozzi和Kevin Ring共同撰写，专注于3D引擎的设计，特别是用于虚拟地球和地理信息系统（GIS）的应用。它提供了关于如何创建高性能、实时的3D地球可视化引擎的深入讨论和指导。</p>
+<p>以下是这本书的一些关键特点和内容概述：</p>
+<h3 id="关键特点"><a href="#关键特点" class="headerlink" title="关键特点"></a>关键特点</h3><ol>
+<li><strong>实时3D引擎设计</strong>：书中详细探讨了实时渲染技术，特别是在地理空间数据和大规模地球表面渲染方面的应用。</li>
+<li><strong>虚拟地球技术</strong>：详细介绍了虚拟地球技术的核心概念，包括地球表面的渲染、地形表示、以及与卫星图像的集成。</li>
+<li><strong>性能优化</strong>：重点关注性能优化策略，以确保3D引擎能够高效地处理大量的地理空间数据。</li>
+</ol>
+<h3 id="内容概述"><a href="#内容概述" class="headerlink" title="内容概述"></a>内容概述</h3><ul>
+<li><strong>基础理论</strong>：介绍3D图形学的基础理论，如坐标系统、投影和视图变换。</li>
+<li><strong>地理空间数据处理</strong>：讨论如何处理和优化地理空间数据，包括地形数据和卫星图像。</li>
+<li><strong>高级渲染技术</strong>：深入探讨高级渲染技术，如着色器编程、光照和阴影、以及大气和天气效果。</li>
+<li><strong>地形和图像金字塔</strong>：介绍地形和图像金字塔技术，这是一种处理和显示大规模地理数据的有效方法。</li>
+<li><strong>网络技术</strong>：探讨如何使用网络技术来流式传输和渲染地球数据。</li>
+</ul>
+<h3 id="适用读者"><a href="#适用读者" class="headerlink" title="适用读者"></a>适用读者</h3><ul>
+<li><strong>游戏开发者</strong>：对于想要在游戏中实现地球或大规模地形渲染的开发者。</li>
+<li><strong>GIS专业人士</strong>：GIS领域的专业人士，希望了解3D引擎在地理空间数据可视化中的应用。</li>
+<li><strong>计算机图形学爱好者</strong>：对3D图形学和实时渲染技术感兴趣的读者。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>《3D Engine Design for Virtual Globes》是一本专业的技术书籍，它结合了计算机图形学理论和实际的应用案例，适合那些希望深入了解和开发用于虚拟地球和GIS应用的3D引擎的读者。<br>&#96;&#96;&#96;</p>
+]]></content>
+      <categories>
+        <category>UE5</category>
+      </categories>
+      <tags>
+        <tag>UE5</tag>
+        <tag>ChatGPT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>fill()陷阱</title>
+    <url>/2024/01/14/Javascript%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84fill()%E9%99%B7%E9%98%B1%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>使用fill()创建数组时遇到的坑，原代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+
+<p>如果此时更改某一元素如arr[0][0]</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/Joexiong1/myImg/blob/main/2024-1-14-fill().png"><br>可以发现数组中每行的第一个元素都变成了1，在查阅之后发现这段代码存在一个常见的 JavaScript 陷阱，即使用 fill 方法填充二维数组时，实际上所有行都共享同一个子数组。这意味着，当修改一个行中的元素时，所有行中相同位置的元素都会被修改。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>数组是引用类型，意味着数组变量实际上存储的是对数组对象的引用，而不是数组对象本身。当使用 fill 方法填充数组时，它填充的是数组中的值，而这些值本身是对象（在这种情况下是数组对象）的引用。即<code>fill</code>方法填充的是值的引用，而不是<strong>独立的值</strong>。因此，所有的子数组实际上都引用了同一个数组对象，导致它们<strong>共享相同的内存空间和数据</strong>。\</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><ul>
+<li><ol>
+<li>使用循环<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    arr[i] = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="2">
+<li>使用map<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=<span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>).<span class="title function_">map</span>(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>));</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>使用Array.from<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>), <span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>));</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
 </ul>
 ]]></content>
       <categories>
