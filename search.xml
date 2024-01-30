@@ -672,12 +672,12 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>computed</code> 属性是 Vue 3 中处理响应式数据的强大工具，特别适合用于那些依赖其他数据并且可能会重复求值的场景。它们提供了性能优势（通过缓存），并且可以使代码更加简洁和高效。在 Composition API 中，<code>computed</code> 保持了相同的核心概念，但以一种更加模块化和灵活的方式使用。</p>
 ]]></content>
       <categories>
-        <category>vue3</category>
         <category>JavaScript</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -705,12 +705,12 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 </ul>
 ]]></content>
       <categories>
-        <category>vue3</category>
         <category>JavaScript</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -768,12 +768,12 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这些是 Vue 组件中最常用的选项，它们提供了定义组件行为、样式、结构和逻辑的必要工具。在不同的项目中，这些选项可以根据需要混合使用以创建功能丰富的 Vue 组件。</p>
 ]]></content>
       <categories>
-        <category>vue3</category>
         <category>JavaScript</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -806,12 +806,12 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>简而言之，当属性值需要动态变化，或者是基于 Vue 实例的数据时，使用 <code>:</code>（或 <code>v-bind</code>）。如果属性值是静态的或不依赖于 Vue 实例的数据，那么不使用 <code>:</code>。正确使用这一特性对于编写可读且高效的 Vue 代码至关重要。</p>
 ]]></content>
       <categories>
-        <category>vue3</category>
         <category>JavaScript</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -838,12 +838,12 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 <p>通过使用 <code>&lt;component&gt;</code> 标签，Vue.js 提供了一种强大的方式来创建动态且可交互的用户界面，使得组件的管理和切换变得既简单又灵活。</p>
 ]]></content>
       <categories>
-        <category>vue3</category>
         <category>JavaScript</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -868,12 +868,12 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 <p>总之，使用 <code>&lt;dialog-fence&gt;</code> 而不是 <code>&lt;DialogFence&gt;</code> 是为了保证 Vue 模板的 HTML 兼容性，并避免由于 HTML 的不区分大小写特性引起的潜在问题。</p>
 ]]></content>
       <categories>
-        <category>vue3</category>
         <category>JavaScript</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -1084,11 +1084,11 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 ]]></content>
       <categories>
         <category>element-plus</category>
-        <category>vue3</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -1105,11 +1105,11 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 ]]></content>
       <categories>
         <category>element-plus</category>
-        <category>vue3</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -1139,11 +1139,11 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 ]]></content>
       <categories>
         <category>element-plus</category>
-        <category>vue3</category>
       </categories>
       <tags>
         <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
 </search>
