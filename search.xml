@@ -185,7 +185,7 @@
 
 ]]></content>
       <categories>
-        <category>JavaScript学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -212,7 +212,7 @@
 <p>定义形参就相当于在函数作用域中声明了变量，举例如下：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 这个函数中，因为有了形参 e，此时相当于在函数内部的第一行代码里，写了 var e;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fun</span>(); <span class="comment">//打印结果为 undefined</span></span><br><span class="line"><span class="title function_">fun</span>(<span class="number">123</span>); <span class="comment">//打印结果为123</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>JavaScript学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -242,7 +242,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>JavaScript学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -327,7 +327,7 @@
 <p>console.log(isNaN(‘null’)); &#x2F;&#x2F; 返回结果：false(因为null的Number（）结果为0)</p>
 ]]></content>
       <categories>
-        <category>JavaScript学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -410,7 +410,7 @@
 <p><strong>进一步思考</strong>：高频率触发的事件（例如滚动事件）触发频率过高会影响页面性能，甚至造成页面卡顿，可以利用setTimeout实现计时器的原理，对高频触发的事件进行优化，实现点在于将多个触发事件合并成一个，这就是防抖和节流。</p>
 ]]></content>
       <categories>
-        <category>JavaScript学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -462,7 +462,7 @@
 <h3 id="ES6的class类继承"><a href="#ES6的class类继承" class="headerlink" title="ES6的class类继承"></a>ES6的class类继承</h3><p>通过extends关键字实现继承，其实质是<strong>先创造出父类的this对象，然后用子类的构造函数修改this</strong>。</p>
 ]]></content>
       <categories>
-        <category>JavaScript学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -488,7 +488,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>JavaScript学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -610,7 +610,7 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 </ol>
 ]]></content>
       <categories>
-        <category>JavaScript学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
