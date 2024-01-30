@@ -157,12 +157,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -202,7 +202,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -220,7 +220,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -231,14 +231,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
+      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 13:29:56" itemprop="dateModified" datetime="2023-12-26T13:29:56+08:00">2023-12-26</time>
+      <time title="修改时间：2023-12-28 17:19:53" itemprop="dateModified" datetime="2023-12-28T17:19:53+08:00">2023-12-28</time>
     </span>
 
   
@@ -248,7 +248,231 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>131</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Vue.js 中，<code>&lt;component&gt;&lt;/component&gt;</code> 是一个动态组件，它是 Vue 的一个内置组件，用于在同一挂载点动态地加载不同的组件。使用 <code>&lt;component&gt;</code> 可以根据需要在运行时切换组件，而不必在模板中硬编码它们。这使得构建具有动态内容的界面变得更加灵活和强大。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>&lt;component&gt;</code> 使用 <code>is</code> 特性来确定要加载哪个组件。<code>is</code> 特性的值通常是一个字符串，指定了要使用的组件的名字，或者是一个返回组件选项的对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;component :is=&quot;currentComponent&quot;&gt;&lt;/component&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>currentComponent</code> 是一个数据属性，它的值决定了 <code>component</code> 标签将渲染哪个组件。这个值可以是注册过的组件的名字，也可以是一个组件对象。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设你有两个组件 <code>ComponentA</code> 和 <code>ComponentB</code>，并且想根据用户的行为切换显示这两个组件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;currentComponent = &#x27;ComponentA&#x27;&quot;&gt;Load Component A&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;currentComponent = &#x27;ComponentB&#x27;&quot;&gt;Load Component B&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;component :is=&quot;currentComponent&quot;&gt;&lt;/component&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import ComponentA from &#x27;./ComponentA.vue&#x27;;</span><br><span class="line">import ComponentB from &#x27;./ComponentB.vue&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    ComponentA,</span><br><span class="line">    ComponentB</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      currentComponent: &#x27;ComponentA&#x27;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，点击不同的按钮会切换 <code>currentComponent</code> 的值，从而改变 <code>&lt;component&gt;</code> 渲染的组件。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
+<li><strong>条件渲染</strong>：在不同条件下渲染不同的组件。</li>
+<li><strong>插件或组件库</strong>：在创建可插拔的插件或组件库时，允许用户或开发者指定要使用的组件。</li>
+<li><strong>路由</strong>：在简单的情况下，可以结合 Vue Router 使用，尽管 Vue Router 本身提供了类似的功能。</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>保持 <code>component</code> 标签的 <code>is</code> 特性的值动态和响应式，以确保组件能够根据数据的变化进行更新。</li>
+<li>动态组件在切换时默认会销毁旧组件并重新创建新组件。如果需要保持组件状态，可以使用 <code>&lt;keep-alive&gt;</code> 包裹 <code>&lt;component&gt;</code>。</li>
+</ul>
+<p>通过使用 <code>&lt;component&gt;</code> 标签，Vue.js 提供了一种强大的方式来创建动态且可交互的用户界面，使得组件的管理和切换变得既简单又灵活。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-28 16:04:19" itemprop="dateModified" datetime="2023-12-28T16:04:19+08:00">2023-12-28</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Vue.js 中，冒号（<code>:</code>）用于表示属性绑定，是 <code>v-bind</code> 指令的缩写。你可以用它来动态地绑定父组件的数据到子组件的属性，或者将数据绑定到 HTML 属性。知道何时使用和何时不使用 <code>:</code>（或 <code>v-bind</code>）是很重要的。</p>
+<h3 id="何时使用-（或-v-bind）"><a href="#何时使用-（或-v-bind）" class="headerlink" title="何时使用 :（或 v-bind）"></a>何时使用 <code>:</code>（或 <code>v-bind</code>）</h3><ol>
+<li><p><strong>动态属性</strong>：当你需要将表达式的值绑定到一个属性时。例如，动态地改变 <code>class</code>、<code>style</code> 或自定义组件的 props。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div :class=&quot;&#123; active: isActive &#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;my-component :my-prop=&quot;someDynamicValue&quot;&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>响应式数据</strong>：当属性值需要根据 Vue 实例的数据变化而变化时。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img :src=&quot;imageSrc&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>计算属性和方法</strong>：当属性值是一个计算属性或者需要通过方法计算得出时。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div :style=&quot;&#123; fontSize: computedFontSize + &#x27;px&#x27; &#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div :title=&quot;getTitle()&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>迭代（循环）渲染</strong>：在 <code>v-for</code> 中使用时，用于绑定 key 或其他属性。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="何时不使用-（或-v-bind）"><a href="#何时不使用-（或-v-bind）" class="headerlink" title="何时不使用 :（或 v-bind）"></a>何时不使用 <code>:</code>（或 <code>v-bind</code>）</h3><ol>
+<li><p><strong>静态属性</strong>：当属性值是静态的，或者你不需要它随着数据的变化而更新时。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;static-class&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;img src=&quot;static/image.jpg&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>字面量</strong>：当你直接传递一个字符串值给属性，并且这个值不会改变时。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-component my-prop=&quot;staticValue&quot;&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>静态 HTML 属性</strong>：对于那些不需要动态变化的标准 HTML 属性。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; placeholder=&quot;Enter your name&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>简而言之，当属性值需要动态变化，或者是基于 Vue 实例的数据时，使用 <code>:</code>（或 <code>v-bind</code>）。如果属性值是静态的或不依赖于 Vue 实例的数据，那么不使用 <code>:</code>。正确使用这一特性对于编写可读且高效的 Vue 代码至关重要。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/@%E7%9A%84%E4%BD%9C%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/@%E7%9A%84%E4%BD%9C%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-26 14:35:45" itemprop="dateModified" datetime="2023-12-26T14:35:45+08:00">2023-12-26</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>676</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -266,237 +490,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>openlayers中有4个主要的类：</strong></p>
-<ol>
-<li>Map：地图容器。</li>
-<li>Layer：图层，map拥有1个或多个图层，整个map是由一个个图层堆叠出来的。</li>
-<li>View：可视区域：主要用于交互，比如缩放、调节分辨率、地图的旋转等控制。</li>
-<li>source：数据来源，即Layers的数组组成部分</li>
-</ol>
+          <p>在 JavaScript 和一些现代前端框架（如 Vue.js）的项目中，<code>@</code> 符号在 <code>import</code> 语句中常被用作一个路径别名。它通常代表项目中的特定目录，最常见的是 <code>src</code> 目录。</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用 <code>@</code> 作为别名的目的是为了简化模块的导入路径。在大型项目中，避免使用相对路径（如 <code>../../</code>）来引用模块可以使代码更整洁、更易维护。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设你有一个 Vue.js 项目，你可能会看到类似下面的 <code>import</code> 语句：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">MyComponent</span> <span class="keyword">from</span> <span class="string">&#x27;@/components/MyComponent.vue&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
+<p>在这个例子中，<code>@</code> 指向项目的 <code>src</code> 目录，因此 <code>@/components/MyComponent.vue</code> 实际上指的是 <code>src/components/MyComponent.vue</code>。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>这种别名通常在项目的构建配置中设置。例如，在基于 Webpack 的项目中，你可能会在 <code>webpack.config.js</code> 或类似的配置文件中看到类似以下的配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">resolve</span>: &#123;</span><br><span class="line">  <span class="attr">alias</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;@&#x27;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;src&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 22:11:23" itemprop="dateModified" datetime="2023-12-26T22:11:23+08:00">2023-12-26</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>943</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol>
-<li><p><strong>引入ol</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span> <span class="comment">// vue相关方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Map</span>, <span class="title class_">View</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol&#x27;</span>      <span class="comment">// 地图实例方法、视图方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Tile</span> <span class="keyword">from</span> <span class="string">&#x27;ol/layer/Tile&#x27;</span>    <span class="comment">// 瓦片渲染方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="variable constant_">OSM</span> <span class="keyword">from</span> <span class="string">&#x27;ol/source/OSM&#x27;</span>    <span class="comment">// OSM瓦片【OSM不能在实际开发中使用，因为OSM里中国地图的边界有点问题！！！！】</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;ol/ol.css&#x27;</span>                 <span class="comment">// 地图样式</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>创建地图容器(初始化)</strong><br>地图需要渲染到一个 HTML 元素中，并且需要手动设置地图容器的宽高（通常使用 css 来设置）。</p>
-</li>
-</ol>
-<p>地图容器需要有一个 id ，如果是 Vue 项目可以使用 ref 来代替 id。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.map</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">width</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">height</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p><strong>缩放和平移功能</strong><br>OpenLayers 的地图对象默认支持缩放和平移。</p>
-</li>
-<li><p><strong>标记绘制</strong><br>导入相关库：<br>VectorSource：<br>VectorLayer： 用于在地图上显示向量类型的数据。包括点、线和多边形等地理空间数据。<br>VectorSource：向量数据的容器，用于存储地理特征（如坐标点、线条、多边形等）。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>点击弹窗</strong><br>给第三点中的坐标点添加点击事件，同时能够在地图上显示一个弹框，展示点位信息。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Overlay</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ol&quot;</span>;  <span class="comment">//弹窗组件</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 22:11:20" itemprop="dateModified" datetime="2023-12-26T22:11:20+08:00">2023-12-26</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 JavaScript 和一些 JavaScript 库（如 OpenLayers）中，<code>.getFeatures().then()</code> 是一种处理异步操作的模式。这种模式通常出现在调用一个返回 Promise 的 <code>getFeatures()</code> 函数后，用于处理异步获取的特征（features）。</p>
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><ol>
-<li><p>**<code>.getFeatures()</code>**：</p>
-<ul>
-<li>这是一个返回 Promise 的函数，Promise 是一个代表最终会完成的异步操作的对象。在 OpenLayers 的上下文中，<code>getFeatures()</code> 通常是用来异步获取一组特征（如从服务器加载）。</li>
-<li>返回的 Promise 将在特征获取操作完成时解决（resolve），或在发生错误时被拒绝（reject）。</li>
+<p>在 Vue CLI 创建的项目中，这个别名默认被配置好了，指向 <code>src</code> 目录。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用 <code>@</code> 作为别名需要相应的构建工具支持，且需要在项目配置中进行设置。</li>
+<li>这是一个约定俗成的用法，不是 JavaScript 语言或 ECMAScript 规范的一部分。</li>
 </ul>
-</li>
-<li><p>**<code>.then()</code>**：</p>
-<ul>
-<li><code>.then()</code> 是一个在 Promise 上的方法，用于指定当 Promise 解决时要执行的操作。</li>
-<li>它接受两个回调函数作为参数：第一个用于处理成功的结果（即特征获取成功），第二个（可选）用于处理错误。</li>
-</ul>
-</li>
-</ol>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设有一个从服务器异步加载地图特征的操作：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设 getFeatures() 返回一个 Promise，该 Promise 在特征加载完成时解决</span></span><br><span class="line">dataSource.<span class="title function_">getFeatures</span>().<span class="title function_">then</span>(</span><br><span class="line">  <span class="function">(<span class="params">features</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载的特征</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;特征加载成功&quot;</span>, features);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载过程中的错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;特征加载失败&quot;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中：</p>
-<ul>
-<li>当 <code>getFeatures()</code> 完成特征加载并解决其返回的 Promise 时，<code>.then()</code> 中的第一个回调函数被调用，<code>features</code> 包含加载的特征。</li>
-<li>如果 <code>getFeatures()</code> 在加载过程中遇到错误，导致 Promise 被拒绝，第二个回调函数会被调用，<code>error</code> 包含错误信息。</li>
-</ul>
-<h3 id="在-OpenLayers-中的应用"><a href="#在-OpenLayers-中的应用" class="headerlink" title="在 OpenLayers 中的应用"></a>在 OpenLayers 中的应用</h3><p>在 OpenLayers 中，这种模式可能用于处理从远程源异步加载的特征，例如从 WFS（Web Feature Service）服务加载。这允许开发者在特征可用时执行操作，比如将它们添加到地图上，而不需要阻塞代码的其他部分。</p>
-<p>总之，<code>.getFeatures().then()</code> 是一个异步编程模式，在获取数据和处理数据可用性时非常有用。通过使用 Promise 和 <code>.then()</code> 方法，可以更优雅地处理异步操作及其结果。</p>
+<p>总的来说，<code>@</code> 在 <code>import</code> 语句中用作路径别名，主要用于简化模块导入路径，使代码更清晰、更易于管理。</p>
 
       
     </div>
@@ -541,7 +549,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/openlayers/fit/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/01/30/openlayers/fit/" class="post-title-link" itemprop="url">fit</a>
         </h2>
 
         <div class="post-meta-container">
@@ -551,15 +559,18 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:01:32" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 22:11:19" itemprop="dateModified" datetime="2023-12-26T22:11:19+08:00">2023-12-26</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
     </span>
 
   
@@ -643,7 +654,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/openlayers/Cluster/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/01/30/openlayers/Cluster/" class="post-title-link" itemprop="url">群集Clusters</a>
         </h2>
 
         <div class="post-meta-container">
@@ -653,15 +664,18 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:02:04" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 17:49:41" itemprop="dateModified" datetime="2023-12-26T17:49:41+08:00">2023-12-26</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
     </span>
 
   
@@ -729,7 +743,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/el-select/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -747,7 +761,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/el-select/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/" class="post-title-link" itemprop="url">getFeatures和then</a>
         </h2>
 
         <div class="post-meta-container">
@@ -757,336 +771,18 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-04 15:03:32" itemprop="dateModified" datetime="2024-01-04T15:03:32+08:00">2024-01-04</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>977</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>el-select</code> 是 Element Plus（Element UI 的 Vue 3 版本）中的一个下拉选择器组件，而 <code>v-model</code> 是 Vue.js 中用于创建双向数据绑定的一个指令。当这两者结合使用时，你可以创建一个用户界面元素，允许用户从一组预定义的选项中选择一个，同时自动更新相应的数据。</p>
-<h3 id="el-select"><a href="#el-select" class="headerlink" title="el-select"></a>el-select</h3><p><code>el-select</code> 组件用于生成一个下拉菜单，让用户可以从多个选项中选择一个。它通常与 <code>el-option</code> 组件一起使用，后者定义了下拉菜单中的各个选项。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-select v-model=&quot;selectedValue&quot;&gt;</span><br><span class="line">  &lt;el-option</span><br><span class="line">    v-for=&quot;item in options&quot;</span><br><span class="line">    :key=&quot;item.value&quot;</span><br><span class="line">    :label=&quot;item.label&quot;</span><br><span class="line">    :value=&quot;item.value&quot;&gt;</span><br><span class="line">  &lt;/el-option&gt;</span><br><span class="line">&lt;/el-select&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中：</p>
-<ul>
-<li><code>el-select</code> 是下拉选择器组件。</li>
-<li><code>el-option</code> 定义了 <code>el-select</code> 中的选项。</li>
-<li><code>v-for</code> 指令用于遍历 <code>options</code> 数组，创建多个 <code>el-option</code>。</li>
-</ul>
-<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><p><code>v-model</code> 是 Vue.js 中实现双向数据绑定的指令。它确保输入控件（如文本框、选择器等）的值和应用数据保持同步。</p>
-<ul>
-<li>当用户更改选择时，<code>v-model</code> 绑定的变量（在上面的例子中是 <code>selectedValue</code>）将自动更新为新选中的值。</li>
-<li>同时，如果 <code>selectedValue</code> 的值在其他地方被更改，<code>el-select</code> 控件将显示与此值相对应的选项。</li>
-</ul>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p><code>el-select</code> 结合 <code>v-model</code> 非常适用于表单，尤其是在需要用户从一系列选项中选择一个时。例如，在提交表单时收集用户的偏好设置、配置选项或其他类似的输入。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>确保 <code>el-select</code> 的每个 <code>el-option</code> 有一个唯一的 <code>value</code> 属性，这样 <code>v-model</code> 才能正确地识别和更新选中的值。</li>
-<li><code>v-model</code> 默认绑定到组件的 <code>value</code> 属性和 <code>input</code> 事件。对于自定义组件，可能需要适当地配置这些属性和事件。</li>
-</ul>
-<p>通过结合使用 <code>el-select</code> 和 <code>v-model</code>，你可以为用户提供一个直观且功能强大的下拉选择界面，同时保持代码的简洁和数据的响应式。</p>
-
       
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:01:08" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-30 20:34:44" itemprop="dateModified" datetime="2023-12-30T20:34:44+08:00">2023-12-30</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="在Vue3和ElementUI-Plus中自定义Dialog样式"><a href="#在Vue3和ElementUI-Plus中自定义Dialog样式" class="headerlink" title="在Vue3和ElementUI-Plus中自定义Dialog样式"></a>在Vue3和ElementUI-Plus中自定义Dialog样式</h3><h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><p>在openlayers+vue3项目实践中，发现使用:deep()无法更改Dialog样式，Dialog代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-dialog</span><br><span class="line">    title=<span class="string">&quot;编辑围栏&quot;</span></span><br><span class="line">    :v-model=<span class="string">&quot;dialogVisible&quot;</span></span><br><span class="line">    custom-<span class="keyword">class</span>=<span class="string">&quot;fence&quot;</span></span><br><span class="line">    append-to-body</span><br><span class="line">    @close=<span class="string">&quot;handleClose&quot;</span></span><br><span class="line">    width=<span class="string">&quot;1200px&quot;</span></span><br><span class="line">    destroy-on-close</span><br><span class="line">  &gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;fence-map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map-box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;map-area&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">el-card</span> <span class="attr">class</span>=<span class="string">&quot;tool-window&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 380px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">el-form</span> <span class="attr">label-width</span>=<span class="string">&quot;80px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;围栏名称&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">size</span>=<span class="string">&quot;small&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">v-model</span>=<span class="string">&quot;name&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">placeholder</span>=<span class="string">&quot;请输入围栏名称&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;围栏样式&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-radio-group</span> <span class="attr">v-model</span>=<span class="string">&quot;tool&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;setType&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">el-radio-button</span> <span class="attr">label</span>=<span class="string">&quot;Circle&quot;</span>&gt;</span>圆形<span class="tag">&lt;/<span class="name">el-radio-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">el-radio-button</span> <span class="attr">label</span>=<span class="string">&quot;Polygon&quot;</span>&gt;</span>多边形<span class="tag">&lt;/<span class="name">el-radio-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">el-radio-group</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;warning&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleClear&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &gt;</span>清除&lt;/el-button</span></span><br><span class="line"><span class="language-xml">            &gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleSave&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &gt;</span>保存&lt;/el-button</span></span><br><span class="line"><span class="language-xml">            &gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleClose&quot;</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>样式代码如下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">fence</span> &#123;</span><br><span class="line">  .<span class="property">el</span>-dialog__header &#123;</span><br><span class="line">    <span class="attr">padding</span>: 20px;</span><br><span class="line">  &#125;</span><br><span class="line">  .<span class="property">el</span>-dialog__body &#123;</span><br><span class="line">    <span class="attr">padding</span>: <span class="number">0</span>;</span><br><span class="line">    .<span class="property">map</span>-area &#123;</span><br><span class="line">      box-<span class="attr">shadow</span>: inset 5em 1em #<span class="number">000000</span>;</span><br><span class="line">      <span class="attr">position</span>: relative;</span><br><span class="line">      .<span class="property">tool</span>-<span class="variable language_">window</span> &#123;</span><br><span class="line">        <span class="attr">width</span>: 200px;</span><br><span class="line">        <span class="attr">position</span>: absolute;</span><br><span class="line">        <span class="attr">bottom</span>: 20px;</span><br><span class="line">        <span class="attr">right</span>: 20px;</span><br><span class="line">        .<span class="property">button</span> &#123;</span><br><span class="line">          font-<span class="attr">size</span>: 20px;</span><br><span class="line">        &#125;</span><br><span class="line">        .<span class="property">step</span> &#123;</span><br><span class="line">          font-<span class="attr">size</span>: 16px;</span><br><span class="line">          padding-<span class="attr">top</span>: 13px;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>发现无法修改dialog样式，</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>去官网<a target="_blank" rel="noopener" href="https://element-plus.org/zh-CN/component/dialog.html#attributes%EF%BC%8C%E5%8F%91%E7%8E%B0custom-class%E5%B7%B2%E7%BB%8F%E8%A2%AB%E7%A6%81%E7%94%A8%EF%BC%8C%E4%BF%AE%E6%94%B9%E6%88%90class%E3%80%82">https://element-plus.org/zh-CN/component/dialog.html#attributes，发现custom-class已经被禁用，修改成class。</a><br>另外对于样式问题，参考下方博客以及评论<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32154641/article/details/126708678%EF%BC%8C%E5%B0%86dialog%E6%94%BE%E5%85%A5%E8%87%B3div%E4%B8%AD%EF%BC%8C%E7%84%B6%E5%90%8E%E5%B0%86append-to-body%E5%8E%BB%E6%8E%89%EF%BC%8C%E4%BE%9D%E9%9D%A0%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F:deep()%E6%88%90%E5%8A%9F%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%AE%E6%94%B9%E4%BA%86%E6%A0%B7%E5%BC%8F%EF%BC%8C%E5%8F%A6%E5%A4%96%E6%B3%A8%E6%84%8F%E5%88%B0%E5%A6%82%E6%9E%9Cel-dialog%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%BA%86%E7%B1%BB%E5%88%AB%EF%BC%8C%E5%9C%A8%E7%A9%BF%E9%80%8F%E6%97%B6%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9A%E5%AF%B9%E5%BA%94%E7%B1%BB%E5%88%AB%E3%80%82">https://blog.csdn.net/qq_32154641/article/details/126708678，将dialog放入至div中，然后将append-to-body去掉，依靠样式穿透:deep()成功自定义修改了样式，另外注意到如果el-dialog中指定了类别，在穿透时需要指定对应类别。</a></p>
-<p>这个问题并不是elmentUi和element-plus引起的，而是vue2和vue3的区别。vue2中要求单个组件文件中的template中只能有一个元素（如：div），而vue3是可以有多个的，vue3中不生效，是因为直接把el-dialog写在了template根目录中，其实只要在template中添加一个div，所有东西都放到div中就可以了。本质原因是：页面中el-dialog的渲染位置不同，添加div就会在当前组件位置渲染，如果没有div，就会在<body>中渲染</p>
-<p>在组件中<template>中 把el-dialog放在一个div中，然后:deep(你要修改的元素class) ， 还有一个重要的前提是dialog中有一个属性append-to-body ，把这个属性设成false 或者不写才可以用深度选择器修改样式，这个属性就是把dialog插入到body中，不然就算包裹在div中依然是取不到样式</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/append-to-body/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/append-to-body/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-28 16:04:17" itemprop="dateModified" datetime="2023-12-28T16:04:17+08:00">2023-12-28</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>800</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Element UI 或类似的 Vue.js UI 框架中，<code>append-to-body</code> 是一个常见的属性，用于控制组件（如对话框、下拉菜单、弹出框等）的渲染位置。当设置了 <code>append-to-body</code>，组件的 DOM 元素将被直接附加到 <code>&lt;body&gt;</code> 元素上，而不是它在模板中的默认位置。</p>
-<h3 id="作用和优点"><a href="#作用和优点" class="headerlink" title="作用和优点"></a>作用和优点</h3><ol>
-<li><p><strong>避免样式和定位问题</strong>：</p>
-<ul>
-<li>在复杂的布局中，组件可能会因为其父元素的 <code>overflow</code>、<code>z-index</code> 或其他 CSS 属性而显示不正确。将组件附加到 <code>&lt;body&gt;</code> 可以避免这些问题。</li>
-</ul>
-</li>
-<li><p><strong>全局定位</strong>：</p>
-<ul>
-<li>由于组件被附加到 <code>&lt;body&gt;</code>，它的定位是相对于视口的，这有助于确保组件（如下拉菜单或弹出框）可以正确覆盖页面上的其他元素。</li>
-</ul>
-</li>
-</ol>
-<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><p>在 Element UI 的 <code>el-dialog</code> 组件中使用 <code>append-to-body</code>：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-dialog</span></span></span><br><span class="line"><span class="tag">  <span class="attr">title</span>=<span class="string">&quot;提示&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:visible.sync</span>=<span class="string">&quot;dialogVisible&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">append-to-body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 对话框内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，设置了 <code>append-to-body</code> 属性，意味着无论 <code>el-dialog</code> 在模板中位于何处，它的实际 DOM 元素都会被附加到 <code>&lt;body&gt;</code> 元素上。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用 <code>append-to-body</code> 时，组件的位置和尺寸可能需要更仔细地控制，特别是在响应式布局中。</li>
-<li>在一些情况下，将组件附加到 <code>&lt;body&gt;</code> 可能会导致与 Vue 的局部数据流或事件流的隔离。例如，组件内部的事件可能无法直接冒泡到它在模板中的父组件。</li>
-</ul>
-<p>总结来说，<code>append-to-body</code> 属性在处理某些布局和叠放顺序问题时非常有用，特别是当你希望组件（如弹窗、下拉菜单等）能够覆盖其它界面元素时。正确使用这个属性可以在保持良好用户体验的同时解决复杂布局中的常见问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-31 11:06:23" itemprop="dateModified" datetime="2023-12-31T11:06:23+08:00">2023-12-31</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
     </span>
 
   
@@ -1114,36 +810,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6992452565875032095">https://juejin.cn/post/6992452565875032095</a><br>在Vue实例中，methods中如果用的是正常函数，那么它的this就指向Vue实例；如果是箭头函数，this就指向window对象。</p>
-<p>在 Vue 3 组件的方法中，<code>this</code> 关键字指向的是当前 Vue 组件的实例。这意味着在 <code>setType</code> 方法内部，<code>this</code> 用于访问组件的数据属性、计算属性、方法、生命周期钩子等。</p>
-<h3 id="分析-setType-方法"><a href="#分析-setType-方法" class="headerlink" title="分析 setType 方法"></a>分析 <code>setType</code> 方法</h3><p>在您提供的 <code>setType</code> 方法中：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setType</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">fenceSource</span>.<span class="title function_">clear</span>();</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">openMap</span>.<span class="title function_">removeInteraction</span>(<span class="variable language_">this</span>.<span class="property">fenceDraw</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">addInteraction</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p><strong><code>this.fenceSource.clear();</code></strong></p>
+          <p>在 JavaScript 和一些 JavaScript 库（如 OpenLayers）中，<code>.getFeatures().then()</code> 是一种处理异步操作的模式。这种模式通常出现在调用一个返回 Promise 的 <code>getFeatures()</code> 函数后，用于处理异步获取的特征（features）。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><ol>
+<li><p>**<code>.getFeatures()</code>**：</p>
 <ul>
-<li><code>this.fenceSource</code> 指的是当前组件实例中的 <code>fenceSource</code> 属性或对象。</li>
-<li><code>.clear()</code> 是对该属性或对象调用的方法，可能是用来清除或重置一些数据。</li>
+<li>这是一个返回 Promise 的函数，Promise 是一个代表最终会完成的异步操作的对象。在 OpenLayers 的上下文中，<code>getFeatures()</code> 通常是用来异步获取一组特征（如从服务器加载）。</li>
+<li>返回的 Promise 将在特征获取操作完成时解决（resolve），或在发生错误时被拒绝（reject）。</li>
 </ul>
 </li>
-<li><p><strong><code>this.openMap.removeInteraction(this.fenceDraw);</code></strong></p>
+<li><p>**<code>.then()</code>**：</p>
 <ul>
-<li><code>this.openMap</code> 指的是组件实例中的 <code>openMap</code> 对象，可能是一个地图实例。</li>
-<li><code>.removeInteraction(this.fenceDraw)</code> 是移除与 <code>this.fenceDraw</code> 相关的交互。<code>this.fenceDraw</code> 同样是组件实例的属性，可能代表某种地图交互。</li>
-</ul>
-</li>
-<li><p><strong><code>this.addInteraction();</code></strong></p>
-<ul>
-<li><code>this.addInteraction</code> 指向当前组件实例中定义的 <code>addInteraction</code> 方法。</li>
-<li>调用 <code>this.addInteraction()</code> 可能是为了添加新的交互到地图实例。</li>
+<li><code>.then()</code> 是一个在 Promise 上的方法，用于指定当 Promise 解决时要执行的操作。</li>
+<li>它接受两个回调函数作为参数：第一个用于处理成功的结果（即特征获取成功），第二个（可选）用于处理错误。</li>
 </ul>
 </li>
 </ol>
-<h3 id="Vue-组件上下文"><a href="#Vue-组件上下文" class="headerlink" title="Vue 组件上下文"></a>Vue 组件上下文</h3><p>在 Vue 组件中，<code>this</code> 使得方法能够访问组件的响应式数据、计算属性、其他方法、以及 Vue 特有的功能，如发出事件等。这就是为什么您可以在 <code>setType</code> 方法内部访问 <code>fenceSource</code>、<code>openMap</code>、<code>fenceDraw</code> 和 <code>addInteraction</code>。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>确保在使用 <code>this</code> 引用这些属性或方法之前，它们已经在组件的 <code>data</code>、<code>methods</code>、<code>computed</code> 或其他相应的选项中定义。</li>
-<li>在 Vue 3 的组合式 API (<code>setup</code> 函数) 中，对 <code>this</code> 的用法有所不同。在 <code>setup</code> 中，您通常不会使用 <code>this</code>，而是直接使用响应式引用和其他组合式 API 功能。</li>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设有一个从服务器异步加载地图特征的操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设 getFeatures() 返回一个 Promise，该 Promise 在特征加载完成时解决</span></span><br><span class="line">dataSource.<span class="title function_">getFeatures</span>().<span class="title function_">then</span>(</span><br><span class="line">  <span class="function">(<span class="params">features</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载的特征</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;特征加载成功&quot;</span>, features);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载过程中的错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;特征加载失败&quot;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中：</p>
+<ul>
+<li>当 <code>getFeatures()</code> 完成特征加载并解决其返回的 Promise 时，<code>.then()</code> 中的第一个回调函数被调用，<code>features</code> 包含加载的特征。</li>
+<li>如果 <code>getFeatures()</code> 在加载过程中遇到错误，导致 Promise 被拒绝，第二个回调函数会被调用，<code>error</code> 包含错误信息。</li>
 </ul>
+<h3 id="在-OpenLayers-中的应用"><a href="#在-OpenLayers-中的应用" class="headerlink" title="在 OpenLayers 中的应用"></a>在 OpenLayers 中的应用</h3><p>在 OpenLayers 中，这种模式可能用于处理从远程源异步加载的特征，例如从 WFS（Web Feature Service）服务加载。这允许开发者在特征可用时执行操作，比如将它们添加到地图上，而不需要阻塞代码的其他部分。</p>
+<p>总之，<code>.getFeatures().then()</code> 是一个异步编程模式，在获取数据和处理数据可用性时非常有用。通过使用 Promise 和 <code>.then()</code> 方法，可以更优雅地处理异步操作及其结果。</p>
 
       
     </div>
@@ -1170,7 +861,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -1188,7 +879,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">openlayers概述</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1198,15 +889,18 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:02:01" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-28 21:15:12" itemprop="dateModified" datetime="2023-12-28T21:15:12+08:00">2023-12-28</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
     </span>
 
   
@@ -1216,7 +910,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>792</span>
+      <span>131</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1234,23 +928,387 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在 Vue.js 中，当你在 JavaScript 中定义组件时使用的是驼峰命名法（如 <code>DialogFence</code>），而在模板中引用这个组件时，通常使用的是短横线分隔命名（也称为 kebab-case，如 <code>dialog-fence</code>）。这种命名转换遵循了 HTML 标准，因为 HTML 标签和属性名称是不区分大小写的。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ol>
-<li><p><strong>HTML 不区分大小写</strong>：HTML 标签和属性名称在解析时是不区分大小写的。因此，使用驼峰命名的组件名在 HTML 中会被解释为全部小写，从而导致命名冲突或解析错误。</p>
+          <p><strong>openlayers中有4个主要的类：</strong></p>
+<ol>
+<li>Map：地图容器。</li>
+<li>Layer：图层，map拥有1个或多个图层，整个map是由一个个图层堆叠出来的。</li>
+<li>View：可视区域：主要用于交互，比如缩放、调节分辨率、地图的旋转等控制。</li>
+<li>source：数据来源，即Layers的数组组成部分</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">openlayers实践</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:01:09" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>943</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p><strong>引入ol</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span> <span class="comment">// vue相关方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Map</span>, <span class="title class_">View</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol&#x27;</span>      <span class="comment">// 地图实例方法、视图方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Tile</span> <span class="keyword">from</span> <span class="string">&#x27;ol/layer/Tile&#x27;</span>    <span class="comment">// 瓦片渲染方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="variable constant_">OSM</span> <span class="keyword">from</span> <span class="string">&#x27;ol/source/OSM&#x27;</span>    <span class="comment">// OSM瓦片【OSM不能在实际开发中使用，因为OSM里中国地图的边界有点问题！！！！】</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;ol/ol.css&#x27;</span>                 <span class="comment">// 地图样式</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Vue 遵循 HTML 标准</strong>：为了保持与 HTML 标准的一致性，Vue 在解析模板时将驼峰命名的组件转换为短横线分隔命名。这意味着即使你在 JavaScript 中定义了 <code>DialogFence</code>，在模板中引用时应使用 <code>dialog-fence</code>。</p>
+<li><p><strong>创建地图容器(初始化)</strong><br>地图需要渲染到一个 HTML 元素中，并且需要手动设置地图容器的宽高（通常使用 css 来设置）。</p>
 </li>
 </ol>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义组件时使用驼峰命名</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;DialogFence&#x27;</span>,</span><br><span class="line">  <span class="comment">// 组件选项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>地图容器需要有一个 id ，如果是 Vue 项目可以使用 ref 来代替 id。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.map</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">width</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">height</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用组件时采用短横线分隔命名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dialog-fence</span>&gt;</span><span class="tag">&lt;/<span class="name">dialog-fence</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p><strong>缩放和平移功能</strong><br>OpenLayers 的地图对象默认支持缩放和平移。</p>
+</li>
+<li><p><strong>标记绘制</strong><br>导入相关库：<br>VectorSource：<br>VectorLayer： 用于在地图上显示向量类型的数据。包括点、线和多边形等地理空间数据。<br>VectorSource：向量数据的容器，用于存储地理特征（如坐标点、线条、多边形等）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>点击弹窗</strong><br>给第三点中的坐标点添加点击事件，同时能够在地图上显示一个弹框，展示点位信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Overlay</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ol&quot;</span>;  <span class="comment">//弹窗组件</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>在使用单文件组件（.vue 文件）时，文件名通常也使用短横线分隔命名（如 <code>dialog-fence.vue</code>），但这不是强制性的。</li>
-<li>当你在 JavaScript（例如在 <code>import</code> 语句或 <code>components</code> 注册）中引用组件时，仍然需要使用组件的原始命名（例如 <code>DialogFence</code>）。</li>
-<li>这种命名约定有助于保持代码的一致性，并遵循 Web 开发的标准实践。</li>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/" class="post-title-link" itemprop="url">computed和method</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：17:58:03" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/" itemprop="url" rel="index"><span itemprop="name">vue3</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Vue 3 中，<code>computed</code> 属性是一种非常重要的特性，用于声明响应式的计算属性。<code>computed</code> 属性根据它们的依赖进行缓存，只在相关依赖发生改变时重新计算。这使得 <code>computed</code> 属性非常适合用于需要根据现有数据派生新数据的场景。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>computed</code> 属性通常在 Vue 组件的选项对象中定义。它是一个返回计算结果的函数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">b</span>: <span class="number">2</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + <span class="variable language_">this</span>.<span class="property">b</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>sum</code> 是一个计算属性，它依赖于数据属性 <code>a</code> 和 <code>b</code>。当 <code>a</code> 或 <code>b</code> 变化时，<code>sum</code> 会被重新计算。</p>
+<h3 id="计算属性-vs-方法"><a href="#计算属性-vs-方法" class="headerlink" title="计算属性 vs 方法"></a>计算属性 vs 方法</h3><p>虽然你可以使用方法来达到同样的效果，计算属性的主要优势在于缓存。如果依赖没有改变，多次访问计算属性会立即返回之前的计算结果，而不是重新执行函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="title function_">sumMethod</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + <span class="variable language_">this</span>.<span class="property">b</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与上面的计算属性相比，<code>sumMethod</code> 每次被调用时都会重新执行，即使 <code>a</code> 和 <code>b</code> 没有变化。</p>
+<h3 id="计算属性的-Getter-和-Setter"><a href="#计算属性的-Getter-和-Setter" class="headerlink" title="计算属性的 Getter 和 Setter"></a>计算属性的 Getter 和 Setter</h3><p><code>computed</code> 属性默认只有 getter 函数，但你也可以提供一个 setter 函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">computed</span>: &#123;</span><br><span class="line">  <span class="attr">fullName</span>: &#123;</span><br><span class="line">    <span class="comment">// getter</span></span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// setter</span></span><br><span class="line">    <span class="title function_">set</span>(<span class="params">newValue</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> names = newValue.<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">firstName</span> = names[<span class="number">0</span>];</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">lastName</span> = names[names.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>fullName</code> 计算属性同时包含了 getter 和 setter。当你读取 <code>fullName</code> 时，它返回由 <code>firstName</code> 和 <code>lastName</code> 拼接的字符串；当你设置 <code>fullName</code> 时，它会根据空格拆分字符串，并更新 <code>firstName</code> 和 <code>lastName</code>。</p>
+<h3 id="在-Vue-3-Composition-API-中的使用"><a href="#在-Vue-3-Composition-API-中的使用" class="headerlink" title="在 Vue 3 Composition API 中的使用"></a>在 Vue 3 Composition API 中的使用</h3><p>在 Vue 3 的 Composition API 中，<code>computed</code> 是一个独立的函数，可以在 <code>setup</code> 函数内使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; computed &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> a = <span class="title function_">ref</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">const</span> b = <span class="title function_">ref</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">const</span> sum = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> a.<span class="property">value</span> + b.<span class="property">value</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123; a, b, sum &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这里，<code>sum</code> 是依赖于响应式引用 <code>a</code> 和 <code>b</code> 的计算属性。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>computed</code> 属性是 Vue 3 中处理响应式数据的强大工具，特别适合用于那些依赖其他数据并且可能会重复求值的场景。它们提供了性能优势（通过缓存），并且可以使代码更加简洁和高效。在 Composition API 中，<code>computed</code> 保持了相同的核心概念，但以一种更加模块化和灵活的方式使用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="post-title-link" itemprop="url">export default常用属性</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：17:58:03" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/" itemprop="url" rel="index"><span itemprop="name">vue3</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>807</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Vue.js 中，<code>export default</code> 用于导出一个 Vue 组件，其中可以包含多个属性（或“选项”），用于定义和配置这个组件。以下是一些常用的、标准的 Vue 组件选项：</p>
+<h3 id="1-data"><a href="#1-data" class="headerlink" title="1. data"></a>1. data</h3><ul>
+<li><strong>类型</strong>：函数</li>
+<li><strong>用途</strong>：定义组件的响应式数据。返回一个对象，对象的属性可以在组件的模板和逻辑中使用。</li>
 </ul>
-<p>总之，使用 <code>&lt;dialog-fence&gt;</code> 而不是 <code>&lt;DialogFence&gt;</code> 是为了保证 Vue 模板的 HTML 兼容性，并避免由于 HTML 的不区分大小写特性引起的潜在问题。</p>
+<h3 id="2-props"><a href="#2-props" class="headerlink" title="2. props"></a>2. props</h3><ul>
+<li><strong>类型</strong>：对象或数组</li>
+<li><strong>用途</strong>：定义从父组件传递到子组件的数据。它是组件间通信的一种方式。</li>
+</ul>
+<h3 id="3-computed"><a href="#3-computed" class="headerlink" title="3. computed"></a>3. computed</h3><ul>
+<li><strong>类型</strong>：对象</li>
+<li><strong>用途</strong>：定义计算属性。计算属性基于响应式依赖进行缓存，并且只在相关响应式依赖发生改变时重新计算。</li>
+</ul>
+<h3 id="4-methods"><a href="#4-methods" class="headerlink" title="4. methods"></a>4. methods</h3><ul>
+<li><strong>类型</strong>：对象</li>
+<li><strong>用途</strong>：定义组件的方法。这些方法可以在模板和组件的其他部分（如 <code>computed</code>、<code>watch</code>、生命周期钩子）中调用。</li>
+</ul>
+<h3 id="5-watch"><a href="#5-watch" class="headerlink" title="5. watch"></a>5. watch</h3><ul>
+<li><strong>类型</strong>：对象</li>
+<li><strong>用途</strong>：定义对响应式数据的监听器。可以用来观察 <code>props</code> 或 <code>data</code> 的变化，并执行相应的操作。</li>
+</ul>
+<h3 id="6-components"><a href="#6-components" class="headerlink" title="6. components"></a>6. components</h3><ul>
+<li><strong>类型</strong>：对象</li>
+<li><strong>用途</strong>：定义组件内部可以使用的子组件。</li>
+</ul>
+<h3 id="7-mixins"><a href="#7-mixins" class="headerlink" title="7. mixins"></a>7. mixins</h3><ul>
+<li><strong>类型</strong>：数组</li>
+<li><strong>用途</strong>：混入其他对象的选项。用于复用代码。</li>
+</ul>
+<h3 id="8-extends"><a href="#8-extends" class="headerlink" title="8. extends"></a>8. extends</h3><ul>
+<li><strong>类型</strong>：对象或构造函数</li>
+<li><strong>用途</strong>：允许声明扩展另一个组件。类似于 <code>mixins</code>，但用于继承单个组件。</li>
+</ul>
+<h3 id="9-provide-inject"><a href="#9-provide-inject" class="headerlink" title="9. provide &#x2F; inject"></a>9. provide &#x2F; inject</h3><ul>
+<li><strong>类型</strong>：对象或函数 &#x2F; 数组或对象</li>
+<li><strong>用途</strong>：用于跨组件层级提供和注入数据。</li>
+</ul>
+<h3 id="10-生命周期钩子"><a href="#10-生命周期钩子" class="headerlink" title="10. 生命周期钩子"></a>10. 生命周期钩子</h3><ul>
+<li><strong>类型</strong>：函数</li>
+<li><strong>用途</strong>：提供在不同阶段执行代码的能力，如 <code>created</code>、<code>mounted</code>、<code>updated</code>、<code>destroyed</code> 等。</li>
+</ul>
+<h3 id="11-template"><a href="#11-template" class="headerlink" title="11. template"></a>11. template</h3><ul>
+<li><strong>类型</strong>：字符串</li>
+<li><strong>用途</strong>：定义组件的 HTML 模板。通常在单文件组件（.vue 文件）中使用 <code>&lt;template&gt;</code> 标签代替。</li>
+</ul>
+<h3 id="12-name"><a href="#12-name" class="headerlink" title="12. name"></a>12. name</h3><ul>
+<li><strong>类型</strong>：字符串</li>
+<li><strong>用途</strong>：定义组件的名字。有助于调试和递归组件。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这些是 Vue 组件中最常用的选项，它们提供了定义组件行为、样式、结构和逻辑的必要工具。在不同的项目中，这些选项可以根据需要混合使用以创建功能丰富的 Vue 组件。</p>
 
       
     </div>

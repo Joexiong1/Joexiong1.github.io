@@ -157,12 +157,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -202,230 +202,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-28 17:19:53" itemprop="dateModified" datetime="2023-12-28T17:19:53+08:00">2023-12-28</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Vue.js 中，<code>&lt;component&gt;&lt;/component&gt;</code> 是一个动态组件，它是 Vue 的一个内置组件，用于在同一挂载点动态地加载不同的组件。使用 <code>&lt;component&gt;</code> 可以根据需要在运行时切换组件，而不必在模板中硬编码它们。这使得构建具有动态内容的界面变得更加灵活和强大。</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>&lt;component&gt;</code> 使用 <code>is</code> 特性来确定要加载哪个组件。<code>is</code> 特性的值通常是一个字符串，指定了要使用的组件的名字，或者是一个返回组件选项的对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;component :is=&quot;currentComponent&quot;&gt;&lt;/component&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，<code>currentComponent</code> 是一个数据属性，它的值决定了 <code>component</code> 标签将渲染哪个组件。这个值可以是注册过的组件的名字，也可以是一个组件对象。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设你有两个组件 <code>ComponentA</code> 和 <code>ComponentB</code>，并且想根据用户的行为切换显示这两个组件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;currentComponent = &#x27;ComponentA&#x27;&quot;&gt;Load Component A&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;currentComponent = &#x27;ComponentB&#x27;&quot;&gt;Load Component B&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;component :is=&quot;currentComponent&quot;&gt;&lt;/component&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import ComponentA from &#x27;./ComponentA.vue&#x27;;</span><br><span class="line">import ComponentB from &#x27;./ComponentB.vue&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    ComponentA,</span><br><span class="line">    ComponentB</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      currentComponent: &#x27;ComponentA&#x27;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，点击不同的按钮会切换 <code>currentComponent</code> 的值，从而改变 <code>&lt;component&gt;</code> 渲染的组件。</p>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
-<li><strong>条件渲染</strong>：在不同条件下渲染不同的组件。</li>
-<li><strong>插件或组件库</strong>：在创建可插拔的插件或组件库时，允许用户或开发者指定要使用的组件。</li>
-<li><strong>路由</strong>：在简单的情况下，可以结合 Vue Router 使用，尽管 Vue Router 本身提供了类似的功能。</li>
-</ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>保持 <code>component</code> 标签的 <code>is</code> 特性的值动态和响应式，以确保组件能够根据数据的变化进行更新。</li>
-<li>动态组件在切换时默认会销毁旧组件并重新创建新组件。如果需要保持组件状态，可以使用 <code>&lt;keep-alive&gt;</code> 包裹 <code>&lt;component&gt;</code>。</li>
-</ul>
-<p>通过使用 <code>&lt;component&gt;</code> 标签，Vue.js 提供了一种强大的方式来创建动态且可交互的用户界面，使得组件的管理和切换变得既简单又灵活。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-28 16:04:19" itemprop="dateModified" datetime="2023-12-28T16:04:19+08:00">2023-12-28</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Vue.js 中，冒号（<code>:</code>）用于表示属性绑定，是 <code>v-bind</code> 指令的缩写。你可以用它来动态地绑定父组件的数据到子组件的属性，或者将数据绑定到 HTML 属性。知道何时使用和何时不使用 <code>:</code>（或 <code>v-bind</code>）是很重要的。</p>
-<h3 id="何时使用-（或-v-bind）"><a href="#何时使用-（或-v-bind）" class="headerlink" title="何时使用 :（或 v-bind）"></a>何时使用 <code>:</code>（或 <code>v-bind</code>）</h3><ol>
-<li><p><strong>动态属性</strong>：当你需要将表达式的值绑定到一个属性时。例如，动态地改变 <code>class</code>、<code>style</code> 或自定义组件的 props。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div :class=&quot;&#123; active: isActive &#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;my-component :my-prop=&quot;someDynamicValue&quot;&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>响应式数据</strong>：当属性值需要根据 Vue 实例的数据变化而变化时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img :src=&quot;imageSrc&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>计算属性和方法</strong>：当属性值是一个计算属性或者需要通过方法计算得出时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div :style=&quot;&#123; fontSize: computedFontSize + &#x27;px&#x27; &#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div :title=&quot;getTitle()&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>迭代（循环）渲染</strong>：在 <code>v-for</code> 中使用时，用于绑定 key 或其他属性。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="何时不使用-（或-v-bind）"><a href="#何时不使用-（或-v-bind）" class="headerlink" title="何时不使用 :（或 v-bind）"></a>何时不使用 <code>:</code>（或 <code>v-bind</code>）</h3><ol>
-<li><p><strong>静态属性</strong>：当属性值是静态的，或者你不需要它随着数据的变化而更新时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;static-class&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;img src=&quot;static/image.jpg&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>字面量</strong>：当你直接传递一个字符串值给属性，并且这个值不会改变时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-component my-prop=&quot;staticValue&quot;&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>静态 HTML 属性</strong>：对于那些不需要动态变化的标准 HTML 属性。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; placeholder=&quot;Enter your name&quot;&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>简而言之，当属性值需要动态变化，或者是基于 Vue 实例的数据时，使用 <code>:</code>（或 <code>v-bind</code>）。如果属性值是静态的或不依赖于 Vue 实例的数据，那么不使用 <code>:</code>。正确使用这一特性对于编写可读且高效的 Vue 代码至关重要。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -444,7 +220,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">id=""和refs=""的区别</a>
         </h2>
 
         <div class="post-meta-container">
@@ -454,15 +230,22 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：17:58:00" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 13:53:47" itemprop="dateModified" datetime="2023-12-26T13:53:47+08:00">2023-12-26</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/" itemprop="url" rel="index"><span itemprop="name">vue3</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
     </span>
 
   
@@ -536,7 +319,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -554,7 +337,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/" class="post-title-link" itemprop="url">短横线分隔命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -564,15 +347,22 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：17:57:07" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-28 16:12:42" itemprop="dateModified" datetime="2023-12-28T16:12:42+08:00">2023-12-28</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/" itemprop="url" rel="index"><span itemprop="name">vue3</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
     </span>
 
   
@@ -582,7 +372,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>807</span>
+      <span>792</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -600,269 +390,268 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在 Vue.js 中，<code>export default</code> 用于导出一个 Vue 组件，其中可以包含多个属性（或“选项”），用于定义和配置这个组件。以下是一些常用的、标准的 Vue 组件选项：</p>
-<h3 id="1-data"><a href="#1-data" class="headerlink" title="1. data"></a>1. data</h3><ul>
-<li><strong>类型</strong>：函数</li>
-<li><strong>用途</strong>：定义组件的响应式数据。返回一个对象，对象的属性可以在组件的模板和逻辑中使用。</li>
-</ul>
-<h3 id="2-props"><a href="#2-props" class="headerlink" title="2. props"></a>2. props</h3><ul>
-<li><strong>类型</strong>：对象或数组</li>
-<li><strong>用途</strong>：定义从父组件传递到子组件的数据。它是组件间通信的一种方式。</li>
-</ul>
-<h3 id="3-computed"><a href="#3-computed" class="headerlink" title="3. computed"></a>3. computed</h3><ul>
-<li><strong>类型</strong>：对象</li>
-<li><strong>用途</strong>：定义计算属性。计算属性基于响应式依赖进行缓存，并且只在相关响应式依赖发生改变时重新计算。</li>
-</ul>
-<h3 id="4-methods"><a href="#4-methods" class="headerlink" title="4. methods"></a>4. methods</h3><ul>
-<li><strong>类型</strong>：对象</li>
-<li><strong>用途</strong>：定义组件的方法。这些方法可以在模板和组件的其他部分（如 <code>computed</code>、<code>watch</code>、生命周期钩子）中调用。</li>
-</ul>
-<h3 id="5-watch"><a href="#5-watch" class="headerlink" title="5. watch"></a>5. watch</h3><ul>
-<li><strong>类型</strong>：对象</li>
-<li><strong>用途</strong>：定义对响应式数据的监听器。可以用来观察 <code>props</code> 或 <code>data</code> 的变化，并执行相应的操作。</li>
-</ul>
-<h3 id="6-components"><a href="#6-components" class="headerlink" title="6. components"></a>6. components</h3><ul>
-<li><strong>类型</strong>：对象</li>
-<li><strong>用途</strong>：定义组件内部可以使用的子组件。</li>
-</ul>
-<h3 id="7-mixins"><a href="#7-mixins" class="headerlink" title="7. mixins"></a>7. mixins</h3><ul>
-<li><strong>类型</strong>：数组</li>
-<li><strong>用途</strong>：混入其他对象的选项。用于复用代码。</li>
-</ul>
-<h3 id="8-extends"><a href="#8-extends" class="headerlink" title="8. extends"></a>8. extends</h3><ul>
-<li><strong>类型</strong>：对象或构造函数</li>
-<li><strong>用途</strong>：允许声明扩展另一个组件。类似于 <code>mixins</code>，但用于继承单个组件。</li>
-</ul>
-<h3 id="9-provide-inject"><a href="#9-provide-inject" class="headerlink" title="9. provide &#x2F; inject"></a>9. provide &#x2F; inject</h3><ul>
-<li><strong>类型</strong>：对象或函数 &#x2F; 数组或对象</li>
-<li><strong>用途</strong>：用于跨组件层级提供和注入数据。</li>
-</ul>
-<h3 id="10-生命周期钩子"><a href="#10-生命周期钩子" class="headerlink" title="10. 生命周期钩子"></a>10. 生命周期钩子</h3><ul>
-<li><strong>类型</strong>：函数</li>
-<li><strong>用途</strong>：提供在不同阶段执行代码的能力，如 <code>created</code>、<code>mounted</code>、<code>updated</code>、<code>destroyed</code> 等。</li>
-</ul>
-<h3 id="11-template"><a href="#11-template" class="headerlink" title="11. template"></a>11. template</h3><ul>
-<li><strong>类型</strong>：字符串</li>
-<li><strong>用途</strong>：定义组件的 HTML 模板。通常在单文件组件（.vue 文件）中使用 <code>&lt;template&gt;</code> 标签代替。</li>
-</ul>
-<h3 id="12-name"><a href="#12-name" class="headerlink" title="12. name"></a>12. name</h3><ul>
-<li><strong>类型</strong>：字符串</li>
-<li><strong>用途</strong>：定义组件的名字。有助于调试和递归组件。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这些是 Vue 组件中最常用的选项，它们提供了定义组件行为、样式、结构和逻辑的必要工具。在不同的项目中，这些选项可以根据需要混合使用以创建功能丰富的 Vue 组件。</p>
+          <p>在 Vue.js 中，当你在 JavaScript 中定义组件时使用的是驼峰命名法（如 <code>DialogFence</code>），而在模板中引用这个组件时，通常使用的是短横线分隔命名（也称为 kebab-case，如 <code>dialog-fence</code>）。这种命名转换遵循了 HTML 标准，因为 HTML 标签和属性名称是不区分大小写的。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ol>
+<li><p><strong>HTML 不区分大小写</strong>：HTML 标签和属性名称在解析时是不区分大小写的。因此，使用驼峰命名的组件名在 HTML 中会被解释为全部小写，从而导致命名冲突或解析错误。</p>
+</li>
+<li><p><strong>Vue 遵循 HTML 标准</strong>：为了保持与 HTML 标准的一致性，Vue 在解析模板时将驼峰命名的组件转换为短横线分隔命名。这意味着即使你在 JavaScript 中定义了 <code>DialogFence</code>，在模板中引用时应使用 <code>dialog-fence</code>。</p>
+</li>
+</ol>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义组件时使用驼峰命名</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;DialogFence&#x27;</span>,</span><br><span class="line">  <span class="comment">// 组件选项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用组件时采用短横线分隔命名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dialog-fence</span>&gt;</span><span class="tag">&lt;/<span class="name">dialog-fence</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-31 16:24:08" itemprop="dateModified" datetime="2023-12-31T16:24:08+08:00">2023-12-31</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Vue 3 中，<code>computed</code> 属性是一种非常重要的特性，用于声明响应式的计算属性。<code>computed</code> 属性根据它们的依赖进行缓存，只在相关依赖发生改变时重新计算。这使得 <code>computed</code> 属性非常适合用于需要根据现有数据派生新数据的场景。</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>computed</code> 属性通常在 Vue 组件的选项对象中定义。它是一个返回计算结果的函数。例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">b</span>: <span class="number">2</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + <span class="variable language_">this</span>.<span class="property">b</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，<code>sum</code> 是一个计算属性，它依赖于数据属性 <code>a</code> 和 <code>b</code>。当 <code>a</code> 或 <code>b</code> 变化时，<code>sum</code> 会被重新计算。</p>
-<h3 id="计算属性-vs-方法"><a href="#计算属性-vs-方法" class="headerlink" title="计算属性 vs 方法"></a>计算属性 vs 方法</h3><p>虽然你可以使用方法来达到同样的效果，计算属性的主要优势在于缓存。如果依赖没有改变，多次访问计算属性会立即返回之前的计算结果，而不是重新执行函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="title function_">sumMethod</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + <span class="variable language_">this</span>.<span class="property">b</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>与上面的计算属性相比，<code>sumMethod</code> 每次被调用时都会重新执行，即使 <code>a</code> 和 <code>b</code> 没有变化。</p>
-<h3 id="计算属性的-Getter-和-Setter"><a href="#计算属性的-Getter-和-Setter" class="headerlink" title="计算属性的 Getter 和 Setter"></a>计算属性的 Getter 和 Setter</h3><p><code>computed</code> 属性默认只有 getter 函数，但你也可以提供一个 setter 函数：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">computed</span>: &#123;</span><br><span class="line">  <span class="attr">fullName</span>: &#123;</span><br><span class="line">    <span class="comment">// getter</span></span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstName</span> + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">this</span>.<span class="property">lastName</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// setter</span></span><br><span class="line">    <span class="title function_">set</span>(<span class="params">newValue</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> names = newValue.<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">firstName</span> = names[<span class="number">0</span>];</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">lastName</span> = names[names.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，<code>fullName</code> 计算属性同时包含了 getter 和 setter。当你读取 <code>fullName</code> 时，它返回由 <code>firstName</code> 和 <code>lastName</code> 拼接的字符串；当你设置 <code>fullName</code> 时，它会根据空格拆分字符串，并更新 <code>firstName</code> 和 <code>lastName</code>。</p>
-<h3 id="在-Vue-3-Composition-API-中的使用"><a href="#在-Vue-3-Composition-API-中的使用" class="headerlink" title="在 Vue 3 Composition API 中的使用"></a>在 Vue 3 Composition API 中的使用</h3><p>在 Vue 3 的 Composition API 中，<code>computed</code> 是一个独立的函数，可以在 <code>setup</code> 函数内使用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; computed &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> a = <span class="title function_">ref</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">const</span> b = <span class="title function_">ref</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">const</span> sum = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> a.<span class="property">value</span> + b.<span class="property">value</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123; a, b, sum &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>这里，<code>sum</code> 是依赖于响应式引用 <code>a</code> 和 <code>b</code> 的计算属性。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>computed</code> 属性是 Vue 3 中处理响应式数据的强大工具，特别适合用于那些依赖其他数据并且可能会重复求值的场景。它们提供了性能优势（通过缓存），并且可以使代码更加简洁和高效。在 Composition API 中，<code>computed</code> 保持了相同的核心概念，但以一种更加模块化和灵活的方式使用。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/@%E7%9A%84%E4%BD%9C%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/@%E7%9A%84%E4%BD%9C%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-26 14:35:45" itemprop="dateModified" datetime="2023-12-26T14:35:45+08:00">2023-12-26</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>676</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 JavaScript 和一些现代前端框架（如 Vue.js）的项目中，<code>@</code> 符号在 <code>import</code> 语句中常被用作一个路径别名。它通常代表项目中的特定目录，最常见的是 <code>src</code> 目录。</p>
-<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用 <code>@</code> 作为别名的目的是为了简化模块的导入路径。在大型项目中，避免使用相对路径（如 <code>../../</code>）来引用模块可以使代码更整洁、更易维护。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设你有一个 Vue.js 项目，你可能会看到类似下面的 <code>import</code> 语句：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">MyComponent</span> <span class="keyword">from</span> <span class="string">&#x27;@/components/MyComponent.vue&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，<code>@</code> 指向项目的 <code>src</code> 目录，因此 <code>@/components/MyComponent.vue</code> 实际上指的是 <code>src/components/MyComponent.vue</code>。</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>这种别名通常在项目的构建配置中设置。例如，在基于 Webpack 的项目中，你可能会在 <code>webpack.config.js</code> 或类似的配置文件中看到类似以下的配置：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">resolve</span>: &#123;</span><br><span class="line">  <span class="attr">alias</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;@&#x27;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;src&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在 Vue CLI 创建的项目中，这个别名默认被配置好了，指向 <code>src</code> 目录。</p>
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用 <code>@</code> 作为别名需要相应的构建工具支持，且需要在项目配置中进行设置。</li>
-<li>这是一个约定俗成的用法，不是 JavaScript 语言或 ECMAScript 规范的一部分。</li>
+<li>在使用单文件组件（.vue 文件）时，文件名通常也使用短横线分隔命名（如 <code>dialog-fence.vue</code>），但这不是强制性的。</li>
+<li>当你在 JavaScript（例如在 <code>import</code> 语句或 <code>components</code> 注册）中引用组件时，仍然需要使用组件的原始命名（例如 <code>DialogFence</code>）。</li>
+<li>这种命名约定有助于保持代码的一致性，并遵循 Web 开发的标准实践。</li>
 </ul>
-<p>总的来说，<code>@</code> 在 <code>import</code> 语句中用作路径别名，主要用于简化模块导入路径，使代码更清晰、更易于管理。</p>
+<p>总之，使用 <code>&lt;dialog-fence&gt;</code> 而不是 <code>&lt;DialogFence&gt;</code> 是为了保证 Vue 模板的 HTML 兼容性，并避免由于 HTML 的不区分大小写特性引起的潜在问题。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/" class="post-title-link" itemprop="url">组件中的this</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：17:57:06" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/" itemprop="url" rel="index"><span itemprop="name">vue3</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue3/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6992452565875032095">https://juejin.cn/post/6992452565875032095</a><br>在Vue实例中，methods中如果用的是正常函数，那么它的this就指向Vue实例；如果是箭头函数，this就指向window对象。</p>
+<p>在 Vue 3 组件的方法中，<code>this</code> 关键字指向的是当前 Vue 组件的实例。这意味着在 <code>setType</code> 方法内部，<code>this</code> 用于访问组件的数据属性、计算属性、方法、生命周期钩子等。</p>
+<h3 id="分析-setType-方法"><a href="#分析-setType-方法" class="headerlink" title="分析 setType 方法"></a>分析 <code>setType</code> 方法</h3><p>在您提供的 <code>setType</code> 方法中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setType</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">fenceSource</span>.<span class="title function_">clear</span>();</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">openMap</span>.<span class="title function_">removeInteraction</span>(<span class="variable language_">this</span>.<span class="property">fenceDraw</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">addInteraction</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><strong><code>this.fenceSource.clear();</code></strong></p>
+<ul>
+<li><code>this.fenceSource</code> 指的是当前组件实例中的 <code>fenceSource</code> 属性或对象。</li>
+<li><code>.clear()</code> 是对该属性或对象调用的方法，可能是用来清除或重置一些数据。</li>
+</ul>
+</li>
+<li><p><strong><code>this.openMap.removeInteraction(this.fenceDraw);</code></strong></p>
+<ul>
+<li><code>this.openMap</code> 指的是组件实例中的 <code>openMap</code> 对象，可能是一个地图实例。</li>
+<li><code>.removeInteraction(this.fenceDraw)</code> 是移除与 <code>this.fenceDraw</code> 相关的交互。<code>this.fenceDraw</code> 同样是组件实例的属性，可能代表某种地图交互。</li>
+</ul>
+</li>
+<li><p><strong><code>this.addInteraction();</code></strong></p>
+<ul>
+<li><code>this.addInteraction</code> 指向当前组件实例中定义的 <code>addInteraction</code> 方法。</li>
+<li>调用 <code>this.addInteraction()</code> 可能是为了添加新的交互到地图实例。</li>
+</ul>
+</li>
+</ol>
+<h3 id="Vue-组件上下文"><a href="#Vue-组件上下文" class="headerlink" title="Vue 组件上下文"></a>Vue 组件上下文</h3><p>在 Vue 组件中，<code>this</code> 使得方法能够访问组件的响应式数据、计算属性、其他方法、以及 Vue 特有的功能，如发出事件等。这就是为什么您可以在 <code>setType</code> 方法内部访问 <code>fenceSource</code>、<code>openMap</code>、<code>fenceDraw</code> 和 <code>addInteraction</code>。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>确保在使用 <code>this</code> 引用这些属性或方法之前，它们已经在组件的 <code>data</code>、<code>methods</code>、<code>computed</code> 或其他相应的选项中定义。</li>
+<li>在 Vue 3 的组合式 API (<code>setup</code> 函数) 中，对 <code>this</code> 的用法有所不同。在 <code>setup</code> 中，您通常不会使用 <code>this</code>，而是直接使用响应式引用和其他组合式 API 功能。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/el-select/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/el-select/" class="post-title-link" itemprop="url">el-select</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：17:57:10" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/element-plus/" itemprop="url" rel="index"><span itemprop="name">element-plus</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/element-plus/vue3/" itemprop="url" rel="index"><span itemprop="name">vue3</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>977</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>el-select</code> 是 Element Plus（Element UI 的 Vue 3 版本）中的一个下拉选择器组件，而 <code>v-model</code> 是 Vue.js 中用于创建双向数据绑定的一个指令。当这两者结合使用时，你可以创建一个用户界面元素，允许用户从一组预定义的选项中选择一个，同时自动更新相应的数据。</p>
+<h3 id="el-select"><a href="#el-select" class="headerlink" title="el-select"></a>el-select</h3><p><code>el-select</code> 组件用于生成一个下拉菜单，让用户可以从多个选项中选择一个。它通常与 <code>el-option</code> 组件一起使用，后者定义了下拉菜单中的各个选项。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-select v-model=&quot;selectedValue&quot;&gt;</span><br><span class="line">  &lt;el-option</span><br><span class="line">    v-for=&quot;item in options&quot;</span><br><span class="line">    :key=&quot;item.value&quot;</span><br><span class="line">    :label=&quot;item.label&quot;</span><br><span class="line">    :value=&quot;item.value&quot;&gt;</span><br><span class="line">  &lt;/el-option&gt;</span><br><span class="line">&lt;/el-select&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中：</p>
+<ul>
+<li><code>el-select</code> 是下拉选择器组件。</li>
+<li><code>el-option</code> 定义了 <code>el-select</code> 中的选项。</li>
+<li><code>v-for</code> 指令用于遍历 <code>options</code> 数组，创建多个 <code>el-option</code>。</li>
+</ul>
+<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><p><code>v-model</code> 是 Vue.js 中实现双向数据绑定的指令。它确保输入控件（如文本框、选择器等）的值和应用数据保持同步。</p>
+<ul>
+<li>当用户更改选择时，<code>v-model</code> 绑定的变量（在上面的例子中是 <code>selectedValue</code>）将自动更新为新选中的值。</li>
+<li>同时，如果 <code>selectedValue</code> 的值在其他地方被更改，<code>el-select</code> 控件将显示与此值相对应的选项。</li>
+</ul>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p><code>el-select</code> 结合 <code>v-model</code> 非常适用于表单，尤其是在需要用户从一系列选项中选择一个时。例如，在提交表单时收集用户的偏好设置、配置选项或其他类似的输入。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>确保 <code>el-select</code> 的每个 <code>el-option</code> 有一个唯一的 <code>value</code> 属性，这样 <code>v-model</code> 才能正确地识别和更新选中的值。</li>
+<li><code>v-model</code> 默认绑定到组件的 <code>value</code> 属性和 <code>input</code> 事件。对于自定义组件，可能需要适当地配置这些属性和事件。</li>
+</ul>
+<p>通过结合使用 <code>el-select</code> 和 <code>v-model</code>，你可以为用户提供一个直观且功能强大的下拉选择界面，同时保持代码的简洁和数据的响应式。</p>
 
       
     </div>
@@ -1315,6 +1104,232 @@
 <h3 id="继承性的影响"><a href="#继承性的影响" class="headerlink" title="继承性的影响"></a>继承性的影响</h3><blockquote>
 <p>如果不能直接选中某个元素，而是通过继承性影响的话，那么权重是0。</p>
 </blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/" class="post-title-link" itemprop="url">a标签的伪类顺序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-08 18:00:00 / 修改时间：17:59:13" itemprop="dateCreated datePublished" datetime="2024-01-08T18:00:00+08:00">2024-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">CSS学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>906</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h3><ol>
+<li>访问前link </li>
+<li>访问后visited</li>
+<li>鼠标移上hover</li>
+<li>鼠标点击active<br>可以利用<strong>爱恨准则</strong>: love hate来进行记忆</li>
+</ol>
+<p><strong>示例代码如下：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;a标签的四个伪类&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        a:link &#123;</span><br><span class="line">            /* 访问前状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;        </span><br><span class="line">        a:visited &#123;</span><br><span class="line">            /* 访问后状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;</span><br><span class="line">        a:hover &#123;</span><br><span class="line">            /* 鼠标悬浮状态 */</span><br><span class="line">            color: blueviolet;</span><br><span class="line">        &#125;</span><br><span class="line">        a:active &#123;</span><br><span class="line">            /* 鼠标点击状态 */</span><br><span class="line">            color: brown;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>伪类的权重是相同的，所以根据<strong>就近原则</strong>,后出现的伪类会覆盖先出现的伪类（同时激活）<br>比如把hover放在active后面，那么实际在激活（active）链接的时候就触发了hover伪类，hover在后面覆盖了active的颜色，所以始终无法看到active的颜色,如果把visited放在hover的后面，那么已经访问过的链接始终触发visited伪类，根据第一条会覆盖hover里面的颜色。其实 link visited 这两个伪类，并不需要顺序关系。（他们两的位置可以交换）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/z-index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/08/CSS/z-index/" class="post-title-link" itemprop="url">z-index</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-08 18:00:00" itemprop="dateCreated datePublished" datetime="2024-01-08T18:00:00+08:00">2024-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-14 11:50:08" itemprop="dateModified" datetime="2024-01-14T11:50:08+08:00">2024-01-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">CSS学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>266</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>z-index</strong>属性：数值大的压盖住数值小的。</p>
+<p>有如下特性：</p>
+<ul>
+<li><ol>
+<li>属性值大的位于上层，属性值小的位于下层。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>z-index值没有单位，就是一个正整数。默认的z-index值是0。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>如果大家都没有z-index值，或者z-index值一样，那么在HTML代码里写在后面，谁就在上面能压住别人。定位了的元素，永远能够压住没有定位的元素。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>只有定位了的元素，才能有z-index值。也就是说，不管相对定位、绝对定位、固定定位，都可以使用z-index值。<strong>而浮动的元素不能用</strong>。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>从父现象：如果父亲1比父亲2大，那么，即使儿子1比儿子2小，儿子1也能在最上层。</li>
+</ol>
+</li>
+</ul>
 
       
     </div>
