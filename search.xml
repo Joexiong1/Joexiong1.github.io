@@ -208,6 +208,115 @@
       </tags>
   </entry>
   <entry>
+    <title>UE5 Landscape系统源码</title>
+    <url>/2024/01/23/UE5/Landscape%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<p>UE5 Landscape文件夹如下：<br><img src="/" alt="文件夹"></p>
+<h2 id="Public文件夹"><a href="#Public文件夹" class="headerlink" title="Public文件夹"></a>Public文件夹</h2><h3 id="LandscapeBlueprintBrushBase-h"><a href="#LandscapeBlueprintBrushBase-h" class="headerlink" title="LandscapeBlueprintBrushBase.h"></a>LandscapeBlueprintBrushBase.h</h3><p>在编辑器中创建和修改地形，通过定义如何影响高度图和权重图等方式来实现复杂的地形编辑操作。这个类作为抽象基类，设计用于被继承和扩展，以实现具体的地形编辑行为。</p>
+<h3 id="LandscapeConfigHelper-h"><a href="#LandscapeConfigHelper-h" class="headerlink" title="LandscapeConfigHelper.h"></a>LandscapeConfigHelper.h</h3><p>定义了一个枚举类型ELandscapeResizeMode，用于指定地形调整大小时的模式，如重采样（Resample）、裁剪（Clip）和扩展（Expand）。<br><img src="/" alt="LandscapeConfigHelper-1"></p>
+<p><img src="/" alt="LandscapeConfigHelper-2"><br><strong>ComponentNumSubsections</strong>: 表示每个地形组件中的子部分（Subsection）数量。子部分是组成地形网格的更小单元。<br><strong>SubsectionSizeQuads</strong>: 表示每个子部分中的四边形（Quad）大小。在地形中，四边形是构成地形网格的基本单位。<br><strong>GridSizeInComponents</strong>: 表示地形网格在每个方向上的组件数量。地形组件是构成整个地形的较大单元。</p>
+<h3 id="LandscapeDataAccess-h"><a href="#LandscapeDataAccess-h" class="headerlink" title="LandscapeDataAccess.h"></a>LandscapeDataAccess.h</h3><p>地形数据访问和操作的一部分。它定义了多个结构和函数，用于处理地形的高度数据、纹理等</p>
+<h3 id="LandscapeEdit-h"><a href="#LandscapeEdit-h" class="headerlink" title="LandscapeEdit.h"></a>LandscapeEdit.h</h3><h3 id="LandscapeEditorServices-h"><a href="#LandscapeEditorServices-h" class="headerlink" title="LandscapeEditorServices.h"></a>LandscapeEditorServices.h</h3><h3 id="LandscapeHLODBuilder-h"><a href="#LandscapeHLODBuilder-h" class="headerlink" title="LandscapeHLODBuilder.h"></a>LandscapeHLODBuilder.h</h3><h3 id="LandscapeLight-h"><a href="#LandscapeLight-h" class="headerlink" title="LandscapeLight.h"></a>LandscapeLight.h</h3><h3 id="LandscapeModule-h"><a href="#LandscapeModule-h" class="headerlink" title="LandscapeModule.h"></a>LandscapeModule.h</h3><h3 id="LandscapeNotification-h"><a href="#LandscapeNotification-h" class="headerlink" title="LandscapeNotification.h"></a>LandscapeNotification.h</h3><h3 id="LandscapeRender-h"><a href="#LandscapeRender-h" class="headerlink" title="LandscapeRender.h"></a>LandscapeRender.h</h3><h3 id="LandscapeRenderMobile-h"><a href="#LandscapeRenderMobile-h" class="headerlink" title="LandscapeRenderMobile.h"></a>LandscapeRenderMobile.h</h3><h3 id="LandscapeSettings-h"><a href="#LandscapeSettings-h" class="headerlink" title="LandscapeSettings.h"></a>LandscapeSettings.h</h3><h3 id="LandscapeSplineProxies-h"><a href="#LandscapeSplineProxies-h" class="headerlink" title="LandscapeSplineProxies.h"></a>LandscapeSplineProxies.h</h3><h3 id="LandscapeSubsystem-h"><a href="#LandscapeSubsystem-h" class="headerlink" title="LandscapeSubsystem.h"></a>LandscapeSubsystem.h</h3><h3 id="LandscapeUtils-h"><a href="#LandscapeUtils-h" class="headerlink" title="LandscapeUtils.h"></a>LandscapeUtils.h</h3>]]></content>
+      <categories>
+        <category>UE5</category>
+      </categories>
+      <tags>
+        <tag>UE5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE5地形制作ChatGPT对话-1</title>
+    <url>/2024/01/07/UE5/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="与ChatGPT4的对话"><a href="#与ChatGPT4的对话" class="headerlink" title="与ChatGPT4的对话"></a>与ChatGPT4的对话</h2><p><code>You：你了解UE吗</code></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">GPT:</span><br><span class="line">&quot;UE&quot; 有多种可能的含义，具体取决于上下文。以下是两个常见的含义：</span><br><span class="line"></span><br><span class="line">Unreal Engine (UE):</span><br><span class="line"></span><br><span class="line">简介： Unreal Engine 是由 Epic Games 开发的一款强大的游戏引擎。它广泛用于制作高质量的三维游戏、虚拟现实（VR）、增强现实（AR）、模拟器、可视化效果等应用。Unreal Engine 提供了先进的图形渲染、物理引擎、音频系统等功能，以及基于蓝图和C++的开发环境。</span><br><span class="line">User Experience (UE):</span><br><span class="line"></span><br><span class="line">简介： User Experience（用户体验）是指用户与产品、系统或服务进行交互时的全体经验。它包括用户在使用产品时的感受、情感、满意度等方面。UE 设计关注于创建简单、直观、高效的用户界面，以确保用户在使用产品时有良好的体验。</span><br><span class="line">如果你有特定的问题或是想要深入探讨关于 &quot;UE&quot; 的某个方面，请提供更多的上下文，以便我能够更准确地回答。</span><br></pre></td></tr></table></figure>
+
+<p><code>You:我指的是Unreal Engine</code></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">ChatGPT：了解，Unreal Engine（UE）是一款由 Epic Games 开发的强大游戏引擎，广泛用于电子游戏、虚拟现实（VR）、增强现实（AR）、模拟器等领域。以下是一些关于 Unreal Engine 的基本信息：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 图形引擎： Unreal Engine 包含了先进的图形引擎，支持高质量的实时渲染。其渲染引擎提供了许多先进的功能，如全局光照、实时阴影、体积光、后期处理效果等，以创建逼真的视觉效果。</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> 物理引擎： Unreal Engine 集成了强大的物理引擎，支持刚体物理、碰撞检测、布料模拟、液体模拟等，使游戏中的物体和角色具有逼真的运动和互动。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> 蓝图系统： Unreal Engine 提供了蓝图系统，这是一种可视化的编程系统，允许开发者使用图形界面设计游戏逻辑和交互，而无需编写代码。蓝图系统使得游戏设计师和艺术家也能够参与到游戏逻辑的创建中。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> 多平台支持： Unreal Engine 支持多个平台，包括 PC、主机（如 PlayStation、Xbox）、移动设备（iOS、Android）、虚拟现实设备（如 Oculus Rift、HTC Vive）等。这使得开发者能够跨多个平台发布他们的作品。</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> 开放性和社区： Unreal Engine 是一个开源引擎，允许开发者访问源代码，并可以根据需要进行修改。此外，Unreal Engine 社区活跃，提供了大量的教程、文档和支持。</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> 游戏开发工具： Unreal Engine 提供了一系列工具，包括场景编辑器、角色编辑器、动画编辑器等，使得游戏开发变得更加高效。</span><br><span class="line"></span><br><span class="line"><span class="bullet">7.</span> 虚拟现实和增强现实： Unreal Engine 是虚拟现实和增强现实应用的重要平台，支持创建逼真的 VR 和 AR 内容。</span><br><span class="line"></span><br><span class="line"><span class="bullet">8.</span> Unreal Engine 在游戏行业和虚拟现实领域广受好评，被许多游戏开发者和工作室选择作为他们的首选引擎。</span><br></pre></td></tr></table></figure>
+
+<p><code>You：你了解UE的关卡制作吗</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT：</span><br><span class="line">是的，我了解 Unreal Engine 中的关卡制作。在游戏开发中，关卡是游戏世界的一部分，可以包括地形、建筑、角色、道具等元素。Unreal Engine 提供了强大的关卡编辑工具，允许开发者创建富有创意的游戏场景。</span><br><span class="line"></span><br><span class="line">以下是 Unreal Engine 中关卡制作的一些关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 关卡编辑器（Level Editor）： Unreal Engine 的关卡编辑器是一个强大的可视化工具，用于创建、编辑和布置游戏场景。通过关卡编辑器，开发者可以轻松地添加地形、静态网格、光照、效果等元素。</span><br><span class="line"></span><br><span class="line">2. 地形工具： Unreal Engine 的地形工具允许开发者创建自然地形，包括山脉、山谷、平原等。开发者可以使用不同的笔刷和工具来塑造地形，同时可以导入高度图以获取真实的地形数据。</span><br><span class="line"></span><br><span class="line">3. 静态网格和模型： 关卡中的物体通常由静态网格构成，这些网格可以是建筑、道具、植被等。Unreal Engine 支持导入各种3D模型，并提供了灵活的工具来放置、旋转和缩放这些模型。</span><br><span class="line"></span><br><span class="line">4. 蓝图： Unreal Engine 的蓝图系统允许开发者在关卡中创建交互性和逻辑。通过蓝图，开发者可以设计和定义关卡中的游戏逻辑，包括触发事件、角色行为、任务等。</span><br><span class="line"></span><br><span class="line">5. 光照和效果： 光照在游戏中是至关重要的，Unreal Engine 提供了强大的光照系统。开发者可以调整太阳光、灯光、阴影等参数，以实现视觉效果的优化。</span><br><span class="line"></span><br><span class="line">6. 音频： 关卡制作还涉及到音频的布置。开发者可以在关卡中放置音频触发器、背景音乐等，以提供更加丰富的游戏体验。</span><br><span class="line"></span><br><span class="line">7. 碰撞体和触发器： 为了实现游戏中的交互和碰撞检测，开发者可以在关卡中放置碰撞体和触发器。这些元素可以用于处理角色与环境的互动。</span><br><span class="line"></span><br><span class="line">8. 地图优化： 随着关卡的增大，性能优化变得尤为重要。Unreal Engine 提供了一系列的工具和技术，帮助开发者优化关卡，确保游戏在各种平台上都能够运行流畅。</span><br><span class="line"></span><br><span class="line">总体而言，Unreal Engine 的关卡制作工具和特性提供了开发者广泛的创作自由，同时提供了强大的性能和可视化效果。</span><br></pre></td></tr></table></figure>
+
+<p><code>You:我们现在专注于探讨关卡中的地形部分</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">理解了，让我们专注于关卡中的地形部分。在Unreal Engine中，地形是关卡中一个重要的元素，开发者可以使用地形工具来创建自然的地貌、山脉、河谷等。以下是一些关于Unreal Engine中地形制作的关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 地形工具面板： 打开Unreal Engine关卡编辑器后，可以通过选择“Modes”面板中的“Landscape”选项来访问地形工具。这里包含了创建、编辑、涂绘地形的工具。</span><br><span class="line"></span><br><span class="line">2. 创建地形： 首先，你需要创建一个地形。选择“Landscape”选项后，可以选择创建全新的地形或导入高度图。创建地形时，你需要指定地形的大小、分辨率等参数。</span><br><span class="line"></span><br><span class="line">3. 地形编辑工具： 地形编辑工具包括提升、降低、平滑、噪声等功能。这些工具使你能够在地形上进行各种形状和形态的修改，创造出各种地貌。</span><br><span class="line"></span><br><span class="line">4. 涂绘地形： Unreal Engine 允许你使用“涂鸦”工具来为地形添加纹理和细节。这包括添加草地、岩石、沙土等纹理，使地形看起来更加真实。</span><br><span class="line"></span><br><span class="line">5. 雕刻细节： 通过调整地形编辑工具的参数，你可以对地形进行更详细的雕刻，创造出沟壑、山脊等地貌特征。</span><br><span class="line"></span><br><span class="line">6. 高度图导入： Unreal Engine 支持通过导入高度图的方式创建地形。高度图是一种灰度图像，其中不同的灰度值对应不同的高度。这是一个常用的创建真实地形的方法。</span><br><span class="line"></span><br><span class="line">7. 地形材质： 你可以为地形定义多层次的材质，以模拟不同的地表类型。这可以通过材质层的涂抹和混合来实现。</span><br><span class="line"></span><br><span class="line">8. 地形优化： 随着地形的增大，性能优化变得重要。 Unreal Engine 提供了一些工具，如“Landscape LOD”（层次细节）来帮助优化大型地形的性能。</span><br><span class="line"></span><br><span class="line">9. 地形的动态变化： Unreal Engine 还支持在游戏运行时动态修改地形。这意味着你可以在游戏中通过脚本或触发器来修改地形，以响应玩家的行为或故事发展。</span><br><span class="line"></span><br><span class="line">以上是关于 Unreal Engine 中地形制作的一些基本概念和步骤。实际上，地形的制作是一个广泛而深入的主题，你可能需要进一步深入学习和实践以熟练运用这些工具。</span><br></pre></td></tr></table></figure>
+
+<p><code>You:现在我想要知道UE是如何具体实现这些功能的，你可以通过实现思路或是结合UE源码来解答</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">Unreal Engine（UE）的地形系统是一个复杂而强大的模块，它的实现涉及到多个方面，包括地形生成、编辑、渲染等。下面是对 UE 地形系统实现的一些基本思路和组成部分的简要解释：</span><br><span class="line"></span><br><span class="line">地形生成：</span><br><span class="line"></span><br><span class="line">Unreal Engine 支持通过高度图生成地形。高度图是一种灰度图像，其中灰度值对应地形的高度。在地形生成时，引擎会根据高度图的灰度值为地形的每个顶点计算高度信息，从而形成地形的基本形状。</span><br><span class="line">地形编辑工具：</span><br><span class="line"></span><br><span class="line">地形编辑工具提供了一系列的操作，如提升、降低、平滑、噪声等。这些操作会影响地形的高度信息。实现这些工具的基本思路是通过修改地形的顶点数据，然后更新渲染。</span><br><span class="line">地形的细节涂绘：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许开发者为地形添加多层次的纹理，这通过涂鸦工具实现。实现思路是为每个地形顶点存储多层次的纹理信息，通过融合这些纹理来模拟地表的不同类型。</span><br><span class="line">地形材质的定义：</span><br><span class="line"></span><br><span class="line">地形的材质定义是通过层次材质（Layered Material）来实现的。每个层次对应一种地表类型，例如草地、岩石、沙土等。这些层次材质通过混合和涂抹操作来达到自然过渡的效果。</span><br><span class="line">LOD（层次细节）：</span><br><span class="line"></span><br><span class="line">Unreal Engine 的地形系统支持 LOD，即在远处时使用低分辨率的地形表示，在近处时逐渐增加细节。这通过在运行时动态生成不同层次的地形网格来实现。</span><br><span class="line">高度图导入：</span><br><span class="line"></span><br><span class="line">高度图导入涉及将外部高度图的灰度信息映射到地形的高度。这通常包括将高度图的像素值映射到地形的顶点高度，并相应地更新地形。</span><br><span class="line">动态变化：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许在运行时动态修改地形。这是通过在蓝图或代码中实现对地形高度数据的修改和更新来实现的。</span><br><span class="line">在 UE 的实现中，上述功能涉及到底层的图形引擎、渲染管道、材质系统等多个模块。具体的实现细节需要深入阅读 Unreal Engine 的源代码和相关文档。UE 的源代码是闭源的，但 Epic Games 提供了一些开放的接口和文档，以帮助开发者理解和扩展引擎的功能。开发者可以通过 Unreal Engine 的官方文档、社区论坛以及相关的在线资源来深入研究和学习。</span><br></pre></td></tr></table></figure>
+
+
+<p>在Unreal Engine中，地形制作相关的源码通常位于其主要的GitHub存储库中，具体可以在以下位置找到：</p>
+<ul>
+<li><strong>存储库</strong>：<a href="https://github.com/EpicGames/UnrealEngine">Unreal Engine GitHub Repository</a></li>
+<li><strong>目录路径</strong>：<ul>
+<li><code>Engine/Source/Runtime/Landscape/</code>：这个目录包含地形系统（Landscape System）的大部分核心功能和类。</li>
+<li><code>Engine/Source/Editor/LandscapeEditor/</code>：这里包含了地形编辑器相关的代码，主要是UE编辑器内用于地形编辑的用户界面和工具。</li>
+</ul>
+</li>
+</ul>
+<p>为了访问这些源代码，你需要一个有效的Epic Games账号，并且必须同意Unreal Engine的使用条款。在完成这些步骤之后，你才能够从GitHub存储库克隆或下载代码。</p>
+<p>请注意，Unreal Engine的源代码是非常庞大和复杂的，涉及深入的C++编程知识，以及对游戏开发和计算机图形学的理解。如果你刚开始接触这些内容，建议先从官方文档和教程开始学习。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">`You：你了解UE的关卡制作吗`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>是的，我了解《3D Engine Design for Virtual Globes》这本书。这本书由Patrick Cozzi和Kevin Ring共同撰写，专注于3D引擎的设计，特别是用于虚拟地球和地理信息系统（GIS）的应用。它提供了关于如何创建高性能、实时的3D地球可视化引擎的深入讨论和指导。</p>
+<p>以下是这本书的一些关键特点和内容概述：</p>
+<h3 id="关键特点"><a href="#关键特点" class="headerlink" title="关键特点"></a>关键特点</h3><ol>
+<li><strong>实时3D引擎设计</strong>：书中详细探讨了实时渲染技术，特别是在地理空间数据和大规模地球表面渲染方面的应用。</li>
+<li><strong>虚拟地球技术</strong>：详细介绍了虚拟地球技术的核心概念，包括地球表面的渲染、地形表示、以及与卫星图像的集成。</li>
+<li><strong>性能优化</strong>：重点关注性能优化策略，以确保3D引擎能够高效地处理大量的地理空间数据。</li>
+</ol>
+<h3 id="内容概述"><a href="#内容概述" class="headerlink" title="内容概述"></a>内容概述</h3><ul>
+<li><strong>基础理论</strong>：介绍3D图形学的基础理论，如坐标系统、投影和视图变换。</li>
+<li><strong>地理空间数据处理</strong>：讨论如何处理和优化地理空间数据，包括地形数据和卫星图像。</li>
+<li><strong>高级渲染技术</strong>：深入探讨高级渲染技术，如着色器编程、光照和阴影、以及大气和天气效果。</li>
+<li><strong>地形和图像金字塔</strong>：介绍地形和图像金字塔技术，这是一种处理和显示大规模地理数据的有效方法。</li>
+<li><strong>网络技术</strong>：探讨如何使用网络技术来流式传输和渲染地球数据。</li>
+</ul>
+<h3 id="适用读者"><a href="#适用读者" class="headerlink" title="适用读者"></a>适用读者</h3><ul>
+<li><strong>游戏开发者</strong>：对于想要在游戏中实现地球或大规模地形渲染的开发者。</li>
+<li><strong>GIS专业人士</strong>：GIS领域的专业人士，希望了解3D引擎在地理空间数据可视化中的应用。</li>
+<li><strong>计算机图形学爱好者</strong>：对3D图形学和实时渲染技术感兴趣的读者。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>《3D Engine Design for Virtual Globes》是一本专业的技术书籍，它结合了计算机图形学理论和实际的应用案例，适合那些希望深入了解和开发用于虚拟地球和GIS应用的3D引擎的读者。</p>
+<pre><code>
+
+Here are some research papers related to the principles of terrain creation in Unreal Engine 5:
+
+1. **Procedural Generation of Roads with Conditional Generative Adversarial Networks** by Lin Ziwen Kelvin and A. Bhojan (2020): This paper discusses the use of algorithms for procedural terrain generation, including features like landscaping and road networks, with applications in game development engines like Unreal Engine 4. It explores the use of conditional generative adversarial networks for creating road maps in game development [(Lin Ziwen Kelvin &amp; Bhojan, 2020)](https://consensus.app/papers/generation-roads-conditional-generative-adversarial-kelvin/0f78e5b80010500f94a89a51354cca71/?utm_source=chatgpt).
+
+2. **Unreal as a simulation environment for offroad autonomy** by Parker Young, Sam Kysar, J. Bos (2020): This paper describes extensions to the Unreal gaming engine to support the simulation of autonomous ground vehicles in complex 3D terrain. It includes models for various sensors compatible with the Robot Operating System middleware [(Young, Kysar, &amp; Bos, 2020)](https://consensus.app/papers/simulation-environment-offroad-autonomy-young/caefc460b0f95396af87909a28399e49/?utm_source=chatgpt).
+
+3. **Design and Development of “Fright Hour” A Horror Game Utilizing Unreal Engine 5** by Jeftha Budiman, Wilson Wirijadipura, M. H. Widianto, Shafa Amira Qonitatin, Alyza Rahima Pramudya (2022): This paper outlines the development of a horror game using Unreal Engine 5, discussing the game development life cycle phases and evaluation methods [(Budiman et al., 2022)](https://consensus.app/papers/design-development-fright-hour-horror-game-utilizing-budiman/3ee288771b2b59b1b8a3e680e097aac0/?utm_source=chatgpt).
+
+4. **AI intelligent wayfinding based on Unreal Engine 4 static map** by Yuhang Xie, Yihong Chen, Ziyi Wang, Yangjun Ou (2022): This research focuses on AI path-finding systems in games developed with Unreal Engine. It explains the principles of path-finding algorithms in static environments and their implementation in Unreal Engine using blueprint programming [(Xie, Chen, Wang, &amp; Ou, 2022)](https://consensus.app/papers/intelligent-wayfinding-based-unreal-engine-xie/e8e430254dc358bba4c0eaa4dd1591c1/?utm_source=chatgpt).
+
+5. **What’s Inside Unreal Engine? - A Curious Gaze!** by Vartika Agrahari, S. Chimalakonda (2021): This paper aims to understand Unreal Engine by analyzing its software architecture, considering architectural changes across various releases of Unreal Engine [(Agrahari &amp; Chimalakonda, 2021)](https://consensus.app/papers/what-inside-unreal-engine-curious-gaze-agrahari/3d0f09f6427858c99c7469a97f622e9e/?utm_source=chatgpt).
+
+These papers provide insights into the principles and applications of terrain creation in Unreal Engine, including procedural generation techniques, AI path-finding, and game development methodologies.
+
+
+The principles of the Unreal Engine 5 terrain creation system can be understood through various research papers that explore different aspects of terrain generation and game development using Unreal Engine and similar platforms. Here are some key insights:
+
+1. **Procedural Terrain Generation**: Terrain features like landscaping, rivers, or road networks are generated through algorithms with minimal input from the user. This approach is important in game development, especially for larger terrain maps, as traditional methods are too time-consuming. Unreal Engine 4 has been used for such procedural terrain generation, which can be applied to Unreal Engine 5 as well [(Lin Ziwen Kelvin &amp; A. Bhojan, 2020)](https://consensus.app/papers/generation-roads-conditional-generative-adversarial-kelvin/0f78e5b80010500f94a89a51354cca71/?utm_source=chatgpt).
+
+2. **Simulation of Autonomous Vehicles**: The Unreal Engine has been extended to model interactions of autonomous vehicles with complex 3D terrain. This involves accurate modeling of vehicle-terrain interaction, adding models for LiDARs, IMU, and GNSS systems compatible with the Robot Operating System middleware [(Parker Young, Sam Kysar, &amp; J. Bos, 2020)](https://consensus.app/papers/simulation-environment-offroad-autonomy-young/caefc460b0f95396af87909a28399e49/?utm_source=chatgpt).
+
+3. **AI Pathfinding**: Unreal Engine&#39;s pathfinding component, usually applied to 3D games, is critical for AI path-finding in dynamic environments. The Unreal Engine platform has been used for simulation experiments and detailed explanation of intelligent path-finding in both dynamic and static environments [(Yuhang Xie, Yihong Chen, Ziyi Wang, &amp; Yangjun Ou, 2022)](https://consensus.app/papers/intelligent-wayfinding-based-unreal-engine-xie/e8e430254dc358bba4c0eaa4dd1591c1/?utm_source=chatgpt).
+
+4. **Automatic Terrain Generation**: Systems have been developed to generate random terrain automatically, enhancing playability and explorability in games. These systems use algorithms like Berlin noise and OpenGL to generate random paths and maps, which can be transplanted to Unity and other map model processing tools [(Jiatong Liu, Dongdong Chen, Chengyou Zhang, Duyang Li, &amp; Xiaoyan Zhang, 2021)](https://consensus.app/papers/automatic-terrain-generation-system-based-path-search-liu/ab0b332739645610ab054d9017da1cb8/?utm_source=chatgpt).
+
+5. **Vegetation Rendering Optimization**: In virtual reality systems using game engines like Unreal, rendering complex terrain and dense vegetation is computationally intensive. Techniques like parallel rendering, Levels of Details (LOD), and culling algorithms have been applied for optimization [(Zilong Zhang, Xun Luo, Salazar Vaca María Gabriela, Espinoza Castro Danny Alberto, &amp; Yi Chen, 2017)](https://consensus.app/papers/vegetation-rendering-optimization-virtual-reality-zhang/956b1a96908c5da783587c18196a9c78/?utm_source=chatgpt).
+
+6. **Physics-Based Terrain Editing**: Systems have been developed for digital terrain editing suitable for game designers and artists, allowing the editing of large terrains at interactive frame rates on a GPU. These systems do not require in-depth knowledge of physics-based simulations [(J. Vanek, Bedrich Benes, A. Herout, &amp; O. Stava, 2011)](https://consensus.app/papers/largescale-physicsbased-terrain-editing-using-adaptive-vanek/3197df84e17d5d3d90a9a04075dea9ae/?utm_source=chatgpt).
+
+These papers demonstrate a range of methods and technologies used in terrain generation and optimization, many of which are applicable or adaptable to Unreal Engine 5&#39;s terrain creation system.
+</code></pre>
+]]></content>
+      <categories>
+        <category>UE5</category>
+      </categories>
+      <tags>
+        <tag>UE5</tag>
+        <tag>ChatGPT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>a++和++a</title>
     <url>/2024/01/07/Javascript%E5%AD%A6%E4%B9%A0/++a%E5%92%8Ca++/</url>
     <content><![CDATA[<p>自增分成两种：a++和++a。共同点：</p>
@@ -219,6 +328,38 @@
 <p>示例代码如下：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n1 = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> n2 = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result1 = n1++;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">// 11</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result1); <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line">result = ++n1;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result2 = n2--;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 19</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line">result2 = --n2;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 18</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE5 Landscape系统源码</title>
+    <url>/2024/01/23/UE5/UE%E5%9C%B0%E5%BD%A2%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<p><strong>地形组件介绍：</strong></p>
+<ul>
+<li>UE5官方文档：<a href="https://docs.unrealengine.com/5.3/zh-CN/landscape-technical-guide-in-unreal-engine/">https://docs.unrealengine.com/5.3/zh-CN/landscape-technical-guide-in-unreal-engine/</a></li>
+</ul>
+<p><strong>地形创建时的相关参数：</strong><br><img src="https://github.com/Joexiong1/myImg/blob/main/%E5%9C%B0%E5%BD%A2%E7%BB%84%E4%BB%B6%E5%8F%82%E6%95%B0.png"></p>
+]]></content>
+      <categories>
+        <category>UE5</category>
+      </categories>
+      <tags>
+        <tag>UE5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript运行三步曲——预编译</title>
+    <url>/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><p><strong>优点</strong>：写法方便简洁，容易理解<br><strong>缺点</strong>：对象实例共享所有继承的属性和方法（这样就只有一种参数）；无法向父类构造函数传参</p>
+<h3 id="借用构造函数继承"><a href="#借用构造函数继承" class="headerlink" title="借用构造函数继承"></a>借用构造函数继承</h3><p>在子类型构造函数内部调用父类型构造函数，使用apply()或call()方法将父对象的构造函数绑定在子对象上。<br><strong>优点</strong>：解决原型链实现继承的不能传参的问题和<strong>父类的原型共享</strong>的问题<br><strong>缺点</strong>:构造函数中定义，因此无法实现函数复用（<strong>也就是说每次都会创建新的对象</strong>），并且父类型的原型中定义的方法，对子类型而言是不可见的，所以所有子类型都只能使用构造函数模式</p>
+<h3 id="组合式继承"><a href="#组合式继承" class="headerlink" title="组合式继承"></a>组合式继承</h3><p>将前两个方法组合到一起，使用原型链实现对原型属性和方法的继承，并且通过借用构造函数来实现对实例属性的继承，这样<strong>既保证实现函数复用，又保证每个实例都有自己的属性</strong>。<br><strong>缺点</strong>：无论在什么情况下都会调用两次父类构造函数（一次在创建子类原型的时候，一次是在子类构造函数内部）</p>
+<h3 id="ES6的class类继承"><a href="#ES6的class类继承" class="headerlink" title="ES6的class类继承"></a>ES6的class类继承</h3><p>通过extends关键字实现继承，其实质是<strong>先创造出父类的this对象，然后用子类的构造函数修改this</strong>。</p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -313,49 +454,6 @@
   </entry>
   <entry>
     <title>Javascript运行三步曲——预编译</title>
-    <url>/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><p><strong>优点</strong>：写法方便简洁，容易理解<br><strong>缺点</strong>：对象实例共享所有继承的属性和方法（这样就只有一种参数）；无法向父类构造函数传参</p>
-<h3 id="借用构造函数继承"><a href="#借用构造函数继承" class="headerlink" title="借用构造函数继承"></a>借用构造函数继承</h3><p>在子类型构造函数内部调用父类型构造函数，使用apply()或call()方法将父对象的构造函数绑定在子对象上。<br><strong>优点</strong>：解决原型链实现继承的不能传参的问题和<strong>父类的原型共享</strong>的问题<br><strong>缺点</strong>:构造函数中定义，因此无法实现函数复用（<strong>也就是说每次都会创建新的对象</strong>），并且父类型的原型中定义的方法，对子类型而言是不可见的，所以所有子类型都只能使用构造函数模式</p>
-<h3 id="组合式继承"><a href="#组合式继承" class="headerlink" title="组合式继承"></a>组合式继承</h3><p>将前两个方法组合到一起，使用原型链实现对原型属性和方法的继承，并且通过借用构造函数来实现对实例属性的继承，这样<strong>既保证实现函数复用，又保证每个实例都有自己的属性</strong>。<br><strong>缺点</strong>：无论在什么情况下都会调用两次父类构造函数（一次在创建子类原型的时候，一次是在子类构造函数内部）</p>
-<h3 id="ES6的class类继承"><a href="#ES6的class类继承" class="headerlink" title="ES6的class类继承"></a>ES6的class类继承</h3><p>通过extends关键字实现继承，其实质是<strong>先创造出父类的this对象，然后用子类的构造函数修改this</strong>。</p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>变量提升、函数提升</title>
-    <url>/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</url>
-    <content><![CDATA[<h3 id="全局作用域的预处理"><a href="#全局作用域的预处理" class="headerlink" title="全局作用域的预处理"></a>全局作用域的预处理</h3><p>预处理（预解析）：JS在解析代码之前，有一个“预处理（预解析）”阶段，将当前 JS 代码中所有变量的定义和函数的定义，放到所有代码的最前面。这种预解析也称之为声明提前（变量提升）</p>
-<p>变量提升：在js执行过程中，js引擎把变量的声明和函数的声明提升到代码最顶的行为（会影响程序执行结果，console.log()）。变量被提升后，会给变量设置为默认值，此值为undefined，所以可以在声明之前使用。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">a = <span class="number">123</span>; <span class="comment">//此时a相当于window.a</span></span><br></pre></td></tr></table></figure>
-<p>程序会报错：<code>Uncaught ReferenceError: a is not defined</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">123</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);  <span class="comment">//打印结果：undefined。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>if(false)里面的代码虽然不会被执行，但是整个代码有解析的环节，解析的时候就已经把 变量 i 给提前声明了。</p>
-<p>但是如果声明变量时不是用var关键字,比如直接写a&#x3D;1或是使用let和connst定义的变量并不会变量提升，在声明 let 、const变量之前就使用它会导致 ReferenceError。</p>
-<p>使用const声明的常量在声明时必须进行初始化。一旦被赋值，常量的值在其生命周期内不能被修改，但是注意，在JavaScript中，对象和数组是引用类型。使用const声明的常量不会使对象和数组的内容不可变，使用const声明的常量只是保证我们不能将arr指向另一个数组，但是可以修改arr指向的数组内部的内容。在 ES2015 之前，JavaScript 是没有块作用域的，只有函数作用域和全局作用域。可以使用 let 关键词声明拥有块作用域的变量。</p>
-<p>let和const都是块级作用域，不属于window对象（不能使用window.变量名），同一作用域中不能重复声明，而var是可以重新声明和赋值的，如果只是声明，不改变上一次赋值结果，let和const也不能对var在同一作用域声明，在不同作用域是可以的</p>
-<h3 id="函数的声明提前（函数提升）"><a href="#函数的声明提前（函数提升）" class="headerlink" title="函数的声明提前（函数提升）"></a>函数的声明提前（函数提升）</h3><p>使用函数表达式创建的函数const foo &#x3D; function(){}，不会被声明提前，所以不能在声明前调用，因为此时只是变量foo被提升了，且值为undefined，并没有把function{}赋值给foo</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不会报错，可以正常执行函数，正常打印结果</span></span><br><span class="line"><span class="title function_">fun1</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时 fun2 相当于 undefined。执行时会报错：Uncaught ReferenceError: Cannot access &#x27;fun2&#x27; before initialization</span></span><br><span class="line"><span class="title function_">fun2</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数声明，会被提前声明</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun1 函数&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式，不会被提前声明</span></span><br><span class="line"><span class="keyword">const</span> fun2 = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun12 函数&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>注意：函数提升优先于变量提升</strong></p>
-<p>另外，不仅全局作用域中存在声明提前，在函数作用域中，也有声明提前的现象：</p>
-<p>定义形参就相当于在函数作用域中声明了变量，举例如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 这个函数中，因为有了形参 e，此时相当于在函数内部的第一行代码里，写了 var e;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fun</span>(); <span class="comment">//打印结果为 undefined</span></span><br><span class="line"><span class="title function_">fun</span>(<span class="number">123</span>); <span class="comment">//打印结果为123</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Javascript运行三步曲——预编译</title>
     <url>/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/</url>
     <content><![CDATA[<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完成再次进入该代码块的语法分析阶段。</p>
 <h3 id="两个规律"><a href="#两个规律" class="headerlink" title="两个规律"></a>两个规律</h3><p><strong>规律1</strong>：任何变量，如果未经声明就赋值，此变量是属于 window 的属性，而且不会做变量提升。（注意，无论在哪个作用域内赋值）</p>
@@ -405,6 +503,33 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>), <span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>));</span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>变量提升、函数提升</title>
+    <url>/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</url>
+    <content><![CDATA[<h3 id="全局作用域的预处理"><a href="#全局作用域的预处理" class="headerlink" title="全局作用域的预处理"></a>全局作用域的预处理</h3><p>预处理（预解析）：JS在解析代码之前，有一个“预处理（预解析）”阶段，将当前 JS 代码中所有变量的定义和函数的定义，放到所有代码的最前面。这种预解析也称之为声明提前（变量提升）</p>
+<p>变量提升：在js执行过程中，js引擎把变量的声明和函数的声明提升到代码最顶的行为（会影响程序执行结果，console.log()）。变量被提升后，会给变量设置为默认值，此值为undefined，所以可以在声明之前使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">a = <span class="number">123</span>; <span class="comment">//此时a相当于window.a</span></span><br></pre></td></tr></table></figure>
+<p>程序会报错：<code>Uncaught ReferenceError: a is not defined</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">123</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);  <span class="comment">//打印结果：undefined。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>if(false)里面的代码虽然不会被执行，但是整个代码有解析的环节，解析的时候就已经把 变量 i 给提前声明了。</p>
+<p>但是如果声明变量时不是用var关键字,比如直接写a&#x3D;1或是使用let和connst定义的变量并不会变量提升，在声明 let 、const变量之前就使用它会导致 ReferenceError。</p>
+<p>使用const声明的常量在声明时必须进行初始化。一旦被赋值，常量的值在其生命周期内不能被修改，但是注意，在JavaScript中，对象和数组是引用类型。使用const声明的常量不会使对象和数组的内容不可变，使用const声明的常量只是保证我们不能将arr指向另一个数组，但是可以修改arr指向的数组内部的内容。在 ES2015 之前，JavaScript 是没有块作用域的，只有函数作用域和全局作用域。可以使用 let 关键词声明拥有块作用域的变量。</p>
+<p>let和const都是块级作用域，不属于window对象（不能使用window.变量名），同一作用域中不能重复声明，而var是可以重新声明和赋值的，如果只是声明，不改变上一次赋值结果，let和const也不能对var在同一作用域声明，在不同作用域是可以的</p>
+<h3 id="函数的声明提前（函数提升）"><a href="#函数的声明提前（函数提升）" class="headerlink" title="函数的声明提前（函数提升）"></a>函数的声明提前（函数提升）</h3><p>使用函数表达式创建的函数const foo &#x3D; function(){}，不会被声明提前，所以不能在声明前调用，因为此时只是变量foo被提升了，且值为undefined，并没有把function{}赋值给foo</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不会报错，可以正常执行函数，正常打印结果</span></span><br><span class="line"><span class="title function_">fun1</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时 fun2 相当于 undefined。执行时会报错：Uncaught ReferenceError: Cannot access &#x27;fun2&#x27; before initialization</span></span><br><span class="line"><span class="title function_">fun2</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数声明，会被提前声明</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun1 函数&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式，不会被提前声明</span></span><br><span class="line"><span class="keyword">const</span> fun2 = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我是 fun12 函数&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：函数提升优先于变量提升</strong></p>
+<p>另外，不仅全局作用域中存在声明提前，在函数作用域中，也有声明提前的现象：</p>
+<p>定义形参就相当于在函数作用域中声明了变量，举例如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 这个函数中，因为有了形参 e，此时相当于在函数内部的第一行代码里，写了 var e;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fun</span>(); <span class="comment">//打印结果为 undefined</span></span><br><span class="line"><span class="title function_">fun</span>(<span class="number">123</span>); <span class="comment">//打印结果为123</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
@@ -525,131 +650,6 @@
       </tags>
   </entry>
   <entry>
-    <title>UE5地形制作ChatGPT对话-1</title>
-    <url>/2024/01/07/UE5/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/</url>
-    <content><![CDATA[<h2 id="与ChatGPT4的对话"><a href="#与ChatGPT4的对话" class="headerlink" title="与ChatGPT4的对话"></a>与ChatGPT4的对话</h2><p><code>You：你了解UE吗</code></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">GPT:</span><br><span class="line">&quot;UE&quot; 有多种可能的含义，具体取决于上下文。以下是两个常见的含义：</span><br><span class="line"></span><br><span class="line">Unreal Engine (UE):</span><br><span class="line"></span><br><span class="line">简介： Unreal Engine 是由 Epic Games 开发的一款强大的游戏引擎。它广泛用于制作高质量的三维游戏、虚拟现实（VR）、增强现实（AR）、模拟器、可视化效果等应用。Unreal Engine 提供了先进的图形渲染、物理引擎、音频系统等功能，以及基于蓝图和C++的开发环境。</span><br><span class="line">User Experience (UE):</span><br><span class="line"></span><br><span class="line">简介： User Experience（用户体验）是指用户与产品、系统或服务进行交互时的全体经验。它包括用户在使用产品时的感受、情感、满意度等方面。UE 设计关注于创建简单、直观、高效的用户界面，以确保用户在使用产品时有良好的体验。</span><br><span class="line">如果你有特定的问题或是想要深入探讨关于 &quot;UE&quot; 的某个方面，请提供更多的上下文，以便我能够更准确地回答。</span><br></pre></td></tr></table></figure>
-
-<p><code>You:我指的是Unreal Engine</code></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">ChatGPT：了解，Unreal Engine（UE）是一款由 Epic Games 开发的强大游戏引擎，广泛用于电子游戏、虚拟现实（VR）、增强现实（AR）、模拟器等领域。以下是一些关于 Unreal Engine 的基本信息：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 图形引擎： Unreal Engine 包含了先进的图形引擎，支持高质量的实时渲染。其渲染引擎提供了许多先进的功能，如全局光照、实时阴影、体积光、后期处理效果等，以创建逼真的视觉效果。</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> 物理引擎： Unreal Engine 集成了强大的物理引擎，支持刚体物理、碰撞检测、布料模拟、液体模拟等，使游戏中的物体和角色具有逼真的运动和互动。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> 蓝图系统： Unreal Engine 提供了蓝图系统，这是一种可视化的编程系统，允许开发者使用图形界面设计游戏逻辑和交互，而无需编写代码。蓝图系统使得游戏设计师和艺术家也能够参与到游戏逻辑的创建中。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> 多平台支持： Unreal Engine 支持多个平台，包括 PC、主机（如 PlayStation、Xbox）、移动设备（iOS、Android）、虚拟现实设备（如 Oculus Rift、HTC Vive）等。这使得开发者能够跨多个平台发布他们的作品。</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> 开放性和社区： Unreal Engine 是一个开源引擎，允许开发者访问源代码，并可以根据需要进行修改。此外，Unreal Engine 社区活跃，提供了大量的教程、文档和支持。</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> 游戏开发工具： Unreal Engine 提供了一系列工具，包括场景编辑器、角色编辑器、动画编辑器等，使得游戏开发变得更加高效。</span><br><span class="line"></span><br><span class="line"><span class="bullet">7.</span> 虚拟现实和增强现实： Unreal Engine 是虚拟现实和增强现实应用的重要平台，支持创建逼真的 VR 和 AR 内容。</span><br><span class="line"></span><br><span class="line"><span class="bullet">8.</span> Unreal Engine 在游戏行业和虚拟现实领域广受好评，被许多游戏开发者和工作室选择作为他们的首选引擎。</span><br></pre></td></tr></table></figure>
-
-<p><code>You：你了解UE的关卡制作吗</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT：</span><br><span class="line">是的，我了解 Unreal Engine 中的关卡制作。在游戏开发中，关卡是游戏世界的一部分，可以包括地形、建筑、角色、道具等元素。Unreal Engine 提供了强大的关卡编辑工具，允许开发者创建富有创意的游戏场景。</span><br><span class="line"></span><br><span class="line">以下是 Unreal Engine 中关卡制作的一些关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 关卡编辑器（Level Editor）： Unreal Engine 的关卡编辑器是一个强大的可视化工具，用于创建、编辑和布置游戏场景。通过关卡编辑器，开发者可以轻松地添加地形、静态网格、光照、效果等元素。</span><br><span class="line"></span><br><span class="line">2. 地形工具： Unreal Engine 的地形工具允许开发者创建自然地形，包括山脉、山谷、平原等。开发者可以使用不同的笔刷和工具来塑造地形，同时可以导入高度图以获取真实的地形数据。</span><br><span class="line"></span><br><span class="line">3. 静态网格和模型： 关卡中的物体通常由静态网格构成，这些网格可以是建筑、道具、植被等。Unreal Engine 支持导入各种3D模型，并提供了灵活的工具来放置、旋转和缩放这些模型。</span><br><span class="line"></span><br><span class="line">4. 蓝图： Unreal Engine 的蓝图系统允许开发者在关卡中创建交互性和逻辑。通过蓝图，开发者可以设计和定义关卡中的游戏逻辑，包括触发事件、角色行为、任务等。</span><br><span class="line"></span><br><span class="line">5. 光照和效果： 光照在游戏中是至关重要的，Unreal Engine 提供了强大的光照系统。开发者可以调整太阳光、灯光、阴影等参数，以实现视觉效果的优化。</span><br><span class="line"></span><br><span class="line">6. 音频： 关卡制作还涉及到音频的布置。开发者可以在关卡中放置音频触发器、背景音乐等，以提供更加丰富的游戏体验。</span><br><span class="line"></span><br><span class="line">7. 碰撞体和触发器： 为了实现游戏中的交互和碰撞检测，开发者可以在关卡中放置碰撞体和触发器。这些元素可以用于处理角色与环境的互动。</span><br><span class="line"></span><br><span class="line">8. 地图优化： 随着关卡的增大，性能优化变得尤为重要。Unreal Engine 提供了一系列的工具和技术，帮助开发者优化关卡，确保游戏在各种平台上都能够运行流畅。</span><br><span class="line"></span><br><span class="line">总体而言，Unreal Engine 的关卡制作工具和特性提供了开发者广泛的创作自由，同时提供了强大的性能和可视化效果。</span><br></pre></td></tr></table></figure>
-
-<p><code>You:我们现在专注于探讨关卡中的地形部分</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">理解了，让我们专注于关卡中的地形部分。在Unreal Engine中，地形是关卡中一个重要的元素，开发者可以使用地形工具来创建自然的地貌、山脉、河谷等。以下是一些关于Unreal Engine中地形制作的关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 地形工具面板： 打开Unreal Engine关卡编辑器后，可以通过选择“Modes”面板中的“Landscape”选项来访问地形工具。这里包含了创建、编辑、涂绘地形的工具。</span><br><span class="line"></span><br><span class="line">2. 创建地形： 首先，你需要创建一个地形。选择“Landscape”选项后，可以选择创建全新的地形或导入高度图。创建地形时，你需要指定地形的大小、分辨率等参数。</span><br><span class="line"></span><br><span class="line">3. 地形编辑工具： 地形编辑工具包括提升、降低、平滑、噪声等功能。这些工具使你能够在地形上进行各种形状和形态的修改，创造出各种地貌。</span><br><span class="line"></span><br><span class="line">4. 涂绘地形： Unreal Engine 允许你使用“涂鸦”工具来为地形添加纹理和细节。这包括添加草地、岩石、沙土等纹理，使地形看起来更加真实。</span><br><span class="line"></span><br><span class="line">5. 雕刻细节： 通过调整地形编辑工具的参数，你可以对地形进行更详细的雕刻，创造出沟壑、山脊等地貌特征。</span><br><span class="line"></span><br><span class="line">6. 高度图导入： Unreal Engine 支持通过导入高度图的方式创建地形。高度图是一种灰度图像，其中不同的灰度值对应不同的高度。这是一个常用的创建真实地形的方法。</span><br><span class="line"></span><br><span class="line">7. 地形材质： 你可以为地形定义多层次的材质，以模拟不同的地表类型。这可以通过材质层的涂抹和混合来实现。</span><br><span class="line"></span><br><span class="line">8. 地形优化： 随着地形的增大，性能优化变得重要。 Unreal Engine 提供了一些工具，如“Landscape LOD”（层次细节）来帮助优化大型地形的性能。</span><br><span class="line"></span><br><span class="line">9. 地形的动态变化： Unreal Engine 还支持在游戏运行时动态修改地形。这意味着你可以在游戏中通过脚本或触发器来修改地形，以响应玩家的行为或故事发展。</span><br><span class="line"></span><br><span class="line">以上是关于 Unreal Engine 中地形制作的一些基本概念和步骤。实际上，地形的制作是一个广泛而深入的主题，你可能需要进一步深入学习和实践以熟练运用这些工具。</span><br></pre></td></tr></table></figure>
-
-<p><code>You:现在我想要知道UE是如何具体实现这些功能的，你可以通过实现思路或是结合UE源码来解答</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">Unreal Engine（UE）的地形系统是一个复杂而强大的模块，它的实现涉及到多个方面，包括地形生成、编辑、渲染等。下面是对 UE 地形系统实现的一些基本思路和组成部分的简要解释：</span><br><span class="line"></span><br><span class="line">地形生成：</span><br><span class="line"></span><br><span class="line">Unreal Engine 支持通过高度图生成地形。高度图是一种灰度图像，其中灰度值对应地形的高度。在地形生成时，引擎会根据高度图的灰度值为地形的每个顶点计算高度信息，从而形成地形的基本形状。</span><br><span class="line">地形编辑工具：</span><br><span class="line"></span><br><span class="line">地形编辑工具提供了一系列的操作，如提升、降低、平滑、噪声等。这些操作会影响地形的高度信息。实现这些工具的基本思路是通过修改地形的顶点数据，然后更新渲染。</span><br><span class="line">地形的细节涂绘：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许开发者为地形添加多层次的纹理，这通过涂鸦工具实现。实现思路是为每个地形顶点存储多层次的纹理信息，通过融合这些纹理来模拟地表的不同类型。</span><br><span class="line">地形材质的定义：</span><br><span class="line"></span><br><span class="line">地形的材质定义是通过层次材质（Layered Material）来实现的。每个层次对应一种地表类型，例如草地、岩石、沙土等。这些层次材质通过混合和涂抹操作来达到自然过渡的效果。</span><br><span class="line">LOD（层次细节）：</span><br><span class="line"></span><br><span class="line">Unreal Engine 的地形系统支持 LOD，即在远处时使用低分辨率的地形表示，在近处时逐渐增加细节。这通过在运行时动态生成不同层次的地形网格来实现。</span><br><span class="line">高度图导入：</span><br><span class="line"></span><br><span class="line">高度图导入涉及将外部高度图的灰度信息映射到地形的高度。这通常包括将高度图的像素值映射到地形的顶点高度，并相应地更新地形。</span><br><span class="line">动态变化：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许在运行时动态修改地形。这是通过在蓝图或代码中实现对地形高度数据的修改和更新来实现的。</span><br><span class="line">在 UE 的实现中，上述功能涉及到底层的图形引擎、渲染管道、材质系统等多个模块。具体的实现细节需要深入阅读 Unreal Engine 的源代码和相关文档。UE 的源代码是闭源的，但 Epic Games 提供了一些开放的接口和文档，以帮助开发者理解和扩展引擎的功能。开发者可以通过 Unreal Engine 的官方文档、社区论坛以及相关的在线资源来深入研究和学习。</span><br></pre></td></tr></table></figure>
-
-
-<p>在Unreal Engine中，地形制作相关的源码通常位于其主要的GitHub存储库中，具体可以在以下位置找到：</p>
-<ul>
-<li><strong>存储库</strong>：<a href="https://github.com/EpicGames/UnrealEngine">Unreal Engine GitHub Repository</a></li>
-<li><strong>目录路径</strong>：<ul>
-<li><code>Engine/Source/Runtime/Landscape/</code>：这个目录包含地形系统（Landscape System）的大部分核心功能和类。</li>
-<li><code>Engine/Source/Editor/LandscapeEditor/</code>：这里包含了地形编辑器相关的代码，主要是UE编辑器内用于地形编辑的用户界面和工具。</li>
-</ul>
-</li>
-</ul>
-<p>为了访问这些源代码，你需要一个有效的Epic Games账号，并且必须同意Unreal Engine的使用条款。在完成这些步骤之后，你才能够从GitHub存储库克隆或下载代码。</p>
-<p>请注意，Unreal Engine的源代码是非常庞大和复杂的，涉及深入的C++编程知识，以及对游戏开发和计算机图形学的理解。如果你刚开始接触这些内容，建议先从官方文档和教程开始学习。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">`You：你了解UE的关卡制作吗`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>是的，我了解《3D Engine Design for Virtual Globes》这本书。这本书由Patrick Cozzi和Kevin Ring共同撰写，专注于3D引擎的设计，特别是用于虚拟地球和地理信息系统（GIS）的应用。它提供了关于如何创建高性能、实时的3D地球可视化引擎的深入讨论和指导。</p>
-<p>以下是这本书的一些关键特点和内容概述：</p>
-<h3 id="关键特点"><a href="#关键特点" class="headerlink" title="关键特点"></a>关键特点</h3><ol>
-<li><strong>实时3D引擎设计</strong>：书中详细探讨了实时渲染技术，特别是在地理空间数据和大规模地球表面渲染方面的应用。</li>
-<li><strong>虚拟地球技术</strong>：详细介绍了虚拟地球技术的核心概念，包括地球表面的渲染、地形表示、以及与卫星图像的集成。</li>
-<li><strong>性能优化</strong>：重点关注性能优化策略，以确保3D引擎能够高效地处理大量的地理空间数据。</li>
-</ol>
-<h3 id="内容概述"><a href="#内容概述" class="headerlink" title="内容概述"></a>内容概述</h3><ul>
-<li><strong>基础理论</strong>：介绍3D图形学的基础理论，如坐标系统、投影和视图变换。</li>
-<li><strong>地理空间数据处理</strong>：讨论如何处理和优化地理空间数据，包括地形数据和卫星图像。</li>
-<li><strong>高级渲染技术</strong>：深入探讨高级渲染技术，如着色器编程、光照和阴影、以及大气和天气效果。</li>
-<li><strong>地形和图像金字塔</strong>：介绍地形和图像金字塔技术，这是一种处理和显示大规模地理数据的有效方法。</li>
-<li><strong>网络技术</strong>：探讨如何使用网络技术来流式传输和渲染地球数据。</li>
-</ul>
-<h3 id="适用读者"><a href="#适用读者" class="headerlink" title="适用读者"></a>适用读者</h3><ul>
-<li><strong>游戏开发者</strong>：对于想要在游戏中实现地球或大规模地形渲染的开发者。</li>
-<li><strong>GIS专业人士</strong>：GIS领域的专业人士，希望了解3D引擎在地理空间数据可视化中的应用。</li>
-<li><strong>计算机图形学爱好者</strong>：对3D图形学和实时渲染技术感兴趣的读者。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>《3D Engine Design for Virtual Globes》是一本专业的技术书籍，它结合了计算机图形学理论和实际的应用案例，适合那些希望深入了解和开发用于虚拟地球和GIS应用的3D引擎的读者。</p>
-<pre><code>
-
-Here are some research papers related to the principles of terrain creation in Unreal Engine 5:
-
-1. **Procedural Generation of Roads with Conditional Generative Adversarial Networks** by Lin Ziwen Kelvin and A. Bhojan (2020): This paper discusses the use of algorithms for procedural terrain generation, including features like landscaping and road networks, with applications in game development engines like Unreal Engine 4. It explores the use of conditional generative adversarial networks for creating road maps in game development [(Lin Ziwen Kelvin &amp; Bhojan, 2020)](https://consensus.app/papers/generation-roads-conditional-generative-adversarial-kelvin/0f78e5b80010500f94a89a51354cca71/?utm_source=chatgpt).
-
-2. **Unreal as a simulation environment for offroad autonomy** by Parker Young, Sam Kysar, J. Bos (2020): This paper describes extensions to the Unreal gaming engine to support the simulation of autonomous ground vehicles in complex 3D terrain. It includes models for various sensors compatible with the Robot Operating System middleware [(Young, Kysar, &amp; Bos, 2020)](https://consensus.app/papers/simulation-environment-offroad-autonomy-young/caefc460b0f95396af87909a28399e49/?utm_source=chatgpt).
-
-3. **Design and Development of “Fright Hour” A Horror Game Utilizing Unreal Engine 5** by Jeftha Budiman, Wilson Wirijadipura, M. H. Widianto, Shafa Amira Qonitatin, Alyza Rahima Pramudya (2022): This paper outlines the development of a horror game using Unreal Engine 5, discussing the game development life cycle phases and evaluation methods [(Budiman et al., 2022)](https://consensus.app/papers/design-development-fright-hour-horror-game-utilizing-budiman/3ee288771b2b59b1b8a3e680e097aac0/?utm_source=chatgpt).
-
-4. **AI intelligent wayfinding based on Unreal Engine 4 static map** by Yuhang Xie, Yihong Chen, Ziyi Wang, Yangjun Ou (2022): This research focuses on AI path-finding systems in games developed with Unreal Engine. It explains the principles of path-finding algorithms in static environments and their implementation in Unreal Engine using blueprint programming [(Xie, Chen, Wang, &amp; Ou, 2022)](https://consensus.app/papers/intelligent-wayfinding-based-unreal-engine-xie/e8e430254dc358bba4c0eaa4dd1591c1/?utm_source=chatgpt).
-
-5. **What’s Inside Unreal Engine? - A Curious Gaze!** by Vartika Agrahari, S. Chimalakonda (2021): This paper aims to understand Unreal Engine by analyzing its software architecture, considering architectural changes across various releases of Unreal Engine [(Agrahari &amp; Chimalakonda, 2021)](https://consensus.app/papers/what-inside-unreal-engine-curious-gaze-agrahari/3d0f09f6427858c99c7469a97f622e9e/?utm_source=chatgpt).
-
-These papers provide insights into the principles and applications of terrain creation in Unreal Engine, including procedural generation techniques, AI path-finding, and game development methodologies.
-
-
-The principles of the Unreal Engine 5 terrain creation system can be understood through various research papers that explore different aspects of terrain generation and game development using Unreal Engine and similar platforms. Here are some key insights:
-
-1. **Procedural Terrain Generation**: Terrain features like landscaping, rivers, or road networks are generated through algorithms with minimal input from the user. This approach is important in game development, especially for larger terrain maps, as traditional methods are too time-consuming. Unreal Engine 4 has been used for such procedural terrain generation, which can be applied to Unreal Engine 5 as well [(Lin Ziwen Kelvin &amp; A. Bhojan, 2020)](https://consensus.app/papers/generation-roads-conditional-generative-adversarial-kelvin/0f78e5b80010500f94a89a51354cca71/?utm_source=chatgpt).
-
-2. **Simulation of Autonomous Vehicles**: The Unreal Engine has been extended to model interactions of autonomous vehicles with complex 3D terrain. This involves accurate modeling of vehicle-terrain interaction, adding models for LiDARs, IMU, and GNSS systems compatible with the Robot Operating System middleware [(Parker Young, Sam Kysar, &amp; J. Bos, 2020)](https://consensus.app/papers/simulation-environment-offroad-autonomy-young/caefc460b0f95396af87909a28399e49/?utm_source=chatgpt).
-
-3. **AI Pathfinding**: Unreal Engine&#39;s pathfinding component, usually applied to 3D games, is critical for AI path-finding in dynamic environments. The Unreal Engine platform has been used for simulation experiments and detailed explanation of intelligent path-finding in both dynamic and static environments [(Yuhang Xie, Yihong Chen, Ziyi Wang, &amp; Yangjun Ou, 2022)](https://consensus.app/papers/intelligent-wayfinding-based-unreal-engine-xie/e8e430254dc358bba4c0eaa4dd1591c1/?utm_source=chatgpt).
-
-4. **Automatic Terrain Generation**: Systems have been developed to generate random terrain automatically, enhancing playability and explorability in games. These systems use algorithms like Berlin noise and OpenGL to generate random paths and maps, which can be transplanted to Unity and other map model processing tools [(Jiatong Liu, Dongdong Chen, Chengyou Zhang, Duyang Li, &amp; Xiaoyan Zhang, 2021)](https://consensus.app/papers/automatic-terrain-generation-system-based-path-search-liu/ab0b332739645610ab054d9017da1cb8/?utm_source=chatgpt).
-
-5. **Vegetation Rendering Optimization**: In virtual reality systems using game engines like Unreal, rendering complex terrain and dense vegetation is computationally intensive. Techniques like parallel rendering, Levels of Details (LOD), and culling algorithms have been applied for optimization [(Zilong Zhang, Xun Luo, Salazar Vaca María Gabriela, Espinoza Castro Danny Alberto, &amp; Yi Chen, 2017)](https://consensus.app/papers/vegetation-rendering-optimization-virtual-reality-zhang/956b1a96908c5da783587c18196a9c78/?utm_source=chatgpt).
-
-6. **Physics-Based Terrain Editing**: Systems have been developed for digital terrain editing suitable for game designers and artists, allowing the editing of large terrains at interactive frame rates on a GPU. These systems do not require in-depth knowledge of physics-based simulations [(J. Vanek, Bedrich Benes, A. Herout, &amp; O. Stava, 2011)](https://consensus.app/papers/largescale-physicsbased-terrain-editing-using-adaptive-vanek/3197df84e17d5d3d90a9a04075dea9ae/?utm_source=chatgpt).
-
-These papers demonstrate a range of methods and technologies used in terrain generation and optimization, many of which are applicable or adaptable to Unreal Engine 5&#39;s terrain creation system.
-</code></pre>
-]]></content>
-      <categories>
-        <category>UE5</category>
-      </categories>
-      <tags>
-        <tag>UE5</tag>
-        <tag>ChatGPT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UE5 Landscape系统源码</title>
-    <url>/2024/01/23/UE5/Landscape%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/</url>
-    <content><![CDATA[<p>UE5 Landscape文件夹如下：<br><img src="/" alt="文件夹"></p>
-<h2 id="Public文件夹"><a href="#Public文件夹" class="headerlink" title="Public文件夹"></a>Public文件夹</h2><h3 id="LandscapeBlueprintBrushBase-h"><a href="#LandscapeBlueprintBrushBase-h" class="headerlink" title="LandscapeBlueprintBrushBase.h"></a>LandscapeBlueprintBrushBase.h</h3><p>在编辑器中创建和修改地形，通过定义如何影响高度图和权重图等方式来实现复杂的地形编辑操作。这个类作为抽象基类，设计用于被继承和扩展，以实现具体的地形编辑行为。</p>
-<h3 id="LandscapeConfigHelper-h"><a href="#LandscapeConfigHelper-h" class="headerlink" title="LandscapeConfigHelper.h"></a>LandscapeConfigHelper.h</h3><p>定义了一个枚举类型ELandscapeResizeMode，用于指定地形调整大小时的模式，如重采样（Resample）、裁剪（Clip）和扩展（Expand）。<br><img src="/" alt="LandscapeConfigHelper-1"></p>
-<p><img src="/" alt="LandscapeConfigHelper-2"><br><strong>ComponentNumSubsections</strong>: 表示每个地形组件中的子部分（Subsection）数量。子部分是组成地形网格的更小单元。<br><strong>SubsectionSizeQuads</strong>: 表示每个子部分中的四边形（Quad）大小。在地形中，四边形是构成地形网格的基本单位。<br><strong>GridSizeInComponents</strong>: 表示地形网格在每个方向上的组件数量。地形组件是构成整个地形的较大单元。</p>
-<h3 id="LandscapeDataAccess-h"><a href="#LandscapeDataAccess-h" class="headerlink" title="LandscapeDataAccess.h"></a>LandscapeDataAccess.h</h3><p>地形数据访问和操作的一部分。它定义了多个结构和函数，用于处理地形的高度数据、纹理等</p>
-<h3 id="LandscapeEdit-h"><a href="#LandscapeEdit-h" class="headerlink" title="LandscapeEdit.h"></a>LandscapeEdit.h</h3><h3 id="LandscapeEditorServices-h"><a href="#LandscapeEditorServices-h" class="headerlink" title="LandscapeEditorServices.h"></a>LandscapeEditorServices.h</h3><h3 id="LandscapeHLODBuilder-h"><a href="#LandscapeHLODBuilder-h" class="headerlink" title="LandscapeHLODBuilder.h"></a>LandscapeHLODBuilder.h</h3><h3 id="LandscapeLight-h"><a href="#LandscapeLight-h" class="headerlink" title="LandscapeLight.h"></a>LandscapeLight.h</h3><h3 id="LandscapeModule-h"><a href="#LandscapeModule-h" class="headerlink" title="LandscapeModule.h"></a>LandscapeModule.h</h3><h3 id="LandscapeNotification-h"><a href="#LandscapeNotification-h" class="headerlink" title="LandscapeNotification.h"></a>LandscapeNotification.h</h3><h3 id="LandscapeRender-h"><a href="#LandscapeRender-h" class="headerlink" title="LandscapeRender.h"></a>LandscapeRender.h</h3><h3 id="LandscapeRenderMobile-h"><a href="#LandscapeRenderMobile-h" class="headerlink" title="LandscapeRenderMobile.h"></a>LandscapeRenderMobile.h</h3><h3 id="LandscapeSettings-h"><a href="#LandscapeSettings-h" class="headerlink" title="LandscapeSettings.h"></a>LandscapeSettings.h</h3><h3 id="LandscapeSplineProxies-h"><a href="#LandscapeSplineProxies-h" class="headerlink" title="LandscapeSplineProxies.h"></a>LandscapeSplineProxies.h</h3><h3 id="LandscapeSubsystem-h"><a href="#LandscapeSubsystem-h" class="headerlink" title="LandscapeSubsystem.h"></a>LandscapeSubsystem.h</h3><h3 id="LandscapeUtils-h"><a href="#LandscapeUtils-h" class="headerlink" title="LandscapeUtils.h"></a>LandscapeUtils.h</h3>]]></content>
-      <categories>
-        <category>UE5</category>
-      </categories>
-      <tags>
-        <tag>UE5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UE5 Landscape系统源码</title>
-    <url>/2024/01/23/UE5/UE%E5%9C%B0%E5%BD%A2%E7%BB%84%E4%BB%B6/</url>
-    <content><![CDATA[<p><strong>地形组件介绍：</strong></p>
-<ul>
-<li>UE5官方文档：<a href="https://docs.unrealengine.com/5.3/zh-CN/landscape-technical-guide-in-unreal-engine/">https://docs.unrealengine.com/5.3/zh-CN/landscape-technical-guide-in-unreal-engine/</a></li>
-</ul>
-<p><strong>地形创建时的相关参数：</strong><br><img src="https://github.com/Joexiong1/myImg/blob/main/%E5%9C%B0%E5%BD%A2%E7%BB%84%E4%BB%B6%E5%8F%82%E6%95%B0.png"></p>
-]]></content>
-      <categories>
-        <category>UE5</category>
-      </categories>
-      <tags>
-        <tag>UE5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>computed和method</title>
     <url>/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/</url>
     <content><![CDATA[<p>在 Vue 3 中，<code>computed</code> 属性是一种非常重要的特性，用于声明响应式的计算属性。<code>computed</code> 属性根据它们的依赖进行缓存，只在相关依赖发生改变时重新计算。这使得 <code>computed</code> 属性非常适合用于需要根据现有数据派生新数据的场景。</p>
@@ -670,39 +670,6 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 
 <p>这里，<code>sum</code> 是依赖于响应式引用 <code>a</code> 和 <code>b</code> 的计算属性。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>computed</code> 属性是 Vue 3 中处理响应式数据的强大工具，特别适合用于那些依赖其他数据并且可能会重复求值的场景。它们提供了性能优势（通过缓存），并且可以使代码更加简洁和高效。在 Composition API 中，<code>computed</code> 保持了相同的核心概念，但以一种更加模块化和灵活的方式使用。</p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>JavaScript</tag>
-        <tag>vue3</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>id=&quot;&quot;和refs=&quot;&quot;的区别</title>
-    <url>/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>在 Vue.js 和一般的 HTML&#x2F;CSS&#x2F;JavaScript 开发中，<code>id</code> 和 <code>ref</code> 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：</p>
-<h3 id="1-id"><a href="#1-id" class="headerlink" title="1. id=&quot;&quot;"></a>1. <code>id=&quot;&quot;</code></h3><ul>
-<li><strong>通用 HTML 属性</strong>：<code>id</code> 是 HTML 标准属性，用于给 HTML 元素指定一个唯一的标识符。</li>
-<li><strong>全局唯一性</strong>：每个 <code>id</code> 应该在整个文档中是唯一的。</li>
-<li><strong>CSS 和 JavaScript 用途</strong>：<code>id</code> 常用于 CSS 样式应用和在 JavaScript 中通过 <code>document.getElementById()</code> 等方法选取特定元素。</li>
-<li><strong>示例</strong>：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myDiv&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-在 JavaScript 中访问：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myDiv = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myDiv&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="2-ref-（在-Vue-js-中）"><a href="#2-ref-（在-Vue-js-中）" class="headerlink" title="2. ref=&quot;&quot;（在 Vue.js 中）"></a>2. <code>ref=&quot;&quot;</code>（在 Vue.js 中）</h3><ul>
-<li><strong>Vue 特有的属性</strong>：<code>ref</code> 是 Vue 框架特有的属性，用于在 Vue 组件中注册引用信息。</li>
-<li><strong>组件内部唯一性</strong>：<code>ref</code> 在单个组件的范围内应保持唯一，但在不同组件中可以重复使用相同的 <code>ref</code> 值。</li>
-<li><strong>Vue 实例访问</strong>：在 Vue 中，通过 <code>ref</code> 设置的元素可以通过 <code>this.$refs</code> 对象在对应的 Vue 实例中被访问。</li>
-<li><strong>示例</strong>：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div ref=&quot;myDiv&quot;&gt;内容&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-在 Vue 组件的脚本中访问：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> myDiv = <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">myDiv</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li><strong>作用域</strong>：<code>id</code> 是全局的，而 Vue 的 <code>ref</code> 仅在单个组件内部有意义。</li>
-<li><strong>用途</strong>：<code>id</code> 更多用于标准的 Web 开发（如 CSS 和原生 JavaScript），<code>ref</code> 则是 Vue 提供的一种更容易和更符合 Vue 响应式系统的方式来引用元素和子组件。</li>
-<li><strong>Vue 中的引用方式</strong>：在 Vue 应用中，优先使用 <code>ref</code> 来与 Vue 实例的数据和方法交互。这样做可以保持 Vue 的响应式原则和组件封装性。</li>
-</ul>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -766,6 +733,39 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 <li><strong>用途</strong>：定义组件的名字。有助于调试和递归组件。</li>
 </ul>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这些是 Vue 组件中最常用的选项，它们提供了定义组件行为、样式、结构和逻辑的必要工具。在不同的项目中，这些选项可以根据需要混合使用以创建功能丰富的 Vue 组件。</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>JavaScript</tag>
+        <tag>vue3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>id=&quot;&quot;和refs=&quot;&quot;的区别</title>
+    <url>/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>在 Vue.js 和一般的 HTML&#x2F;CSS&#x2F;JavaScript 开发中，<code>id</code> 和 <code>ref</code> 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：</p>
+<h3 id="1-id"><a href="#1-id" class="headerlink" title="1. id=&quot;&quot;"></a>1. <code>id=&quot;&quot;</code></h3><ul>
+<li><strong>通用 HTML 属性</strong>：<code>id</code> 是 HTML 标准属性，用于给 HTML 元素指定一个唯一的标识符。</li>
+<li><strong>全局唯一性</strong>：每个 <code>id</code> 应该在整个文档中是唯一的。</li>
+<li><strong>CSS 和 JavaScript 用途</strong>：<code>id</code> 常用于 CSS 样式应用和在 JavaScript 中通过 <code>document.getElementById()</code> 等方法选取特定元素。</li>
+<li><strong>示例</strong>：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myDiv&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+在 JavaScript 中访问：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myDiv = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myDiv&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-ref-（在-Vue-js-中）"><a href="#2-ref-（在-Vue-js-中）" class="headerlink" title="2. ref=&quot;&quot;（在 Vue.js 中）"></a>2. <code>ref=&quot;&quot;</code>（在 Vue.js 中）</h3><ul>
+<li><strong>Vue 特有的属性</strong>：<code>ref</code> 是 Vue 框架特有的属性，用于在 Vue 组件中注册引用信息。</li>
+<li><strong>组件内部唯一性</strong>：<code>ref</code> 在单个组件的范围内应保持唯一，但在不同组件中可以重复使用相同的 <code>ref</code> 值。</li>
+<li><strong>Vue 实例访问</strong>：在 Vue 中，通过 <code>ref</code> 设置的元素可以通过 <code>this.$refs</code> 对象在对应的 Vue 实例中被访问。</li>
+<li><strong>示例</strong>：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div ref=&quot;myDiv&quot;&gt;内容&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+在 Vue 组件的脚本中访问：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> myDiv = <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">myDiv</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><strong>作用域</strong>：<code>id</code> 是全局的，而 Vue 的 <code>ref</code> 仅在单个组件内部有意义。</li>
+<li><strong>用途</strong>：<code>id</code> 更多用于标准的 Web 开发（如 CSS 和原生 JavaScript），<code>ref</code> 则是 Vue 提供的一种更容易和更符合 Vue 响应式系统的方式来引用元素和子组件。</li>
+<li><strong>Vue 中的引用方式</strong>：在 Vue 应用中，优先使用 <code>ref</code> 来与 Vue 实例的数据和方法交互。这样做可以保持 Vue 的响应式原则和组件封装性。</li>
+</ul>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -970,37 +970,6 @@ These papers demonstrate a range of methods and technologies used in terrain gen
       </tags>
   </entry>
   <entry>
-    <title>openlayers实践</title>
-    <url>/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[<ol>
-<li><p><strong>引入ol</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span> <span class="comment">// vue相关方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Map</span>, <span class="title class_">View</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol&#x27;</span>      <span class="comment">// 地图实例方法、视图方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Tile</span> <span class="keyword">from</span> <span class="string">&#x27;ol/layer/Tile&#x27;</span>    <span class="comment">// 瓦片渲染方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="variable constant_">OSM</span> <span class="keyword">from</span> <span class="string">&#x27;ol/source/OSM&#x27;</span>    <span class="comment">// OSM瓦片【OSM不能在实际开发中使用，因为OSM里中国地图的边界有点问题！！！！】</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;ol/ol.css&#x27;</span>                 <span class="comment">// 地图样式</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>创建地图容器(初始化)</strong><br>地图需要渲染到一个 HTML 元素中，并且需要手动设置地图容器的宽高（通常使用 css 来设置）。</p>
-</li>
-</ol>
-<p>地图容器需要有一个 id ，如果是 Vue 项目可以使用 ref 来代替 id。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.map</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">width</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">height</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p><strong>缩放和平移功能</strong><br>OpenLayers 的地图对象默认支持缩放和平移。</p>
-</li>
-<li><p><strong>标记绘制</strong><br>导入相关库：<br>VectorSource：<br>VectorLayer： 用于在地图上显示向量类型的数据。包括点、线和多边形等地理空间数据。<br>VectorSource：向量数据的容器，用于存储地理特征（如坐标点、线条、多边形等）。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>点击弹窗</strong><br>给第三点中的坐标点添加点击事件，同时能够在地图上显示一个弹框，展示点位信息。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Overlay</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ol&quot;</span>;  <span class="comment">//弹窗组件</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>openlayers</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>openlayers</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>getFeatures和then</title>
     <url>/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/</url>
     <content><![CDATA[<p>在 JavaScript 和一些 JavaScript 库（如 OpenLayers）中，<code>.getFeatures().then()</code> 是一种处理异步操作的模式。这种模式通常出现在调用一个返回 Promise 的 <code>getFeatures()</code> 函数后，用于处理异步获取的特征（features）。</p>
@@ -1028,6 +997,37 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 </ul>
 <h3 id="在-OpenLayers-中的应用"><a href="#在-OpenLayers-中的应用" class="headerlink" title="在 OpenLayers 中的应用"></a>在 OpenLayers 中的应用</h3><p>在 OpenLayers 中，这种模式可能用于处理从远程源异步加载的特征，例如从 WFS（Web Feature Service）服务加载。这允许开发者在特征可用时执行操作，比如将它们添加到地图上，而不需要阻塞代码的其他部分。</p>
 <p>总之，<code>.getFeatures().then()</code> 是一个异步编程模式，在获取数据和处理数据可用性时非常有用。通过使用 Promise 和 <code>.then()</code> 方法，可以更优雅地处理异步操作及其结果。</p>
+]]></content>
+      <categories>
+        <category>openlayers</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>openlayers</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>openlayers实践</title>
+    <url>/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<ol>
+<li><p><strong>引入ol</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span> <span class="comment">// vue相关方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Map</span>, <span class="title class_">View</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol&#x27;</span>      <span class="comment">// 地图实例方法、视图方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Tile</span> <span class="keyword">from</span> <span class="string">&#x27;ol/layer/Tile&#x27;</span>    <span class="comment">// 瓦片渲染方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="variable constant_">OSM</span> <span class="keyword">from</span> <span class="string">&#x27;ol/source/OSM&#x27;</span>    <span class="comment">// OSM瓦片【OSM不能在实际开发中使用，因为OSM里中国地图的边界有点问题！！！！】</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;ol/ol.css&#x27;</span>                 <span class="comment">// 地图样式</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>创建地图容器(初始化)</strong><br>地图需要渲染到一个 HTML 元素中，并且需要手动设置地图容器的宽高（通常使用 css 来设置）。</p>
+</li>
+</ol>
+<p>地图容器需要有一个 id ，如果是 Vue 项目可以使用 ref 来代替 id。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.map</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">width</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">height</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p><strong>缩放和平移功能</strong><br>OpenLayers 的地图对象默认支持缩放和平移。</p>
+</li>
+<li><p><strong>标记绘制</strong><br>导入相关库：<br>VectorSource：<br>VectorLayer： 用于在地图上显示向量类型的数据。包括点、线和多边形等地理空间数据。<br>VectorSource：向量数据的容器，用于存储地理特征（如坐标点、线条、多边形等）。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>点击弹窗</strong><br>给第三点中的坐标点添加点击事件，同时能够在地图上显示一个弹框，展示点位信息。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Overlay</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ol&quot;</span>;  <span class="comment">//弹窗组件</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <categories>
         <category>openlayers</category>

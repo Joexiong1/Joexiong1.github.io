@@ -43,17 +43,17 @@
   </entry>
   
   <entry>
-    <title>id=&quot;&quot;和refs=&quot;&quot;的区别</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <title>export default常用属性</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/</id>
     <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:40:25.140Z</updated>
+    <updated>2024-01-30T10:40:21.741Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;在 Vue.js 和一般的 HTML&amp;#x2F;CSS&amp;#x2F;JavaScript 开发中，&lt;code&gt;id&lt;/code&gt; 和 &lt;code&gt;ref&lt;/code&gt; 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：&lt;/p&gt;
-&lt;h3 id</summary>
+    <summary type="html">&lt;p&gt;在 Vue.js 中，&lt;code&gt;export default&lt;/code&gt; 用于导出一个 Vue 组件，其中可以包含多个属性（或“选项”），用于定义和配置这个组件。以下是一些常用的、标准的 Vue 组件选项：&lt;/p&gt;
+&lt;h3 id=&quot;1-data&quot;&gt;&lt;a href=&quot;#1</summary>
       
     
     
@@ -70,17 +70,17 @@
   </entry>
   
   <entry>
-    <title>export default常用属性</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/</id>
+    <title>id=&quot;&quot;和refs=&quot;&quot;的区别</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
     <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:40:21.741Z</updated>
+    <updated>2024-01-30T10:40:25.140Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;在 Vue.js 中，&lt;code&gt;export default&lt;/code&gt; 用于导出一个 Vue 组件，其中可以包含多个属性（或“选项”），用于定义和配置这个组件。以下是一些常用的、标准的 Vue 组件选项：&lt;/p&gt;
-&lt;h3 id=&quot;1-data&quot;&gt;&lt;a href=&quot;#1</summary>
+    <summary type="html">&lt;p&gt;在 Vue.js 和一般的 HTML&amp;#x2F;CSS&amp;#x2F;JavaScript 开发中，&lt;code&gt;id&lt;/code&gt; 和 &lt;code&gt;ref&lt;/code&gt; 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：&lt;/p&gt;
+&lt;h3 id</summary>
       
     
     
@@ -249,18 +249,16 @@
   </entry>
   
   <entry>
-    <title>openlayers实践</title>
-    <link href="https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/"/>
-    <id>https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/</id>
+    <title>getFeatures和then</title>
+    <link href="https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/"/>
+    <id>https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/</id>
     <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:01:09.474Z</updated>
+    <updated>2024-01-30T10:01:08.387Z</updated>
     
     
       
       
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;引入ol&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
+    <summary type="html">&lt;p&gt;在 JavaScript 和一些 JavaScript 库（如 OpenLayers）中，&lt;code&gt;.getFeatures().then()&lt;/code&gt; 是一种处理异步操作的模式。这种模式通常出现在调用一个返回 Promise 的 &lt;code&gt;getFeatures(</summary>
       
     
     
@@ -275,16 +273,18 @@
   </entry>
   
   <entry>
-    <title>getFeatures和then</title>
-    <link href="https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/"/>
-    <id>https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/</id>
+    <title>openlayers实践</title>
+    <link href="https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/"/>
+    <id>https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/</id>
     <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:01:08.387Z</updated>
+    <updated>2024-01-30T10:01:09.474Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;在 JavaScript 和一些 JavaScript 库（如 OpenLayers）中，&lt;code&gt;.getFeatures().then()&lt;/code&gt; 是一种处理异步操作的模式。这种模式通常出现在调用一个返回 Promise 的 &lt;code&gt;getFeatures(</summary>
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;引入ol&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
       
     
     

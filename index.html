@@ -157,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -313,119 +313,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">id=""和refs=""的区别</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:40:25" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>892</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Vue.js 和一般的 HTML&#x2F;CSS&#x2F;JavaScript 开发中，<code>id</code> 和 <code>ref</code> 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：</p>
-<h3 id="1-id"><a href="#1-id" class="headerlink" title="1. id=&quot;&quot;"></a>1. <code>id=&quot;&quot;</code></h3><ul>
-<li><strong>通用 HTML 属性</strong>：<code>id</code> 是 HTML 标准属性，用于给 HTML 元素指定一个唯一的标识符。</li>
-<li><strong>全局唯一性</strong>：每个 <code>id</code> 应该在整个文档中是唯一的。</li>
-<li><strong>CSS 和 JavaScript 用途</strong>：<code>id</code> 常用于 CSS 样式应用和在 JavaScript 中通过 <code>document.getElementById()</code> 等方法选取特定元素。</li>
-<li><strong>示例</strong>：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myDiv&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-在 JavaScript 中访问：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myDiv = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myDiv&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="2-ref-（在-Vue-js-中）"><a href="#2-ref-（在-Vue-js-中）" class="headerlink" title="2. ref=&quot;&quot;（在 Vue.js 中）"></a>2. <code>ref=&quot;&quot;</code>（在 Vue.js 中）</h3><ul>
-<li><strong>Vue 特有的属性</strong>：<code>ref</code> 是 Vue 框架特有的属性，用于在 Vue 组件中注册引用信息。</li>
-<li><strong>组件内部唯一性</strong>：<code>ref</code> 在单个组件的范围内应保持唯一，但在不同组件中可以重复使用相同的 <code>ref</code> 值。</li>
-<li><strong>Vue 实例访问</strong>：在 Vue 中，通过 <code>ref</code> 设置的元素可以通过 <code>this.$refs</code> 对象在对应的 Vue 实例中被访问。</li>
-<li><strong>示例</strong>：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div ref=&quot;myDiv&quot;&gt;内容&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-在 Vue 组件的脚本中访问：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> myDiv = <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">myDiv</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li><strong>作用域</strong>：<code>id</code> 是全局的，而 Vue 的 <code>ref</code> 仅在单个组件内部有意义。</li>
-<li><strong>用途</strong>：<code>id</code> 更多用于标准的 Web 开发（如 CSS 和原生 JavaScript），<code>ref</code> 则是 Vue 提供的一种更容易和更符合 Vue 响应式系统的方式来引用元素和子组件。</li>
-<li><strong>Vue 中的引用方式</strong>：在 Vue 应用中，优先使用 <code>ref</code> 来与 Vue 实例的数据和方法交互。这样做可以保持 Vue 的响应式原则和组件封装性。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -543,6 +430,119 @@
 <li><strong>用途</strong>：定义组件的名字。有助于调试和递归组件。</li>
 </ul>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这些是 Vue 组件中最常用的选项，它们提供了定义组件行为、样式、结构和逻辑的必要工具。在不同的项目中，这些选项可以根据需要混合使用以创建功能丰富的 Vue 组件。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">id=""和refs=""的区别</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:40:25" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>892</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Vue.js 和一般的 HTML&#x2F;CSS&#x2F;JavaScript 开发中，<code>id</code> 和 <code>ref</code> 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：</p>
+<h3 id="1-id"><a href="#1-id" class="headerlink" title="1. id=&quot;&quot;"></a>1. <code>id=&quot;&quot;</code></h3><ul>
+<li><strong>通用 HTML 属性</strong>：<code>id</code> 是 HTML 标准属性，用于给 HTML 元素指定一个唯一的标识符。</li>
+<li><strong>全局唯一性</strong>：每个 <code>id</code> 应该在整个文档中是唯一的。</li>
+<li><strong>CSS 和 JavaScript 用途</strong>：<code>id</code> 常用于 CSS 样式应用和在 JavaScript 中通过 <code>document.getElementById()</code> 等方法选取特定元素。</li>
+<li><strong>示例</strong>：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myDiv&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+在 JavaScript 中访问：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myDiv = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myDiv&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-ref-（在-Vue-js-中）"><a href="#2-ref-（在-Vue-js-中）" class="headerlink" title="2. ref=&quot;&quot;（在 Vue.js 中）"></a>2. <code>ref=&quot;&quot;</code>（在 Vue.js 中）</h3><ul>
+<li><strong>Vue 特有的属性</strong>：<code>ref</code> 是 Vue 框架特有的属性，用于在 Vue 组件中注册引用信息。</li>
+<li><strong>组件内部唯一性</strong>：<code>ref</code> 在单个组件的范围内应保持唯一，但在不同组件中可以重复使用相同的 <code>ref</code> 值。</li>
+<li><strong>Vue 实例访问</strong>：在 Vue 中，通过 <code>ref</code> 设置的元素可以通过 <code>this.$refs</code> 对象在对应的 Vue 实例中被访问。</li>
+<li><strong>示例</strong>：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div ref=&quot;myDiv&quot;&gt;内容&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+在 Vue 组件的脚本中访问：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> myDiv = <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">myDiv</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><strong>作用域</strong>：<code>id</code> 是全局的，而 Vue 的 <code>ref</code> 仅在单个组件内部有意义。</li>
+<li><strong>用途</strong>：<code>id</code> 更多用于标准的 Web 开发（如 CSS 和原生 JavaScript），<code>ref</code> 则是 Vue 提供的一种更容易和更符合 Vue 响应式系统的方式来引用元素和子组件。</li>
+<li><strong>Vue 中的引用方式</strong>：在 Vue 应用中，优先使用 <code>ref</code> 来与 Vue 实例的数据和方法交互。这样做可以保持 Vue 的响应式原则和组件封装性。</li>
+</ul>
 
       
     </div>
@@ -1248,7 +1248,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -1266,7 +1266,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">openlayers实践</a>
+          <a href="/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/" class="post-title-link" itemprop="url">getFeatures和then</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1278,7 +1278,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:01:09" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:01:08" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1297,7 +1297,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>943</span>
+      <span>1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1315,25 +1315,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <ol>
-<li><p><strong>引入ol</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span> <span class="comment">// vue相关方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Map</span>, <span class="title class_">View</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol&#x27;</span>      <span class="comment">// 地图实例方法、视图方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Tile</span> <span class="keyword">from</span> <span class="string">&#x27;ol/layer/Tile&#x27;</span>    <span class="comment">// 瓦片渲染方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="variable constant_">OSM</span> <span class="keyword">from</span> <span class="string">&#x27;ol/source/OSM&#x27;</span>    <span class="comment">// OSM瓦片【OSM不能在实际开发中使用，因为OSM里中国地图的边界有点问题！！！！】</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;ol/ol.css&#x27;</span>                 <span class="comment">// 地图样式</span></span><br></pre></td></tr></table></figure>
+          <p>在 JavaScript 和一些 JavaScript 库（如 OpenLayers）中，<code>.getFeatures().then()</code> 是一种处理异步操作的模式。这种模式通常出现在调用一个返回 Promise 的 <code>getFeatures()</code> 函数后，用于处理异步获取的特征（features）。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><ol>
+<li><p>**<code>.getFeatures()</code>**：</p>
+<ul>
+<li>这是一个返回 Promise 的函数，Promise 是一个代表最终会完成的异步操作的对象。在 OpenLayers 的上下文中，<code>getFeatures()</code> 通常是用来异步获取一组特征（如从服务器加载）。</li>
+<li>返回的 Promise 将在特征获取操作完成时解决（resolve），或在发生错误时被拒绝（reject）。</li>
+</ul>
 </li>
-<li><p><strong>创建地图容器(初始化)</strong><br>地图需要渲染到一个 HTML 元素中，并且需要手动设置地图容器的宽高（通常使用 css 来设置）。</p>
+<li><p>**<code>.then()</code>**：</p>
+<ul>
+<li><code>.then()</code> 是一个在 Promise 上的方法，用于指定当 Promise 解决时要执行的操作。</li>
+<li>它接受两个回调函数作为参数：第一个用于处理成功的结果（即特征获取成功），第二个（可选）用于处理错误。</li>
+</ul>
 </li>
 </ol>
-<p>地图容器需要有一个 id ，如果是 Vue 项目可以使用 ref 来代替 id。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.map</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">width</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">height</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设有一个从服务器异步加载地图特征的操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设 getFeatures() 返回一个 Promise，该 Promise 在特征加载完成时解决</span></span><br><span class="line">dataSource.<span class="title function_">getFeatures</span>().<span class="title function_">then</span>(</span><br><span class="line">  <span class="function">(<span class="params">features</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载的特征</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;特征加载成功&quot;</span>, features);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载过程中的错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;特征加载失败&quot;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li><p><strong>缩放和平移功能</strong><br>OpenLayers 的地图对象默认支持缩放和平移。</p>
-</li>
-<li><p><strong>标记绘制</strong><br>导入相关库：<br>VectorSource：<br>VectorLayer： 用于在地图上显示向量类型的数据。包括点、线和多边形等地理空间数据。<br>VectorSource：向量数据的容器，用于存储地理特征（如坐标点、线条、多边形等）。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>点击弹窗</strong><br>给第三点中的坐标点添加点击事件，同时能够在地图上显示一个弹框，展示点位信息。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Overlay</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ol&quot;</span>;  <span class="comment">//弹窗组件</span></span><br></pre></td></tr></table></figure></li>
-</ol>
+<p>在这个例子中：</p>
+<ul>
+<li>当 <code>getFeatures()</code> 完成特征加载并解决其返回的 Promise 时，<code>.then()</code> 中的第一个回调函数被调用，<code>features</code> 包含加载的特征。</li>
+<li>如果 <code>getFeatures()</code> 在加载过程中遇到错误，导致 Promise 被拒绝，第二个回调函数会被调用，<code>error</code> 包含错误信息。</li>
+</ul>
+<h3 id="在-OpenLayers-中的应用"><a href="#在-OpenLayers-中的应用" class="headerlink" title="在 OpenLayers 中的应用"></a>在 OpenLayers 中的应用</h3><p>在 OpenLayers 中，这种模式可能用于处理从远程源异步加载的特征，例如从 WFS（Web Feature Service）服务加载。这允许开发者在特征可用时执行操作，比如将它们添加到地图上，而不需要阻塞代码的其他部分。</p>
+<p>总之，<code>.getFeatures().then()</code> 是一个异步编程模式，在获取数据和处理数据可用性时非常有用。通过使用 Promise 和 <code>.then()</code> 方法，可以更优雅地处理异步操作及其结果。</p>
 
       
     </div>
