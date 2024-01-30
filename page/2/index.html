@@ -157,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -414,6 +414,107 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/" class="post-title-link" itemprop="url">dialog样式穿透</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:39:33" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/element-plus/" itemprop="url" rel="index"><span itemprop="name">element-plus</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="在Vue3和ElementUI-Plus中自定义Dialog样式"><a href="#在Vue3和ElementUI-Plus中自定义Dialog样式" class="headerlink" title="在Vue3和ElementUI-Plus中自定义Dialog样式"></a>在Vue3和ElementUI-Plus中自定义Dialog样式</h3><h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><p>在openlayers+vue3项目实践中，发现使用:deep()无法更改Dialog样式，Dialog代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-dialog</span><br><span class="line">    title=<span class="string">&quot;编辑围栏&quot;</span></span><br><span class="line">    :v-model=<span class="string">&quot;dialogVisible&quot;</span></span><br><span class="line">    custom-<span class="keyword">class</span>=<span class="string">&quot;fence&quot;</span></span><br><span class="line">    append-to-body</span><br><span class="line">    @close=<span class="string">&quot;handleClose&quot;</span></span><br><span class="line">    width=<span class="string">&quot;1200px&quot;</span></span><br><span class="line">    destroy-on-close</span><br><span class="line">  &gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;fence-map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map-box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;map-area&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">el-card</span> <span class="attr">class</span>=<span class="string">&quot;tool-window&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 380px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">el-form</span> <span class="attr">label-width</span>=<span class="string">&quot;80px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;围栏名称&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">size</span>=<span class="string">&quot;small&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">v-model</span>=<span class="string">&quot;name&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">placeholder</span>=<span class="string">&quot;请输入围栏名称&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;围栏样式&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-radio-group</span> <span class="attr">v-model</span>=<span class="string">&quot;tool&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;setType&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">el-radio-button</span> <span class="attr">label</span>=<span class="string">&quot;Circle&quot;</span>&gt;</span>圆形<span class="tag">&lt;/<span class="name">el-radio-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">el-radio-button</span> <span class="attr">label</span>=<span class="string">&quot;Polygon&quot;</span>&gt;</span>多边形<span class="tag">&lt;/<span class="name">el-radio-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">el-radio-group</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;warning&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleClear&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &gt;</span>清除&lt;/el-button</span></span><br><span class="line"><span class="language-xml">            &gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleSave&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &gt;</span>保存&lt;/el-button</span></span><br><span class="line"><span class="language-xml">            &gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleClose&quot;</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>样式代码如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">fence</span> &#123;</span><br><span class="line">  .<span class="property">el</span>-dialog__header &#123;</span><br><span class="line">    <span class="attr">padding</span>: 20px;</span><br><span class="line">  &#125;</span><br><span class="line">  .<span class="property">el</span>-dialog__body &#123;</span><br><span class="line">    <span class="attr">padding</span>: <span class="number">0</span>;</span><br><span class="line">    .<span class="property">map</span>-area &#123;</span><br><span class="line">      box-<span class="attr">shadow</span>: inset 5em 1em #<span class="number">000000</span>;</span><br><span class="line">      <span class="attr">position</span>: relative;</span><br><span class="line">      .<span class="property">tool</span>-<span class="variable language_">window</span> &#123;</span><br><span class="line">        <span class="attr">width</span>: 200px;</span><br><span class="line">        <span class="attr">position</span>: absolute;</span><br><span class="line">        <span class="attr">bottom</span>: 20px;</span><br><span class="line">        <span class="attr">right</span>: 20px;</span><br><span class="line">        .<span class="property">button</span> &#123;</span><br><span class="line">          font-<span class="attr">size</span>: 20px;</span><br><span class="line">        &#125;</span><br><span class="line">        .<span class="property">step</span> &#123;</span><br><span class="line">          font-<span class="attr">size</span>: 16px;</span><br><span class="line">          padding-<span class="attr">top</span>: 13px;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发现无法修改dialog样式，</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>去官网<a target="_blank" rel="noopener" href="https://element-plus.org/zh-CN/component/dialog.html#attributes%EF%BC%8C%E5%8F%91%E7%8E%B0custom-class%E5%B7%B2%E7%BB%8F%E8%A2%AB%E7%A6%81%E7%94%A8%EF%BC%8C%E4%BF%AE%E6%94%B9%E6%88%90class%E3%80%82">https://element-plus.org/zh-CN/component/dialog.html#attributes，发现custom-class已经被禁用，修改成class。</a><br>另外对于样式问题，参考下方博客以及评论<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32154641/article/details/126708678%EF%BC%8C%E5%B0%86dialog%E6%94%BE%E5%85%A5%E8%87%B3div%E4%B8%AD%EF%BC%8C%E7%84%B6%E5%90%8E%E5%B0%86append-to-body%E5%8E%BB%E6%8E%89%EF%BC%8C%E4%BE%9D%E9%9D%A0%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F:deep()%E6%88%90%E5%8A%9F%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%AE%E6%94%B9%E4%BA%86%E6%A0%B7%E5%BC%8F%EF%BC%8C%E5%8F%A6%E5%A4%96%E6%B3%A8%E6%84%8F%E5%88%B0%E5%A6%82%E6%9E%9Cel-dialog%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%BA%86%E7%B1%BB%E5%88%AB%EF%BC%8C%E5%9C%A8%E7%A9%BF%E9%80%8F%E6%97%B6%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9A%E5%AF%B9%E5%BA%94%E7%B1%BB%E5%88%AB%E3%80%82">https://blog.csdn.net/qq_32154641/article/details/126708678，将dialog放入至div中，然后将append-to-body去掉，依靠样式穿透:deep()成功自定义修改了样式，另外注意到如果el-dialog中指定了类别，在穿透时需要指定对应类别。</a></p>
+<p>这个问题并不是elmentUi和element-plus引起的，而是vue2和vue3的区别。vue2中要求单个组件文件中的template中只能有一个元素（如：div），而vue3是可以有多个的，vue3中不生效，是因为直接把el-dialog写在了template根目录中，其实只要在template中添加一个div，所有东西都放到div中就可以了。本质原因是：页面中el-dialog的渲染位置不同，添加div就会在当前组件位置渲染，如果没有div，就会在<body>中渲染</p>
+<p>在组件中<template>中 把el-dialog放在一个div中，然后:deep(你要修改的元素class) ， 还有一个重要的前提是dialog中有一个属性append-to-body ，把这个属性设成false 或者不写才可以用深度选择器修改样式，这个属性就是把dialog插入到body中，不然就算包裹在div中依然是取不到样式</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/append-to-body/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -503,107 +604,6 @@
 <li>在一些情况下，将组件附加到 <code>&lt;body&gt;</code> 可能会导致与 Vue 的局部数据流或事件流的隔离。例如，组件内部的事件可能无法直接冒泡到它在模板中的父组件。</li>
 </ul>
 <p>总结来说，<code>append-to-body</code> 属性在处理某些布局和叠放顺序问题时非常有用，特别是当你希望组件（如弹窗、下拉菜单等）能够覆盖其它界面元素时。正确使用这个属性可以在保持良好用户体验的同时解决复杂布局中的常见问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/" class="post-title-link" itemprop="url">dialog样式穿透</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:39:33" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/element-plus/" itemprop="url" rel="index"><span itemprop="name">element-plus</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="在Vue3和ElementUI-Plus中自定义Dialog样式"><a href="#在Vue3和ElementUI-Plus中自定义Dialog样式" class="headerlink" title="在Vue3和ElementUI-Plus中自定义Dialog样式"></a>在Vue3和ElementUI-Plus中自定义Dialog样式</h3><h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><p>在openlayers+vue3项目实践中，发现使用:deep()无法更改Dialog样式，Dialog代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-dialog</span><br><span class="line">    title=<span class="string">&quot;编辑围栏&quot;</span></span><br><span class="line">    :v-model=<span class="string">&quot;dialogVisible&quot;</span></span><br><span class="line">    custom-<span class="keyword">class</span>=<span class="string">&quot;fence&quot;</span></span><br><span class="line">    append-to-body</span><br><span class="line">    @close=<span class="string">&quot;handleClose&quot;</span></span><br><span class="line">    width=<span class="string">&quot;1200px&quot;</span></span><br><span class="line">    destroy-on-close</span><br><span class="line">  &gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;fence-map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map-box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;map-area&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">el-card</span> <span class="attr">class</span>=<span class="string">&quot;tool-window&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 380px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">el-form</span> <span class="attr">label-width</span>=<span class="string">&quot;80px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;围栏名称&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">size</span>=<span class="string">&quot;small&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">v-model</span>=<span class="string">&quot;name&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">placeholder</span>=<span class="string">&quot;请输入围栏名称&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;围栏样式&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-radio-group</span> <span class="attr">v-model</span>=<span class="string">&quot;tool&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;setType&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">el-radio-button</span> <span class="attr">label</span>=<span class="string">&quot;Circle&quot;</span>&gt;</span>圆形<span class="tag">&lt;/<span class="name">el-radio-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">el-radio-button</span> <span class="attr">label</span>=<span class="string">&quot;Polygon&quot;</span>&gt;</span>多边形<span class="tag">&lt;/<span class="name">el-radio-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">el-radio-group</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;warning&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleClear&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &gt;</span>清除&lt;/el-button</span></span><br><span class="line"><span class="language-xml">            &gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleSave&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &gt;</span>保存&lt;/el-button</span></span><br><span class="line"><span class="language-xml">            &gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleClose&quot;</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>样式代码如下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">fence</span> &#123;</span><br><span class="line">  .<span class="property">el</span>-dialog__header &#123;</span><br><span class="line">    <span class="attr">padding</span>: 20px;</span><br><span class="line">  &#125;</span><br><span class="line">  .<span class="property">el</span>-dialog__body &#123;</span><br><span class="line">    <span class="attr">padding</span>: <span class="number">0</span>;</span><br><span class="line">    .<span class="property">map</span>-area &#123;</span><br><span class="line">      box-<span class="attr">shadow</span>: inset 5em 1em #<span class="number">000000</span>;</span><br><span class="line">      <span class="attr">position</span>: relative;</span><br><span class="line">      .<span class="property">tool</span>-<span class="variable language_">window</span> &#123;</span><br><span class="line">        <span class="attr">width</span>: 200px;</span><br><span class="line">        <span class="attr">position</span>: absolute;</span><br><span class="line">        <span class="attr">bottom</span>: 20px;</span><br><span class="line">        <span class="attr">right</span>: 20px;</span><br><span class="line">        .<span class="property">button</span> &#123;</span><br><span class="line">          font-<span class="attr">size</span>: 20px;</span><br><span class="line">        &#125;</span><br><span class="line">        .<span class="property">step</span> &#123;</span><br><span class="line">          font-<span class="attr">size</span>: 16px;</span><br><span class="line">          padding-<span class="attr">top</span>: 13px;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>发现无法修改dialog样式，</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>去官网<a target="_blank" rel="noopener" href="https://element-plus.org/zh-CN/component/dialog.html#attributes%EF%BC%8C%E5%8F%91%E7%8E%B0custom-class%E5%B7%B2%E7%BB%8F%E8%A2%AB%E7%A6%81%E7%94%A8%EF%BC%8C%E4%BF%AE%E6%94%B9%E6%88%90class%E3%80%82">https://element-plus.org/zh-CN/component/dialog.html#attributes，发现custom-class已经被禁用，修改成class。</a><br>另外对于样式问题，参考下方博客以及评论<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32154641/article/details/126708678%EF%BC%8C%E5%B0%86dialog%E6%94%BE%E5%85%A5%E8%87%B3div%E4%B8%AD%EF%BC%8C%E7%84%B6%E5%90%8E%E5%B0%86append-to-body%E5%8E%BB%E6%8E%89%EF%BC%8C%E4%BE%9D%E9%9D%A0%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F:deep()%E6%88%90%E5%8A%9F%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%AE%E6%94%B9%E4%BA%86%E6%A0%B7%E5%BC%8F%EF%BC%8C%E5%8F%A6%E5%A4%96%E6%B3%A8%E6%84%8F%E5%88%B0%E5%A6%82%E6%9E%9Cel-dialog%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%BA%86%E7%B1%BB%E5%88%AB%EF%BC%8C%E5%9C%A8%E7%A9%BF%E9%80%8F%E6%97%B6%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9A%E5%AF%B9%E5%BA%94%E7%B1%BB%E5%88%AB%E3%80%82">https://blog.csdn.net/qq_32154641/article/details/126708678，将dialog放入至div中，然后将append-to-body去掉，依靠样式穿透:deep()成功自定义修改了样式，另外注意到如果el-dialog中指定了类别，在穿透时需要指定对应类别。</a></p>
-<p>这个问题并不是elmentUi和element-plus引起的，而是vue2和vue3的区别。vue2中要求单个组件文件中的template中只能有一个元素（如：div），而vue3是可以有多个的，vue3中不生效，是因为直接把el-dialog写在了template根目录中，其实只要在template中添加一个div，所有东西都放到div中就可以了。本质原因是：页面中el-dialog的渲染位置不同，添加div就会在当前组件位置渲染，如果没有div，就会在<body>中渲染</p>
-<p>在组件中<template>中 把el-dialog放在一个div中，然后:deep(你要修改的元素class) ， 还有一个重要的前提是dialog中有一个属性append-to-body ，把这个属性设成false 或者不写才可以用深度选择器修改样式，这个属性就是把dialog插入到body中，不然就算包裹在div中依然是取不到样式</p>
 
       
     </div>
@@ -1208,7 +1208,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/z-index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -1226,7 +1226,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/" class="post-title-link" itemprop="url">a标签的伪类顺序</a>
+          <a href="/2024/01/08/CSS/z-index/" class="post-title-link" itemprop="url">z-index</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1244,7 +1244,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-11 16:05:09" itemprop="dateModified" datetime="2024-01-11T16:05:09+08:00">2024-01-11</time>
+      <time title="修改时间：2024-01-14 11:50:08" itemprop="dateModified" datetime="2024-01-14T11:50:08+08:00">2024-01-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1263,14 +1263,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>906</span>
+      <span>266</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -1281,16 +1281,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h3><ol>
-<li>访问前link </li>
-<li>访问后visited</li>
-<li>鼠标移上hover</li>
-<li>鼠标点击active<br>可以利用<strong>爱恨准则</strong>: love hate来进行记忆</li>
+          <p><strong>z-index</strong>属性：数值大的压盖住数值小的。</p>
+<p>有如下特性：</p>
+<ul>
+<li><ol>
+<li>属性值大的位于上层，属性值小的位于下层。</li>
 </ol>
-<p><strong>示例代码如下：</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;a标签的四个伪类&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        a:link &#123;</span><br><span class="line">            /* 访问前状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;        </span><br><span class="line">        a:visited &#123;</span><br><span class="line">            /* 访问后状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;</span><br><span class="line">        a:hover &#123;</span><br><span class="line">            /* 鼠标悬浮状态 */</span><br><span class="line">            color: blueviolet;</span><br><span class="line">        &#125;</span><br><span class="line">        a:active &#123;</span><br><span class="line">            /* 鼠标点击状态 */</span><br><span class="line">            color: brown;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>伪类的权重是相同的，所以根据<strong>就近原则</strong>,后出现的伪类会覆盖先出现的伪类（同时激活）<br>比如把hover放在active后面，那么实际在激活（active）链接的时候就触发了hover伪类，hover在后面覆盖了active的颜色，所以始终无法看到active的颜色,如果把visited放在hover的后面，那么已经访问过的链接始终触发visited伪类，根据第一条会覆盖hover里面的颜色。其实 link visited 这两个伪类，并不需要顺序关系。（他们两的位置可以交换）</p>
+</li>
+<li><ol start="2">
+<li>z-index值没有单位，就是一个正整数。默认的z-index值是0。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>如果大家都没有z-index值，或者z-index值一样，那么在HTML代码里写在后面，谁就在上面能压住别人。定位了的元素，永远能够压住没有定位的元素。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>只有定位了的元素，才能有z-index值。也就是说，不管相对定位、绝对定位、固定定位，都可以使用z-index值。<strong>而浮动的元素不能用</strong>。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>从父现象：如果父亲1比父亲2大，那么，即使儿子1比儿子2小，儿子1也能在最上层。</li>
+</ol>
+</li>
+</ul>
 
       
     </div>
