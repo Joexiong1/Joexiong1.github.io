@@ -6,7 +6,7 @@
   <link href="https://joexiong1.github.io/atom.xml" rel="self"/>
   
   <link href="https://joexiong1.github.io/"/>
-  <updated>2024-01-14T03:55:29.756Z</updated>
+  <updated>2023-12-26T05:29:56.813Z</updated>
   <id>https://joexiong1.github.io/</id>
   
   <author>
@@ -15,6 +15,354 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/"/>
+    <id>https://joexiong1.github.io/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/</id>
+    <published>2024-01-30T08:33:58.672Z</published>
+    <updated>2023-12-26T05:29:56.813Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;openlayers中有4个主要的类：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Map：地图容器。&lt;/li&gt;
+&lt;li&gt;Layer：图层，map拥有1个或多个图层，整个map是由一个个图层堆叠出来的。&lt;/li&gt;
+&lt;li&gt;View：可视区域：主要用于交互，比</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/"/>
+    <id>https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/</id>
+    <published>2024-01-30T08:33:58.670Z</published>
+    <updated>2023-12-26T14:11:23.095Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;引入ol&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/"/>
+    <id>https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/</id>
+    <published>2024-01-30T08:33:58.667Z</published>
+    <updated>2023-12-26T14:11:20.791Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 JavaScript 和一些 JavaScript 库（如 OpenLayers）中，&lt;code&gt;.getFeatures().then()&lt;/code&gt; 是一种处理异步操作的模式。这种模式通常出现在调用一个返回 Promise 的 &lt;code&gt;getFeatures(</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/openlayers/fit/"/>
+    <id>https://joexiong1.github.io/2024/01/30/openlayers/fit/</id>
+    <published>2024-01-30T08:33:58.665Z</published>
+    <updated>2023-12-26T14:11:19.181Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;是的，您的理解是正确的。在 OpenLayers 的 &lt;code&gt;fit&lt;/code&gt; 方法中使用的 &lt;code&gt;padding&lt;/code&gt; 参数确实指的是 &lt;code&gt;boundingExtent&lt;/code&gt; 得到的包围盒（即您想要地图视图聚焦的区域）与地图视图边缘的</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/openlayers/Cluster/"/>
+    <id>https://joexiong1.github.io/2024/01/30/openlayers/Cluster/</id>
+    <published>2024-01-30T08:33:58.660Z</published>
+    <updated>2023-12-26T09:49:41.812Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 OpenLayers 中，&lt;code&gt;Cluster&lt;/code&gt; 是一个用于将接近的点特征（features）组合成群集（clusters）的功能。这对于在地图上显示大量点数据时非常有用，特别是当这些点在地图上彼此靠得很近，单独显示它们会导致地图变得杂乱无章。通过使用</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/el-select/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/el-select/</id>
+    <published>2024-01-30T08:33:41.930Z</published>
+    <updated>2024-01-04T07:03:32.769Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;code&gt;el-select&lt;/code&gt; 是 Element Plus（Element UI 的 Vue 3 版本）中的一个下拉选择器组件，而 &lt;code&gt;v-model&lt;/code&gt; 是 Vue.js 中用于创建双向数据绑定的一个指令。当这两者结合使用时，你可以创建一</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/</id>
+    <published>2024-01-30T08:33:41.926Z</published>
+    <updated>2023-12-30T12:34:44.405Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;在Vue3和ElementUI-Plus中自定义Dialog样式&quot;&gt;&lt;a href=&quot;#在Vue3和ElementUI-Plus中自定义Dialog样式&quot; class=&quot;headerlink&quot; title=&quot;在Vue3和ElementUI-Plus中自定义Dial</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/append-to-body/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/append-to-body/</id>
+    <published>2024-01-30T08:33:41.923Z</published>
+    <updated>2023-12-28T08:04:17.395Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Element UI 或类似的 Vue.js UI 框架中，&lt;code&gt;append-to-body&lt;/code&gt; 是一个常见的属性，用于控制组件（如对话框、下拉菜单、弹出框等）的渲染位置。当设置了 &lt;code&gt;append-to-body&lt;/code&gt;，组件的 DOM</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/</id>
+    <published>2024-01-30T08:33:41.918Z</published>
+    <updated>2023-12-31T03:06:23.053Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/6992452565875032095&quot;&gt;https://juejin.cn/post/6992452565875032095&lt;/a&gt;&lt;br&gt;在Vue实例中，methods中如果用的是正常函数，那么它的this</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/</id>
+    <published>2024-01-30T08:33:41.914Z</published>
+    <updated>2023-12-28T13:15:12.547Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 中，当你在 JavaScript 中定义组件时使用的是驼峰命名法（如 &lt;code&gt;DialogFence&lt;/code&gt;），而在模板中引用这个组件时，通常使用的是短横线分隔命名（也称为 kebab-case，如 &lt;code&gt;dialog-fence&lt;/cod</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/</id>
+    <published>2024-01-30T08:33:41.910Z</published>
+    <updated>2023-12-28T09:19:53.421Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 中，&lt;code&gt;&amp;lt;component&amp;gt;&amp;lt;/component&amp;gt;&lt;/code&gt; 是一个动态组件，它是 Vue 的一个内置组件，用于在同一挂载点动态地加载不同的组件。使用 &lt;code&gt;&amp;lt;component&amp;gt;&lt;/code&gt; 可</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/</id>
+    <published>2024-01-30T08:33:41.906Z</published>
+    <updated>2023-12-28T08:04:19.443Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 中，冒号（&lt;code&gt;:&lt;/code&gt;）用于表示属性绑定，是 &lt;code&gt;v-bind&lt;/code&gt; 指令的缩写。你可以用它来动态地绑定父组件的数据到子组件的属性，或者将数据绑定到 HTML 属性。知道何时使用和何时不使用 &lt;code&gt;:&lt;/code&gt;（或</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2024-01-30T08:33:41.903Z</published>
+    <updated>2023-12-26T05:53:47.484Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 和一般的 HTML&amp;#x2F;CSS&amp;#x2F;JavaScript 开发中，&lt;code&gt;id&lt;/code&gt; 和 &lt;code&gt;ref&lt;/code&gt; 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：&lt;/p&gt;
+&lt;h3 id</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/</id>
+    <published>2024-01-30T08:33:41.899Z</published>
+    <updated>2023-12-28T08:12:42.480Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 中，&lt;code&gt;export default&lt;/code&gt; 用于导出一个 Vue 组件，其中可以包含多个属性（或“选项”），用于定义和配置这个组件。以下是一些常用的、标准的 Vue 组件选项：&lt;/p&gt;
+&lt;h3 id=&quot;1-data&quot;&gt;&lt;a href=&quot;#1</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/</id>
+    <published>2024-01-30T08:33:41.895Z</published>
+    <updated>2023-12-31T08:24:08.065Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue 3 中，&lt;code&gt;computed&lt;/code&gt; 属性是一种非常重要的特性，用于声明响应式的计算属性。&lt;code&gt;computed&lt;/code&gt; 属性根据它们的依赖进行缓存，只在相关依赖发生改变时重新计算。这使得 &lt;code&gt;computed&lt;/code&gt; 属</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/@%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/@%E7%9A%84%E4%BD%9C%E7%94%A8/</id>
+    <published>2024-01-30T08:33:41.891Z</published>
+    <updated>2023-12-26T06:35:45.041Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 JavaScript 和一些现代前端框架（如 Vue.js）的项目中，&lt;code&gt;@&lt;/code&gt; 符号在 &lt;code&gt;import&lt;/code&gt; 语句中常被用作一个路径别名。它通常代表项目中的特定目录，最常见的是 &lt;code&gt;src&lt;/code&gt; 目录。&lt;/p&gt;
+&lt;h</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>UE5 Landscape系统源码</title>
+    <link href="https://joexiong1.github.io/2024/01/23/UE5/UE%E5%9C%B0%E5%BD%A2%E7%BB%84%E4%BB%B6/"/>
+    <id>https://joexiong1.github.io/2024/01/23/UE5/UE%E5%9C%B0%E5%BD%A2%E7%BB%84%E4%BB%B6/</id>
+    <published>2024-01-23T14:18:54.531Z</published>
+    <updated>2024-01-23T14:39:30.862Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;地形组件介绍：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UE5官方文档：&lt;a href=&quot;https://docs.unrealengine.com/5.3/zh-CN/landscape-technical-guide-in-unreal-engine</summary>
+      
+    
+    
+    
+    <category term="UE5" scheme="https://joexiong1.github.io/categories/UE5/"/>
+    
+    
+    <category term="UE5" scheme="https://joexiong1.github.io/tags/UE5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UE5 Landscape系统源码</title>
+    <link href="https://joexiong1.github.io/2024/01/23/UE5/Landscape%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+    <id>https://joexiong1.github.io/2024/01/23/UE5/Landscape%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/</id>
+    <published>2024-01-23T13:49:55.527Z</published>
+    <updated>2024-01-24T09:42:49.652Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;UE5 Landscape文件夹如下：&lt;br&gt;&lt;img src=&quot;/&quot; alt=&quot;文件夹&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Public文件夹&quot;&gt;&lt;a href=&quot;#Public文件夹&quot; class=&quot;headerlink&quot; title=&quot;Public文件夹&quot;&gt;&lt;/a&gt;Publi</summary>
+      
+    
+    
+    
+    <category term="UE5" scheme="https://joexiong1.github.io/categories/UE5/"/>
+    
+    <category term="源码" scheme="https://joexiong1.github.io/categories/UE5/%E6%BA%90%E7%A0%81/"/>
+    
+    
+    <category term="UE5" scheme="https://joexiong1.github.io/tags/UE5/"/>
+    
+    <category term="源码" scheme="https://joexiong1.github.io/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>fill()陷阱</title>
@@ -67,312 +415,6 @@
     <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="CSS" scheme="https://joexiong1.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>a标签的伪类顺序</title>
-    <link href="https://joexiong1.github.io/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/"/>
-    <id>https://joexiong1.github.io/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/</id>
-    <published>2024-01-08T10:00:00.000Z</published>
-    <updated>2024-01-08T09:59:13.122Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;顺序&quot;&gt;&lt;a href=&quot;#顺序&quot; class=&quot;headerlink&quot; title=&quot;顺序&quot;&gt;&lt;/a&gt;顺序&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;访问前link &lt;/li&gt;
-&lt;li&gt;访问后visited&lt;/li&gt;
-&lt;li&gt;鼠标移上hover&lt;/li&gt;
-&lt;li&gt;鼠标点击act</summary>
-      
-    
-    
-    
-    <category term="CSS学习" scheme="https://joexiong1.github.io/categories/CSS%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="CSS" scheme="https://joexiong1.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>z-index</title>
-    <link href="https://joexiong1.github.io/2024/01/08/CSS/z-index/"/>
-    <id>https://joexiong1.github.io/2024/01/08/CSS/z-index/</id>
-    <published>2024-01-08T10:00:00.000Z</published>
-    <updated>2024-01-14T03:50:08.978Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;strong&gt;z-index&lt;/strong&gt;属性：数值大的压盖住数值小的。&lt;/p&gt;
-&lt;p&gt;有如下特性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;属性值大的位于上层，属性值小的位于下层。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;</summary>
-      
-    
-    
-    
-    <category term="CSS学习" scheme="https://joexiong1.github.io/categories/CSS%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="CSS" scheme="https://joexiong1.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://joexiong1.github.io/2024/01/08/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8/"/>
-    <id>https://joexiong1.github.io/2024/01/08/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8/</id>
-    <published>2024-01-08T07:42:18.451Z</published>
-    <updated>2024-01-08T09:53:58.467Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;strong&gt;到底用 id 还是用 class？&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;答&lt;/strong&gt;：尽可能的用 class，除非极特殊的情况可以用 id。因为id 是 js 用的。也就是说，js 要通过 id 属性得到标签，所以 css 层</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>GIS面经1</title>
-    <link href="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/"/>
-    <id>https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/</id>
-    <published>2024-01-07T04:19:00.000Z</published>
-    <updated>2024-01-07T13:18:04.477Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;在openLayers中如何加载WMTS服务?&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;答&lt;/strong&gt;: 在openLayers中可以通过olsourse.WMTS 以及 ol.sourse.XYZ等方式加载WMTS服务，ol.source</summary>
-      
-    
-    
-    
-    <category term="GIS面经" scheme="https://joexiong1.github.io/categories/GIS%E9%9D%A2%E7%BB%8F/"/>
-    
-    
-    <category term="GIS面经" scheme="https://joexiong1.github.io/tags/GIS%E9%9D%A2%E7%BB%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UE5地形制作ChatGPT对话-1</title>
-    <link href="https://joexiong1.github.io/2024/01/07/UE5/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/"/>
-    <id>https://joexiong1.github.io/2024/01/07/UE5/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/</id>
-    <published>2024-01-07T02:30:00.000Z</published>
-    <updated>2024-01-14T03:55:28.191Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;与ChatGPT4的对话&quot;&gt;&lt;a href=&quot;#与ChatGPT4的对话&quot; class=&quot;headerlink&quot; title=&quot;与ChatGPT4的对话&quot;&gt;&lt;/a&gt;与ChatGPT4的对话&lt;/h2&gt;&lt;p&gt;&lt;code&gt;You：你了解UE吗&lt;/code&gt;&lt;/p&gt;
-&lt;f</summary>
-      
-    
-    
-    
-    <category term="UE5" scheme="https://joexiong1.github.io/categories/UE5/"/>
-    
-    
-    <category term="UE5" scheme="https://joexiong1.github.io/tags/UE5/"/>
-    
-    <category term="ChatGPT" scheme="https://joexiong1.github.io/tags/ChatGPT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>a++和++a</title>
-    <link href="https://joexiong1.github.io/2024/01/07/Javascript%E5%AD%A6%E4%B9%A0/++a%E5%92%8Ca++/"/>
-    <id>https://joexiong1.github.io/2024/01/07/Javascript%E5%AD%A6%E4%B9%A0/++a%E5%92%8Ca++/</id>
-    <published>2024-01-07T02:19:00.000Z</published>
-    <updated>2024-01-07T02:20:03.495Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;自增分成两种：a++和++a。共同点：&lt;/p&gt;
-&lt;p&gt;（1）无论是 a++ 还是++a，自增都会使原变量的值加 1。&lt;/p&gt;
-&lt;p&gt;（2）需要注意的是：a是变量，而a++和++a是表达式。&lt;/p&gt;
-&lt;p&gt;两者的区别：a++ 和 ++a的值不同：（也就是说，表达式的值不同）&lt;</summary>
-      
-    
-    
-    
-    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript运行三步曲——预编译</title>
-    <link href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/"/>
-    <id>https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/</id>
-    <published>2024-01-06T01:54:00.000Z</published>
-    <updated>2024-01-06T02:00:14.720Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;语法分析&quot;&gt;&lt;a href=&quot;#语法分析&quot; class=&quot;headerlink&quot; title=&quot;语法分析&quot;&gt;&lt;/a&gt;语法分析&lt;/h3&gt;&lt;p&gt;分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完</summary>
-      
-    
-    
-    
-    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript运行三步曲——解释执行</title>
-    <link href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/"/>
-    <id>https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/</id>
-    <published>2024-01-06T01:54:00.000Z</published>
-    <updated>2024-01-11T09:47:55.612Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;strong&gt;在分析JS引擎执行之前，需要明确两件事情：&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;JS是&lt;strong&gt;单线程&lt;/strong&gt;的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;</summary>
-      
-    
-    
-    
-    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript运行三步曲——预编译</title>
-    <link href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/</id>
-    <published>2024-01-06T01:54:00.000Z</published>
-    <updated>2024-01-11T08:05:22.028Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;原型链继承&quot;&gt;&lt;a href=&quot;#原型链继承&quot; class=&quot;headerlink&quot; title=&quot;原型链继承&quot;&gt;&lt;/a&gt;原型链继承&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;：写法方便简洁，容易理解&lt;br&gt;&lt;strong&gt;缺点&lt;/strong&gt;：对象实</summary>
-      
-    
-    
-    
-    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>变量提升、函数提升</title>
-    <link href="https://joexiong1.github.io/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/"/>
-    <id>https://joexiong1.github.io/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</id>
-    <published>2024-01-05T13:39:00.000Z</published>
-    <updated>2024-01-05T13:49:19.652Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;全局作用域的预处理&quot;&gt;&lt;a href=&quot;#全局作用域的预处理&quot; class=&quot;headerlink&quot; title=&quot;全局作用域的预处理&quot;&gt;&lt;/a&gt;全局作用域的预处理&lt;/h3&gt;&lt;p&gt;预处理（预解析）：JS在解析代码之前，有一个“预处理（预解析）”阶段，将当前 JS </summary>
-      
-    
-    
-    
-    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据类型检查</title>
-    <link href="https://joexiong1.github.io/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/"/>
-    <id>https://joexiong1.github.io/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/</id>
-    <published>2024-01-05T13:39:00.000Z</published>
-    <updated>2024-01-19T08:56:32.918Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;常用如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;typeof()&lt;/strong&gt;&lt;br&gt;适用于基本数据类型，但是对于引用数据类型并不适用&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter</summary>
-      
-    
-    
-    
-    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据类型转换</title>
-    <link href="https://joexiong1.github.io/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
-    <id>https://joexiong1.github.io/2024/01/05/Javascript%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</id>
-    <published>2024-01-05T09:30:00.000Z</published>
-    <updated>2024-01-05T13:49:19.652Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;显式类型转换&quot;&gt;&lt;a href=&quot;#显式类型转换&quot; class=&quot;headerlink&quot; title=&quot;显式类型转换&quot;&gt;&lt;/a&gt;显式类型转换&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter</summary>
-      
-    
-    
-    
-    <category term="JavaScript学习" scheme="https://joexiong1.github.io/categories/JavaScript%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   

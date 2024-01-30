@@ -151,18 +151,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -202,7 +202,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/14/Javascript%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84fill()%E9%99%B7%E9%98%B1%E8%AE%B0%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -220,7 +220,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/14/Javascript%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84fill()%E9%99%B7%E9%98%B1%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">fill()陷阱</a>
+          <a href="/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -230,18 +230,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-01-14 11:24:00 / 修改时间：11:55:29" itemprop="dateCreated datePublished" datetime="2024-01-14T11:24:00+08:00">2024-01-14</time>
+      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
+        <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaScript学习</span></a>
-        </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-26 13:29:56" itemprop="dateModified" datetime="2023-12-26T13:29:56+08:00">2023-12-26</time>
     </span>
 
   
@@ -251,7 +248,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>620</span>
+      <span>131</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -269,22 +266,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>使用fill()创建数组时遇到的坑，原代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-
-<p>如果此时更改某一元素如arr[0][0]</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="https://github.com/Joexiong1/myImg/blob/main/2024-1-14-fill().png" alt="fill()"><br>可以发现数组中每行的第一个元素都变成了1，在查阅之后发现这段代码存在一个常见的 JavaScript 陷阱，即使用 fill 方法填充二维数组时，实际上所有行都共享同一个子数组。这意味着，当修改一个行中的元素时，所有行中相同位置的元素都会被修改。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>数组是引用类型，意味着数组变量实际上存储的是对数组对象的引用，而不是数组对象本身。当使用 fill 方法填充数组时，它填充的是数组中的值，而这些值本身是对象（在这种情况下是数组对象）的引用。即<code>fill</code>方法填充的是值的引用，而不是<strong>独立的值</strong>。因此，所有的子数组实际上都引用了同一个数组对象，导致它们<strong>共享相同的内存空间和数据</strong>。</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><ol>
-<li><p>使用循环</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    arr[i] = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用map</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=<span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>).<span class="title function_">map</span>(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用Array.from</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>), <span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>).<span class="title function_">fill</span>(<span class="number">0</span>));</span><br></pre></td></tr></table></figure></li>
+          <p><strong>openlayers中有4个主要的类：</strong></p>
+<ol>
+<li>Map：地图容器。</li>
+<li>Layer：图层，map拥有1个或多个图层，整个map是由一个个图层堆叠出来的。</li>
+<li>View：可视区域：主要用于交互，比如缩放、调节分辨率、地图的旋转等控制。</li>
+<li>source：数据来源，即Layers的数组组成部分</li>
 </ol>
 
       
@@ -312,7 +299,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -330,7 +317,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/08/CSS/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">CSS三大特性</a>
+          <a href="/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -340,18 +327,341 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-01-08 18:00:00 / 修改时间：19:22:08" itemprop="dateCreated datePublished" datetime="2024-01-08T18:00:00+08:00">2024-01-08</time>
+      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
+        <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CSS%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">CSS学习</span></a>
-        </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-26 22:11:23" itemprop="dateModified" datetime="2023-12-26T22:11:23+08:00">2023-12-26</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>943</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p><strong>引入ol</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span> <span class="comment">// vue相关方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Map</span>, <span class="title class_">View</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol&#x27;</span>      <span class="comment">// 地图实例方法、视图方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Tile</span> <span class="keyword">from</span> <span class="string">&#x27;ol/layer/Tile&#x27;</span>    <span class="comment">// 瓦片渲染方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="variable constant_">OSM</span> <span class="keyword">from</span> <span class="string">&#x27;ol/source/OSM&#x27;</span>    <span class="comment">// OSM瓦片【OSM不能在实际开发中使用，因为OSM里中国地图的边界有点问题！！！！】</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;ol/ol.css&#x27;</span>                 <span class="comment">// 地图样式</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>创建地图容器(初始化)</strong><br>地图需要渲染到一个 HTML 元素中，并且需要手动设置地图容器的宽高（通常使用 css 来设置）。</p>
+</li>
+</ol>
+<p>地图容器需要有一个 id ，如果是 Vue 项目可以使用 ref 来代替 id。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.map</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">width</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">height</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p><strong>缩放和平移功能</strong><br>OpenLayers 的地图对象默认支持缩放和平移。</p>
+</li>
+<li><p><strong>标记绘制</strong><br>导入相关库：<br>VectorSource：<br>VectorLayer： 用于在地图上显示向量类型的数据。包括点、线和多边形等地理空间数据。<br>VectorSource：向量数据的容器，用于存储地理特征（如坐标点、线条、多边形等）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>点击弹窗</strong><br>给第三点中的坐标点添加点击事件，同时能够在地图上显示一个弹框，展示点位信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Overlay</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ol&quot;</span>;  <span class="comment">//弹窗组件</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-26 22:11:20" itemprop="dateModified" datetime="2023-12-26T22:11:20+08:00">2023-12-26</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 JavaScript 和一些 JavaScript 库（如 OpenLayers）中，<code>.getFeatures().then()</code> 是一种处理异步操作的模式。这种模式通常出现在调用一个返回 Promise 的 <code>getFeatures()</code> 函数后，用于处理异步获取的特征（features）。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><ol>
+<li><p>**<code>.getFeatures()</code>**：</p>
+<ul>
+<li>这是一个返回 Promise 的函数，Promise 是一个代表最终会完成的异步操作的对象。在 OpenLayers 的上下文中，<code>getFeatures()</code> 通常是用来异步获取一组特征（如从服务器加载）。</li>
+<li>返回的 Promise 将在特征获取操作完成时解决（resolve），或在发生错误时被拒绝（reject）。</li>
+</ul>
+</li>
+<li><p>**<code>.then()</code>**：</p>
+<ul>
+<li><code>.then()</code> 是一个在 Promise 上的方法，用于指定当 Promise 解决时要执行的操作。</li>
+<li>它接受两个回调函数作为参数：第一个用于处理成功的结果（即特征获取成功），第二个（可选）用于处理错误。</li>
+</ul>
+</li>
+</ol>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设有一个从服务器异步加载地图特征的操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设 getFeatures() 返回一个 Promise，该 Promise 在特征加载完成时解决</span></span><br><span class="line">dataSource.<span class="title function_">getFeatures</span>().<span class="title function_">then</span>(</span><br><span class="line">  <span class="function">(<span class="params">features</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载的特征</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;特征加载成功&quot;</span>, features);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载过程中的错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;特征加载失败&quot;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中：</p>
+<ul>
+<li>当 <code>getFeatures()</code> 完成特征加载并解决其返回的 Promise 时，<code>.then()</code> 中的第一个回调函数被调用，<code>features</code> 包含加载的特征。</li>
+<li>如果 <code>getFeatures()</code> 在加载过程中遇到错误，导致 Promise 被拒绝，第二个回调函数会被调用，<code>error</code> 包含错误信息。</li>
+</ul>
+<h3 id="在-OpenLayers-中的应用"><a href="#在-OpenLayers-中的应用" class="headerlink" title="在 OpenLayers 中的应用"></a>在 OpenLayers 中的应用</h3><p>在 OpenLayers 中，这种模式可能用于处理从远程源异步加载的特征，例如从 WFS（Web Feature Service）服务加载。这允许开发者在特征可用时执行操作，比如将它们添加到地图上，而不需要阻塞代码的其他部分。</p>
+<p>总之，<code>.getFeatures().then()</code> 是一个异步编程模式，在获取数据和处理数据可用性时非常有用。通过使用 Promise 和 <code>.then()</code> 方法，可以更优雅地处理异步操作及其结果。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/fit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/openlayers/fit/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-26 22:11:19" itemprop="dateModified" datetime="2023-12-26T22:11:19+08:00">2023-12-26</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>585</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>是的，您的理解是正确的。在 OpenLayers 的 <code>fit</code> 方法中使用的 <code>padding</code> 参数确实指的是 <code>boundingExtent</code> 得到的包围盒（即您想要地图视图聚焦的区域）与地图视图边缘的距离。</p>
+<p>当您使用像 <code>fit(extent, options)</code> 这样的方法时，<code>padding</code> 参数确保在缩放和平移到包围盒指定的区域后，地图视图的边缘与这个区域之间保持一定的空间。这个空间是通过 <code>padding</code> 数组中的四个值来指定的，这四个值分别对应上、右、下、左边缘的内边距，单位是像素。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">openMap</span>.<span class="title function_">getView</span>().<span class="title function_">fit</span>(extent, &#123;</span><br><span class="line">  <span class="attr">duration</span>: <span class="number">1000</span>,</span><br><span class="line">  <span class="attr">padding</span>: [<span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>padding: [200, 200, 200, 200]</code> 表示地图视图在缩放和平移到 <code>extent</code> 指定的区域后，在其上、右、下、左边缘各保留了 200 像素的空间。</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>这个特性在以下场景中非常有用：</p>
+<ul>
+<li>避免目标区域被地图上的控件或其他界面元素遮挡。</li>
+<li>为用户提供更好的视觉体验，防止感兴趣的区域贴近或覆盖地图边界。</li>
+<li>确保在视图中有足够的上下文空间，让用户可以理解目标区域在更广阔背景中的位置。</li>
+</ul>
+<p>总的来说，<code>padding</code> 参数在 <code>fit</code> 方法中非常重要，用于在缩放和平移操作中控制视图边缘和目标区域之间的空间，从而提供更好的用户体验和视觉效果。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/Cluster/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/openlayers/Cluster/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-30 16:33:58" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:58+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-26 17:49:41" itemprop="dateModified" datetime="2023-12-26T17:49:41+08:00">2023-12-26</time>
     </span>
 
   
@@ -379,53 +689,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="CSS三大特性"><a href="#CSS三大特性" class="headerlink" title="CSS三大特性"></a>CSS三大特性</h2><ul>
-<li>层叠性</li>
-<li>继承性</li>
-<li>优先级</li>
+          <p>在 OpenLayers 中，<code>Cluster</code> 是一个用于将接近的点特征（features）组合成群集（clusters）的功能。这对于在地图上显示大量点数据时非常有用，特别是当这些点在地图上彼此靠得很近，单独显示它们会导致地图变得杂乱无章。通过使用群集，可以提高地图的可读性和性能。</p>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
+<li><strong>数据聚合</strong>：<code>Cluster</code> 通过将空间上接近的点组合成单个群集特征来减少地图上的点数量。</li>
+<li><strong>缩放级别敏感</strong>：随着地图缩放，群集可以动态变化。在更高的缩放级别，点可能会分散显示，而在更低的缩放级别，则可能会被聚合。</li>
+<li><strong>自定义群集策略</strong>：可以自定义群集的形成方式，例如，根据特定的距离阈值或点的数量。</li>
 </ul>
-<blockquote>
-<p><strong>样式冲突</strong>：多个选择器指定了同一个元素的情况。</p>
-</blockquote>
-<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>优先级是为了解决<strong>样式冲突</strong>的问题，解决方法是<strong>计算权重</strong>。</p>
-<p>当样式冲突发生时，需要按照下方顺序统计权重：</p>
-<ul>
-<li>id 选择器</li>
-<li>类选择器、属性选择器、伪类选择器</li>
-<li>标签选择器、伪元素选择器</li>
-</ul>
-<p><strong>注意</strong>：不进位，实际上能进位（255个标签等于1个类名）</p>
-<p><strong>权重问题总结</strong></p>
-<ul>
-<li><strong>选择上了</strong>，数权重，(id的数量，类的数量，标签的数量)。如果权重一样，谁写在后面听谁的。</li>
-<li>没有选择上，通过继承影响的，就近原则，谁描述的近听谁的。如果描述的一样近，比如选择器权重，如果权重再一样重，谁写在后面听谁的。</li>
-</ul>
-<h3 id="样式表冲突总结"><a href="#样式表冲突总结" class="headerlink" title="样式表冲突总结"></a>样式表冲突总结</h3><ul>
-<li>1、对于相同的选择器（比如同样都是类选择器），其样式表排序：行级样式 &gt; 内嵌样式表 &gt; 外部样式表（就近原则）</li>
-<li>2、对于相同类型的样式表（比如同样都是内部样式表），其选择器排序：ID选择器 &gt; 类选择器 &gt; 标签选择器</li>
-<li>3、外部样式表的ID选择器  &gt; 内嵌样式表的标签选择器</li>
-</ul>
-<h3 id="important标记：优先级最高"><a href="#important标记：优先级最高" class="headerlink" title="!important标记：优先级最高"></a>!important标记：优先级最高</h3><p>语法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k:v !important;</span><br></pre></td></tr></table></figure>
-<p><strong>（1）!important提升的是一个属性，而不是一个选择器</strong><br>示例如下</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:red <span class="meta">!important</span>;    只写了这一个!important，所以只有字体颜色属性提升了权重</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">100px</span> ;       这条属性没有写!important，所以没有提升权重</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#para1</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:blue;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.spec</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:green;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>综合来看，<strong>字体颜色是red；字号是50px</strong>。</p>
-<p><strong>（2）!important无法提升继承的权重，该是0还是0</strong><br>比如HTML结构：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>哈哈哈哈哈哈哈哈<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>要在 OpenLayers 中使用 <code>Cluster</code>，首先需要引入相关模块，然后创建一个 <code>Cluster</code> 源并将其应用于图层。以下是一个基本示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Cluster</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Point</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/geom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Feature</span> <span class="keyword">from</span> <span class="string">&#x27;ol/Feature&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 假设你已经有一组特征（features）</span></span><br><span class="line"><span class="keyword">const</span> features = [<span class="keyword">new</span> <span class="title class_">Feature</span>(<span class="keyword">new</span> <span class="title class_">Point</span>([<span class="number">0</span>, <span class="number">0</span>])), <span class="keyword">new</span> <span class="title class_">Feature</span>(<span class="keyword">new</span> <span class="title class_">Point</span>([<span class="number">1</span>, <span class="number">1</span>]))];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个向量源用于原始特征</span></span><br><span class="line"><span class="keyword">const</span> source = <span class="keyword">new</span> <span class="title class_">VectorSource</span>(&#123;</span><br><span class="line">  <span class="attr">features</span>: features,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个群集源并设置距离</span></span><br><span class="line"><span class="keyword">const</span> clusterSource = <span class="keyword">new</span> <span class="title class_">Cluster</span>(&#123;</span><br><span class="line">  <span class="attr">distance</span>: <span class="number">40</span>, <span class="comment">// 群集的距离阈值，单位为像素</span></span><br><span class="line">  <span class="attr">source</span>: source,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个图层用于显示群集</span></span><br><span class="line"><span class="keyword">const</span> clusterLayer = <span class="keyword">new</span> <span class="title class_">VectorLayer</span>(&#123;</span><br><span class="line">  <span class="attr">source</span>: clusterSource,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>有CSS样式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>:red <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于div是通过继承性来影响文字颜色的，所以!important无法提升它的权重，权重依然是0。因此其<strong>并不影响就近原则</strong>。</p>
-<h2 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h2><h3 id="就近原则"><a href="#就近原则" class="headerlink" title="就近原则"></a>就近原则</h3><p>权重相同时，会按照书写顺序最后的为准。这是因为在运行的过程中，上面的样式先执行，下面的样式元素会将上面的覆盖。</p>
-<h2 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h2><p>继承性是指书写样式表时，子标签会继承父标签的某些样式，有一些样式是有继承性的，只需将它应用于父元素即可。</p>
-<h3 id="什么样式能够继承"><a href="#什么样式能够继承" class="headerlink" title="什么样式能够继承"></a>什么样式能够继承</h3><p>并不是所有的css属性都可以继承。</p>
-<ul>
-<li>关于<strong>文字样式</strong>的属性，都具有继承性。这些属性包括：color、 text-开头的、line-开头的、font-开头的。</li>
-<li>关于<strong>盒子、定位、布局</strong>的属性，都不能继承。</li>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><strong>样式</strong>：群集的样式通常需要根据群集中的特征数量来定制。你可以为群集源设置一个样式函数，根据包含的特征数量来改变群集的外观。</li>
+<li><strong>性能考虑</strong>：尽管群集可以提高大量点数据的可视性和性能，但是创建和维护群集仍然需要一定的计算资源。合理设置群集参数以平衡性能和用户体验是很重要的。</li>
 </ul>
-<h3 id="继承性的影响"><a href="#继承性的影响" class="headerlink" title="继承性的影响"></a>继承性的影响</h3><blockquote>
-<p>如果不能直接选中某个元素，而是通过继承性影响的话，那么权重是0。</p>
-</blockquote>
+<p>总体来说，<code>Cluster</code> 是 OpenLayers 中处理和显示大量点数据的有力工具，它通过将点聚合成群集来提高地图的可读性和渲染效率。</p>
 
       
     </div>
@@ -452,7 +729,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/el-select/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -470,7 +747,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/08/CSS/a%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BC%AA%E7%B1%BB%E9%A1%BA%E5%BA%8F/" class="post-title-link" itemprop="url">a标签的伪类顺序</a>
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/el-select/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -480,18 +757,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-01-08 18:00:00 / 修改时间：17:59:13" itemprop="dateCreated datePublished" datetime="2024-01-08T18:00:00+08:00">2024-01-08</time>
+      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
+        <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CSS%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">CSS学习</span></a>
-        </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-04 15:03:32" itemprop="dateModified" datetime="2024-01-04T15:03:32+08:00">2024-01-04</time>
     </span>
 
   
@@ -501,7 +775,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>906</span>
+      <span>977</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -519,16 +793,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h3><ol>
-<li>访问前link </li>
-<li>访问后visited</li>
-<li>鼠标移上hover</li>
-<li>鼠标点击active<br>可以利用<strong>爱恨准则</strong>: love hate来进行记忆</li>
-</ol>
-<p><strong>示例代码如下：</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;a标签的四个伪类&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        a:link &#123;</span><br><span class="line">            /* 访问前状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;        </span><br><span class="line">        a:visited &#123;</span><br><span class="line">            /* 访问后状态 */</span><br><span class="line">            color: black;</span><br><span class="line">        &#125;</span><br><span class="line">        a:hover &#123;</span><br><span class="line">            /* 鼠标悬浮状态 */</span><br><span class="line">            color: blueviolet;</span><br><span class="line">        &#125;</span><br><span class="line">        a:active &#123;</span><br><span class="line">            /* 鼠标点击状态 */</span><br><span class="line">            color: brown;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+          <p><code>el-select</code> 是 Element Plus（Element UI 的 Vue 3 版本）中的一个下拉选择器组件，而 <code>v-model</code> 是 Vue.js 中用于创建双向数据绑定的一个指令。当这两者结合使用时，你可以创建一个用户界面元素，允许用户从一组预定义的选项中选择一个，同时自动更新相应的数据。</p>
+<h3 id="el-select"><a href="#el-select" class="headerlink" title="el-select"></a>el-select</h3><p><code>el-select</code> 组件用于生成一个下拉菜单，让用户可以从多个选项中选择一个。它通常与 <code>el-option</code> 组件一起使用，后者定义了下拉菜单中的各个选项。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-select v-model=&quot;selectedValue&quot;&gt;</span><br><span class="line">  &lt;el-option</span><br><span class="line">    v-for=&quot;item in options&quot;</span><br><span class="line">    :key=&quot;item.value&quot;</span><br><span class="line">    :label=&quot;item.label&quot;</span><br><span class="line">    :value=&quot;item.value&quot;&gt;</span><br><span class="line">  &lt;/el-option&gt;</span><br><span class="line">&lt;/el-select&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>伪类的权重是相同的，所以根据<strong>就近原则</strong>,后出现的伪类会覆盖先出现的伪类（同时激活）<br>比如把hover放在active后面，那么实际在激活（active）链接的时候就触发了hover伪类，hover在后面覆盖了active的颜色，所以始终无法看到active的颜色,如果把visited放在hover的后面，那么已经访问过的链接始终触发visited伪类，根据第一条会覆盖hover里面的颜色。其实 link visited 这两个伪类，并不需要顺序关系。（他们两的位置可以交换）</p>
+<p>在这个例子中：</p>
+<ul>
+<li><code>el-select</code> 是下拉选择器组件。</li>
+<li><code>el-option</code> 定义了 <code>el-select</code> 中的选项。</li>
+<li><code>v-for</code> 指令用于遍历 <code>options</code> 数组，创建多个 <code>el-option</code>。</li>
+</ul>
+<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><p><code>v-model</code> 是 Vue.js 中实现双向数据绑定的指令。它确保输入控件（如文本框、选择器等）的值和应用数据保持同步。</p>
+<ul>
+<li>当用户更改选择时，<code>v-model</code> 绑定的变量（在上面的例子中是 <code>selectedValue</code>）将自动更新为新选中的值。</li>
+<li>同时，如果 <code>selectedValue</code> 的值在其他地方被更改，<code>el-select</code> 控件将显示与此值相对应的选项。</li>
+</ul>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p><code>el-select</code> 结合 <code>v-model</code> 非常适用于表单，尤其是在需要用户从一系列选项中选择一个时。例如，在提交表单时收集用户的偏好设置、配置选项或其他类似的输入。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>确保 <code>el-select</code> 的每个 <code>el-option</code> 有一个唯一的 <code>value</code> 属性，这样 <code>v-model</code> 才能正确地识别和更新选中的值。</li>
+<li><code>v-model</code> 默认绑定到组件的 <code>value</code> 属性和 <code>input</code> 事件。对于自定义组件，可能需要适当地配置这些属性和事件。</li>
+</ul>
+<p>通过结合使用 <code>el-select</code> 和 <code>v-model</code>，你可以为用户提供一个直观且功能强大的下拉选择界面，同时保持代码的简洁和数据的响应式。</p>
 
       
     </div>
@@ -555,7 +840,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/z-index/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -573,7 +858,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/08/CSS/z-index/" class="post-title-link" itemprop="url">z-index</a>
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -584,23 +869,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-01-08 18:00:00" itemprop="dateCreated datePublished" datetime="2024-01-08T18:00:00+08:00">2024-01-08</time>
+      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-14 11:50:08" itemprop="dateModified" datetime="2024-01-14T11:50:08+08:00">2024-01-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CSS%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">CSS学习</span></a>
-        </span>
+      <time title="修改时间：2023-12-30 20:34:44" itemprop="dateModified" datetime="2023-12-30T20:34:44+08:00">2023-12-30</time>
     </span>
 
   
@@ -610,14 +886,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>266</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -628,30 +904,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>z-index</strong>属性：数值大的压盖住数值小的。</p>
-<p>有如下特性：</p>
-<ul>
-<li><ol>
-<li>属性值大的位于上层，属性值小的位于下层。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>z-index值没有单位，就是一个正整数。默认的z-index值是0。</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>如果大家都没有z-index值，或者z-index值一样，那么在HTML代码里写在后面，谁就在上面能压住别人。定位了的元素，永远能够压住没有定位的元素。</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>只有定位了的元素，才能有z-index值。也就是说，不管相对定位、绝对定位、固定定位，都可以使用z-index值。<strong>而浮动的元素不能用</strong>。</li>
-</ol>
-</li>
-<li><ol start="5">
-<li>从父现象：如果父亲1比父亲2大，那么，即使儿子1比儿子2小，儿子1也能在最上层。</li>
-</ol>
-</li>
-</ul>
+          <h3 id="在Vue3和ElementUI-Plus中自定义Dialog样式"><a href="#在Vue3和ElementUI-Plus中自定义Dialog样式" class="headerlink" title="在Vue3和ElementUI-Plus中自定义Dialog样式"></a>在Vue3和ElementUI-Plus中自定义Dialog样式</h3><h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><p>在openlayers+vue3项目实践中，发现使用:deep()无法更改Dialog样式，Dialog代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-dialog</span><br><span class="line">    title=<span class="string">&quot;编辑围栏&quot;</span></span><br><span class="line">    :v-model=<span class="string">&quot;dialogVisible&quot;</span></span><br><span class="line">    custom-<span class="keyword">class</span>=<span class="string">&quot;fence&quot;</span></span><br><span class="line">    append-to-body</span><br><span class="line">    @close=<span class="string">&quot;handleClose&quot;</span></span><br><span class="line">    width=<span class="string">&quot;1200px&quot;</span></span><br><span class="line">    destroy-on-close</span><br><span class="line">  &gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;fence-map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map-box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;map-area&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">el-card</span> <span class="attr">class</span>=<span class="string">&quot;tool-window&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 380px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">el-form</span> <span class="attr">label-width</span>=<span class="string">&quot;80px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;围栏名称&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">size</span>=<span class="string">&quot;small&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">v-model</span>=<span class="string">&quot;name&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">placeholder</span>=<span class="string">&quot;请输入围栏名称&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;围栏样式&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-radio-group</span> <span class="attr">v-model</span>=<span class="string">&quot;tool&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;setType&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">el-radio-button</span> <span class="attr">label</span>=<span class="string">&quot;Circle&quot;</span>&gt;</span>圆形<span class="tag">&lt;/<span class="name">el-radio-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">el-radio-button</span> <span class="attr">label</span>=<span class="string">&quot;Polygon&quot;</span>&gt;</span>多边形<span class="tag">&lt;/<span class="name">el-radio-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">el-radio-group</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;warning&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleClear&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &gt;</span>清除&lt;/el-button</span></span><br><span class="line"><span class="language-xml">            &gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleSave&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &gt;</span>保存&lt;/el-button</span></span><br><span class="line"><span class="language-xml">            &gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleClose&quot;</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>样式代码如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.<span class="property">fence</span> &#123;</span><br><span class="line">  .<span class="property">el</span>-dialog__header &#123;</span><br><span class="line">    <span class="attr">padding</span>: 20px;</span><br><span class="line">  &#125;</span><br><span class="line">  .<span class="property">el</span>-dialog__body &#123;</span><br><span class="line">    <span class="attr">padding</span>: <span class="number">0</span>;</span><br><span class="line">    .<span class="property">map</span>-area &#123;</span><br><span class="line">      box-<span class="attr">shadow</span>: inset 5em 1em #<span class="number">000000</span>;</span><br><span class="line">      <span class="attr">position</span>: relative;</span><br><span class="line">      .<span class="property">tool</span>-<span class="variable language_">window</span> &#123;</span><br><span class="line">        <span class="attr">width</span>: 200px;</span><br><span class="line">        <span class="attr">position</span>: absolute;</span><br><span class="line">        <span class="attr">bottom</span>: 20px;</span><br><span class="line">        <span class="attr">right</span>: 20px;</span><br><span class="line">        .<span class="property">button</span> &#123;</span><br><span class="line">          font-<span class="attr">size</span>: 20px;</span><br><span class="line">        &#125;</span><br><span class="line">        .<span class="property">step</span> &#123;</span><br><span class="line">          font-<span class="attr">size</span>: 16px;</span><br><span class="line">          padding-<span class="attr">top</span>: 13px;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发现无法修改dialog样式，</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>去官网<a target="_blank" rel="noopener" href="https://element-plus.org/zh-CN/component/dialog.html#attributes%EF%BC%8C%E5%8F%91%E7%8E%B0custom-class%E5%B7%B2%E7%BB%8F%E8%A2%AB%E7%A6%81%E7%94%A8%EF%BC%8C%E4%BF%AE%E6%94%B9%E6%88%90class%E3%80%82">https://element-plus.org/zh-CN/component/dialog.html#attributes，发现custom-class已经被禁用，修改成class。</a><br>另外对于样式问题，参考下方博客以及评论<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32154641/article/details/126708678%EF%BC%8C%E5%B0%86dialog%E6%94%BE%E5%85%A5%E8%87%B3div%E4%B8%AD%EF%BC%8C%E7%84%B6%E5%90%8E%E5%B0%86append-to-body%E5%8E%BB%E6%8E%89%EF%BC%8C%E4%BE%9D%E9%9D%A0%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F:deep()%E6%88%90%E5%8A%9F%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%AE%E6%94%B9%E4%BA%86%E6%A0%B7%E5%BC%8F%EF%BC%8C%E5%8F%A6%E5%A4%96%E6%B3%A8%E6%84%8F%E5%88%B0%E5%A6%82%E6%9E%9Cel-dialog%E4%B8%AD%E6%8C%87%E5%AE%9A%E4%BA%86%E7%B1%BB%E5%88%AB%EF%BC%8C%E5%9C%A8%E7%A9%BF%E9%80%8F%E6%97%B6%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9A%E5%AF%B9%E5%BA%94%E7%B1%BB%E5%88%AB%E3%80%82">https://blog.csdn.net/qq_32154641/article/details/126708678，将dialog放入至div中，然后将append-to-body去掉，依靠样式穿透:deep()成功自定义修改了样式，另外注意到如果el-dialog中指定了类别，在穿透时需要指定对应类别。</a></p>
+<p>这个问题并不是elmentUi和element-plus引起的，而是vue2和vue3的区别。vue2中要求单个组件文件中的template中只能有一个元素（如：div），而vue3是可以有多个的，vue3中不生效，是因为直接把el-dialog写在了template根目录中，其实只要在template中添加一个div，所有东西都放到div中就可以了。本质原因是：页面中el-dialog的渲染位置不同，添加div就会在当前组件位置渲染，如果没有div，就会在<body>中渲染</p>
+<p>在组件中<template>中 把el-dialog放在一个div中，然后:deep(你要修改的元素class) ， 还有一个重要的前提是dialog中有一个属性append-to-body ，把这个属性设成false 或者不写才可以用深度选择器修改样式，这个属性就是把dialog插入到body中，不然就算包裹在div中依然是取不到样式</p>
 
       
     </div>
@@ -678,7 +938,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/08/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/append-to-body/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -696,258 +956,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/08/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-08 15:42:18 / 修改时间：17:53:58" itemprop="dateCreated datePublished" datetime="2024-01-08T15:42:18+08:00">2024-01-08</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>118</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>到底用 id 还是用 class？</strong></p>
-<ul>
-<li><strong>答</strong>：尽可能的用 class，除非极特殊的情况可以用 id。因为id 是 js 用的。也就是说，js 要通过 id 属性得到标签，所以 css 层面尽量不用 id，要不然 js 就很别扭。另一层面，我们会认为一个有 id 的元素，有动态效果</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/07/GIS%E9%9D%A2%E7%BB%8F/GIS%E9%9D%A2%E7%BB%8F/" class="post-title-link" itemprop="url">GIS面经1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-07 12:19:00 / 修改时间：21:18:04" itemprop="dateCreated datePublished" datetime="2024-01-07T12:19:00+08:00">2024-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/GIS%E9%9D%A2%E7%BB%8F/" itemprop="url" rel="index"><span itemprop="name">GIS面经</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><strong>在openLayers中如何加载WMTS服务?</strong><br><strong>答</strong>: 在openLayers中可以通过olsourse.WMTS 以及 ol.sourse.XYZ等方式加载WMTS服务，ol.source.XYZ的方式比较简单，只需要输入修改url和xyz以及坐标系即可。而ol.source.WMTS较复杂，需要配置原点、分辨率数组、分辨率对应的级别、坐标系的参数等。</li>
-</ul>
-<p><strong>WMS和WMTS的区别</strong><br><strong>答</strong>:WMTS服务和WMS服务本质区别即对客户端请求服务的响应不同。在接受客户端请求WMTS服务时，返回给客户端是固定大小的瓦片，客户端根据索引号来获取每一张瓦片，而后拼接成地图进行展示，其采取缓存技术来替代实时对数据进行可视化，用以提高地图响应能力。而当客户端请求WMS服务时，返回给客户端是一张完整的图片，客户端取到直接展示。</p>
-<p>细节</p>
-<h3 id="WMS（Web-Map-Service）"><a href="#WMS（Web-Map-Service）" class="headerlink" title="WMS（Web Map Service）"></a>WMS（Web Map Service）</h3><ol>
-<li><strong>动态请求</strong>：WMS 提供地图作为对特定请求的响应。当用户请求地图时，服务器动态生成地图图像并返回。这意味着地图是实时生成的。</li>
-<li><strong>灵活性</strong>：WMS 允许用户指定多种参数，如图像大小、格式、地理范围（bounding box）、图层等，从而提供高度定制化的地图。</li>
-<li><strong>性能</strong>：由于地图是按需生成的，对于大量用户或复杂的地图渲染，WMS 可能在性能上存在限制。特别是在缩放和平移地图时，可能会出现延迟。</li>
-<li><strong>标准和支持</strong>：WMS 是 OGC（Open Geospatial Consortium）的一个标准，得到广泛支持和应用。</li>
-</ol>
-<h3 id="WMTS（Web-Map-Tile-Service）"><a href="#WMTS（Web-Map-Tile-Service）" class="headerlink" title="WMTS（Web Map Tile Service）"></a>WMTS（Web Map Tile Service）</h3><ol>
-<li><strong>预渲染瓦片</strong>：WMTS 使用预先渲染的地图瓦片。这些瓦片在多个尺度级别上生成，并存储在服务器上。</li>
-<li><strong>性能优化</strong>：由于地图瓦片是预先生成的，WMTS 在性能上通常优于 WMS，尤其是在处理大量请求时。地图的加载和显示更快，用户体验更流畅。</li>
-<li><strong>可缓存性</strong>：预渲染的瓦片可以被缓存，这对于常访问的地区和流行的尺度级别非常有用，进一步提高了性能。</li>
-<li><strong>灵活性限制</strong>：与 WMS 相比，WMTS 提供的灵活性较低。用户不能自定义地图的尺寸或样式，只能选择预定义的瓦片。</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li>WMS 适用于需要高度定制的地图服务，允许动态生成地图，但可能在性能上有限制。</li>
-<li>WMTS 更适用于需要快速响应和高并发的场景，通过使用预渲染的地图瓦片提供优化的性能，但牺牲了一定的灵活性。</li>
-</ul>
-<p><strong>Web端如何实时获取服务器数据</strong></p>
-<ul>
-<li>Worker</li>
-<li>Ajax+定时器</li>
-</ul>
-<p><strong>OGC有哪些服务</strong><br><strong>答</strong>：</p>
-<ul>
-<li><strong>WMS(Web Map Service)：地图服务</strong></li>
-</ul>
-<p>⽤于获取地图图像，以便在Web上进⾏显示。WMS服务通常允许⽤户以各种格式(若PNG，JPEG 等)检索地图图像。</p>
-<ul>
-<li><strong>WFS(Web Feature Service)：矢量服务</strong></li>
-</ul>
-<p>⽤于获取地理空间数据，以便在Web上进⾏分析和查询，WFS服务通常允许⽤户以多种格式(如GML，JSON等)检索地理空间数据。</p>
-<p>具体代码表现层⾯：如加载geojson数据</p>
-<ul>
-<li><strong>WCS(Web Coverage Service)：栅格服务</strong></li>
-</ul>
-<p>⽤于获取遥感数据和其他覆盖范围数据。WCS服务允许⽤户以各种格式（如GeoTIFF、NetCDF 等）检索遥感数据。</p>
-<ul>
-<li><strong>WMTS（Web Map Tile Service）：地图瓦片服务</strong></li>
-</ul>
-<p>它是OGC的⼀种服务，⽤于提供已切割为⼩图块的地图图像，以便在Web上进⾏显示。与WMS不 同，WMTS不会动态⽣成地图图像，⽽是将地图预先切割为固定⼤⼩的图块，并将其存储在服务器上。客户端可以请求特定级别和坐标的特定图块，⽽⽆需请求整个地图图像。这样可以提⾼地图显示的效率和速度，特别是在处理⼤规模地图时。</p>
-<p><strong>地图投影类型的区别，如何分类</strong><br><strong>答</strong>:</p>
-<ol>
-<li>等⾯积投影（Equal Area Projection）：这种投影类型会保持地图上的⾯积⽐例不变，但会导致形状和⽅向的变形。常⻅的等⾯积投影包括⻨卡托投影和兰勃托投影。</li>
-<li>等⻆投影（Conformal Projection）：这种投影类型会保持地图上的⻆度不变，但会导致⾯积和⻓度的变形。常⻅的等⻆投影包括墨卡托投影和极射投影。</li>
-<li>等距投影（Equidistant Projection）：这种投影类型会保持地图上的距离⽐例不变，但会导致⾯积和形状的变形。常⻅的等距投影包括正轴等距投影和正射等距投影。</li>
-<li>综合性投影（Composite Projection）：这种投影类型是以上三种投影类型的组合。综合性投影通常⽤于需要平衡多个因素的地图，如形状、⾯积和距离。</li>
-</ol>
-<p>不同的地图投影类型适⽤于不同的应⽤场景。在选择地图投影类型时，需要考虑需要表达的信息类型、地图区域的⼤⼩和形状、地图的⽤途等因素。</p>
-<p><strong>常⻅的空间数据库有哪些</strong></p>
-<ul>
-<li><strong>PostgreSQL&#x2F;PostGIS</strong>：PostgreSQL是⼀种开源的对象关系型数据库管理系统，⽽PostGIS则是⼀ 个⽤于PostgreSQL的空间数据库扩展，可以⽤于存储、查询和分析空间数据。</li>
-<li><strong>Oracle Spatial</strong>：Oracle Spatial是Oracle数据库的⼀个扩展，它提供了存储和查询空间数据的功 能，包括⼏何对象类型、空间索引和空间查询操作。</li>
-<li><strong>SQL Server Spatial</strong>：SQL Server Spatial是Microsoft SQL Server数据库的⼀个扩展，它提供了存 储和查询空间数据的功能，包括⼏何对象类型、空间索引和空间查询操作。</li>
-<li><strong>SQLite&#x2F;SpatiaLite</strong>：SQLite是⼀种轻型的嵌⼊式关系型数据库管理系统，⽽SpatiaLite则是⼀个⽤ 于SQLite的空间数据库扩展，可以⽤于存储、查询和分析空间数据。</li>
-<li><strong>MongoDB</strong>：MongoDB是⼀个NoSQL数据库，它可以存储各种类型的数据，包括空间数据。 MongoDB通过GeoJSON格式存储空间数据，并提供了⼀些空间查询操作。</li>
-<li><strong>MySQL Spatial</strong>：MySQL Spatial是MySQL数据库的⼀个扩展，它提供了存储和查询空间数据的功 能，包括⼏何对象类型、空间索引和空间查询操作。</li>
-</ul>
-<p><strong>地图上要素很多加载慢,遇到过崩掉的情况么前端是如何缓解的</strong><br>前端在处理大量要素时，确实可能会遇到加载缓慢、卡顿、崩溃等问题。以下是一些缓解这些问题的方法：</p>
-<ul>
-<li><strong>数据优化</strong>：将不必要的数据过滤掉，只加载必要的数据。例如，如果地图上只需要显示某些特定的区 域或点，可以通过缩放或其他⽅式进⾏筛选，只加载这些要素。这样可以减轻数据量，加快加载速度。(<strong>比如在openlayers中可以使用集群（Cluster）</strong>)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个群集源并设置距离</span></span><br><span class="line"><span class="keyword">const</span> clusterSource = <span class="keyword">new</span> <span class="title class_">Cluster</span>(&#123;</span><br><span class="line">  <span class="attr">distance</span>: <span class="number">40</span>, <span class="comment">// 群集的距离阈值，单位为像素</span></span><br><span class="line">  <span class="attr">source</span>: source,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
-<li><strong>图层分级</strong>：将地图逐层分级，每层只显示特定的要素，降低⼀层图层中的要素数量。可以通过层叠效果来叠加多层图层，形成完整的地图效果。这样能够<strong>减少对单个图层的渲染次数</strong>，提⾼性能。</li>
-<li><strong>后台优化</strong>：通过后台对数据进⾏剪裁和压缩，减⼩数据传输的⼤⼩。还可以在后台对数据进⾏分块， 分段加载，来减轻前端负担。</li>
-<li><strong>瓦⽚地图</strong>：将地图切分成瓦⽚，只显示在当前屏幕可视范围内的瓦⽚，减少了不必要的数据加载。该 技术可以⼤⼤减少加载速度，特别是在⼤地图并发⽤户请求⾮常⾼的情况下。</li>
-<li><strong>前端优化</strong>：通过缓存、预加载等技术，优化前端的性能。例如，可以将⼀些经常使⽤的数据进⾏缓存(<strong>比如上一次选中的是哪个地图</strong>)，提⾼响应速度，还可以在⽤户浏览过⼀个⻚⾯时，预加载下⼀个即将进⼊的⻚⾯，以提⾼⽤户体验。</li>
-</ul>
-<p><strong>动态投影</strong><br><strong>答</strong>:GIS的动态投影跟图形学的动态投影并不相同。在地理信息系统（GIS）中，动态投影（Dynamic Projection）通常指的是在地图上随着用户的交互或数据展示需求，实时地调整地图的投影方式，以便在不同的投影下正确显示地理数据。动态投影在GIS中是一个重要的功能，它允许用户在不同的投影之间切换，以满足不同的分析、展示和交互需求。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/07/UE5/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/07/UE5/UE5%E5%9C%B0%E5%BD%A2%E5%88%B6%E4%BD%9C/" class="post-title-link" itemprop="url">UE5地形制作ChatGPT对话-1</a>
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/append-to-body/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -958,23 +967,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-01-07 10:30:00" itemprop="dateCreated datePublished" datetime="2024-01-07T10:30:00+08:00">2024-01-07</time>
+      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-14 11:55:28" itemprop="dateModified" datetime="2024-01-14T11:55:28+08:00">2024-01-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/UE5/" itemprop="url" rel="index"><span itemprop="name">UE5</span></a>
-        </span>
+      <time title="修改时间：2023-12-28 16:04:17" itemprop="dateModified" datetime="2023-12-28T16:04:17+08:00">2023-12-28</time>
     </span>
 
   
@@ -984,14 +984,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>11k</span>
+      <span>800</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>20 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -1002,87 +1002,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="与ChatGPT4的对话"><a href="#与ChatGPT4的对话" class="headerlink" title="与ChatGPT4的对话"></a>与ChatGPT4的对话</h2><p><code>You：你了解UE吗</code></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GPT:</span><br><span class="line">&quot;UE&quot; 有多种可能的含义，具体取决于上下文。以下是两个常见的含义：</span><br><span class="line"></span><br><span class="line">Unreal Engine (UE):</span><br><span class="line"></span><br><span class="line">简介： Unreal Engine 是由 Epic Games 开发的一款强大的游戏引擎。它广泛用于制作高质量的三维游戏、虚拟现实（VR）、增强现实（AR）、模拟器、可视化效果等应用。Unreal Engine 提供了先进的图形渲染、物理引擎、音频系统等功能，以及基于蓝图和C++的开发环境。</span><br><span class="line">User Experience (UE):</span><br><span class="line"></span><br><span class="line">简介： User Experience（用户体验）是指用户与产品、系统或服务进行交互时的全体经验。它包括用户在使用产品时的感受、情感、满意度等方面。UE 设计关注于创建简单、直观、高效的用户界面，以确保用户在使用产品时有良好的体验。</span><br><span class="line">如果你有特定的问题或是想要深入探讨关于 &quot;UE&quot; 的某个方面，请提供更多的上下文，以便我能够更准确地回答。</span><br></pre></td></tr></table></figure>
-
-<p><code>You:我指的是Unreal Engine</code></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ChatGPT：了解，Unreal Engine（UE）是一款由 Epic Games 开发的强大游戏引擎，广泛用于电子游戏、虚拟现实（VR）、增强现实（AR）、模拟器等领域。以下是一些关于 Unreal Engine 的基本信息：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 图形引擎： Unreal Engine 包含了先进的图形引擎，支持高质量的实时渲染。其渲染引擎提供了许多先进的功能，如全局光照、实时阴影、体积光、后期处理效果等，以创建逼真的视觉效果。</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> 物理引擎： Unreal Engine 集成了强大的物理引擎，支持刚体物理、碰撞检测、布料模拟、液体模拟等，使游戏中的物体和角色具有逼真的运动和互动。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> 蓝图系统： Unreal Engine 提供了蓝图系统，这是一种可视化的编程系统，允许开发者使用图形界面设计游戏逻辑和交互，而无需编写代码。蓝图系统使得游戏设计师和艺术家也能够参与到游戏逻辑的创建中。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> 多平台支持： Unreal Engine 支持多个平台，包括 PC、主机（如 PlayStation、Xbox）、移动设备（iOS、Android）、虚拟现实设备（如 Oculus Rift、HTC Vive）等。这使得开发者能够跨多个平台发布他们的作品。</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> 开放性和社区： Unreal Engine 是一个开源引擎，允许开发者访问源代码，并可以根据需要进行修改。此外，Unreal Engine 社区活跃，提供了大量的教程、文档和支持。</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> 游戏开发工具： Unreal Engine 提供了一系列工具，包括场景编辑器、角色编辑器、动画编辑器等，使得游戏开发变得更加高效。</span><br><span class="line"></span><br><span class="line"><span class="bullet">7.</span> 虚拟现实和增强现实： Unreal Engine 是虚拟现实和增强现实应用的重要平台，支持创建逼真的 VR 和 AR 内容。</span><br><span class="line"></span><br><span class="line"><span class="bullet">8.</span> Unreal Engine 在游戏行业和虚拟现实领域广受好评，被许多游戏开发者和工作室选择作为他们的首选引擎。</span><br></pre></td></tr></table></figure>
-
-<p><code>You：你了解UE的关卡制作吗</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ChatGPT：</span><br><span class="line">是的，我了解 Unreal Engine 中的关卡制作。在游戏开发中，关卡是游戏世界的一部分，可以包括地形、建筑、角色、道具等元素。Unreal Engine 提供了强大的关卡编辑工具，允许开发者创建富有创意的游戏场景。</span><br><span class="line"></span><br><span class="line">以下是 Unreal Engine 中关卡制作的一些关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 关卡编辑器（Level Editor）： Unreal Engine 的关卡编辑器是一个强大的可视化工具，用于创建、编辑和布置游戏场景。通过关卡编辑器，开发者可以轻松地添加地形、静态网格、光照、效果等元素。</span><br><span class="line"></span><br><span class="line">2. 地形工具： Unreal Engine 的地形工具允许开发者创建自然地形，包括山脉、山谷、平原等。开发者可以使用不同的笔刷和工具来塑造地形，同时可以导入高度图以获取真实的地形数据。</span><br><span class="line"></span><br><span class="line">3. 静态网格和模型： 关卡中的物体通常由静态网格构成，这些网格可以是建筑、道具、植被等。Unreal Engine 支持导入各种3D模型，并提供了灵活的工具来放置、旋转和缩放这些模型。</span><br><span class="line"></span><br><span class="line">4. 蓝图： Unreal Engine 的蓝图系统允许开发者在关卡中创建交互性和逻辑。通过蓝图，开发者可以设计和定义关卡中的游戏逻辑，包括触发事件、角色行为、任务等。</span><br><span class="line"></span><br><span class="line">5. 光照和效果： 光照在游戏中是至关重要的，Unreal Engine 提供了强大的光照系统。开发者可以调整太阳光、灯光、阴影等参数，以实现视觉效果的优化。</span><br><span class="line"></span><br><span class="line">6. 音频： 关卡制作还涉及到音频的布置。开发者可以在关卡中放置音频触发器、背景音乐等，以提供更加丰富的游戏体验。</span><br><span class="line"></span><br><span class="line">7. 碰撞体和触发器： 为了实现游戏中的交互和碰撞检测，开发者可以在关卡中放置碰撞体和触发器。这些元素可以用于处理角色与环境的互动。</span><br><span class="line"></span><br><span class="line">8. 地图优化： 随着关卡的增大，性能优化变得尤为重要。Unreal Engine 提供了一系列的工具和技术，帮助开发者优化关卡，确保游戏在各种平台上都能够运行流畅。</span><br><span class="line"></span><br><span class="line">总体而言，Unreal Engine 的关卡制作工具和特性提供了开发者广泛的创作自由，同时提供了强大的性能和可视化效果。</span><br></pre></td></tr></table></figure>
-
-<p><code>You:我们现在专注于探讨关卡中的地形部分</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">理解了，让我们专注于关卡中的地形部分。在Unreal Engine中，地形是关卡中一个重要的元素，开发者可以使用地形工具来创建自然的地貌、山脉、河谷等。以下是一些关于Unreal Engine中地形制作的关键概念和步骤：</span><br><span class="line"></span><br><span class="line">1. 地形工具面板： 打开Unreal Engine关卡编辑器后，可以通过选择“Modes”面板中的“Landscape”选项来访问地形工具。这里包含了创建、编辑、涂绘地形的工具。</span><br><span class="line"></span><br><span class="line">2. 创建地形： 首先，你需要创建一个地形。选择“Landscape”选项后，可以选择创建全新的地形或导入高度图。创建地形时，你需要指定地形的大小、分辨率等参数。</span><br><span class="line"></span><br><span class="line">3. 地形编辑工具： 地形编辑工具包括提升、降低、平滑、噪声等功能。这些工具使你能够在地形上进行各种形状和形态的修改，创造出各种地貌。</span><br><span class="line"></span><br><span class="line">4. 涂绘地形： Unreal Engine 允许你使用“涂鸦”工具来为地形添加纹理和细节。这包括添加草地、岩石、沙土等纹理，使地形看起来更加真实。</span><br><span class="line"></span><br><span class="line">5. 雕刻细节： 通过调整地形编辑工具的参数，你可以对地形进行更详细的雕刻，创造出沟壑、山脊等地貌特征。</span><br><span class="line"></span><br><span class="line">6. 高度图导入： Unreal Engine 支持通过导入高度图的方式创建地形。高度图是一种灰度图像，其中不同的灰度值对应不同的高度。这是一个常用的创建真实地形的方法。</span><br><span class="line"></span><br><span class="line">7. 地形材质： 你可以为地形定义多层次的材质，以模拟不同的地表类型。这可以通过材质层的涂抹和混合来实现。</span><br><span class="line"></span><br><span class="line">8. 地形优化： 随着地形的增大，性能优化变得重要。 Unreal Engine 提供了一些工具，如“Landscape LOD”（层次细节）来帮助优化大型地形的性能。</span><br><span class="line"></span><br><span class="line">9. 地形的动态变化： Unreal Engine 还支持在游戏运行时动态修改地形。这意味着你可以在游戏中通过脚本或触发器来修改地形，以响应玩家的行为或故事发展。</span><br><span class="line"></span><br><span class="line">以上是关于 Unreal Engine 中地形制作的一些基本概念和步骤。实际上，地形的制作是一个广泛而深入的主题，你可能需要进一步深入学习和实践以熟练运用这些工具。</span><br></pre></td></tr></table></figure>
-
-<p><code>You:现在我想要知道UE是如何具体实现这些功能的，你可以通过实现思路或是结合UE源码来解答</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ChatGPT:</span><br><span class="line">Unreal Engine（UE）的地形系统是一个复杂而强大的模块，它的实现涉及到多个方面，包括地形生成、编辑、渲染等。下面是对 UE 地形系统实现的一些基本思路和组成部分的简要解释：</span><br><span class="line"></span><br><span class="line">地形生成：</span><br><span class="line"></span><br><span class="line">Unreal Engine 支持通过高度图生成地形。高度图是一种灰度图像，其中灰度值对应地形的高度。在地形生成时，引擎会根据高度图的灰度值为地形的每个顶点计算高度信息，从而形成地形的基本形状。</span><br><span class="line">地形编辑工具：</span><br><span class="line"></span><br><span class="line">地形编辑工具提供了一系列的操作，如提升、降低、平滑、噪声等。这些操作会影响地形的高度信息。实现这些工具的基本思路是通过修改地形的顶点数据，然后更新渲染。</span><br><span class="line">地形的细节涂绘：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许开发者为地形添加多层次的纹理，这通过涂鸦工具实现。实现思路是为每个地形顶点存储多层次的纹理信息，通过融合这些纹理来模拟地表的不同类型。</span><br><span class="line">地形材质的定义：</span><br><span class="line"></span><br><span class="line">地形的材质定义是通过层次材质（Layered Material）来实现的。每个层次对应一种地表类型，例如草地、岩石、沙土等。这些层次材质通过混合和涂抹操作来达到自然过渡的效果。</span><br><span class="line">LOD（层次细节）：</span><br><span class="line"></span><br><span class="line">Unreal Engine 的地形系统支持 LOD，即在远处时使用低分辨率的地形表示，在近处时逐渐增加细节。这通过在运行时动态生成不同层次的地形网格来实现。</span><br><span class="line">高度图导入：</span><br><span class="line"></span><br><span class="line">高度图导入涉及将外部高度图的灰度信息映射到地形的高度。这通常包括将高度图的像素值映射到地形的顶点高度，并相应地更新地形。</span><br><span class="line">动态变化：</span><br><span class="line"></span><br><span class="line">Unreal Engine 允许在运行时动态修改地形。这是通过在蓝图或代码中实现对地形高度数据的修改和更新来实现的。</span><br><span class="line">在 UE 的实现中，上述功能涉及到底层的图形引擎、渲染管道、材质系统等多个模块。具体的实现细节需要深入阅读 Unreal Engine 的源代码和相关文档。UE 的源代码是闭源的，但 Epic Games 提供了一些开放的接口和文档，以帮助开发者理解和扩展引擎的功能。开发者可以通过 Unreal Engine 的官方文档、社区论坛以及相关的在线资源来深入研究和学习。</span><br></pre></td></tr></table></figure>
-
-
-<p>在Unreal Engine中，地形制作相关的源码通常位于其主要的GitHub存储库中，具体可以在以下位置找到：</p>
+          <p>在 Element UI 或类似的 Vue.js UI 框架中，<code>append-to-body</code> 是一个常见的属性，用于控制组件（如对话框、下拉菜单、弹出框等）的渲染位置。当设置了 <code>append-to-body</code>，组件的 DOM 元素将被直接附加到 <code>&lt;body&gt;</code> 元素上，而不是它在模板中的默认位置。</p>
+<h3 id="作用和优点"><a href="#作用和优点" class="headerlink" title="作用和优点"></a>作用和优点</h3><ol>
+<li><p><strong>避免样式和定位问题</strong>：</p>
 <ul>
-<li><strong>存储库</strong>：<a target="_blank" rel="noopener" href="https://github.com/EpicGames/UnrealEngine">Unreal Engine GitHub Repository</a></li>
-<li><strong>目录路径</strong>：<ul>
-<li><code>Engine/Source/Runtime/Landscape/</code>：这个目录包含地形系统（Landscape System）的大部分核心功能和类。</li>
-<li><code>Engine/Source/Editor/LandscapeEditor/</code>：这里包含了地形编辑器相关的代码，主要是UE编辑器内用于地形编辑的用户界面和工具。</li>
+<li>在复杂的布局中，组件可能会因为其父元素的 <code>overflow</code>、<code>z-index</code> 或其他 CSS 属性而显示不正确。将组件附加到 <code>&lt;body&gt;</code> 可以避免这些问题。</li>
 </ul>
 </li>
+<li><p><strong>全局定位</strong>：</p>
+<ul>
+<li>由于组件被附加到 <code>&lt;body&gt;</code>，它的定位是相对于视口的，这有助于确保组件（如下拉菜单或弹出框）可以正确覆盖页面上的其他元素。</li>
 </ul>
-<p>为了访问这些源代码，你需要一个有效的Epic Games账号，并且必须同意Unreal Engine的使用条款。在完成这些步骤之后，你才能够从GitHub存储库克隆或下载代码。</p>
-<p>请注意，Unreal Engine的源代码是非常庞大和复杂的，涉及深入的C++编程知识，以及对游戏开发和计算机图形学的理解。如果你刚开始接触这些内容，建议先从官方文档和教程开始学习。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">`You：你了解UE的关卡制作吗`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>是的，我了解《3D Engine Design for Virtual Globes》这本书。这本书由Patrick Cozzi和Kevin Ring共同撰写，专注于3D引擎的设计，特别是用于虚拟地球和地理信息系统（GIS）的应用。它提供了关于如何创建高性能、实时的3D地球可视化引擎的深入讨论和指导。</p>
-<p>以下是这本书的一些关键特点和内容概述：</p>
-<h3 id="关键特点"><a href="#关键特点" class="headerlink" title="关键特点"></a>关键特点</h3><ol>
-<li><strong>实时3D引擎设计</strong>：书中详细探讨了实时渲染技术，特别是在地理空间数据和大规模地球表面渲染方面的应用。</li>
-<li><strong>虚拟地球技术</strong>：详细介绍了虚拟地球技术的核心概念，包括地球表面的渲染、地形表示、以及与卫星图像的集成。</li>
-<li><strong>性能优化</strong>：重点关注性能优化策略，以确保3D引擎能够高效地处理大量的地理空间数据。</li>
+</li>
 </ol>
-<h3 id="内容概述"><a href="#内容概述" class="headerlink" title="内容概述"></a>内容概述</h3><ul>
-<li><strong>基础理论</strong>：介绍3D图形学的基础理论，如坐标系统、投影和视图变换。</li>
-<li><strong>地理空间数据处理</strong>：讨论如何处理和优化地理空间数据，包括地形数据和卫星图像。</li>
-<li><strong>高级渲染技术</strong>：深入探讨高级渲染技术，如着色器编程、光照和阴影、以及大气和天气效果。</li>
-<li><strong>地形和图像金字塔</strong>：介绍地形和图像金字塔技术，这是一种处理和显示大规模地理数据的有效方法。</li>
-<li><strong>网络技术</strong>：探讨如何使用网络技术来流式传输和渲染地球数据。</li>
+<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><p>在 Element UI 的 <code>el-dialog</code> 组件中使用 <code>append-to-body</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-dialog</span></span></span><br><span class="line"><span class="tag">  <span class="attr">title</span>=<span class="string">&quot;提示&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:visible.sync</span>=<span class="string">&quot;dialogVisible&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">append-to-body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 对话框内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，设置了 <code>append-to-body</code> 属性，意味着无论 <code>el-dialog</code> 在模板中位于何处，它的实际 DOM 元素都会被附加到 <code>&lt;body&gt;</code> 元素上。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用 <code>append-to-body</code> 时，组件的位置和尺寸可能需要更仔细地控制，特别是在响应式布局中。</li>
+<li>在一些情况下，将组件附加到 <code>&lt;body&gt;</code> 可能会导致与 Vue 的局部数据流或事件流的隔离。例如，组件内部的事件可能无法直接冒泡到它在模板中的父组件。</li>
 </ul>
-<h3 id="适用读者"><a href="#适用读者" class="headerlink" title="适用读者"></a>适用读者</h3><ul>
-<li><strong>游戏开发者</strong>：对于想要在游戏中实现地球或大规模地形渲染的开发者。</li>
-<li><strong>GIS专业人士</strong>：GIS领域的专业人士，希望了解3D引擎在地理空间数据可视化中的应用。</li>
-<li><strong>计算机图形学爱好者</strong>：对3D图形学和实时渲染技术感兴趣的读者。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>《3D Engine Design for Virtual Globes》是一本专业的技术书籍，它结合了计算机图形学理论和实际的应用案例，适合那些希望深入了解和开发用于虚拟地球和GIS应用的3D引擎的读者。</p>
-<pre><code>
-
-Here are some research papers related to the principles of terrain creation in Unreal Engine 5:
-
-1. **Procedural Generation of Roads with Conditional Generative Adversarial Networks** by Lin Ziwen Kelvin and A. Bhojan (2020): This paper discusses the use of algorithms for procedural terrain generation, including features like landscaping and road networks, with applications in game development engines like Unreal Engine 4. It explores the use of conditional generative adversarial networks for creating road maps in game development [(Lin Ziwen Kelvin &amp; Bhojan, 2020)](https://consensus.app/papers/generation-roads-conditional-generative-adversarial-kelvin/0f78e5b80010500f94a89a51354cca71/?utm_source=chatgpt).
-
-2. **Unreal as a simulation environment for offroad autonomy** by Parker Young, Sam Kysar, J. Bos (2020): This paper describes extensions to the Unreal gaming engine to support the simulation of autonomous ground vehicles in complex 3D terrain. It includes models for various sensors compatible with the Robot Operating System middleware [(Young, Kysar, &amp; Bos, 2020)](https://consensus.app/papers/simulation-environment-offroad-autonomy-young/caefc460b0f95396af87909a28399e49/?utm_source=chatgpt).
-
-3. **Design and Development of “Fright Hour” A Horror Game Utilizing Unreal Engine 5** by Jeftha Budiman, Wilson Wirijadipura, M. H. Widianto, Shafa Amira Qonitatin, Alyza Rahima Pramudya (2022): This paper outlines the development of a horror game using Unreal Engine 5, discussing the game development life cycle phases and evaluation methods [(Budiman et al., 2022)](https://consensus.app/papers/design-development-fright-hour-horror-game-utilizing-budiman/3ee288771b2b59b1b8a3e680e097aac0/?utm_source=chatgpt).
-
-4. **AI intelligent wayfinding based on Unreal Engine 4 static map** by Yuhang Xie, Yihong Chen, Ziyi Wang, Yangjun Ou (2022): This research focuses on AI path-finding systems in games developed with Unreal Engine. It explains the principles of path-finding algorithms in static environments and their implementation in Unreal Engine using blueprint programming [(Xie, Chen, Wang, &amp; Ou, 2022)](https://consensus.app/papers/intelligent-wayfinding-based-unreal-engine-xie/e8e430254dc358bba4c0eaa4dd1591c1/?utm_source=chatgpt).
-
-5. **What’s Inside Unreal Engine? - A Curious Gaze!** by Vartika Agrahari, S. Chimalakonda (2021): This paper aims to understand Unreal Engine by analyzing its software architecture, considering architectural changes across various releases of Unreal Engine [(Agrahari &amp; Chimalakonda, 2021)](https://consensus.app/papers/what-inside-unreal-engine-curious-gaze-agrahari/3d0f09f6427858c99c7469a97f622e9e/?utm_source=chatgpt).
-
-These papers provide insights into the principles and applications of terrain creation in Unreal Engine, including procedural generation techniques, AI path-finding, and game development methodologies.
-
-
-The principles of the Unreal Engine 5 terrain creation system can be understood through various research papers that explore different aspects of terrain generation and game development using Unreal Engine and similar platforms. Here are some key insights:
-
-1. **Procedural Terrain Generation**: Terrain features like landscaping, rivers, or road networks are generated through algorithms with minimal input from the user. This approach is important in game development, especially for larger terrain maps, as traditional methods are too time-consuming. Unreal Engine 4 has been used for such procedural terrain generation, which can be applied to Unreal Engine 5 as well [(Lin Ziwen Kelvin &amp; A. Bhojan, 2020)](https://consensus.app/papers/generation-roads-conditional-generative-adversarial-kelvin/0f78e5b80010500f94a89a51354cca71/?utm_source=chatgpt).
-
-2. **Simulation of Autonomous Vehicles**: The Unreal Engine has been extended to model interactions of autonomous vehicles with complex 3D terrain. This involves accurate modeling of vehicle-terrain interaction, adding models for LiDARs, IMU, and GNSS systems compatible with the Robot Operating System middleware [(Parker Young, Sam Kysar, &amp; J. Bos, 2020)](https://consensus.app/papers/simulation-environment-offroad-autonomy-young/caefc460b0f95396af87909a28399e49/?utm_source=chatgpt).
-
-3. **AI Pathfinding**: Unreal Engine&#39;s pathfinding component, usually applied to 3D games, is critical for AI path-finding in dynamic environments. The Unreal Engine platform has been used for simulation experiments and detailed explanation of intelligent path-finding in both dynamic and static environments [(Yuhang Xie, Yihong Chen, Ziyi Wang, &amp; Yangjun Ou, 2022)](https://consensus.app/papers/intelligent-wayfinding-based-unreal-engine-xie/e8e430254dc358bba4c0eaa4dd1591c1/?utm_source=chatgpt).
-
-4. **Automatic Terrain Generation**: Systems have been developed to generate random terrain automatically, enhancing playability and explorability in games. These systems use algorithms like Berlin noise and OpenGL to generate random paths and maps, which can be transplanted to Unity and other map model processing tools [(Jiatong Liu, Dongdong Chen, Chengyou Zhang, Duyang Li, &amp; Xiaoyan Zhang, 2021)](https://consensus.app/papers/automatic-terrain-generation-system-based-path-search-liu/ab0b332739645610ab054d9017da1cb8/?utm_source=chatgpt).
-
-5. **Vegetation Rendering Optimization**: In virtual reality systems using game engines like Unreal, rendering complex terrain and dense vegetation is computationally intensive. Techniques like parallel rendering, Levels of Details (LOD), and culling algorithms have been applied for optimization [(Zilong Zhang, Xun Luo, Salazar Vaca María Gabriela, Espinoza Castro Danny Alberto, &amp; Yi Chen, 2017)](https://consensus.app/papers/vegetation-rendering-optimization-virtual-reality-zhang/956b1a96908c5da783587c18196a9c78/?utm_source=chatgpt).
-
-6. **Physics-Based Terrain Editing**: Systems have been developed for digital terrain editing suitable for game designers and artists, allowing the editing of large terrains at interactive frame rates on a GPU. These systems do not require in-depth knowledge of physics-based simulations [(J. Vanek, Bedrich Benes, A. Herout, &amp; O. Stava, 2011)](https://consensus.app/papers/largescale-physicsbased-terrain-editing-using-adaptive-vanek/3197df84e17d5d3d90a9a04075dea9ae/?utm_source=chatgpt).
-
-These papers demonstrate a range of methods and technologies used in terrain generation and optimization, many of which are applicable or adaptable to Unreal Engine 5&#39;s terrain creation system.
-</code></pre>
+<p>总结来说，<code>append-to-body</code> 属性在处理某些布局和叠放顺序问题时非常有用，特别是当你希望组件（如弹窗、下拉菜单等）能够覆盖其它界面元素时。正确使用这个属性可以在保持良好用户体验的同时解决复杂布局中的常见问题。</p>
 
       
     </div>
@@ -1109,7 +1050,7 @@ These papers demonstrate a range of methods and technologies used in terrain gen
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/07/Javascript%E5%AD%A6%E4%B9%A0/++a%E5%92%8Ca++/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -1127,220 +1068,7 @@ These papers demonstrate a range of methods and technologies used in terrain gen
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/07/Javascript%E5%AD%A6%E4%B9%A0/++a%E5%92%8Ca++/" class="post-title-link" itemprop="url">a++和++a</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-07 10:19:00 / 修改时间：10:20:03" itemprop="dateCreated datePublished" datetime="2024-01-07T10:19:00+08:00">2024-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaScript学习</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>534</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>自增分成两种：a++和++a。共同点：</p>
-<p>（1）无论是 a++ 还是++a，自增都会使原变量的值加 1。</p>
-<p>（2）需要注意的是：a是变量，而a++和++a是表达式。</p>
-<p>两者的区别：a++ 和 ++a的值不同：（也就是说，表达式的值不同）</p>
-<p>  a++这个表达式的值等于原变量的值（a 自增前的值）。可以这样理解：先把 a 的值赋值给表达式，然后 a 再自增。（比如b&#x3D;a++）<br>  ++a这个表达式的值等于新值 （a 自增后的值）。 可以这样理解：a 先自增，然后把自增后的值赋值给表达式。</p>
-<p>–a和a–同理</p>
-<p>示例代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n1 = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> n2 = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result1 = n1++;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">// 11</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result1); <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line">result = ++n1;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n1); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">//12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result2 = n2--;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 19</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line">result2 = --n2;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(n2); <span class="comment">// 18</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result2); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/" class="post-title-link" itemprop="url">Javascript运行三步曲——预编译</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-06 09:54:00 / 修改时间：10:00:14" itemprop="dateCreated datePublished" datetime="2024-01-06T09:54:00+08:00">2024-01-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaScript学习</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>813</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完成再次进入该代码块的语法分析阶段。</p>
-<h3 id="两个规律"><a href="#两个规律" class="headerlink" title="两个规律"></a>两个规律</h3><p><strong>规律1</strong>：任何变量，如果未经声明就赋值，此变量是属于 window 的属性，而且不会做变量提升。（注意，无论在哪个作用域内赋值）</p>
-<p><strong>规律2</strong>：一切声明的全局变量，全是window的属性。（注意，这里说的是在全局作用域内声明的全局变量，不是说局部变量）</p>
-<p>window 代表了全局作用域（「代表」而非「等于」）。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = <span class="number">100</span>; <span class="comment">// 连续赋值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">b</span>); <span class="comment">//100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 100</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">a</span>); <span class="comment">//undefined </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// 报错Uncaught ReferenceError:a is not defined</span></span><br></pre></td></tr></table></figure>
-
-<p>代码解释:当执行了foo()函数之后，var a&#x3D;b&#x3D;100这行连续赋值的代码等价于var a&#x3D;(b&#x3D;100),其执行顺序是：</p>
-<p>（1）先把100赋值给b</p>
-<p>（2）再声明变量a</p>
-<p>（3）再把b的值赋值给a</p>
-<p>因此，b变量未经声明就被赋值了，此时，根据规律1，这个b是属于window.b,而a的作用域仅限于foo()函数内部，不属于window，所以直接访问会报错，而window.a相当于在window中声明对象a，但未赋值，所以是undefined，但是window.a并不会变量提升</p>
-<p>函数预编译，发生在函数执行的前一刻：</p>
-<ol>
-<li>创建AO对象。AO即Activation Object活跃对象，即执行期上下文</li>
-<li>找形参和变量声明，将形参名和变量作为AO的属性名，值为undefined。</li>
-<li>将实参值和形参统一，实参的值赋给形参</li>
-<li>查找函数声明，函数名作为AO对象的属性</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E6%AD%A5%E6%9B%B2%E2%80%94%E2%80%94%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C/" class="post-title-link" itemprop="url">Javascript运行三步曲——解释执行</a>
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1351,23 +1079,14 @@ These papers demonstrate a range of methods and technologies used in terrain gen
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-01-06 09:54:00" itemprop="dateCreated datePublished" datetime="2024-01-06T09:54:00+08:00">2024-01-06</time>
+      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-11 17:47:55" itemprop="dateModified" datetime="2024-01-11T17:47:55+08:00">2024-01-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaScript学习</span></a>
-        </span>
+      <time title="修改时间：2023-12-31 11:06:23" itemprop="dateModified" datetime="2023-12-31T11:06:23+08:00">2023-12-31</time>
     </span>
 
   
@@ -1377,14 +1096,14 @@ These papers demonstrate a range of methods and technologies used in terrain gen
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.3k</span>
+      <span>1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -1395,77 +1114,143 @@ These papers demonstrate a range of methods and technologies used in terrain gen
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>在分析JS引擎执行之前，需要明确两件事情：</strong></p>
-<ol>
-<li><p>JS是<strong>单线程</strong>的，为了避免代码解析阻塞使用了异步执行，实现异步执行的机制是事件循环（Event Loop）。</p>
-</li>
-<li><p>JS虽然是单线程的，但是参与JS执行过程的线程一共有四个，但是只有JS引擎线程在执行JS脚本程序，其他三个线程只负责将满足触发条件的处理函数推进事件队列，等待JS引擎线程执行，不参与代码解析与执行。四个线程分别是：</p>
-</li>
-</ol>
-<p><strong>JS引擎线程</strong>：也称为JS内核，负责解析执行JS脚本程序的主线程（例如V8引擎）。<br><strong>事件触发线程</strong>：归属于浏览器内核进程，不受JS引擎线程控制。主要用于控制事件（例如鼠标，键盘等事件），当该事件被触发时，事件触发线程就会把该事件的处理函数推进事件队列，等待JS引擎线程执行。<br><strong>定时器触发线程</strong>：主要控制计时器setInterval和延时器setTimeout，用于定时器的计时，计时完毕，满足定时器的触发条件，则将定时器的处理函数推进事件队列，等待JS引擎线程执行。（W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms）。<br><strong>HTTP异步请求线程</strong>：通过XMLHttpRequest连接后，通过浏览器新开的一个线程，监控readyState状态变更时，如果设置了该状态的回调函数，则将该状态的处理函数推进事件队列中，等待JS引擎线程执行。</p>
-<p>注：浏览器对同一域名请求的并发连接数是有限制的，Chrome和Firefox限制数为6个，ie8则为10个。</p>
-<p>在JS引擎执行过程中，代码执行顺序如下：宏任务（同步任务）——&gt;微任务——&gt;宏任务（异步任务）</p>
-<p>宏任务</p>
-<p>宏任务（macro-task）按执行顺序分为同步任务和异步任务：</p>
-<ol>
-<li><p>同步任务指的是在JS引擎主线程上按顺序执行的任务，只有前一个任务执行完毕后，才能执行后一个任务，形成一个执行栈（函数调用栈）。</p>
-</li>
-<li><p>异步任务指的是不直接进入JS引擎主线程，而是满足触发条件时，相关的线程将该异步任务推进任务队列（task queue），等待JS引擎主线程上的任务执行完毕，空闲时读取执行的任务，例如异步Ajax，DOM事件，setTimeout等。</p>
-</li>
-</ol>
-<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><p>事件循环由三部分组成，分别是：</p>
-<ol>
-<li><p>主线程执行栈</p>
-</li>
-<li><p>异步任务等待触发</p>
-</li>
-<li><p>任务队列</p>
-</li>
-</ol>
-<p>任务队列就是以队列的数据结构对事件任务进行管理，特点是先进先出，后进后出</p>
-<p>在JS引擎主线程执行过程中：</p>
-<ol>
-<li><p>首先执行宏任务的同步任务，在主线程上形成一个执行栈，可理解为函数调用栈。</p>
-</li>
-<li><p>当执行栈中的函数调用到一些异步执行的API（例如异步Ajax，DOM事件，setTimeout等API），则会开启对应的线程（Http异步请求线程，事件触发线程和定时器触发线程）进行监控和控制。</p>
-</li>
-<li><p>当异步任务的事件满足触发条件时，对应的线程则会把该事件的处理函数推进任务队列(task queue)中，等待主线程读取执行。</p>
-</li>
-<li><p>当JS引擎主线程上的任务执行完毕，则会读取任务队列中的事件，将任务队列中的事件任务推进主线程中，按任务队列顺序执行</p>
-</li>
-<li><p>当JS引擎主线程上的任务执行完毕后，则会再次读取任务队列中的事件任务，如此循环，这就是事件循环（Event Loop）的过程。</p>
-</li>
-</ol>
-<h2 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h2><p>微任务（micro-task）是在ES6和node环境中出现的一个任务类型（其他环境不用考虑），其API主要有:<strong>Promise， process.nextTick</strong>。</p>
-<p>在宏任务中执行的任务有两种，分别是同步任务和异步任务，因为异步任务会在满足触发条件时才会推进任务队列（task queue），然后等待主线程上的任务执行完毕，再读取任务队列中的任务事件，最后推进主线程执行，所以这里将异步任务即任务队列看作是新的宏任务。执行的过程如上图所示：</p>
-<ol>
-<li><p>执行宏任务中同步任务，执行结束。</p>
-</li>
-<li><p>检查是否存在可执行的微任务，有的话执行所有微任务，然后读取任务队列的任务事件，推进主线程形成新的宏任务。</p>
-</li>
-<li><p>执行新宏任务的事件任务，再检查是否存在可执行的微任务，如此不断的重复循环。</p>
-</li>
-</ol>
-<p>以下是一个示例及详细分析：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise1&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise2&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br><span class="line"></span><br><span class="line">在该例子中，宏任务的代码部分是：</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>);</span><br></pre></td></tr></table></figure>
+          <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6992452565875032095">https://juejin.cn/post/6992452565875032095</a><br>在Vue实例中，methods中如果用的是正常函数，那么它的this就指向Vue实例；如果是箭头函数，this就指向window对象。</p>
+<p>在 Vue 3 组件的方法中，<code>this</code> 关键字指向的是当前 Vue 组件的实例。这意味着在 <code>setType</code> 方法内部，<code>this</code> 用于访问组件的数据属性、计算属性、方法、生命周期钩子等。</p>
+<h3 id="分析-setType-方法"><a href="#分析-setType-方法" class="headerlink" title="分析 setType 方法"></a>分析 <code>setType</code> 方法</h3><p>在您提供的 <code>setType</code> 方法中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setType</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">fenceSource</span>.<span class="title function_">clear</span>();</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">openMap</span>.<span class="title function_">removeInteraction</span>(<span class="variable language_">this</span>.<span class="property">fenceDraw</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">addInteraction</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>1、代码块通过语法分析和预编译后，进入执行阶段，当JS引擎主线程执行到console.log(‘script start’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script start，然后继续向下执行。</p>
-<p>2、JS引擎主线程执行到setTimeout(function() { console.log(‘setTimeout’); }, 0);，JS引擎主线程认为setTimeout是异步任务API，则向浏览器内核进程申请开启定时器线程进行计时和控制该setTimeout任务。由于W3C在HTML标准中规定setTimeout低于4ms的时间间隔算为4ms，那么当计时到4ms时，定时器线程就把该回调处理函数推进任务队列中等待主线程执行，然后JS引擎主线程继续向下执行。</p>
-<p>3、JS引擎主线程执行到Promise.resolve().then(function() { console.log(‘promise1’); }).then(function() { console.log(‘promise2’); });，JS引擎主线程认为Promise是一个微任务，这把该任务划分为微任务，等待执行。</p>
-<p>4、JS引擎主线程执行到console.log(‘script end’);，JS引擎主线程认为该任务是同步任务，所以立刻执行输出script end。</p>
-<p>5、主线程上的宏任务执行完毕，则开始检测是否存在可执行的微任务，检测到一个Promise微任务，那么立刻执行，输出promise1和promise2</p>
-<p>6、微任务执行完毕，主线程开始读取任务队列中的事件任务setTimeout，推入主线程形成新宏任务，然后在主线程中执行，输出setTimeout</p>
-<p>另外，使用setTimeout模拟实现setInterval，是存在一定区别的：</p>
 <ol>
-<li><p>setTimeout实现setInterval只能通过递归调用。</p>
+<li><p><strong><code>this.fenceSource.clear();</code></strong></p>
+<ul>
+<li><code>this.fenceSource</code> 指的是当前组件实例中的 <code>fenceSource</code> 属性或对象。</li>
+<li><code>.clear()</code> 是对该属性或对象调用的方法，可能是用来清除或重置一些数据。</li>
+</ul>
 </li>
-<li><p>setTimeout是在到了指定时间的时候就把事件推到任务队列中，只有当在任务队列中的setTimeout事件被主线程执行后，才会继续再次在到了指定时间的时候把事件推到任务队列，那么setTimeout的事件执行肯定比指定的时间要久，具体相差多少跟代码执行时间有关。</p>
+<li><p><strong><code>this.openMap.removeInteraction(this.fenceDraw);</code></strong></p>
+<ul>
+<li><code>this.openMap</code> 指的是组件实例中的 <code>openMap</code> 对象，可能是一个地图实例。</li>
+<li><code>.removeInteraction(this.fenceDraw)</code> 是移除与 <code>this.fenceDraw</code> 相关的交互。<code>this.fenceDraw</code> 同样是组件实例的属性，可能代表某种地图交互。</li>
+</ul>
 </li>
-<li><p>setInterval则是每次都精确的隔一段时间就向任务队列推入一个事件，无论上一个setInterval事件是否已经执行，所以有可能存在setInterval的事件任务累积，导致setInterval的代码重复连续执行多次，影响页面性能。</p>
+<li><p><strong><code>this.addInteraction();</code></strong></p>
+<ul>
+<li><code>this.addInteraction</code> 指向当前组件实例中定义的 <code>addInteraction</code> 方法。</li>
+<li>调用 <code>this.addInteraction()</code> 可能是为了添加新的交互到地图实例。</li>
+</ul>
 </li>
 </ol>
-<p><strong>综合以上的分析</strong>，使用setTimeout实现计时功能是比setInterval性能更好的。如果不需要兼容低版本的IE浏览器，使用requestAnimationFrame是更好的选择。</p>
-<p><strong>进一步思考</strong>：高频率触发的事件（例如滚动事件）触发频率过高会影响页面性能，甚至造成页面卡顿，可以利用setTimeout实现计时器的原理，对高频触发的事件进行优化，实现点在于将多个触发事件合并成一个，这就是防抖和节流。</p>
+<h3 id="Vue-组件上下文"><a href="#Vue-组件上下文" class="headerlink" title="Vue 组件上下文"></a>Vue 组件上下文</h3><p>在 Vue 组件中，<code>this</code> 使得方法能够访问组件的响应式数据、计算属性、其他方法、以及 Vue 特有的功能，如发出事件等。这就是为什么您可以在 <code>setType</code> 方法内部访问 <code>fenceSource</code>、<code>openMap</code>、<code>fenceDraw</code> 和 <code>addInteraction</code>。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>确保在使用 <code>this</code> 引用这些属性或方法之前，它们已经在组件的 <code>data</code>、<code>methods</code>、<code>computed</code> 或其他相应的选项中定义。</li>
+<li>在 Vue 3 的组合式 API (<code>setup</code> 函数) 中，对 <code>this</code> 的用法有所不同。在 <code>setup</code> 中，您通常不会使用 <code>this</code>，而是直接使用响应式引用和其他组合式 API 功能。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-30 16:33:41" itemprop="dateCreated datePublished" datetime="2024-01-30T16:33:41+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-28 21:15:12" itemprop="dateModified" datetime="2023-12-28T21:15:12+08:00">2023-12-28</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>792</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Vue.js 中，当你在 JavaScript 中定义组件时使用的是驼峰命名法（如 <code>DialogFence</code>），而在模板中引用这个组件时，通常使用的是短横线分隔命名（也称为 kebab-case，如 <code>dialog-fence</code>）。这种命名转换遵循了 HTML 标准，因为 HTML 标签和属性名称是不区分大小写的。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ol>
+<li><p><strong>HTML 不区分大小写</strong>：HTML 标签和属性名称在解析时是不区分大小写的。因此，使用驼峰命名的组件名在 HTML 中会被解释为全部小写，从而导致命名冲突或解析错误。</p>
+</li>
+<li><p><strong>Vue 遵循 HTML 标准</strong>：为了保持与 HTML 标准的一致性，Vue 在解析模板时将驼峰命名的组件转换为短横线分隔命名。这意味着即使你在 JavaScript 中定义了 <code>DialogFence</code>，在模板中引用时应使用 <code>dialog-fence</code>。</p>
+</li>
+</ol>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义组件时使用驼峰命名</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;DialogFence&#x27;</span>,</span><br><span class="line">  <span class="comment">// 组件选项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用组件时采用短横线分隔命名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dialog-fence</span>&gt;</span><span class="tag">&lt;/<span class="name">dialog-fence</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>在使用单文件组件（.vue 文件）时，文件名通常也使用短横线分隔命名（如 <code>dialog-fence.vue</code>），但这不是强制性的。</li>
+<li>当你在 JavaScript（例如在 <code>import</code> 语句或 <code>components</code> 注册）中引用组件时，仍然需要使用组件的原始命名（例如 <code>DialogFence</code>）。</li>
+<li>这种命名约定有助于保持代码的一致性，并遵循 Web 开发的标准实践。</li>
+</ul>
+<p>总之，使用 <code>&lt;dialog-fence&gt;</code> 而不是 <code>&lt;DialogFence&gt;</code> 是为了保证 Vue 模板的 HTML 兼容性，并避免由于 HTML 的不区分大小写特性引起的潜在问题。</p>
 
       
     </div>
@@ -1485,7 +1270,7 @@ These papers demonstrate a range of methods and technologies used in terrain gen
 
 
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1507,13 +1292,13 @@ These papers demonstrate a range of methods and technologies used in terrain gen
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">29k</span>
+    <span title="站点总字数">46k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">52 分钟</span>
+    <span title="站点阅读时长">1:24</span>
   </span>
 </div>
 <div class="busuanzi-count">
