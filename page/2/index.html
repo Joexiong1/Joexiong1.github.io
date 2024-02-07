@@ -878,7 +878,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-30 17:53:07" itemprop="dateModified" datetime="2024-01-30T17:53:07+08:00">2024-01-30</time>
+      <time title="修改时间：2024-02-01 14:44:09" itemprop="dateModified" datetime="2024-02-01T14:44:09+08:00">2024-02-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -897,14 +897,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>722</span>
+      <span>1.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -919,8 +919,20 @@
 <h2 id="Public文件夹"><a href="#Public文件夹" class="headerlink" title="Public文件夹"></a>Public文件夹</h2><h3 id="LandscapeBlueprintBrushBase-h"><a href="#LandscapeBlueprintBrushBase-h" class="headerlink" title="LandscapeBlueprintBrushBase.h"></a>LandscapeBlueprintBrushBase.h</h3><p>在编辑器中创建和修改地形，通过定义如何影响高度图和权重图等方式来实现复杂的地形编辑操作。这个类作为抽象基类，设计用于被继承和扩展，以实现具体的地形编辑行为。</p>
 <h3 id="LandscapeConfigHelper-h"><a href="#LandscapeConfigHelper-h" class="headerlink" title="LandscapeConfigHelper.h"></a>LandscapeConfigHelper.h</h3><p>定义了一个枚举类型ELandscapeResizeMode，用于指定地形调整大小时的模式，如重采样（Resample）、裁剪（Clip）和扩展（Expand）。<br><img src="/" alt="LandscapeConfigHelper-1"></p>
 <p><img src="/" alt="LandscapeConfigHelper-2"><br><strong>ComponentNumSubsections</strong>: 表示每个地形组件中的子部分（Subsection）数量。子部分是组成地形网格的更小单元。<br><strong>SubsectionSizeQuads</strong>: 表示每个子部分中的四边形（Quad）大小。在地形中，四边形是构成地形网格的基本单位。<br><strong>GridSizeInComponents</strong>: 表示地形网格在每个方向上的组件数量。地形组件是构成整个地形的较大单元。</p>
-<h3 id="LandscapeDataAccess-h"><a href="#LandscapeDataAccess-h" class="headerlink" title="LandscapeDataAccess.h"></a>LandscapeDataAccess.h</h3><p>地形数据访问和操作的一部分。它定义了多个结构和函数，用于处理地形的高度数据、纹理等</p>
-<h3 id="LandscapeEdit-h"><a href="#LandscapeEdit-h" class="headerlink" title="LandscapeEdit.h"></a>LandscapeEdit.h</h3><h3 id="LandscapeEditorServices-h"><a href="#LandscapeEditorServices-h" class="headerlink" title="LandscapeEditorServices.h"></a>LandscapeEditorServices.h</h3><h3 id="LandscapeHLODBuilder-h"><a href="#LandscapeHLODBuilder-h" class="headerlink" title="LandscapeHLODBuilder.h"></a>LandscapeHLODBuilder.h</h3><h3 id="LandscapeLight-h"><a href="#LandscapeLight-h" class="headerlink" title="LandscapeLight.h"></a>LandscapeLight.h</h3><h3 id="LandscapeModule-h"><a href="#LandscapeModule-h" class="headerlink" title="LandscapeModule.h"></a>LandscapeModule.h</h3><h3 id="LandscapeNotification-h"><a href="#LandscapeNotification-h" class="headerlink" title="LandscapeNotification.h"></a>LandscapeNotification.h</h3><h3 id="LandscapeRender-h"><a href="#LandscapeRender-h" class="headerlink" title="LandscapeRender.h"></a>LandscapeRender.h</h3><h3 id="LandscapeRenderMobile-h"><a href="#LandscapeRenderMobile-h" class="headerlink" title="LandscapeRenderMobile.h"></a>LandscapeRenderMobile.h</h3><h3 id="LandscapeSettings-h"><a href="#LandscapeSettings-h" class="headerlink" title="LandscapeSettings.h"></a>LandscapeSettings.h</h3><h3 id="LandscapeSplineProxies-h"><a href="#LandscapeSplineProxies-h" class="headerlink" title="LandscapeSplineProxies.h"></a>LandscapeSplineProxies.h</h3><h3 id="LandscapeSubsystem-h"><a href="#LandscapeSubsystem-h" class="headerlink" title="LandscapeSubsystem.h"></a>LandscapeSubsystem.h</h3><h3 id="LandscapeUtils-h"><a href="#LandscapeUtils-h" class="headerlink" title="LandscapeUtils.h"></a>LandscapeUtils.h</h3>
+<h3 id="LandscapeDataAccess-h"><a href="#LandscapeDataAccess-h" class="headerlink" title="LandscapeDataAccess.h"></a>LandscapeDataAccess.h</h3><p>地形数据访问和操作的一部分。用于在Unreal Engine中处理地形组件的数据，包括高度、纹理数据的读取和写入，以及与地形组件的直接交互。</p>
+<h3 id="LandscapeEdit-h"><a href="#LandscapeEdit-h" class="headerlink" title="LandscapeEdit.h"></a>LandscapeEdit.h</h3><p>用于编辑和管理地形数据的一系列工具和接口，允许在编辑模式下对地形进行高度和纹理的详细操作，属于地形编辑功能的核心部分，提供了一套完整的工具集和接口，用于在编辑器模式下对地形进行详细的编辑和管理</p>
+<h3 id="LandscapeEditorServices-h"><a href="#LandscapeEditorServices-h" class="headerlink" title="LandscapeEditorServices.h"></a>LandscapeEditorServices.h</h3><p>用于管理和操作地形编辑图层。接口定义了所需的功能，而具体的实现则留给了使用该接口的开发者或编辑器扩展。</p>
+<h3 id="LandscapeHLODBuilder-h"><a href="#LandscapeHLODBuilder-h" class="headerlink" title="LandscapeHLODBuilder.h"></a>LandscapeHLODBuilder.h</h3><p>专门用于Unreal Engine中的地形分层细节层次（Hierarchical Level of Detail，HLOD）构建的类。这个类是UHLODBuilder的子类，专门用于创建和管理地形的HLOD。</p>
+<h3 id="LandscapeLight-h"><a href="#LandscapeLight-h" class="headerlink" title="LandscapeLight.h"></a>LandscapeLight.h</h3><p>地形组件的静态光照支持的类。这些类处理地形组件的静态光照映射和光照网格计算，包括处理地形的光照映射、计算光照网格和导出相关数据，以实现高质量的游戏和场景光照效果。</p>
+<h3 id="LandscapeModule-h"><a href="#LandscapeModule-h" class="headerlink" title="LandscapeModule.h"></a>LandscapeModule.h</h3><p>地形处理的模块化接口，它提供了获取场景视图扩展和编辑服务的方法</p>
+<h3 id="LandscapeNotification-h"><a href="#LandscapeNotification-h" class="headerlink" title="LandscapeNotification.h"></a>LandscapeNotification.h</h3><p>为地形编辑器提供了一种有效的方式来管理用户通知，处理复杂的地形操作时，可能会产生多个通知和警告。通过这个系统，可以确保用户在编辑地形时不会被过多的通知信息干扰，而能够集中注意力在当前最重要的通知上。</p>
+<h3 id="LandscapeRender-h"><a href="#LandscapeRender-h" class="headerlink" title="LandscapeRender.h"></a>LandscapeRender.h</h3><p>地形渲染系统的核心部分，它涵盖了从数据管理到着色器参数设置，再到渲染流程控制的方方面面</p>
+<h3 id="LandscapeRenderMobile-h"><a href="#LandscapeRenderMobile-h" class="headerlink" title="LandscapeRenderMobile.h"></a>LandscapeRenderMobile.h</h3><p>提供了针对移动设备的地形渲染优化，但它已被标记为弃用</p>
+<h3 id="LandscapeSettings-h"><a href="#LandscapeSettings-h" class="headerlink" title="LandscapeSettings.h"></a>LandscapeSettings.h</h3><p>提供了一个中心化的地方来管理地形设置。通过这些设置，开发者可以控制地形编辑的多种方面，例如分辨率限制、可用的层数，以及创建新地形时使用的默认材质和层信息。</p>
+<h3 id="LandscapeSplineProxies-h"><a href="#LandscapeSplineProxies-h" class="headerlink" title="LandscapeSplineProxies.h"></a>LandscapeSplineProxies.h</h3><p>提供了与样条线段、控制点和切线交互的界面，使得用户能够通过点击和拖动等方式来编辑地形样条。通过这种方式，开发者可以在游戏世界中创建和修改自然的地形路径和边界。</p>
+<h3 id="LandscapeSubsystem-h"><a href="#LandscapeSubsystem-h" class="headerlink" title="LandscapeSubsystem.h"></a>LandscapeSubsystem.h</h3><p>提供了一系列工具和方法来处理地形的创建、编辑、更新和渲染，使地形管理更加集中和高效</p>
+<h3 id="LandscapeUtils-h"><a href="#LandscapeUtils-h" class="headerlink" title="LandscapeUtils.h"></a>LandscapeUtils.h</h3><p>主要用于处理地形资源的路径生成和管理，特别是在编辑器环境中。允许开发者更方便地管理和引用地形相关的资源和数据</p>
+
       
     </div>
 
@@ -1346,13 +1358,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">45k</span>
+    <span title="站点总字数">46k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:22</span>
+    <span title="站点阅读时长">1:24</span>
   </span>
 </div>
 <div class="busuanzi-count">
