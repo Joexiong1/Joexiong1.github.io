@@ -6,7 +6,7 @@
   <link href="https://joexiong1.github.io/atom.xml" rel="self"/>
   
   <link href="https://joexiong1.github.io/"/>
-  <updated>2024-01-30T10:40:17.373Z</updated>
+  <updated>2024-03-09T14:38:58.868Z</updated>
   <id>https://joexiong1.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>社区项目实战</title>
+    <link href="https://joexiong1.github.io/2024/03/09/community%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://joexiong1.github.io/2024/03/09/community%E9%A1%B9%E7%9B%AE/</id>
+    <published>2024-03-08T16:00:00.000Z</published>
+    <updated>2024-03-09T14:38:58.868Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;技术栈&quot;&gt;&lt;a href=&quot;#技术栈&quot; class=&quot;headerlink&quot; title=&quot;技术栈&quot;&gt;&lt;/a&gt;技术栈&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;前端：Vue3+Vite&lt;/li&gt;
+&lt;li&gt;后端：NodeJS(koa)&lt;/li&gt;
+&lt;li&gt;数据库：MongoDB（暂定</summary>
+      
+    
+    
+    
+    <category term="项目" scheme="https://joexiong1.github.io/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+    <category term="vue" scheme="https://joexiong1.github.io/tags/vue/"/>
+    
+    <category term="koa" scheme="https://joexiong1.github.io/tags/koa/"/>
+    
+    <category term="全栈" scheme="https://joexiong1.github.io/tags/%E5%85%A8%E6%A0%88/"/>
+    
+  </entry>
   
   <entry>
     <title>computed和method</title>
@@ -492,38 +521,6 @@
 &lt;li&gt;优先级&lt;/li&gt;
 &lt;/ul&gt;
 &lt;bl</summary>
-      
-    
-    
-    
-    <category term="CSS学习" scheme="https://joexiong1.github.io/categories/CSS%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="CSS" scheme="https://joexiong1.github.io/tags/CSS/"/>
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>z-index</title>
-    <link href="https://joexiong1.github.io/2024/01/08/CSS/z-index/"/>
-    <id>https://joexiong1.github.io/2024/01/08/CSS/z-index/</id>
-    <published>2024-01-08T10:00:00.000Z</published>
-    <updated>2024-01-14T03:50:08.978Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;strong&gt;z-index&lt;/strong&gt;属性：数值大的压盖住数值小的。&lt;/p&gt;
-&lt;p&gt;有如下特性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;属性值大的位于上层，属性值小的位于下层。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;</summary>
       
     
     

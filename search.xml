@@ -1158,4 +1158,29 @@ These papers demonstrate a range of methods and technologies used in terrain gen
         <tag>vue3</tag>
       </tags>
   </entry>
+  <entry>
+    <title>社区项目实战</title>
+    <url>/2024/03/09/community%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><ul>
+<li>前端：Vue3+Vite</li>
+<li>后端：NodeJS(koa)</li>
+<li>数据库：MongoDB（暂定）</li>
+</ul>
+<h2 id="基础搭建——前端部分"><a href="#基础搭建——前端部分" class="headerlink" title="基础搭建——前端部分"></a>基础搭建——前端部分</h2><ul>
+<li><p><strong>使用Vite快速构建Vue项目</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm init @vitejs/app vue3-node</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>接入路由</strong><br>在src目录下创建router文件夹，文件夹里面创建路由信息index.js</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>koa</tag>
+        <tag>全栈</tag>
+      </tags>
+  </entry>
 </search>
