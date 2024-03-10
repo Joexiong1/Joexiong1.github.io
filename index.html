@@ -413,6 +413,548 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/Cluster/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/openlayers/Cluster/" class="post-title-link" itemprop="url">群集Clusters</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:02:04" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 OpenLayers 中，<code>Cluster</code> 是一个用于将接近的点特征（features）组合成群集（clusters）的功能。这对于在地图上显示大量点数据时非常有用，特别是当这些点在地图上彼此靠得很近，单独显示它们会导致地图变得杂乱无章。通过使用群集，可以提高地图的可读性和性能。</p>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
+<li><strong>数据聚合</strong>：<code>Cluster</code> 通过将空间上接近的点组合成单个群集特征来减少地图上的点数量。</li>
+<li><strong>缩放级别敏感</strong>：随着地图缩放，群集可以动态变化。在更高的缩放级别，点可能会分散显示，而在更低的缩放级别，则可能会被聚合。</li>
+<li><strong>自定义群集策略</strong>：可以自定义群集的形成方式，例如，根据特定的距离阈值或点的数量。</li>
+</ul>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>要在 OpenLayers 中使用 <code>Cluster</code>，首先需要引入相关模块，然后创建一个 <code>Cluster</code> 源并将其应用于图层。以下是一个基本示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Cluster</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Point</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/geom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Feature</span> <span class="keyword">from</span> <span class="string">&#x27;ol/Feature&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 假设你已经有一组特征（features）</span></span><br><span class="line"><span class="keyword">const</span> features = [<span class="keyword">new</span> <span class="title class_">Feature</span>(<span class="keyword">new</span> <span class="title class_">Point</span>([<span class="number">0</span>, <span class="number">0</span>])), <span class="keyword">new</span> <span class="title class_">Feature</span>(<span class="keyword">new</span> <span class="title class_">Point</span>([<span class="number">1</span>, <span class="number">1</span>]))];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个向量源用于原始特征</span></span><br><span class="line"><span class="keyword">const</span> source = <span class="keyword">new</span> <span class="title class_">VectorSource</span>(&#123;</span><br><span class="line">  <span class="attr">features</span>: features,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个群集源并设置距离</span></span><br><span class="line"><span class="keyword">const</span> clusterSource = <span class="keyword">new</span> <span class="title class_">Cluster</span>(&#123;</span><br><span class="line">  <span class="attr">distance</span>: <span class="number">40</span>, <span class="comment">// 群集的距离阈值，单位为像素</span></span><br><span class="line">  <span class="attr">source</span>: source,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个图层用于显示群集</span></span><br><span class="line"><span class="keyword">const</span> clusterLayer = <span class="keyword">new</span> <span class="title class_">VectorLayer</span>(&#123;</span><br><span class="line">  <span class="attr">source</span>: clusterSource,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><strong>样式</strong>：群集的样式通常需要根据群集中的特征数量来定制。你可以为群集源设置一个样式函数，根据包含的特征数量来改变群集的外观。</li>
+<li><strong>性能考虑</strong>：尽管群集可以提高大量点数据的可视性和性能，但是创建和维护群集仍然需要一定的计算资源。合理设置群集参数以平衡性能和用户体验是很重要的。</li>
+</ul>
+<p>总体来说，<code>Cluster</code> 是 OpenLayers 中处理和显示大量点数据的有力工具，它通过将点聚合成群集来提高地图的可读性和渲染效率。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/fit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/openlayers/fit/" class="post-title-link" itemprop="url">fit</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:01:32" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>585</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>是的，您的理解是正确的。在 OpenLayers 的 <code>fit</code> 方法中使用的 <code>padding</code> 参数确实指的是 <code>boundingExtent</code> 得到的包围盒（即您想要地图视图聚焦的区域）与地图视图边缘的距离。</p>
+<p>当您使用像 <code>fit(extent, options)</code> 这样的方法时，<code>padding</code> 参数确保在缩放和平移到包围盒指定的区域后，地图视图的边缘与这个区域之间保持一定的空间。这个空间是通过 <code>padding</code> 数组中的四个值来指定的，这四个值分别对应上、右、下、左边缘的内边距，单位是像素。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">openMap</span>.<span class="title function_">getView</span>().<span class="title function_">fit</span>(extent, &#123;</span><br><span class="line">  <span class="attr">duration</span>: <span class="number">1000</span>,</span><br><span class="line">  <span class="attr">padding</span>: [<span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>padding: [200, 200, 200, 200]</code> 表示地图视图在缩放和平移到 <code>extent</code> 指定的区域后，在其上、右、下、左边缘各保留了 200 像素的空间。</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>这个特性在以下场景中非常有用：</p>
+<ul>
+<li>避免目标区域被地图上的控件或其他界面元素遮挡。</li>
+<li>为用户提供更好的视觉体验，防止感兴趣的区域贴近或覆盖地图边界。</li>
+<li>确保在视图中有足够的上下文空间，让用户可以理解目标区域在更广阔背景中的位置。</li>
+</ul>
+<p>总的来说，<code>padding</code> 参数在 <code>fit</code> 方法中非常重要，用于在缩放和平移操作中控制视图边缘和目标区域之间的空间，从而提供更好的用户体验和视觉效果。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/openlayers/getFeatures%E5%92%8Cthen/" class="post-title-link" itemprop="url">getFeatures和then</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:01:08" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 JavaScript 和一些 JavaScript 库（如 OpenLayers）中，<code>.getFeatures().then()</code> 是一种处理异步操作的模式。这种模式通常出现在调用一个返回 Promise 的 <code>getFeatures()</code> 函数后，用于处理异步获取的特征（features）。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><ol>
+<li><p>**<code>.getFeatures()</code>**：</p>
+<ul>
+<li>这是一个返回 Promise 的函数，Promise 是一个代表最终会完成的异步操作的对象。在 OpenLayers 的上下文中，<code>getFeatures()</code> 通常是用来异步获取一组特征（如从服务器加载）。</li>
+<li>返回的 Promise 将在特征获取操作完成时解决（resolve），或在发生错误时被拒绝（reject）。</li>
+</ul>
+</li>
+<li><p>**<code>.then()</code>**：</p>
+<ul>
+<li><code>.then()</code> 是一个在 Promise 上的方法，用于指定当 Promise 解决时要执行的操作。</li>
+<li>它接受两个回调函数作为参数：第一个用于处理成功的结果（即特征获取成功），第二个（可选）用于处理错误。</li>
+</ul>
+</li>
+</ol>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设有一个从服务器异步加载地图特征的操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设 getFeatures() 返回一个 Promise，该 Promise 在特征加载完成时解决</span></span><br><span class="line">dataSource.<span class="title function_">getFeatures</span>().<span class="title function_">then</span>(</span><br><span class="line">  <span class="function">(<span class="params">features</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载的特征</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;特征加载成功&quot;</span>, features);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 处理加载过程中的错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;特征加载失败&quot;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中：</p>
+<ul>
+<li>当 <code>getFeatures()</code> 完成特征加载并解决其返回的 Promise 时，<code>.then()</code> 中的第一个回调函数被调用，<code>features</code> 包含加载的特征。</li>
+<li>如果 <code>getFeatures()</code> 在加载过程中遇到错误，导致 Promise 被拒绝，第二个回调函数会被调用，<code>error</code> 包含错误信息。</li>
+</ul>
+<h3 id="在-OpenLayers-中的应用"><a href="#在-OpenLayers-中的应用" class="headerlink" title="在 OpenLayers 中的应用"></a>在 OpenLayers 中的应用</h3><p>在 OpenLayers 中，这种模式可能用于处理从远程源异步加载的特征，例如从 WFS（Web Feature Service）服务加载。这允许开发者在特征可用时执行操作，比如将它们添加到地图上，而不需要阻塞代码的其他部分。</p>
+<p>总之，<code>.getFeatures().then()</code> 是一个异步编程模式，在获取数据和处理数据可用性时非常有用。通过使用 Promise 和 <code>.then()</code> 方法，可以更优雅地处理异步操作及其结果。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/openlayers/openlayers%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">openlayers实践</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:01:09" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>943</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p><strong>引入ol</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span> <span class="comment">// vue相关方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Map</span>, <span class="title class_">View</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol&#x27;</span>      <span class="comment">// 地图实例方法、视图方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Tile</span> <span class="keyword">from</span> <span class="string">&#x27;ol/layer/Tile&#x27;</span>    <span class="comment">// 瓦片渲染方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="variable constant_">OSM</span> <span class="keyword">from</span> <span class="string">&#x27;ol/source/OSM&#x27;</span>    <span class="comment">// OSM瓦片【OSM不能在实际开发中使用，因为OSM里中国地图的边界有点问题！！！！】</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;ol/ol.css&#x27;</span>                 <span class="comment">// 地图样式</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>创建地图容器(初始化)</strong><br>地图需要渲染到一个 HTML 元素中，并且需要手动设置地图容器的宽高（通常使用 css 来设置）。</p>
+</li>
+</ol>
+<p>地图容器需要有一个 id ，如果是 Vue 项目可以使用 ref 来代替 id。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.map</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">width</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">height</span>: <span class="number">600px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p><strong>缩放和平移功能</strong><br>OpenLayers 的地图对象默认支持缩放和平移。</p>
+</li>
+<li><p><strong>标记绘制</strong><br>导入相关库：<br>VectorSource：<br>VectorLayer： 用于在地图上显示向量类型的数据。包括点、线和多边形等地理空间数据。<br>VectorSource：向量数据的容器，用于存储地理特征（如坐标点、线条、多边形等）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>点击弹窗</strong><br>给第三点中的坐标点添加点击事件，同时能够在地图上显示一个弹框，展示点位信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Overlay</span> &#125; <span class="keyword">from</span> <span class="string">&quot;ol&quot;</span>;  <span class="comment">//弹窗组件</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/openlayers/%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">openlayers概述</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:02:01" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>131</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>openlayers中有4个主要的类：</strong></p>
+<ol>
+<li>Map：地图容器。</li>
+<li>Layer：图层，map拥有1个或多个图层，整个map是由一个个图层堆叠出来的。</li>
+<li>View：可视区域：主要用于交互，比如缩放、调节分辨率、地图的旋转等控制。</li>
+<li>source：数据来源，即Layers的数组组成部分</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -498,119 +1040,6 @@
 
 <p>这里，<code>sum</code> 是依赖于响应式引用 <code>a</code> 和 <code>b</code> 的计算属性。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>computed</code> 属性是 Vue 3 中处理响应式数据的强大工具，特别适合用于那些依赖其他数据并且可能会重复求值的场景。它们提供了性能优势（通过缓存），并且可以使代码更加简洁和高效。在 Composition API 中，<code>computed</code> 保持了相同的核心概念，但以一种更加模块化和灵活的方式使用。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">id=""和refs=""的区别</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:40:25" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>892</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Vue.js 和一般的 HTML&#x2F;CSS&#x2F;JavaScript 开发中，<code>id</code> 和 <code>ref</code> 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：</p>
-<h3 id="1-id"><a href="#1-id" class="headerlink" title="1. id=&quot;&quot;"></a>1. <code>id=&quot;&quot;</code></h3><ul>
-<li><strong>通用 HTML 属性</strong>：<code>id</code> 是 HTML 标准属性，用于给 HTML 元素指定一个唯一的标识符。</li>
-<li><strong>全局唯一性</strong>：每个 <code>id</code> 应该在整个文档中是唯一的。</li>
-<li><strong>CSS 和 JavaScript 用途</strong>：<code>id</code> 常用于 CSS 样式应用和在 JavaScript 中通过 <code>document.getElementById()</code> 等方法选取特定元素。</li>
-<li><strong>示例</strong>：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myDiv&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-在 JavaScript 中访问：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myDiv = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myDiv&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="2-ref-（在-Vue-js-中）"><a href="#2-ref-（在-Vue-js-中）" class="headerlink" title="2. ref=&quot;&quot;（在 Vue.js 中）"></a>2. <code>ref=&quot;&quot;</code>（在 Vue.js 中）</h3><ul>
-<li><strong>Vue 特有的属性</strong>：<code>ref</code> 是 Vue 框架特有的属性，用于在 Vue 组件中注册引用信息。</li>
-<li><strong>组件内部唯一性</strong>：<code>ref</code> 在单个组件的范围内应保持唯一，但在不同组件中可以重复使用相同的 <code>ref</code> 值。</li>
-<li><strong>Vue 实例访问</strong>：在 Vue 中，通过 <code>ref</code> 设置的元素可以通过 <code>this.$refs</code> 对象在对应的 Vue 实例中被访问。</li>
-<li><strong>示例</strong>：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div ref=&quot;myDiv&quot;&gt;内容&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-在 Vue 组件的脚本中访问：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> myDiv = <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">myDiv</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li><strong>作用域</strong>：<code>id</code> 是全局的，而 Vue 的 <code>ref</code> 仅在单个组件内部有意义。</li>
-<li><strong>用途</strong>：<code>id</code> 更多用于标准的 Web 开发（如 CSS 和原生 JavaScript），<code>ref</code> 则是 Vue 提供的一种更容易和更符合 Vue 响应式系统的方式来引用元素和子组件。</li>
-<li><strong>Vue 中的引用方式</strong>：在 Vue 应用中，优先使用 <code>ref</code> 来与 Vue 实例的数据和方法交互。这样做可以保持 Vue 的响应式原则和组件封装性。</li>
-</ul>
 
       
     </div>
@@ -780,7 +1209,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.png">
@@ -798,7 +1227,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/" class="post-title-link" itemprop="url">v-bind和"："</a>
+          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">id=""和refs=""的区别</a>
         </h2>
 
         <div class="post-meta-container">
@@ -810,7 +1239,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:40:28" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
+      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:40:25" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -829,7 +1258,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
+      <span>892</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -847,483 +1276,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在 Vue.js 中，冒号（<code>:</code>）用于表示属性绑定，是 <code>v-bind</code> 指令的缩写。你可以用它来动态地绑定父组件的数据到子组件的属性，或者将数据绑定到 HTML 属性。知道何时使用和何时不使用 <code>:</code>（或 <code>v-bind</code>）是很重要的。</p>
-<h3 id="何时使用-（或-v-bind）"><a href="#何时使用-（或-v-bind）" class="headerlink" title="何时使用 :（或 v-bind）"></a>何时使用 <code>:</code>（或 <code>v-bind</code>）</h3><ol>
-<li><p><strong>动态属性</strong>：当你需要将表达式的值绑定到一个属性时。例如，动态地改变 <code>class</code>、<code>style</code> 或自定义组件的 props。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div :class=&quot;&#123; active: isActive &#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;my-component :my-prop=&quot;someDynamicValue&quot;&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>响应式数据</strong>：当属性值需要根据 Vue 实例的数据变化而变化时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img :src=&quot;imageSrc&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>计算属性和方法</strong>：当属性值是一个计算属性或者需要通过方法计算得出时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div :style=&quot;&#123; fontSize: computedFontSize + &#x27;px&#x27; &#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div :title=&quot;getTitle()&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>迭代（循环）渲染</strong>：在 <code>v-for</code> 中使用时，用于绑定 key 或其他属性。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="何时不使用-（或-v-bind）"><a href="#何时不使用-（或-v-bind）" class="headerlink" title="何时不使用 :（或 v-bind）"></a>何时不使用 <code>:</code>（或 <code>v-bind</code>）</h3><ol>
-<li><p><strong>静态属性</strong>：当属性值是静态的，或者你不需要它随着数据的变化而更新时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;static-class&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;img src=&quot;static/image.jpg&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>字面量</strong>：当你直接传递一个字符串值给属性，并且这个值不会改变时。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-component my-prop=&quot;staticValue&quot;&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>静态 HTML 属性</strong>：对于那些不需要动态变化的标准 HTML 属性。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; placeholder=&quot;Enter your name&quot;&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>简而言之，当属性值需要动态变化，或者是基于 Vue 实例的数据时，使用 <code>:</code>（或 <code>v-bind</code>）。如果属性值是静态的或不依赖于 Vue 实例的数据，那么不使用 <code>:</code>。正确使用这一特性对于编写可读且高效的 Vue 代码至关重要。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">动态组件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:40:04" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Vue.js 中，<code>&lt;component&gt;&lt;/component&gt;</code> 是一个动态组件，它是 Vue 的一个内置组件，用于在同一挂载点动态地加载不同的组件。使用 <code>&lt;component&gt;</code> 可以根据需要在运行时切换组件，而不必在模板中硬编码它们。这使得构建具有动态内容的界面变得更加灵活和强大。</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>&lt;component&gt;</code> 使用 <code>is</code> 特性来确定要加载哪个组件。<code>is</code> 特性的值通常是一个字符串，指定了要使用的组件的名字，或者是一个返回组件选项的对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;component :is=&quot;currentComponent&quot;&gt;&lt;/component&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，<code>currentComponent</code> 是一个数据属性，它的值决定了 <code>component</code> 标签将渲染哪个组件。这个值可以是注册过的组件的名字，也可以是一个组件对象。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设你有两个组件 <code>ComponentA</code> 和 <code>ComponentB</code>，并且想根据用户的行为切换显示这两个组件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;currentComponent = &#x27;ComponentA&#x27;&quot;&gt;Load Component A&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;currentComponent = &#x27;ComponentB&#x27;&quot;&gt;Load Component B&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;component :is=&quot;currentComponent&quot;&gt;&lt;/component&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import ComponentA from &#x27;./ComponentA.vue&#x27;;</span><br><span class="line">import ComponentB from &#x27;./ComponentB.vue&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    ComponentA,</span><br><span class="line">    ComponentB</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      currentComponent: &#x27;ComponentA&#x27;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，点击不同的按钮会切换 <code>currentComponent</code> 的值，从而改变 <code>&lt;component&gt;</code> 渲染的组件。</p>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
-<li><strong>条件渲染</strong>：在不同条件下渲染不同的组件。</li>
-<li><strong>插件或组件库</strong>：在创建可插拔的插件或组件库时，允许用户或开发者指定要使用的组件。</li>
-<li><strong>路由</strong>：在简单的情况下，可以结合 Vue Router 使用，尽管 Vue Router 本身提供了类似的功能。</li>
+          <p>在 Vue.js 和一般的 HTML&#x2F;CSS&#x2F;JavaScript 开发中，<code>id</code> 和 <code>ref</code> 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：</p>
+<h3 id="1-id"><a href="#1-id" class="headerlink" title="1. id=&quot;&quot;"></a>1. <code>id=&quot;&quot;</code></h3><ul>
+<li><strong>通用 HTML 属性</strong>：<code>id</code> 是 HTML 标准属性，用于给 HTML 元素指定一个唯一的标识符。</li>
+<li><strong>全局唯一性</strong>：每个 <code>id</code> 应该在整个文档中是唯一的。</li>
+<li><strong>CSS 和 JavaScript 用途</strong>：<code>id</code> 常用于 CSS 样式应用和在 JavaScript 中通过 <code>document.getElementById()</code> 等方法选取特定元素。</li>
+<li><strong>示例</strong>：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myDiv&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+在 JavaScript 中访问：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myDiv = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myDiv&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>保持 <code>component</code> 标签的 <code>is</code> 特性的值动态和响应式，以确保组件能够根据数据的变化进行更新。</li>
-<li>动态组件在切换时默认会销毁旧组件并重新创建新组件。如果需要保持组件状态，可以使用 <code>&lt;keep-alive&gt;</code> 包裹 <code>&lt;component&gt;</code>。</li>
+<h3 id="2-ref-（在-Vue-js-中）"><a href="#2-ref-（在-Vue-js-中）" class="headerlink" title="2. ref=&quot;&quot;（在 Vue.js 中）"></a>2. <code>ref=&quot;&quot;</code>（在 Vue.js 中）</h3><ul>
+<li><strong>Vue 特有的属性</strong>：<code>ref</code> 是 Vue 框架特有的属性，用于在 Vue 组件中注册引用信息。</li>
+<li><strong>组件内部唯一性</strong>：<code>ref</code> 在单个组件的范围内应保持唯一，但在不同组件中可以重复使用相同的 <code>ref</code> 值。</li>
+<li><strong>Vue 实例访问</strong>：在 Vue 中，通过 <code>ref</code> 设置的元素可以通过 <code>this.$refs</code> 对象在对应的 Vue 实例中被访问。</li>
+<li><strong>示例</strong>：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div ref=&quot;myDiv&quot;&gt;内容&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+在 Vue 组件的脚本中访问：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> myDiv = <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">myDiv</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>通过使用 <code>&lt;component&gt;</code> 标签，Vue.js 提供了一种强大的方式来创建动态且可交互的用户界面，使得组件的管理和切换变得既简单又灵活。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/" class="post-title-link" itemprop="url">短横线分隔命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:40:07" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>792</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Vue.js 中，当你在 JavaScript 中定义组件时使用的是驼峰命名法（如 <code>DialogFence</code>），而在模板中引用这个组件时，通常使用的是短横线分隔命名（也称为 kebab-case，如 <code>dialog-fence</code>）。这种命名转换遵循了 HTML 标准，因为 HTML 标签和属性名称是不区分大小写的。</p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ol>
-<li><p><strong>HTML 不区分大小写</strong>：HTML 标签和属性名称在解析时是不区分大小写的。因此，使用驼峰命名的组件名在 HTML 中会被解释为全部小写，从而导致命名冲突或解析错误。</p>
-</li>
-<li><p><strong>Vue 遵循 HTML 标准</strong>：为了保持与 HTML 标准的一致性，Vue 在解析模板时将驼峰命名的组件转换为短横线分隔命名。这意味着即使你在 JavaScript 中定义了 <code>DialogFence</code>，在模板中引用时应使用 <code>dialog-fence</code>。</p>
-</li>
-</ol>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义组件时使用驼峰命名</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;DialogFence&#x27;</span>,</span><br><span class="line">  <span class="comment">// 组件选项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用组件时采用短横线分隔命名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dialog-fence</span>&gt;</span><span class="tag">&lt;/<span class="name">dialog-fence</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>在使用单文件组件（.vue 文件）时，文件名通常也使用短横线分隔命名（如 <code>dialog-fence.vue</code>），但这不是强制性的。</li>
-<li>当你在 JavaScript（例如在 <code>import</code> 语句或 <code>components</code> 注册）中引用组件时，仍然需要使用组件的原始命名（例如 <code>DialogFence</code>）。</li>
-<li>这种命名约定有助于保持代码的一致性，并遵循 Web 开发的标准实践。</li>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><strong>作用域</strong>：<code>id</code> 是全局的，而 Vue 的 <code>ref</code> 仅在单个组件内部有意义。</li>
+<li><strong>用途</strong>：<code>id</code> 更多用于标准的 Web 开发（如 CSS 和原生 JavaScript），<code>ref</code> 则是 Vue 提供的一种更容易和更符合 Vue 响应式系统的方式来引用元素和子组件。</li>
+<li><strong>Vue 中的引用方式</strong>：在 Vue 应用中，优先使用 <code>ref</code> 来与 Vue 实例的数据和方法交互。这样做可以保持 Vue 的响应式原则和组件封装性。</li>
 </ul>
-<p>总之，使用 <code>&lt;dialog-fence&gt;</code> 而不是 <code>&lt;DialogFence&gt;</code> 是为了保证 Vue 模板的 HTML 兼容性，并避免由于 HTML 的不区分大小写特性引起的潜在问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/" class="post-title-link" itemprop="url">组件中的this</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:44:26" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6992452565875032095">https://juejin.cn/post/6992452565875032095</a><br>在Vue实例中，methods中如果用的是正常函数，那么它的this就指向Vue实例；如果是箭头函数，this就指向window对象。</p>
-<p>在 Vue 3 组件的方法中，<code>this</code> 关键字指向的是当前 Vue 组件的实例。这意味着在 <code>setType</code> 方法内部，<code>this</code> 用于访问组件的数据属性、计算属性、方法、生命周期钩子等。</p>
-<h3 id="分析-setType-方法"><a href="#分析-setType-方法" class="headerlink" title="分析 setType 方法"></a>分析 <code>setType</code> 方法</h3><p>在您提供的 <code>setType</code> 方法中：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setType</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">fenceSource</span>.<span class="title function_">clear</span>();</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">openMap</span>.<span class="title function_">removeInteraction</span>(<span class="variable language_">this</span>.<span class="property">fenceDraw</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">addInteraction</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p><strong><code>this.fenceSource.clear();</code></strong></p>
-<ul>
-<li><code>this.fenceSource</code> 指的是当前组件实例中的 <code>fenceSource</code> 属性或对象。</li>
-<li><code>.clear()</code> 是对该属性或对象调用的方法，可能是用来清除或重置一些数据。</li>
-</ul>
-</li>
-<li><p><strong><code>this.openMap.removeInteraction(this.fenceDraw);</code></strong></p>
-<ul>
-<li><code>this.openMap</code> 指的是组件实例中的 <code>openMap</code> 对象，可能是一个地图实例。</li>
-<li><code>.removeInteraction(this.fenceDraw)</code> 是移除与 <code>this.fenceDraw</code> 相关的交互。<code>this.fenceDraw</code> 同样是组件实例的属性，可能代表某种地图交互。</li>
-</ul>
-</li>
-<li><p><strong><code>this.addInteraction();</code></strong></p>
-<ul>
-<li><code>this.addInteraction</code> 指向当前组件实例中定义的 <code>addInteraction</code> 方法。</li>
-<li>调用 <code>this.addInteraction()</code> 可能是为了添加新的交互到地图实例。</li>
-</ul>
-</li>
-</ol>
-<h3 id="Vue-组件上下文"><a href="#Vue-组件上下文" class="headerlink" title="Vue 组件上下文"></a>Vue 组件上下文</h3><p>在 Vue 组件中，<code>this</code> 使得方法能够访问组件的响应式数据、计算属性、其他方法、以及 Vue 特有的功能，如发出事件等。这就是为什么您可以在 <code>setType</code> 方法内部访问 <code>fenceSource</code>、<code>openMap</code>、<code>fenceDraw</code> 和 <code>addInteraction</code>。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>确保在使用 <code>this</code> 引用这些属性或方法之前，它们已经在组件的 <code>data</code>、<code>methods</code>、<code>computed</code> 或其他相应的选项中定义。</li>
-<li>在 Vue 3 的组合式 API (<code>setup</code> 函数) 中，对 <code>this</code> 的用法有所不同。在 <code>setup</code> 中，您通常不会使用 <code>this</code>，而是直接使用响应式引用和其他组合式 API 功能。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/30/openlayers/Cluster/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.png">
-      <meta itemprop="name" content="Anti-thobbing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/30/openlayers/Cluster/" class="post-title-link" itemprop="url">群集Clusters</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-30 10:19:00 / 修改时间：18:02:04" itemprop="dateCreated datePublished" datetime="2024-01-30T10:19:00+08:00">2024-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/openlayers/" itemprop="url" rel="index"><span itemprop="name">openlayers</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 OpenLayers 中，<code>Cluster</code> 是一个用于将接近的点特征（features）组合成群集（clusters）的功能。这对于在地图上显示大量点数据时非常有用，特别是当这些点在地图上彼此靠得很近，单独显示它们会导致地图变得杂乱无章。通过使用群集，可以提高地图的可读性和性能。</p>
-<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
-<li><strong>数据聚合</strong>：<code>Cluster</code> 通过将空间上接近的点组合成单个群集特征来减少地图上的点数量。</li>
-<li><strong>缩放级别敏感</strong>：随着地图缩放，群集可以动态变化。在更高的缩放级别，点可能会分散显示，而在更低的缩放级别，则可能会被聚合。</li>
-<li><strong>自定义群集策略</strong>：可以自定义群集的形成方式，例如，根据特定的距离阈值或点的数量。</li>
-</ul>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>要在 OpenLayers 中使用 <code>Cluster</code>，首先需要引入相关模块，然后创建一个 <code>Cluster</code> 源并将其应用于图层。以下是一个基本示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Cluster</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorLayer</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Vector</span> <span class="keyword">as</span> <span class="title class_">VectorSource</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Point</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;ol/geom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Feature</span> <span class="keyword">from</span> <span class="string">&#x27;ol/Feature&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 假设你已经有一组特征（features）</span></span><br><span class="line"><span class="keyword">const</span> features = [<span class="keyword">new</span> <span class="title class_">Feature</span>(<span class="keyword">new</span> <span class="title class_">Point</span>([<span class="number">0</span>, <span class="number">0</span>])), <span class="keyword">new</span> <span class="title class_">Feature</span>(<span class="keyword">new</span> <span class="title class_">Point</span>([<span class="number">1</span>, <span class="number">1</span>]))];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个向量源用于原始特征</span></span><br><span class="line"><span class="keyword">const</span> source = <span class="keyword">new</span> <span class="title class_">VectorSource</span>(&#123;</span><br><span class="line">  <span class="attr">features</span>: features,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个群集源并设置距离</span></span><br><span class="line"><span class="keyword">const</span> clusterSource = <span class="keyword">new</span> <span class="title class_">Cluster</span>(&#123;</span><br><span class="line">  <span class="attr">distance</span>: <span class="number">40</span>, <span class="comment">// 群集的距离阈值，单位为像素</span></span><br><span class="line">  <span class="attr">source</span>: source,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个图层用于显示群集</span></span><br><span class="line"><span class="keyword">const</span> clusterLayer = <span class="keyword">new</span> <span class="title class_">VectorLayer</span>(&#123;</span><br><span class="line">  <span class="attr">source</span>: clusterSource,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li><strong>样式</strong>：群集的样式通常需要根据群集中的特征数量来定制。你可以为群集源设置一个样式函数，根据包含的特征数量来改变群集的外观。</li>
-<li><strong>性能考虑</strong>：尽管群集可以提高大量点数据的可视性和性能，但是创建和维护群集仍然需要一定的计算资源。合理设置群集参数以平衡性能和用户体验是很重要的。</li>
-</ul>
-<p>总体来说，<code>Cluster</code> 是 OpenLayers 中处理和显示大量点数据的有力工具，它通过将点聚合成群集来提高地图的可读性和渲染效率。</p>
 
       
     </div>

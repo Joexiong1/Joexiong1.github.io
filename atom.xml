@@ -74,190 +74,6 @@
   </entry>
   
   <entry>
-    <title>computed和method</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/</id>
-    <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:40:17.373Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在 Vue 3 中，&lt;code&gt;computed&lt;/code&gt; 属性是一种非常重要的特性，用于声明响应式的计算属性。&lt;code&gt;computed&lt;/code&gt; 属性根据它们的依赖进行缓存，只在相关依赖发生改变时重新计算。这使得 &lt;code&gt;computed&lt;/code&gt; 属</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>id=&quot;&quot;和refs=&quot;&quot;的区别</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
-    <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:40:25.140Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在 Vue.js 和一般的 HTML&amp;#x2F;CSS&amp;#x2F;JavaScript 开发中，&lt;code&gt;id&lt;/code&gt; 和 &lt;code&gt;ref&lt;/code&gt; 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：&lt;/p&gt;
-&lt;h3 id</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>export default常用属性</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/</id>
-    <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:40:21.741Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在 Vue.js 中，&lt;code&gt;export default&lt;/code&gt; 用于导出一个 Vue 组件，其中可以包含多个属性（或“选项”），用于定义和配置这个组件。以下是一些常用的、标准的 Vue 组件选项：&lt;/p&gt;
-&lt;h3 id=&quot;1-data&quot;&gt;&lt;a href=&quot;#1</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>v-bind和&quot;：&quot;</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/</id>
-    <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:40:28.266Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在 Vue.js 中，冒号（&lt;code&gt;:&lt;/code&gt;）用于表示属性绑定，是 &lt;code&gt;v-bind&lt;/code&gt; 指令的缩写。你可以用它来动态地绑定父组件的数据到子组件的属性，或者将数据绑定到 HTML 属性。知道何时使用和何时不使用 &lt;code&gt;:&lt;/code&gt;（或</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>动态组件</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/</id>
-    <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:40:04.494Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在 Vue.js 中，&lt;code&gt;&amp;lt;component&amp;gt;&amp;lt;/component&amp;gt;&lt;/code&gt; 是一个动态组件，它是 Vue 的一个内置组件，用于在同一挂载点动态地加载不同的组件。使用 &lt;code&gt;&amp;lt;component&amp;gt;&lt;/code&gt; 可</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>短横线分隔命名</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/</id>
-    <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:40:07.938Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在 Vue.js 中，当你在 JavaScript 中定义组件时使用的是驼峰命名法（如 &lt;code&gt;DialogFence&lt;/code&gt;），而在模板中引用这个组件时，通常使用的是短横线分隔命名（也称为 kebab-case，如 &lt;code&gt;dialog-fence&lt;/cod</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>组件中的this</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/</id>
-    <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:44:26.261Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/6992452565875032095&quot;&gt;https://juejin.cn/post/6992452565875032095&lt;/a&gt;&lt;br&gt;在Vue实例中，methods中如果用的是正常函数，那么它的this</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
-    
-    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
-    
-  </entry>
-  
-  <entry>
     <title>群集Clusters</title>
     <link href="https://joexiong1.github.io/2024/01/30/openlayers/Cluster/"/>
     <id>https://joexiong1.github.io/2024/01/30/openlayers/Cluster/</id>
@@ -384,21 +200,179 @@
   </entry>
   
   <entry>
-    <title>dialog样式穿透</title>
-    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/"/>
-    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/</id>
+    <title>computed和method</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/computed%E5%92%8Cmethod/</id>
     <published>2024-01-30T02:19:00.000Z</published>
-    <updated>2024-01-30T10:39:33.045Z</updated>
+    <updated>2024-01-30T10:40:17.373Z</updated>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;在Vue3和ElementUI-Plus中自定义Dialog样式&quot;&gt;&lt;a href=&quot;#在Vue3和ElementUI-Plus中自定义Dialog样式&quot; class=&quot;headerlink&quot; title=&quot;在Vue3和ElementUI-Plus中自定义Dial</summary>
+    <summary type="html">&lt;p&gt;在 Vue 3 中，&lt;code&gt;computed&lt;/code&gt; 属性是一种非常重要的特性，用于声明响应式的计算属性。&lt;code&gt;computed&lt;/code&gt; 属性根据它们的依赖进行缓存，只在相关依赖发生改变时重新计算。这使得 &lt;code&gt;computed&lt;/code&gt; 属</summary>
       
     
     
     
-    <category term="element-plus" scheme="https://joexiong1.github.io/categories/element-plus/"/>
+    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>export default常用属性</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/export%20default%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/</id>
+    <published>2024-01-30T02:19:00.000Z</published>
+    <updated>2024-01-30T10:40:21.741Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 中，&lt;code&gt;export default&lt;/code&gt; 用于导出一个 Vue 组件，其中可以包含多个属性（或“选项”），用于定义和配置这个组件。以下是一些常用的、标准的 Vue 组件选项：&lt;/p&gt;
+&lt;h3 id=&quot;1-data&quot;&gt;&lt;a href=&quot;#1</summary>
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>id=&quot;&quot;和refs=&quot;&quot;的区别</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/id=%E2%80%9C%E2%80%9D%E5%92%8Crefs=%E2%80%9C%E2%80%9D%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2024-01-30T02:19:00.000Z</published>
+    <updated>2024-01-30T10:40:25.140Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 和一般的 HTML&amp;#x2F;CSS&amp;#x2F;JavaScript 开发中，&lt;code&gt;id&lt;/code&gt; 和 &lt;code&gt;ref&lt;/code&gt; 属性用于不同的目的，尽管它们都可以用于引用 DOM 元素。让我们来详细看看它们的区别：&lt;/p&gt;
+&lt;h3 id</summary>
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>动态组件</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/</id>
+    <published>2024-01-30T02:19:00.000Z</published>
+    <updated>2024-01-30T10:40:04.494Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 中，&lt;code&gt;&amp;lt;component&amp;gt;&amp;lt;/component&amp;gt;&lt;/code&gt; 是一个动态组件，它是 Vue 的一个内置组件，用于在同一挂载点动态地加载不同的组件。使用 &lt;code&gt;&amp;lt;component&amp;gt;&lt;/code&gt; 可</summary>
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>v-bind和&quot;：&quot;</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/v-bind%E5%92%8C%EF%BC%9A/</id>
+    <published>2024-01-30T02:19:00.000Z</published>
+    <updated>2024-01-30T10:40:28.266Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 中，冒号（&lt;code&gt;:&lt;/code&gt;）用于表示属性绑定，是 &lt;code&gt;v-bind&lt;/code&gt; 指令的缩写。你可以用它来动态地绑定父组件的数据到子组件的属性，或者将数据绑定到 HTML 属性。知道何时使用和何时不使用 &lt;code&gt;:&lt;/code&gt;（或</summary>
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>短横线分隔命名</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%9F%AD%E6%A8%AA%E7%BA%BF%E5%88%86%E9%9A%94%E5%91%BD%E5%90%8D/</id>
+    <published>2024-01-30T02:19:00.000Z</published>
+    <updated>2024-01-30T10:40:07.938Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Vue.js 中，当你在 JavaScript 中定义组件时使用的是驼峰命名法（如 &lt;code&gt;DialogFence&lt;/code&gt;），而在模板中引用这个组件时，通常使用的是短横线分隔命名（也称为 kebab-case，如 &lt;code&gt;dialog-fence&lt;/cod</summary>
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>组件中的this</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84this/</id>
+    <published>2024-01-30T02:19:00.000Z</published>
+    <updated>2024-01-30T10:44:26.261Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/6992452565875032095&quot;&gt;https://juejin.cn/post/6992452565875032095&lt;/a&gt;&lt;br&gt;在Vue实例中，methods中如果用的是正常函数，那么它的this</summary>
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
     
     
     <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
@@ -446,6 +420,32 @@
       
       
     <summary type="html">&lt;p&gt;&lt;code&gt;el-select&lt;/code&gt; 是 Element Plus（Element UI 的 Vue 3 版本）中的一个下拉选择器组件，而 &lt;code&gt;v-model&lt;/code&gt; 是 Vue.js 中用于创建双向数据绑定的一个指令。当这两者结合使用时，你可以创建一</summary>
+      
+    
+    
+    
+    <category term="element-plus" scheme="https://joexiong1.github.io/categories/element-plus/"/>
+    
+    
+    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
+    
+    <category term="vue3" scheme="https://joexiong1.github.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dialog样式穿透</title>
+    <link href="https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/"/>
+    <id>https://joexiong1.github.io/2024/01/30/vue%E5%AE%9E%E8%B7%B5/elementUI-plus/dialog%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/</id>
+    <published>2024-01-30T02:19:00.000Z</published>
+    <updated>2024-01-30T10:39:33.045Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;在Vue3和ElementUI-Plus中自定义Dialog样式&quot;&gt;&lt;a href=&quot;#在Vue3和ElementUI-Plus中自定义Dialog样式&quot; class=&quot;headerlink&quot; title=&quot;在Vue3和ElementUI-Plus中自定义Dial</summary>
       
     
     
