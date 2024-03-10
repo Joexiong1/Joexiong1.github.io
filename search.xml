@@ -1181,6 +1181,26 @@ These papers demonstrate a range of methods and technologies used in terrain gen
         <tag>vue</tag>
         <tag>koa</tag>
         <tag>全栈</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>域名注册、解析、部署</title>
+    <url>/2024/03/10/%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E3%80%81%E8%A7%A3%E6%9E%90%E3%80%81%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h1 id="使用工具及相关网站"><a href="#使用工具及相关网站" class="headerlink" title="使用工具及相关网站"></a>使用工具及相关网站</h1><ul>
+<li>namesilo(域名注册)</li>
+<li>github（代码管理）</li>
+<li>vercel（服务器）</li>
+<li>cloudflare（域名解析）</li>
+</ul>
+<p>参考文章：[]<a href="https://mp.weixin.qq.com/s/B-boMGJsI3bxB8Ih10duRw">https://mp.weixin.qq.com/s/B-boMGJsI3bxB8Ih10duRw</a></p>
+]]></content>
+      <categories>
+        <category>网站</category>
+      </categories>
+      <tags>
+        <tag>全栈</tag>
+        <tag>网站</tag>
       </tags>
   </entry>
 </search>
