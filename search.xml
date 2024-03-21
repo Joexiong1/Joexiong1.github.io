@@ -3,17 +3,14 @@
   <entry>
     <title>社区项目实战</title>
     <url>/2024/03/09/community%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><ul>
+    <content><![CDATA[<h2 id="参考豆宝社区项目"><a href="#参考豆宝社区项目" class="headerlink" title="参考豆宝社区项目"></a>参考豆宝社区项目</h2><p><strong>项目地址</strong>：<a href="https://github.com/songboriceman/doubao_community_frontend.git">豆宝社区前端</a></p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><ul>
 <li>前端：Vue3+Vite</li>
 <li>后端：NodeJS(koa)</li>
 <li>数据库：MongoDB（暂定）</li>
 </ul>
 <h2 id="基础搭建——前端部分"><a href="#基础搭建——前端部分" class="headerlink" title="基础搭建——前端部分"></a>基础搭建——前端部分</h2><ul>
-<li><p><strong>使用Vite快速构建Vue项目</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm init @vitejs/app vue3-node</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>接入路由</strong><br>在src目录下创建router文件夹，文件夹里面创建路由信息index.js</p>
-</li>
+<li><strong>使用Vite快速构建Vue项目</strong><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm init @vitejs/app vue3-node</span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
       <categories>
@@ -1201,6 +1198,31 @@ These papers demonstrate a range of methods and technologies used in terrain gen
         <tag>前端</tag>
         <tag>JavaScript</tag>
         <tag>vue3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件定价的思考</title>
+    <url>/2024/03/21/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/%E8%BD%AF%E4%BB%B6%E5%AE%9A%E4%BB%B7/</url>
+    <content><![CDATA[<h2 id="买断制、订阅制"><a href="#买断制、订阅制" class="headerlink" title="买断制、订阅制"></a>买断制、订阅制</h2><p>  买断制会让用户安心，但是订阅会让开发者更有动力，因为有持续的现金流，而且门槛低，能够用较低的价格来体验服务，而且可以随时终止。</p>
+<h2 id="开发成本和维护成本"><a href="#开发成本和维护成本" class="headerlink" title="开发成本和维护成本"></a>开发成本和维护成本</h2><p>　　如果是高开发成本、低维护成本，如游戏，虽然也会有一定的服务器支出，但是更倾向于买断制，需要及时的资金收入、更新少，而且游戏都存在热度的起伏，假设订阅制，过去一段时间没人玩了，那就亏大了。即使是多版本游戏，也是每个版本的买断制。</p>
+<p>　　但是如果SaaS，开发成本相对较低，但是需要经常的更新内容、维护网站，并且类似AI生成的网站，会有token的支出，另外，现在有游戏开发商转向订阅制，因为游戏开发周期过长，如果出来不火，资金无法收回。</p>
+<h2 id="定价方式"><a href="#定价方式" class="headerlink" title="定价方式"></a>定价方式</h2><p>　　定价策略和商业模式要互相匹配，有了清晰的定位才能定价，当然需要不断的优化迭代</p>
+<ul>
+<li><strong>成本定价</strong></li>
+<li><strong>竞品定价</strong><br>　　比竞品稍低</li>
+<li><strong>价值定价</strong><br>　　感觉不靠谱，同样的产品对于不同的群体的价值是不一样的，主要看消费者愿意支付的价格</li>
+<li><strong>客户定价</strong><br>　　类似高德打车，同样起点终点价格不一样，根据产品的客户来进行定价</li>
+<li><strong>分层定价</strong><br>　　不同价格不同服务</li>
+<li><strong>心理定价</strong><br>　　不卖10，卖9.99</li>
+<li><strong>动态定价</strong><br>　　根据季节、地区（差异化定价，这并不是<strong>价格歧视</strong>,虽然消耗成本可能是一样的，但是推广成本、消费水平等不一样，比如全都按照美国的定价，那对于发展中国家的用户来说并不公平，如果全都按照越南的价格，那开发者就活不下去了）</li>
+<li><strong>低价策略</strong><br>　　ToB领域较为常见，虽然是一种抢断市场的有效方式，但是恶意竞争可能会导致饿死同行、累死自己、坑死客户，但是如果是通过技术手段优化成本实现那就是核心竞争力，不过独立开发的软件服务定价都不会太高，影响并不大</li>
+</ul>
+]]></content>
+      <categories>
+        <category>独立开发</category>
+      </categories>
+      <tags>
+        <tag>独立开发</tag>
       </tags>
   </entry>
 </search>

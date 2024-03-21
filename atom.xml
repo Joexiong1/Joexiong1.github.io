@@ -6,7 +6,7 @@
   <link href="https://joexiong1.github.io/atom.xml" rel="self"/>
   
   <link href="https://joexiong1.github.io/"/>
-  <updated>2024-03-10T07:48:22.616Z</updated>
+  <updated>2024-03-21T15:31:49.476Z</updated>
   <id>https://joexiong1.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件定价的思考</title>
+    <link href="https://joexiong1.github.io/2024/03/21/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/%E8%BD%AF%E4%BB%B6%E5%AE%9A%E4%BB%B7/"/>
+    <id>https://joexiong1.github.io/2024/03/21/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/%E8%BD%AF%E4%BB%B6%E5%AE%9A%E4%BB%B7/</id>
+    <published>2024-03-20T16:00:00.000Z</published>
+    <updated>2024-03-21T15:31:49.476Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;买断制、订阅制&quot;&gt;&lt;a href=&quot;#买断制、订阅制&quot; class=&quot;headerlink&quot; title=&quot;买断制、订阅制&quot;&gt;&lt;/a&gt;买断制、订阅制&lt;/h2&gt;&lt;p&gt;  买断制会让用户安心，但是订阅会让开发者更有动力，因为有持续的现金流，而且门槛低，能够用较低的价格</summary>
+      
+    
+    
+    
+    <category term="独立开发" scheme="https://joexiong1.github.io/categories/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="独立开发" scheme="https://joexiong1.github.io/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>域名注册、解析、部署</title>
@@ -47,15 +69,12 @@
     <link href="https://joexiong1.github.io/2024/03/09/community%E9%A1%B9%E7%9B%AE/"/>
     <id>https://joexiong1.github.io/2024/03/09/community%E9%A1%B9%E7%9B%AE/</id>
     <published>2024-03-08T16:00:00.000Z</published>
-    <updated>2024-03-10T07:15:21.432Z</updated>
+    <updated>2024-03-17T13:54:58.232Z</updated>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;技术栈&quot;&gt;&lt;a href=&quot;#技术栈&quot; class=&quot;headerlink&quot; title=&quot;技术栈&quot;&gt;&lt;/a&gt;技术栈&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;前端：Vue3+Vite&lt;/li&gt;
-&lt;li&gt;后端：NodeJS(koa)&lt;/li&gt;
-&lt;li&gt;数据库：MongoDB（暂定</summary>
+    <summary type="html">&lt;h2 id=&quot;参考豆宝社区项目&quot;&gt;&lt;a href=&quot;#参考豆宝社区项目&quot; class=&quot;headerlink&quot; title=&quot;参考豆宝社区项目&quot;&gt;&lt;/a&gt;参考豆宝社区项目&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;项目地址&lt;/strong&gt;：&lt;a href=&quot;https://github.</summary>
       
     
     
@@ -505,31 +524,6 @@
     
     
     <category term="UE5" scheme="https://joexiong1.github.io/tags/UE5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>fill()陷阱</title>
-    <link href="https://joexiong1.github.io/2024/01/14/Javascript%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84fill()%E9%99%B7%E9%98%B1%E8%AE%B0%E5%BD%95/"/>
-    <id>https://joexiong1.github.io/2024/01/14/Javascript%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84fill()%E9%99%B7%E9%98%B1%E8%AE%B0%E5%BD%95/</id>
-    <published>2024-01-14T03:24:00.000Z</published>
-    <updated>2024-01-30T10:31:55.146Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;使用fill()创建数组时遇到的坑，原代码如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;t</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="前端" scheme="https://joexiong1.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="JavaScript" scheme="https://joexiong1.github.io/tags/JavaScript/"/>
     
   </entry>
   

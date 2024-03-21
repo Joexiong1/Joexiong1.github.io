@@ -151,18 +151,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -193,6 +193,123 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joexiong1.github.io/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.png">
+      <meta itemprop="name" content="Anti-thobbing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Anti-thobbing的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/06/Javascript%E5%AD%A6%E4%B9%A0/Javascript%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%94%E2%80%94%E9%A2%84%E7%BC%96%E8%AF%91/" class="post-title-link" itemprop="url">Javascript运行三步曲——预编译</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-06 09:54:00" itemprop="dateCreated datePublished" datetime="2024-01-06T09:54:00+08:00">2024-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-30 18:31:58" itemprop="dateModified" datetime="2024-01-30T18:31:58+08:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>813</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>分别对加载完成的代码块进行语法检验，语法正确则进入预编译阶段；不正确则停止该代码块的执行，查找下一个代码块并进行加载，加载完成再次进入该代码块的语法分析阶段。</p>
+<h3 id="两个规律"><a href="#两个规律" class="headerlink" title="两个规律"></a>两个规律</h3><p><strong>规律1</strong>：任何变量，如果未经声明就赋值，此变量是属于 window 的属性，而且不会做变量提升。（注意，无论在哪个作用域内赋值）</p>
+<p><strong>规律2</strong>：一切声明的全局变量，全是window的属性。（注意，这里说的是在全局作用域内声明的全局变量，不是说局部变量）</p>
+<p>window 代表了全局作用域（「代表」而非「等于」）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = b = <span class="number">100</span>; <span class="comment">// 连续赋值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">b</span>); <span class="comment">//100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 100</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">a</span>); <span class="comment">//undefined </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// 报错Uncaught ReferenceError:a is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>代码解释:当执行了foo()函数之后，var a&#x3D;b&#x3D;100这行连续赋值的代码等价于var a&#x3D;(b&#x3D;100),其执行顺序是：</p>
+<p>（1）先把100赋值给b</p>
+<p>（2）再声明变量a</p>
+<p>（3）再把b的值赋值给a</p>
+<p>因此，b变量未经声明就被赋值了，此时，根据规律1，这个b是属于window.b,而a的作用域仅限于foo()函数内部，不属于window，所以直接访问会报错，而window.a相当于在window中声明对象a，但未赋值，所以是undefined，但是window.a并不会变量提升</p>
+<p>函数预编译，发生在函数执行的前一刻：</p>
+<ol>
+<li>创建AO对象。AO即Activation Object活跃对象，即执行期上下文</li>
+<li>找形参和变量声明，将形参名和变量作为AO的属性名，值为undefined。</li>
+<li>将实参值和形参统一，实参的值赋给形参</li>
+<li>查找函数声明，函数名作为AO对象的属性</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -616,13 +733,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">46k</span>
+    <span title="站点总字数">47k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:24</span>
+    <span title="站点阅读时长">1:25</span>
   </span>
 </div>
 <div class="busuanzi-count">
